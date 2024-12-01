@@ -1,0 +1,163 @@
+    body{
+        line-height:22px;
+        color:#FFFFEE;
+        background-color:#001723fd;
+    font-family: Georgia, 'Times New Roman', Times, serif;}
+    button{
+        border-radius:10px;
+        border:ridge black;
+        font-size:16px;
+        font-weight:bold;
+        transition:transform 1s;}
+    h1,h2,h3,h4,h5,h6{
+        text-align:center;
+        transition:transform 1s;}  
+    h1:hover,h2:hover,h3:hover,h4:hover,h5:hover,h6:hover{
+        transform:scale(1.15);
+    }
+    a{
+        color:purple;}
+    a:hover,button:hover{
+        color:blue;
+        text-decoration:none;
+        transform:scale(1.15)} 
+        /* Clases */
+    .box{
+        border: outset 2px white;
+        padding: 5px 15px 8px 19px;
+        margin:0 auto;
+        box-shadow: 2px 2px 6px purple;} 
+    .box button:hover{
+        color:blue;
+        text-decoration:none;
+        transform:scale(1.15)}
+    .boxcat{
+        border: outset 2px white;
+        padding: 5px 15px 8px 19px;
+        margin:0 auto;
+        box-shadow: 2px 2px 6px purple;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-evenly;} 
+    .boxcat button:hover{
+        color:blue;
+        text-decoration:none;
+        transform:scale(1.15);}  
+    .boxcat h3{
+        transform: none;}
+    .botonescentrados{
+         text-align:center;}   
+    .cajasjuegos{
+        font-family:"Courier New",Arial;
+        font-weight:800;
+        width:250px;
+        height:150px;
+        text-align: center;
+        border: solid 2px black;
+        box-shadow: 2px 2px 6px purple;
+        margin-left: 15px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        transition:transform 1s;
+    }
+    .cajasjuegos a{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        font-size: large;
+        text-decoration: none;
+        color:purple;
+        font-weight:900;
+        position: relative;
+        justify-content: center;
+        align-content: center;
+}
+    .cajasjuegos p{
+        background-color: rgb(242, 239, 239);
+        height: 20px;
+        position: relative;
+        top: 40px;
+        border:groove 2px rgb(0, 0, 0);
+        border-radius: 20px;
+    }
+
+    .cajasjuegos:hover{
+        transform:scale(1.15);
+    }
+    .cajasjuegos a:hover{
+        color: blue;
+    }
+    .kjasjuegos{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+    }
+
+     /* ID's */
+    #TextoEKG{
+        margin: 0 auto;
+        width: 80%;
+        height: 100%;
+        font-family:Unispace,Arial;
+        text-shadow:6px 4px 5px purple;
+        background-image: url("EMAKILLERGAMES 1.png");
+        background-size:cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        line-height: 138px;
+        border: solid 5px whitesmoke;
+        box-shadow: 2px 2px 6px purple;
+        border-radius:20px;
+        animation:cambiocolortextoekg 3.5s linear infinite;}
+    #live{
+        animation:cambiocolorlive 3.5s linear infinite;
+        font-weight:900;
+        font-family:"Virtual DJ",Arial;}
+    #solicitud{
+        padding:10px 0px 0px 0px;
+        text-align:center;
+    }
+    #info{
+    text-align:center;
+    font-size:large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    #hinfo{
+        margin-top:50px;
+    }
+    #c1{
+        background-image: url("5098471620732889477_120.jpg");
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    #c2{
+
+        background-image: url("wp2419035.jpg");
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    #c3{
+        background-image: url("alowallapope.jpg");
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    #c4{
+        background-image: url("Imagen-1-3-768x384.jpg");
+        background-size:cover ;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    /* Animaciones */
+    @keyframes cambiocolorlive{
+        0% {color:red}
+        33% {color:rgb(26, 102, 123)}
+        86% {color:#FAAD00}
+        100% {color:red}}
+    @keyframes cambiocolortextoekg{
+        0% {border-color:red}
+        33% {border-color:(26, 102, 123)}
+        86% {border-color:#FAAD00}
+        100% {border-color:red}} 

@@ -1,0 +1,69 @@
+    body{
+        line-height:22px;
+        color:#FFFFEE;
+        background-color:#001723fd;}
+    button{
+        border-radius:10px;
+        border:ridge black;
+        font-size:16px;
+        font-weight:bold;
+        transition:transform 1s;}
+    h1,h2,h3,h4,h5,h6{
+        text-align:center;
+        transition: transform 1s;
+        padding:4px;}           
+    h1:hover,h2:hover,h3:hover,h4:hover,h5:hover,h6:hover{
+        transform:scale(1.15);}
+    a{
+        color:whitesmoke;}
+    a:hover,button:hover{
+        color:blue;
+        text-decoration:none;
+        transform:scale(1.15)}
+    label{
+        font-weight:bold;}
+    table{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        position:fixed;
+        width: 100%;
+        top:0px;
+        background:black;
+        line-height:30px;}
+    table a{
+        color:white;}
+    table a:hover{
+        color:lightblue;
+        text-decoration:none;}
+        /* ID's */
+    #titulo{
+        margin-top:50px;
+        font-family:"Comic Sans MS",Arial;}
+    #caja{
+        border: outset 2px white;
+        box-shadow: 2px 2px 6px purple;
+        padding-right:10px;  
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
+    #botonarriba{
+        height: 30px;
+        width: 30px;
+        border: solid 2px black;
+        border-radius: 20px;
+        background-position: center;
+        background-image: url("ieaksie 009.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        position:fixed;
+        bottom: 5px;
+        right: 10px;
+        transition:transform 1s;
+    }
+    #botonarriba a{
+        display: block;
+        width: 100%;
+        height: 100%;        
+    }
+    #botonarriba:hover{
+        transform:scale(1.15);
+    }
