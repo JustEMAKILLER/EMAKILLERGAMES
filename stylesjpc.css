@@ -36,6 +36,10 @@
     table a:hover{
         color:lightblue;
         text-decoration:none;}
+        /* Clases */
+    .juegosnuevos{
+        color:purple;
+        display: inline;}
         /* ID's */
     #titulo{
         margin-top:50px;

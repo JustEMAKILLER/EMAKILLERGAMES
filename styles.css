@@ -95,6 +95,7 @@
 
      /* ID's */
     #TextoEKG{
+        overflow: auto;
         margin: 0 auto;
         width: 80%;
         height: 100%;
@@ -109,6 +110,8 @@
         box-shadow: 2px 2px 6px purple;
         border-radius:20px;
         animation:cambiocolortextoekg 3.5s linear infinite;}
+    #TextoEKG h1:hover{
+        transform: none;}
     #live{
         animation:cambiocolorlive 3.5s linear infinite;
         font-weight:900;
