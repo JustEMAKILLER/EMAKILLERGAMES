@@ -12,8 +12,6 @@
         text-align:center;
         transition: transform 1s;
         padding:4px;
-        user-select:none;
-width :fit-content;
     }           
     h1:hover,h2:hover,h3:hover,h4:hover,h5:hover,h6:hover{
         transform:scale(1.15);}
