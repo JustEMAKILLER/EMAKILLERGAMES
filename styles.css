@@ -2,7 +2,8 @@
         line-height:22px;
         color:#FFFFEE;
         background-color:#001723fd;
-    font-family: Georgia, 'Times New Roman', Times, serif;}
+	overflow-x:hidden;
+    	font-family: Georgia, 'Times New Roman', Times, serif;}
     button{
         border-radius:10px;
         border:ridge black;
@@ -12,6 +13,7 @@
     h1,h2,h3,h4,h5,h6{
         text-align:center;
         transition:transform 1s;
+	user-select:none;
     }  
     h1:hover,h2:hover,h3:hover,h4:hover,h5:hover,h6:hover{
         transform:scale(1.15);
@@ -122,12 +124,13 @@
         text-align:center;
     }
     #info{
-    text-align:center;
-    font-size:large;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    	text-align:center;
+    	font-size:large;
+    	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
     #hinfo{
         margin-top:50px;
+	overflow:hidden;
     }
     #c1{
         background-image: url("5098471620732889477_120.jpg");

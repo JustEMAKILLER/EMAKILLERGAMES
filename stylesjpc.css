@@ -1,7 +1,9 @@
     body{
         line-height:22px;
         color:#FFFFEE;
-        background-color:#001723fd;}
+        background-color:#001723fd;
+	overflow-x:hidden;
+	}
     button{
         border-radius:10px;
         border:ridge black;
@@ -11,6 +13,7 @@
     h1,h2,h3,h4,h5,h6{
         text-align:center;
         transition: transform 1s;
+	user-select:none;
     }           
     h1:hover,h2:hover,h3:hover,h4:hover,h5:hover,h6:hover{
         transform:scale(1.15);}
@@ -42,6 +45,7 @@
         display: inline;}
         /* ID's */
     #titulo{
+	line-height:70px;
         margin-top:50px;
         font-family:"Comic Sans MS",Arial;}
     #caja{
@@ -50,10 +54,10 @@
         padding-right:10px;  
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
     #botonarriba{
-        height: 30px;
-        width: 30px;
+        height: 60px;
+        width: 60px;
         border: solid 2px black;
-        border-radius: 20px;
+        border-radius: 40px;
         background-position: center;
         background-image: url("ieaksie 009.jpg");
         background-repeat: no-repeat;
@@ -69,5 +73,7 @@
         height: 100%;        
     }
     #botonarriba:hover{
-        transform:scale(1.15);
+        transform:scale(1.15);}
+    #subir{
+	display:inline;
     }
