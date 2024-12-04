@@ -1,5 +1,4 @@
     body{
-        line-height:30px;
         color:#FFFFEE;
         background-color:#001723fd;
 	overflow-x:hidden;
@@ -25,7 +24,12 @@
         transform:scale(1.15)}
     label{
         font-weight:bold;}
-    table{
+        /* Clases */
+    .juegosnuevos{
+        color:purple;
+        display: inline;}
+        /* ID's */
+    #menu{
         display:flex;
         flex-wrap:wrap;
         justify-content:center;
@@ -34,19 +38,17 @@
         top:0px;
         background:black;
         line-height:30px;}
-    table a{
+    #menu a{
+	padding-right:5px;
+	border-right: solid 1px white;
         color:white;}
-    table a:hover{
+    #menu a:hover{
         color:lightblue;
         text-decoration:none;}
-        /* Clases */
-    .juegosnuevos{
-        color:purple;
-        display: inline;}
-        /* ID's */
+    #menu a:nth-child(4){
+        border-right:none;}
     #titulo{
-	line-height:70px;
-        margin-top:50px;
+        margin-top:15px;
         font-family:"Comic Sans MS",Arial;}
     #caja{
         border: outset 2px white;
@@ -77,3 +79,54 @@
     #subir{
 	display:inline;
     }
+	/* Reglas responsivas */
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+    button {
+        font-size: 14px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1.2em;
+    }
+    a {
+        font-size: 0.9em;
+    }
+    #botonarriba{
+        height: 40px;
+        width: 40px;}
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    body {
+        font-size: 16px;
+    }
+    button {
+        font-size: 16px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1.5em;
+    }
+    a {
+        font-size: 1em;
+    }
+    #botonarriba{
+        height: 40px;
+        width: 40px;}
+}
+
+@media (min-width: 1025px) {
+    body {
+        font-size: 18px;
+    }
+    button {
+        font-size: 18px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1.75em;
+    }
+    a {
+        font-size: 1.1em;
+    }
+}

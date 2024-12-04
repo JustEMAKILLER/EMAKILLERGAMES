@@ -168,3 +168,48 @@
         33% {border-color:(26, 102, 123)}
         86% {border-color:#FAAD00}
         100% {border-color:red}} 
+/* Reglas responsivas */
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+    button {
+        font-size: 14px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1.2em;
+    }
+    a {
+        font-size: 0.9em;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    body {
+        font-size: 16px;
+    }
+    button {
+        font-size: 16px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1.5em;
+    }
+    a {
+        font-size: 1em;
+    }
+}
+
+@media (min-width: 1025px) {
+    body {
+        font-size: 18px;
+    }
+    button {
+        font-size: 18px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1.75em;
+    }
+    a {
+        font-size: 1.1em;
+    }
+}
