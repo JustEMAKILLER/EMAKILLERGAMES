@@ -1,13 +1,13 @@
 /* Reglas responsivas */
 @media (min-width: 601px) and (max-width: 1024px) {
      #botonarriba{
-        height: 40px;
-        width: 40px;}
+        height: 30px;
+        width: 30px;}
 }
 @media (max-width: 600px) {
  #botonarriba {
-        height: 40px;
-        width: 40px;}
+        height: 30px;
+        width: 30px;}
     }
 /* Palabras reservadas */
     body{
@@ -52,6 +52,7 @@
         white-space:nowrap;
     }
     #menu a{
+    display:inline-block;
 	padding-right:5px;
 	border-right: solid 1px white;
         color:white;
