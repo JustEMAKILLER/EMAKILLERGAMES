@@ -35,7 +35,10 @@
         width: 100%;
         top:0px;
         background:black;
-        line-height:40px;}
+        line-height:40px;
+        overflow-x:auto;
+        white-space:nowrap;
+    }
     #menu a{
 	padding-right:5px;
 	border-right: solid 1px white;
