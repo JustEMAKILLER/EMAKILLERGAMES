@@ -119,14 +119,13 @@
         animation:cambiocolorlive 3.5s linear infinite;
         font-weight:900;
         font-family:"Virtual DJ",Arial;}
-    #solicitud{
-        padding:10px 0px 0px 0px;
-        text-align:center;
-    }
     #info{
-    	text-align:justify;
+    	text-align:center;
     	font-size:large;
     	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    #reglas{
+        text-align:justify;
     }
     #hinfo{
         margin-top:50px;
