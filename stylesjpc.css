@@ -52,17 +52,18 @@
         white-space:nowrap;
     }
     #menu a{
-    display:inline-block;
-	padding-right:5px;
-	border-right: solid 1px white;
+        display:inline-block;
+	    padding-right:5px;
+        padding-left:5px;
         color:white;
         text-decoration:none;}
     #menu a:hover{
         color:lightblue;
         transform:none;
+        border-right: solid 1px white;
+        border-left: solid 1px white;
+        background-color: rgb(49, 44, 44);
     }
-    #menu a:nth-child(4){
-        border-right:none;}
     #titulo{
         margin-top:15px;
         font-family:"Comic Sans MS",Arial;}
@@ -72,8 +73,8 @@
         padding-right:10px;  
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
     #botonarriba{
-        height: 60px;
-        width: 60px;
+        height: 50px;
+        width: 50px;
         border: solid 2px black;
         border-radius: 40px;
         background-position: center;
