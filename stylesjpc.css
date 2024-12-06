@@ -33,7 +33,7 @@
     a:hover,button:hover{
         color:blue;
         text-decoration:none;
-        transform:scale(1.15)}
+        transform:scale(1.15);}
     label{
         font-weight:bold;}
         /* Clases */
@@ -58,7 +58,9 @@
         color:white;
         text-decoration:none;}
     #menu a:hover{
-        color:lightblue;}
+        color:lightblue;
+        transform:none;
+    }
     #menu a:nth-child(4){
         border-right:none;}
     #titulo{
