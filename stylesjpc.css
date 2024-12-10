@@ -13,7 +13,7 @@
     body{
         color:#FFFFEE;
         background-color:#001723fd;
-	overflow-x:hidden;
+	    overflow-x:hidden;
 	}
     button{
         border-radius:10px;
@@ -24,7 +24,7 @@
     h1,h2,h3,h4,h5,h6{
         text-align:center;
         transition: transform 1s;
-	user-select:none;
+	    user-select:none;
     }           
     h1:hover,h2:hover,h3:hover,h4:hover,h5:hover,h6:hover{
         transform:scale(1.15);}
@@ -69,6 +69,7 @@
         font-family:"Comic Sans MS",Arial;}
     #caja{
         border: outset 2px white;
+        border-radius: 20px;
         box-shadow: 2px 2px 6px purple;
         padding-right:10px;  
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}

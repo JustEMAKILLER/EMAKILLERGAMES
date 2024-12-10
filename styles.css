@@ -2,7 +2,7 @@
         line-height:22px;
         color:#FFFFEE;
         background-color:#001723fd;
-	overflow-x:hidden;
+	    overflow-x:hidden;
     	font-family: Georgia, 'Times New Roman', Times, serif;}
     button{
         border-radius:10px;
@@ -12,12 +12,8 @@
         transition:transform 1s;}
     h1,h2,h3,h4,h5,h6{
         text-align:center;
-        transition:transform 1s;
-	user-select:none;
+	    user-select:none;
     }  
-    h1:hover,h2:hover,h3:hover,h4:hover,h5:hover,h6:hover{
-        transform:scale(1.15);
-    }
     a{
         color:purple;}
     a:hover,button:hover{
@@ -36,7 +32,8 @@
         transform:scale(1.15)}
     .boxcat{
         border: outset 2px white;
-        padding: 5px 15px 8px 19px;
+        border-radius: 20px;
+        padding: 5px 15px 12px 19px;
         margin:0 auto;
         box-shadow: 2px 2px 6px purple;
         display: flex;
@@ -47,9 +44,7 @@
         text-decoration:none;
         transform:scale(1.15);}  
     .boxcat h3{
-        transform: none;}
-    .botonescentrados{
-         text-align:center;}   
+        transform: none;} 
     .cajasjuegos{
         font-family:"Courier New",Arial;
         font-weight:800;
@@ -100,9 +95,10 @@
     #TextoEKG{
         overflow: auto;
         margin: 0 auto;
-        width: 80%;
+        width: 90%;
         height: 100%;
-        font-family:Unispace,Arial;
+        font-family:Mistral;
+        font-size: x-large;
         text-shadow:6px 4px 5px purple;
         background-image: url("EMAKILLERGAMES 1.png");
         background-size:cover;
@@ -115,21 +111,19 @@
         animation:cambiocolortextoekg 3.5s linear infinite;}
     #TextoEKG h1:hover{
         transform: none;}
-    #live{
-        animation:cambiocolorlive 3.5s linear infinite;
-        font-weight:900;
-        font-family:"Virtual DJ",Arial;}
+    #hinfo{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        overflow:hidden;
+        }
     #info{
+        margin-top: 30px;
+        border-radius: 20px;
     	text-align:center;
     	font-size:large;
     	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
     #reglas{
         text-align:justify;
-    }
-    #hinfo{
-        margin-top:50px;
-	overflow:hidden;
     }
     #c1{
         background-image: url("5098471620732889477_120.jpg");
@@ -156,6 +150,73 @@
         background-repeat: no-repeat;
         background-position: center;
     }
+    #descargacatalogo{
+        margin: 0 auto;
+        border: solid red 2px;
+        border-radius: 20px;
+        width: 250px;
+        height: 70px;
+        background-image: url(images.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: transform 1s;
+    }
+    #descargacatalogo a{
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    #descargacatalogo:hover{
+        transform: scale(1.15);
+    }
+    #footer{
+        border-radius: 40px;
+        padding: 0px 20px 20px 20px;
+        margin-top: 30px;
+        width: fit-content;
+    }
+    #facebook{
+        margin: 0 auto;
+        background-image: url(Facebook.ico);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border:solid 2px rgb(11, 11, 162);
+        border-radius: 20px;
+        width: 150px;
+        height: 70px;
+        transition:transform 1s;
+    }
+    #facebook a{
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    #whatsapp{
+        margin: 0 auto;
+        background-image: url(WhatsApp_logo.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border:solid 2px rgb(11, 162, 44);
+        border-radius: 20px;
+        width: 250px;
+        height: 70px;
+        transition: transform 1s;
+    }
+    #whatsapp a{
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    #whatsapp:hover, #facebook:hover{
+        transform:scale(1.10);
+    }
+    #live{
+        animation:cambiocolorlive 3.5s linear infinite;
+        font-weight:900;
+        font-family:"Virtual DJ",Arial;}
     /* Animaciones */
     @keyframes cambiocolorlive{
         0% {color:red}
