@@ -1,9 +1,9 @@
     /* Reglas responsivas */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     #TextoEKG{
         display: none;}
     #TextoEKGmovil{
-     display:block;
+     display: block;
      margin: 0 auto;
      width: 22%;
      height: 150%;
@@ -113,7 +113,7 @@
     .oculto {
         display: none;
     }
-     /* ID's */
+     /* IDs */
     #TextoEKG{
         overflow: auto;
         margin: 0 auto;
@@ -133,8 +133,7 @@
         animation:cambiocolortextoekg 3.5s linear infinite;}
     #TextoEKG h1:hover{
         transform: none;}
-    #TextoEKGmovil{
-            display: none;}
+
     #hinfo{
         font-family: Georgia, 'Times New Roman', Times, serif;
         overflow:hidden;
