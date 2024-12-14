@@ -37,12 +37,12 @@
     input[type=text]{
         font-weight:bold;
         border:2px outset purple;
-        border-radius:10px;}
+        border-radius:10px;
+		user-select:none;}
         /* Clases */
     .busqueda{
-        position: fixed;
-        right:10px;
-        top:40px;
+        display:flex;
+		justify-content:center;
     }
     .juegosnuevos{
         color:purple;
