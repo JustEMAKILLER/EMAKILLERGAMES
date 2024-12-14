@@ -1,8 +1,9 @@
     /* Reglas responsivas */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     #TextoEKG{
         display: none;}
     #TextoEKGmovil{
+     display:block;
      margin: 0 auto;
      width: 22%;
      height: 150%;
