@@ -31,15 +31,25 @@
     a{
         color:whitesmoke;}
     a:hover,button:hover{
-        color:blue;
+        color:lightblue;
         text-decoration:none;
         transform:scale(1.15);}
-    label{
-        font-weight:bold;}
+    input[type=text]{
+        font-weight:bold;
+        border:2px outset purple;
+        border-radius:10px;}
         /* Clases */
+    .busqueda{
+        position: fixed;
+        right:10px;
+        top:40px;
+    }
     .juegosnuevos{
         color:purple;
         display: inline;}
+    .oculto {
+        display: none;
+        }
         /* ID's */
     #menu{
         text-align:center;
@@ -78,6 +88,7 @@
         width: 50px;
         border: solid 2px black;
         border-radius: 40px;
+        box-shadow:2px 2px 20px black;
         background-position: center;
         background-image: url("ieaksie 009.jpg");
         background-repeat: no-repeat;
@@ -93,6 +104,7 @@
         height: 100%;        
     }
     #botonarriba:hover{
+        border-color: purple;
         transform:scale(1.15);}
     #subir{
 	display:inline;

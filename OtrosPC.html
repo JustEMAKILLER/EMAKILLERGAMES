@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <link rel="icon" href="icon.png" type="image/x-icon">
 <link rel="stylesheet" href="stylesjpc.css">
+<script src="scripts.js"></script>
 </head>
 <body>
 <header>
@@ -19,13 +20,16 @@
 </div>
 <p id=subir>.</p>
 <h1 p id=titulo>Otros juegos de PC</h1>
+<div class="busqueda">
+  <input type="text" id="buscar" placeholder="Buscar...">
+</div>
 </header>
     <main>
 	<div id=caja>
     <article>
     <section>  
  <h4>Among Us (A 10$ cada elemento y todos funcionan en LAN)</h4>
-<ul>
+<ul class="listajuegos">
   <li>Amoedios Among Us Conejos (55.6 MB)</li>
   <li>Among Us (YOSHIS) 11.17 S - smixxims1 (66.4 MB)</li>
   <li>Among Us (GIGANTES) 11.17 - smixxims1 (53.4 MB)</li>
@@ -42,7 +46,7 @@
 </ul></section>
 <section>
 <h4>Juegos de Call of Duty</h4>
-<ul>
+<ul class="listajuegos">
   <li><a href="https://store.steampowered.com/app/2620/Call_of_Duty/">Call Of Duty 1 - United Offensive Expansion Pack (1.4 GB) (LAN)- 25$</a></li>
   <li><a href="https://store.steampowered.com/app/2630/Call_of_Duty_2/">Call Of Duty 2 (2.4 GB) (LAN)- 30$</a></li>
   <li><a href="https://store.steampowered.com/app/10090/Call_of_Duty_World_at_War/">Call of Duty 5 World at War Plutonium (6.35 GB) (LAN, Online)- 45$</a></li>
@@ -54,7 +58,7 @@
   <li><a href="https://store.steampowered.com/app/202970/Call_of_Duty_Black_Ops_II/">Call of Duty Black Ops 2 Plutonium Multiplayer+Zombies LAN & Online-EMAKILLERGAMES (13.6 GB)- 50$</a></li>
 </ul></section>
 <section><h4>Doki Doki Literature Club y mods</h4>
-<ul>
+<ul class="listajuegos">
   <li><a href="https://store.steampowered.com/app/698780/Doki_Doki_Literature_Club/">Doki Doki Literature Club! (608 MB)- 15$</a>
 </li>
   <li>
@@ -82,7 +86,7 @@
   <li>We Are the Literature Club II (382 MB)- 15$</li>
   <li>Yandere club (395 MB)- 15$</li></ul></section>
   <section><h4>FNAF y fanmades</h4>
-  <ul>
+  <ul class="listajuegos">
   <li>Baby's Nightmare Circus (1.13 GB)- 20$</li>
   <li><a href="https://store.steampowered.com/app/489360/CASE_Animatronics/">Case Animatronics (417 MB)- 20$</a></li>
   <li><a href="https://store.steampowered.com/app/722960/CASE_2_Animatronics_Survival/">CASE 2 Animatronics Survival (4.87 GB) (LAN)- 40$</a></li>
@@ -133,7 +137,7 @@
   <li>Watch Your Nightmares (130 MB)- 10$</li>
 </ul></section>
 <section><h4>Friday Night Funkin y mods</h4>
-<ul>
+<ul class="listajuegos">
   <li>Friday Night Funkin (137 MB)- 10$</li>
   <li>Accelerant Hank (80 MB)- 10$</li>
   <li>bobsonslaught_faf57 (214 MB)- 10$</li>
@@ -197,7 +201,7 @@
   <li>wednesday-infidelity (186 MB)- 10$</li>
   </ul></section>
   <section><h4>Juegos de Mario</h4>
-  <ul>
+  <ul class="listajuegos">
   <li>Mario 2 (1.54 MB)- 5$</li>
   <li>Mario Forever (36.6 MB)- 5$</li>
   <li>Mario Racing (1.58 MB)- 5$</li>
@@ -222,7 +226,7 @@
   <li>Super Mario 64 HD (168 MB)- 15$</li>
 </ul></section>
 <section><h4>Juegos de Naruto y Modpacks</h4>
-<ul>
+<ul class="listajuegos">
   <li>Naruto Storm M.U.G.E.N (2010) (442 MB)- 10$</li>
   <li>Naruto 5 M.U.G.E.N (187 MB)- 15$</li>
   <li>Naruto Shippuden Ultimate Ninja 6 (3.8 GB)- 30$</li>
@@ -239,7 +243,7 @@
   <li>Ultimate AIO Storm 4 2020 1.09 Patch (782 MB)- 25$</li>
 </ul></section>
 <section><h4>Juegos de Need for Speed</h4>
-<ul>
+<ul class="listajuegos">
   <li>Need For Speed Carbon Remastered con mods (3.2 GB)- 35$</li>
   <li><a href="https://store.steampowered.com/app/1262560/Need_for_Speed_Most_Wanted/">Need For Speed Most Wanted Online (2.28 GB) (Online)- 35$</a></li>
   <li>Need For Speed ProStreet (3.86 GB) (Cliente+Servidor) (¿LAN?)- 50$</li>
@@ -250,7 +254,7 @@
 </ul></section>
 <section>
 <h4>Juegos de Pokémon</h4>
-<ul>
+<ul class="listajuegos">
   <li>PokeMMO con mods (2.14 GB) (Online)- 40$</li>
   <li>Pokemon Blaze Online (303 MB) (Online)- 25$</li>
   <li>Pokemon MMO 3D Unreal Engine Version v2023.10.0.0.c (2.7 GB) (Online)- 30$</li>
@@ -266,7 +270,7 @@
 </ul></section>
 <section>
 <h4>Juegos de Undertale y Fanmades</h4>
-<ul>
+<ul class="listajuegos">
   <li><a href="https://store.steampowered.com/app/1671210/DELTARUNE/">DELTARUNE Chapter 1&2 (Windows 1.07) (157 MB)- 10</a></li>
   <li>DF CONNECTED v2.7.6c (Windows) (185 MB) (Offline, Online)- 15$</li>
   <li>DON'T FORGET v1.3.3 (103 MB)- 10$</li>
@@ -280,7 +284,7 @@
   <li><a href="https://store.steampowered.com/app/391540/undertale/">Undertale (133 MB)- 10$</li></a>
 </ul></section>
 <section><h4>Juegos de Worms</h4>
-<ul>
+<ul class="listajuegos">
   <li><a href="https://store.steampowered.com/app/217200/worms_armageddon/">Worms Armageddon (535 MB) (LAN) - $10</a></li>
   <li><a href="https://store.steampowered.com/app/233840/worms_clan_wars/">Worms Clan Wars (1.34 GB) (LAN) - $30</a></li>
   <li>Worms Forts Under Siege (429 MB) (LAN) - $15</li>
@@ -291,7 +295,7 @@
 </ul>
 <p style="margin-left:40px"> Todos funcionan en LAN</p></section>
 <section><h4>Juegos de Yu-Gi-Oh!</h4>
-<ul>
+<ul class="listajuegos">
   <li>ProjectIgnis EDOPro v40.1.1 (63.8 MB) (LAN, Online)- 15$</li>
   <li>YuGiOh A Duel of Friendship Power of Chaos (421 MB) (¿LAN?)- 15$</li>
   <li>Yu-Gi-Oh! ARC V Power of Chaos (527 MB) (¿LAN?)- 15$</li>

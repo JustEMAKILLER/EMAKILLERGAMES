@@ -1,3 +1,21 @@
+    /* Reglas responsivas */
+@media (max-width: 600px) {
+    #TextoEKG{
+        display: none;}
+    #TextoEKGmovil{
+     margin: 0 auto;
+     width: 22%;
+     height: 150%;
+     background-image: url("EMAKILLERGAMES 1_New1.png");
+     background-size:cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     line-height: 100px;
+     border: solid 5px whitesmoke;
+     border-radius:200px;
+     animation:cambiocolortextoekg 3.5s linear infinite;}
+   }
+   /* Palabras reservadas */
     body{
         line-height:22px;
         color:#FFFFEE;
@@ -80,6 +98,7 @@
     }
 
     .cajasjuegos:hover{
+        box-shadow: 2px 2px 6px blue;
         transform:scale(1.15);
     }
     .cajasjuegos a:hover{
@@ -90,7 +109,9 @@
         flex-flow: row wrap;
         justify-content: space-evenly;
     }
-
+    .oculto {
+        display: none;
+    }
      /* ID's */
     #TextoEKG{
         overflow: auto;
@@ -111,6 +132,8 @@
         animation:cambiocolortextoekg 3.5s linear infinite;}
     #TextoEKG h1:hover{
         transform: none;}
+    #TextoEKGmovil{
+            display: none;}
     #hinfo{
         font-family: Georgia, 'Times New Roman', Times, serif;
         overflow:hidden;
