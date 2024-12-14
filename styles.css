@@ -81,6 +81,7 @@
     }
 
     .cajasjuegos:hover{
+        animation:cambiobordecajas 1s linear;
         box-shadow: 2px 2px 6px blue;
         transform:scale(1.15);
     }
@@ -233,3 +234,7 @@
         33% {border-color:(26, 102, 123)}
         86% {border-color:#FAAD00}
         100% {border-color:red}} 
+    @keyframes cambiobordecajas{
+        from {box-shadow: 2px 2px 6px purple;}
+        to {box-shadow: 2px 2px 6px blue;}
+    }
