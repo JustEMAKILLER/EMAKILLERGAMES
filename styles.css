@@ -1,5 +1,6 @@
    /* Palabras reservadas */
     body{
+		margin: 0 auto;
         line-height:22px;
         color:#FFFFEE;
         background-color:#001723fd;
@@ -101,7 +102,7 @@
         display: flex;
         overflow:hidden;
         margin: 0 auto;
-        width:500px;
+        width:480px;
         height:130px;
         background-image: url("EMAKILLERGAMES 1.png");
         background-size:contain;
