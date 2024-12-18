@@ -98,15 +98,13 @@
     }
      /* ID's */
     #TextoEKG{
-        overflow: auto;
+        display: flex;
+        overflow:hidden;
         margin: 0 auto;
-        width: 90%;
-        height: 100%;
-        font-family:Mistral;
-        font-size: x-large;
-        text-shadow:6px 4px 5px purple;
+        width:500px;
+        height:130px;
         background-image: url("EMAKILLERGAMES 1.png");
-        background-size:cover;
+        background-size:contain;
         background-position: center;
         background-repeat: no-repeat;
         line-height: 138px;

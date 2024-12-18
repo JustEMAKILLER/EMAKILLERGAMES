@@ -1,13 +1,22 @@
- document.addEventListener('DOMContentLoaded', function(){
- document.getElementById('buscar').addEventListener('input', function() {
-            let filtro = this.value.toLowerCase();
-            let elementos = document.querySelectorAll('.listajuegos li');
-            elementos.forEach(function(elemento) {
-                if (elemento.textContent.toLowerCase().includes(filtro)) {
-                    elemento.classList.remove('oculto');
-                } else {
-                    elemento.classList.add('oculto');
-                }
-            });
-        });
-    });
+  function busqueda() {
+      const maxPrice = parseFloat(document.getElementById("buscarprecio").value);
+      const filtroNombre = document.getElementById("buscarnombre").value.toLowerCase();
+      const products = document.querySelectorAll('.listajuegos li')
+
+      for (let i = 0; i < products.length; i++) {
+          const productName = products[i].textContent.toLowerCase();
+          const productPrice = parseFloat(products[i].getAttribute("data-price"));
+
+          let mostrar = true;
+
+          if (!isNaN(maxPrice) && productPrice > maxPrice) {
+              mostrar = false;
+          }
+
+          if (filtroNombre !== "" && !productName.includes(filtroNombre)) {
+              mostrar = false;
+          }
+
+          products[i].style.display = mostrar ? "list-item" : "none";
+      }
+  }
