@@ -34,15 +34,17 @@
         color:lightblue;
         text-decoration:none;
         transform:scale(1.15);}
-    input[type=text]{
+    input[type=text], input[type=number]{
         font-weight:bold;
         border:2px outset purple;
         border-radius:10px;
-		user-select:none;}
+		user-select:none;
+		margin: 5px 5px 5px 5px;}
         /* Clases */
     .busqueda{
         display:flex;
-		justify-content:center;
+		justify-content:space-evenly;
+		flex-flow:row wrap;		
     }
     .juegosnuevos{
         color:purple;
