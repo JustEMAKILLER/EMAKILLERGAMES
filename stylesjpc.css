@@ -2,19 +2,16 @@
 @media (min-width: 601px) and (max-width: 1024px) {
      #botonarriba{
         height: 30px;
-        width: 30px;}
-}
+        width: 30px;}}
 @media (max-width: 600px) {
  #botonarriba {
         height: 30px;
-        width: 30px;}
-    }
+        width: 30px;}}
 /* Palabras reservadas */
     body{
         color:#FFFFEE;
         background-color:#001723fd;
-	    overflow-x:hidden;
-	}
+	    overflow-x:hidden;}
     button{
         border-radius:10px;
         border:ridge black;
@@ -25,11 +22,12 @@
         text-align:center;
         transition: transform 1s;
 	    user-select:none;
-    }           
-    h1:hover,h2:hover,h3:hover,h4:hover,h5:hover,h6:hover{
+        overflow-x:auto;}           
+    h1:hover{
         transform:scale(1.15);}
     a{
-        color:whitesmoke;}
+        color:whitesmoke;
+        text-decoration: underline 1px;}
     a:hover,button:hover{
         color:lightblue;
         text-decoration:none;
@@ -44,16 +42,34 @@
     .busqueda{
         display:flex;
 		justify-content:space-evenly;
-		flex-flow:row wrap;		
-    }
+		flex-flow:row wrap;}
+    .titulostjuegos{
+        overflow:hidden;
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        width:31%;
+        height: 50%;
+        background-size:contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: transform 1s;
+        line-height: 138px;}
+    .titulostjuegos:hover{
+        transform: scale(1.15);}
     .juegosnuevos{
-        color:purple;
-        display: inline;}
+        color:rgb(187, 16, 187);
+        display: inline;
+        margin-left: 20px;}
+    .juegosactualizados{
+        color:lightskyblue;
+        display: inline;
+        margin-left: 20px;}
     .oculto {
-        display: none;
-        }
+        display: none;}
         /* ID's */
     #menu{
+        z-index: 50;
         text-align:center;
         position:fixed;
         width: 100%;
@@ -61,8 +77,7 @@
         background:black;
         line-height:40px;
         overflow-x:auto;
-        white-space:nowrap;
-    }
+        white-space:nowrap;}
     #menu a{
         display:inline-block;
 	    padding-right:5px;
@@ -74,8 +89,7 @@
         transform:none;
         border-right: solid 1px white;
         border-left: solid 1px white;
-        background-color: rgb(49, 44, 44);
-    }
+        background-color: rgb(49, 44, 44);}
     #titulo{
         margin-top:15px;
         font-family:"Comic Sans MS",Arial;}
@@ -85,6 +99,58 @@
         box-shadow: 2px 2px 6px purple;
         padding-right:10px;  
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
+    #amongus{
+        line-height: 50px;
+        background-image:url("Imagen-1-3-768x384 - copia.png");}
+    #amongus h4{
+        color: rgb(4, 255, 0);}
+    #duty{
+        line-height: 150px;
+        background-image: url(call_of_duty_black_ops_13-wallpaper-1280x1024.png);}
+    #duty h4{   
+        color:rgb(227, 153, 15);}
+    #doki{
+        line-height: 50px;
+        background-image: url(08.png);}
+    #doki h4{
+        color: rgb(235, 102, 124);}
+    #FNAF{
+        background-image: url(fnaf-1920x1080.png);}
+    #fnf{
+        background-image: url(thumb-1920-1158734.png);}
+    #mario{
+        background-image:url(mario_game-1920x1200.png);}
+    #mario h4{
+        color: rgb(255, 0, 0);}
+    #naruto{
+        background-image: url(apps.54991.68307864442603829.676cbe70-1643-4bcc-a72b-f8ed4e2d4cc2.png);}
+    #naruto h4{
+        color: rgb(0, 0, 0);}
+    #nfs{
+        background-image: url("Need For Speed Most Wanted.png");}
+    #pokemon{
+        background-image: url(IMG-20201022-WA0001.png);}
+    #pokemon h4{
+        color: rgb(244, 239, 239);}
+    #sonic{
+        background-image: url("Sonic all stars racing.png");}
+    #sonic h4{
+        color: blue;}
+    #undertale{
+        line-height: 160px;
+        background-image: url(647679.png);}
+    #worms{
+        background-image: url(100054100716_204798.png);}
+    #worms h4{
+        color: rgb(0, 0, 0);}
+    #yugio{
+        background-image: url(yu-gi-oh!!.png);}
+    #yugio h4{
+        color: rgb(25, 63, 189);}
+    #texto{
+        display: flex;
+        justify-content: center;
+        align-content: center;}
     #botonarriba{
         height: 50px;
         width: 50px;
@@ -96,18 +162,18 @@
         background-repeat: no-repeat;
         background-size: cover;
         position:fixed;
+        display: none;
         bottom: 5px;
         right: 10px;
-        transition:transform 1s;
-    }
+        transition: transform 1s;}
+    #botonarriba.show{
+        display: block;}
     #botonarriba a{
         display: block;
         width: 100%;
-        height: 100%;        
-    }
+        height: 100%;}
     #botonarriba:hover{
         border-color: purple;
         transform:scale(1.15);}
     #subir{
-	display:inline;
-    }
+	    display:inline;}

@@ -1,6 +1,5 @@
    /* Palabras reservadas */
     body{
-		margin: 0 auto;
         line-height:22px;
         color:#FFFFEE;
         background-color:#001723fd;
@@ -109,10 +108,7 @@
         background-position: center;
         background-repeat: no-repeat;
         line-height: 138px;
-        border: solid 5px whitesmoke;
-        box-shadow: 2px 2px 6px purple;
-        border-radius:20px;
-        animation:cambiocolortextoekg 3.5s linear infinite;}
+        border-radius:20px;}
     #TextoEKG h1:hover{
         transform: none;}
 
@@ -228,11 +224,6 @@
         33% {color:rgb(26, 102, 123)}
         86% {color:#FAAD00}
         100% {color:red}}
-    @keyframes cambiocolortextoekg{
-        0% {border-color:red}
-        33% {border-color:(26, 102, 123)}
-        86% {border-color:#FAAD00}
-        100% {border-color:red}} 
     @keyframes cambiobordecajas{
         from {box-shadow: 2px 2px 6px purple;}
         to {box-shadow: 2px 2px 6px blue;}
