@@ -101,8 +101,8 @@
         display: flex;
         overflow:hidden;
         margin: 0 auto;
-        width:57%;
-        height:50%;
+        width:650px;
+        height:180px;
         border-radius:20px;
         border: solid 4px;
         animation:cambiocolortekg 3s linear infinite}

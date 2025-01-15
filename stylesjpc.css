@@ -50,8 +50,8 @@
         margin: 0 auto;
         margin-top: 30px;
         margin-bottom: 30px;
-        width: 30%;
-        height: 30%;
+        width: 350px;
+        height: 200px;
         transition: transform 1s;}
     .titulostjuegos:hover{
         transform: scale(1.10);}
@@ -99,6 +99,9 @@
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
     #amongus h4{
         color: rgb(4, 255, 0);}
+    #dutyimg{
+        width: 250px;
+        height: 250px;}
     #duty h4{   
         color:rgb(227, 153, 15);}
     #doki h4{
