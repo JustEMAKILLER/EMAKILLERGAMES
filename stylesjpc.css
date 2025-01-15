@@ -45,18 +45,16 @@
 		flex-flow:row wrap;}
     .titulostjuegos{
         overflow:hidden;
+        display: flex;
+        justify-content: center;
         margin: 0 auto;
         margin-top: 30px;
         margin-bottom: 30px;
-        width:50%;
-        height: 50%;
-        background-size:contain;
-        background-position: center;
-        background-repeat: no-repeat;
-        transition: transform 1s;
-        line-height: 138px;}
+        width: 30%;
+        height: 30%;
+        transition: transform 1s;}
     .titulostjuegos:hover{
-        transform: scale(1.15);}
+        transform: scale(1.10);}
     .juegosnuevos{
         color:rgb(187, 16, 187);
         display: inline;
@@ -99,54 +97,30 @@
         box-shadow: 2px 2px 6px purple;
         padding-right:10px;  
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
-    #amongus{
-        line-height: 50px;
-        background-image:url("Imagen-1-3-768x384 - copia.png");}
     #amongus h4{
         color: rgb(4, 255, 0);}
-    #duty{
-        line-height: 150px;
-        background-image: url(call_of_duty_black_ops_13-wallpaper-1280x1024.png);}
     #duty h4{   
         color:rgb(227, 153, 15);}
-    #doki{
-        line-height: 50px;
-        background-image: url(08.png);}
     #doki h4{
         color: rgb(235, 102, 124);}
-    #FNAF{
-        background-image: url(fnaf-1920x1080.png);}
-    #fnf{
-        background-image: url(thumb-1920-1158734.png);}
-    #mario{
-        background-image:url(mario_game-1920x1200.png);}
+    #FNAF h4{
+            color:brown;}
+    #fnf h4{
+        color: lightcyan;}
     #mario h4{
         color: rgb(255, 0, 0);}
-    #naruto{
-        background-image: url(apps.54991.68307864442603829.676cbe70-1643-4bcc-a72b-f8ed4e2d4cc2.png);}
     #naruto h4{
-        color: rgb(0, 0, 0);}
-    #nfs{
-        background-image: url("Need For Speed Most Wanted.png");}
-    #pokemon{
-        background-image: url(IMG-20201022-WA0001.png);}
+        color: rgb(255, 180, 7);}
     #pokemon h4{
-        color: rgb(244, 239, 239);}
-    #sonic{
-        background-image: url("Sonic all stars racing.png");}
+        color: rgb(195, 248, 2);}
     #sonic h4{
-        color: blue;}
-    #undertale{
-        line-height: 160px;
-        background-image: url(647679.png);}
-    #worms{
-        background-image: url(100054100716_204798.png);}
+        color: rgba(64, 64, 244, 0.986);}
+    #undertale h4{
+        color: lightcyan;}
     #worms h4{
-        color: rgb(0, 0, 0);}
-    #yugio{
-        background-image: url(yu-gi-oh!!.png);}
+        color: rgba(242, 234, 124, 0.936);}
     #yugio h4{
-        color: rgb(25, 63, 189);}
+        color: rgb(218, 54, 54);}
     #texto{
         display: flex;
         justify-content: center;

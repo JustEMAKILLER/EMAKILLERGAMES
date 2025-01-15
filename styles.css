@@ -98,7 +98,6 @@
     }
      /* ID's */
     #TextoEKG{
-        display: flex;
         overflow:hidden;
         margin: 0 auto;
         width:57%;
@@ -107,7 +106,6 @@
         background-size:contain;
         background-position: center;
         background-repeat: no-repeat;
-        line-height: 138px;
         border-radius:20px;}
     #TextoEKG h1:hover{
         transform: none;}
