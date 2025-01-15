@@ -1,4 +1,13 @@
-   /* Palabras reservadas */
+/* Reglas responsivas */
+@media (min-width: 601px) and (max-width: 1024px) {
+    #TextoEKG{
+        width:300px;
+        height:100px;}}
+@media (max-width: 600px) {
+#TextoEKG {
+        width:300px;
+        height:100px;}}
+/* Palabras reservadas */
     body{
         line-height:22px;
         color:#FFFFEE;
@@ -211,7 +220,7 @@
     #live{
         animation:cambiocolorlive 3.5s linear infinite;
         font-weight:900;
-        font-family:"Virtual DJ",Arial;}
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif}
     /* Animaciones */
     @keyframes cambiocolorlive{
         0% {color:red}
@@ -225,5 +234,4 @@
         100% {color:purple}}
     @keyframes cambiobordecajas{
         from {box-shadow: 2px 2px 6px purple;}
-        to {box-shadow: 2px 2px 6px blue;}
-    }
+        to {box-shadow: 2px 2px 6px blue;}}

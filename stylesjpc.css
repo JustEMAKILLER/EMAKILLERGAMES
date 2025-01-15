@@ -1,12 +1,24 @@
 /* Reglas responsivas */
 @media (min-width: 601px) and (max-width: 1024px) {
-     #botonarriba{
+    #botonarriba{
         height: 30px;
-        width: 30px;}}
+        width: 30px;}
+    .titulostjuegos{
+        width: 250px;
+        height: 150px;}
+    #dutyimg{
+        width: 190px;
+        height: 200px;}}
 @media (max-width: 600px) {
- #botonarriba {
+    #botonarriba {
         height: 30px;
-        width: 30px;}}
+        width: 30px;}
+    .titulostjuegos{
+        width: 250px;
+        height: 150px;}
+    #dutyimg{
+        width: 190px;
+        height: 200px;}}
 /* Palabras reservadas */
     body{
         color:#FFFFEE;
