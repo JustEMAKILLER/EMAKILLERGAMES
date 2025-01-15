@@ -104,8 +104,8 @@
         width:57%;
         height:50%;
         border-radius:20px;
-        border: ridge 4px;
-        animation:cambiocolorlive 2s linear infinite}
+        border: solid 4px;
+        animation:cambiocolortekg 3s linear infinite}
     #hinfo{
         font-family: Georgia, 'Times New Roman', Times, serif;
         overflow:hidden;
@@ -218,6 +218,11 @@
         33% {color:rgb(26, 102, 123)}
         86% {color:#FAAD00}
         100% {color:red}}
+    @keyframes cambiocolortekg{
+        0% {color:purple}
+        33% {color:rgb(26, 102, 123)}
+        86% {color:red}
+        100% {color:purple}}
     @keyframes cambiobordecajas{
         from {box-shadow: 2px 2px 6px purple;}
         to {box-shadow: 2px 2px 6px blue;}
