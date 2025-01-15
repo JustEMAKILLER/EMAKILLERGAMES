@@ -24,7 +24,7 @@ function busqueda() {
 
         productos.forEach((producto) => {
             const productName = producto.textContent.toLowerCase();
-            const productPrice = parseFloat(producto.getAttribute("data-price"));
+            const productPrice = parseFloat(encabezado.getAttribute("data-price"));
 
             let mostrarProducto = true;
 

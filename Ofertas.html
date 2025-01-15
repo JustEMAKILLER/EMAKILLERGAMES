@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <link rel="icon" href="icon.png" type="image/x-icon">
 <link rel="stylesheet" href="stylesjpc.css">
+<script src="scriptsofer.js"></script>
 </head>
 <body>
 <header>
@@ -19,6 +20,11 @@
 </div>
 <p id=subir>.</p>
 <h1 id=titulo>Ofertas Especiales</h1>
+<div class="busqueda">
+  <input type="text" id="buscarnombre" placeholder="Buscar juego..." oninput="busqueda()">
+  <input type="number" id="buscarprecio" placeholder="Filtrar por precio máximo..." oninput="busqueda()">
+</div>
+<br>
 </header>
     <main>
 	<div id=caja>
@@ -27,9 +33,8 @@
    <p style="margin-left:40px">Si el precio total de su compra alcanza los 200$, tiene permitido adquirir otro de hasta 50$ de su preferencia sin costos adicionales. Asi mismo sera si el total llega hasta los 400$: Se agrega otro juego de hasta 80$, y si es de 600$ o mas obtendra 2 de hasta 100$ (Esta oferta se validara solo si el cliente la reclama al realizar su compra).</p>
 <br>
 <p style="margin-left:40px">Los siguientes Packs se deben comprar en su totalidad, sin poder modificar su contenido u obtener solo una porcion de este. Su precio puede fluctuar en dependencia de las modificaciones que sufra lo que tengan.</p>
-<section>
-<h4>Among Us Pack (60$)</h4>
-<ul>
+<section class=grupo-juegos><h4 data-price="60">Among Us Pack (60$)</h4>
+<ul class="listajuegos">
 <li>Amoedios Among Us Conejos</li>
 <li>Among Us (GIGANTES)</li>
 <li>Among Us (KIRBY)</li>
@@ -42,41 +47,41 @@
 <li>Among Us v2024.11.26i (Unlocked)</li>
 <li>PACK de Mods de AMONG US</li>
 </ul></section>
-<section><h4>Age of Empires Pack (50$)</h4>
-<ul>
+<section class=grupo-juegos><h4 data-price="50">Age of Empires Pack (50$)</h4>
+<ul class="listajuegos">
 <li>Age of Empires Gold Edition HD</li>
 <li>Age of Empires II The Conquerors Expansion</li>
 <li>Age of Empires II HD Edition</li>
-</ul></section>
-<section><h4>Counter Strike Pack (130$)</h4>
-<ul>
+</ul class="listajuegos"></section>
+<section class=grupo-juegos><h4 data-price="130">Counter Strike Pack (130$)</h4>
+<ul class="listajuegos">
 <li>Counter Strike v1.6 & Condition Zero</li>
 <li>Counter-Strike Source</li>
 <li>Counter-Strike Global Offensive</li>
 <li>Counter Strike Online</li>
 <li>Counter Strike Online 2</li>
 </ul></section>
-<section><h4>Borderlands Pack (120$)</h4>
-<ul>
+<section class=grupo-juegos><h4 data-price="120">Borderlands Pack (120$)</h4>
+<ul class="listajuegos">
 <li>Borderlands - The Pre-Sequel - Remastered</li>
 <li>Borderlands - GotY Edition</li>
 <li>Borderlands 2 GOTY</li>
   </ul></section>
-  <section><h4>Call of Duty Old School Pack (70$)</h4>
-<ul>
+  <section class=grupo-juegos><h4 data-price="70">Call of Duty Old School Pack (70$)</h4>
+<ul class="listajuegos">
 <li>Call Of Duty 1 - United Offensive Expansion Pack</li>
 <li>Call Of Duty 2</li>
 <li>Call of Duty 5 World at War Plutonium</li>
 </ul></section>
-<section><h4>Call of Duty Modern Warfare Classic Trilogy Pack (180$)</h4>
-<ul>
+<section class=grupo-juegos><h4 data-price="180">Call of Duty Modern Warfare Classic Trilogy Pack (180$)</h4>
+<ul class="listajuegos">
 <li>CALL OF DUTY MW CoD4X</li>
 <li>CALL OF DUTY MW2</li>
 <li>CALL OF DUTY MW2 IW4X</li>
 <li>CALL OF DUTY MW3 Plutonium</li>
 </ul></section>
-<section><h4>Call of Duty Complete Pack (360$)</h4>
-    <ul>
+<section class=grupo-juegos><h4 data-price="360">Call of Duty Complete Pack (360$)</h4>
+    <ul class="listajuegos">
       <li>Call Of Duty 1 - United Offensive Expansion Pack</li>
       <li>Call Of Duty 2</li>
       <li>Call of Duty 5 World at War Plutonium</li>
@@ -87,8 +92,8 @@
       <li>CALL OF DUTY MW2 IW4X</li>
       <li>CALL OF DUTY MW3 Plutonium</li>
     </ul></section>
-      <section><h4>Classic Five Nights at Freddy's Pack (70$)</h4>
-    <ul>
+      <section class=grupo-juegos><h4 data-price="70">Classic Five Nights at Freddy's Pack (70$)</h4>
+    <ul class="listajuegos">
       <li>Five Nights at Freddy's</li>
       <li>Five Nights at Freddy's 2</li>
       <li>Five Nights at Freddy's 3</li>
@@ -97,16 +102,16 @@
       <li>Five Nights at Freddy's 6</li>
       <li>Five Nights at Freddy's 7</li>
     </ul></section>
-      <section><h4>Fighting Games Pack (180$)</h4>
-      <ul>
+      <section class=grupo-juegos><h4 data-price="180">Fighting Games Pack (180$)</h4>
+      <ul class="listajuegos">
       <li>Dead or Alive 5</li>
       <li>GUILTY GEAR Xrd -REVELATOR-</li>
       <li>Mortal Kombat Komplete Edition</li>
       <li>NARUTO SHIPPUDEN Ultimate Ninja STORM 3 Full Burst</li>
       <li>Ultra Street Fighter IV</li>
       </ul></section>
-      <section><h4>FROMSOFTWARE Pack (250$)</h4>
-    <ul>
+      <section class=grupo-juegos><h4 data-price="250">FROMSOFTWARE Pack (250$)</h4>
+    <ul class="listajuegos">
       <li>Dark Souls Prepare To Die Edition</li>
       <li>Dark Souls Remastered</li>
       <li>DARK SOULS II Scholar Of The First Sin</li>
@@ -114,30 +119,30 @@
       <li>Demon’s Souls Black Phantom Edition</li>
       <li>Elden Ring Deluxe Edition</li>
     </ul></section>
-      <section><h4>Guilty Gear Pack (50$)</h4>
-    <ul>
+      <section class=grupo-juegos><h4 data-price="50">Guilty Gear Pack (50$)</h4>
+    <ul class="listajuegos">
       <li>GUILTY GEAR ISUKA</li>
       <li>Guilty Gear XX #Reload</li>
       <li>GUILTY GEAR Xrd -REVELATOR-</li>
       <li>Guilty Gear XX Accent Core Plus R</li>
     </ul></section>
-      <section><h4>Halo Pack (60$)</h4>
-    <ul>
+      <section class=grupo-juegos><h4 data-price="60">Halo Pack (60$)</h4>
+    <ul class="listajuegos">
       <li>Halo Combat Evolved</li>
       <li>Halo Combat Evolved Multiplayer con todos los mapas</li>
       <li>Halo Online ElDewrito v0.4.11.2</li>
       <li>Halo Online ElDewrito v0.6.1.0</li>
       <li>Halo Zero</li>
     </ul></section>
-      <section><h4>Hello Neighbor Pack (70$)</h4>
-    <ul>
+      <section class=grupo-juegos><h4 data-price="70">Hello Neighbor Pack (70$)</h4>
+    <ul class="listajuegos">
       <li>Hello Neighbor</li>
       <li>Hello Neighbor - Hide and Seek</li>
       <li>Hello Neighbor 2</li>
       <li>Hello Engineer - Scrap Machines Constructor</li>
     </ul></section>
-      <section><h4>LAN Funny Games Pack (140$)</h4>
-    <ul>
+      <section class=grupo-juegos><h4 data-price="140">LAN Funny Games Pack (140$)</h4>
+    <ul class="listajuegos">
       <li>BombSquad</li>
       <li>Castle Crashers</li>
       <li>Human Fall Flat</li>
@@ -148,24 +153,24 @@
       <li>SOS OPS</li>
       <li>Pummel Party</li>
     </ul></section>
-    <section><h4>LAN Survival Games Alpha Pack (120$)</h4>
-<ul>
+    <section class=grupo-juegos><h4 data-price="120">LAN Survival Games Alpha Pack (120$)</h4>
+<ul class="listajuegos">
   <li>Dont Starve Together</li>
   <li>Green Hell</li>
   <li>Minecraft 1.12.2 con mods y shaders</li>
   <li>Minecraft 1.19.1+1.12.2</li>
   <li>PixARK</li>
 </ul></section>
-<section><h4>LAN Survival Games Beta Pack (130$)</h4>
-<ul>
+<section class=grupo-juegos><h4 data-price="130">LAN Survival Games Beta Pack (130$)</h4>
+<ul class="listajuegos">
   <li>Raft</li>
   <li>Sons of the Forest</li>
   <li>Subsistence</li>
   <li>Sunkenland Early Access</li>
   <li>The Forest</li>
 </ul></section>
-<section><h4>LAN Terror Games Alpha Pack (260$)</h4>
-<ul>
+<section class=grupo-juegos><h4 data-price="260">LAN Terror Games Alpha Pack (260$)</h4>
+<ul class="listajuegos">
   <li>Aliens vs Predator (2010)</li>
   <li>Alone in the Dark Illumination</li>
   <li>BIGFOOT</li>
@@ -173,9 +178,9 @@
   <li>Contagion</li>
   <li>F.E.A.R. 2 Project Origin + Reborn</li>
   <li>F.E.A.R. 3</li>
-</ul></section>
-<section><h4>LAN Terror Games Beta Pack (220$)</h4>
-<ul>
+</ul class="listajuegos"></section>
+<section class=grupo-juegos><h4 data-price="220">LAN Terror Games Beta Pack (220$)</h4>
+<ul class="listajuegos">
   <li>Friday The 13th The Game</li>
   <li>Killing Floor</li>
   <li>Left 4 Dead</li>
@@ -184,31 +189,31 @@
   <li>Pacify The Woods</li>
   <li>White Noise 2</li>
 </ul></section>
-<section><h4>LAN Valve Games Pack (140$)</h4>
-<ul>
+<section class=grupo-juegos><h4 data-price="140">LAN Valve Games Pack (140$)</h4>
+<ul class="listajuegos">
   <li>DOTA 2</li>
   <li>Half-Life Complete Pack + Decay Expansion</li>
   <li>Portal 2</li>
   <li>Team Fortress 2</li>
 </ul></section>
-<section><h4>Monster Hunter Pack (230$)</h4>
-<ul>
+<section class=grupo-juegos><h4 data-price="230">Monster Hunter Pack (230$)</h4>
+<ul class="listajuegos">
   <li>Monster Hunter Frontier Z</li>
   <li>Monster Hunter Rise Sunbreak Deluxe Edition</li>
   <li>Monster Hunter Stories</li>
   <li>Monster Hunter Stories 2 Wings of Ruin</li>
   <li>Monster Hunter World Icerbone</li>
 </ul></section>
-<section><h4>Mortal Kombat Pack (120$)</h4>
-<ul>
+<section class=grupo-juegos><h4 data-price="120">Mortal Kombat Pack (120$)</h4>
+<ul class="listajuegos">
   <li>Mortal Kombat Trilogy PC Port + Reshade & Kommunity Patch</li>
   <li>Mortal Kombat 4</li>
   <li>Mortal Kombat IMKO Edition</li>
   <li>Mortal Kombat Komplete Edition</li>
   <li>Mortal Kombat XL</li>
 </ul></section>
-<section><h4>Need For Speed Pack (120$)</h4>
-<ul>
+<section class=grupo-juegos><h4 data-price="120">Need For Speed Pack (120$)</h4>
+<ul class="listajuegos">
   <li>Need For Speed Carbon Remastered</li>
   <li>Need For Speed Most Wanted Online</li>
   <li>Need for Speed ProStreet</li>
@@ -216,23 +221,23 @@
   <li>Need for Speed Underground Definitive Edition</li>
   <li>Need for Speed Underground 2</li>
 </ul></section>
-<section><h4>Resident Evil Pack (130$)</h4>
-<ul>
+<section class=grupo-juegos><h4 data-price="130">Resident Evil Pack (130$)</h4>
+<ul class="listajuegos">
   <li>Resident Evil Revelations</li>
   <li>Resident Evil 5 Gold Edition</li>
   <li>Resident Evil 6</li>
   <li>Resident Evil - Resistance</li>
 </ul></section>
-<section><h4>Saints Row Pack (180$)</h4>
-<ul>
+<section class=grupo-juegos><h4 data-price="180">Saints Row Pack (180$)</h4>
+<ul class="listajuegos">
   <li>Saints Row 2</li>
   <li>Saints Row The Third - The Full Package</li>
   <li>Saints Row IV - Game of the Century Edition</li>
   <li>Saints Row - Gat out of Hell</li>
   <li>Saints Row V 2022 Reboot Gold Edition</li>
 </ul></section>
-<section><h4>Sonic Pack (70$)</h4>
-<ul>
+<section class=grupo-juegos><h4 data-price="70">Sonic Pack (70$)</h4>
+<ul class="listajuegos">
   <li>Sonic & All-Stars Racing Transformed</li>
   <li>Sonic Adventure DX</li>
   <li>Sonic Adventure 2 - Battle</li>
@@ -240,26 +245,26 @@
   <li>Sonic Mania</li>
   <li>Sonic RoboBlast 2</li>
 </ul></section>
-<section><h4>Starcraft Pack (100$)</h4>
-<ul>
+<section class=grupo-juegos><h4 data-price="100">Starcraft Pack (100$)</h4>
+<ul class="listajuegos">
   <li>Starcraft Brood War</li>
   <li>StarCraft Remastered</li>
   <li>StarCraft II Heart of the Swarm</li>
 </ul></section>
-<section><h4>Super Smash Pack (60$)</h4>
-<ul>
+<section class=grupo-juegos><h4 data-price="60">Super Smash Pack (60$)</h4>
+<ul class="listajuegos">
   <li>Super Smash Bros. Crusade</li>
   <li>Super Smash Bros. Crusade CMC+</li>
   <li>Super Smash Flash 2 Beta</li>
 </ul></section>
-<section><h4>Sword Art Online Pack (120$)</h4>
-<ul>
+<section class=grupo-juegos><h4 data-price="120">Sword Art Online Pack (120$)</h4>
+<ul class="listajuegos">
   <li>Sword Art Online - Hollow Fragment</li>
   <li>Sword Art Online - Fatal Bullet</li>
   <li>Sword Art Online Hollow Realization Deluxe Edition</li>
 </ul></section>
-<section><h4>Tomb Raider Pack (120$)</h4>
-<ul>
+<section class=grupo-juegos><h4 data-price="120">Tomb Raider Pack (120$)</h4>
+<ul class="listajuegos">
   <li>Lara Croft And The Guardian of Light</li>
   <li>Lara Croft and the Temple of Osiris</li>
   <li>Tomb Raider 1-5</li>
@@ -267,8 +272,8 @@
   <li>Tomb Raider Anniversary</li>
   <li>Tomb Raider (2013)</li>
 </ul></section>
-<section><h4>Ultimate Ninja Storms Pack (200$)</h4>
-<ul>
+<section class=grupo-juegos><h4 data-price="200">Ultimate Ninja Storms Pack (200$)</h4>
+<ul class="listajuegos">
   <li>NARUTO Ultimate Ninja STORM</li>
   <li>NARUTO SHIPPUDEN Ultimate Ninja STORM 2</li>
   <li>NARUTO SHIPPUDEN Ultimate Ninja STORM 3 Full Burst</li>
@@ -276,15 +281,15 @@
   <li>Naruto Storm 4 Evolution & Road to Connections</li>
   <li>Naruto X Boruto Ultimate Ninja Storm Connections</li>
 </ul></section>
-<section><h4>We Were Here Pack (120$)</h4>
-<ul>
+<section class=grupo-juegos><h4 data-price="120">We Were Here Pack (120$)</h4>
+<ul class="listajuegos">
   <li>We Were Here</li>
   <li>We Were Here Too</li>
   <li>We Were Here Together</li>
   <li>We Were Here Expeditions The FriendShip</li>
 </ul></section>
-<section><h4>Worms Pack (100$)</h4>
-<ul>
+<section class=grupo-juegos><h4 data-price="100">Worms Pack (100$)</h4>
+<ul class="listajuegos">
   <li>Worms Armageddon</li>
   <li>Worms Clan Wars</li>
   <li>Worms Forts Under Siege</li>
@@ -292,7 +297,7 @@
   <li>Worms World Party 2-3D</li>
   <li>Worms World Party 4 MAYHEM</li>
   <li>Worms W.M.D</li>
-</ul></section>
+</ul></section><p style="margin-top: 40px" id="texto"></p>
     </article>
 	</div>  
     </main>
