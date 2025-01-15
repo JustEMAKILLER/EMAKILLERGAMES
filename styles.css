@@ -98,18 +98,14 @@
     }
      /* ID's */
     #TextoEKG{
+        display: flex;
         overflow:hidden;
         margin: 0 auto;
         width:57%;
-        height:130px;
-        background-image: url("EMAKILLERGAMES 1.png");
-        background-size:contain;
-        background-position: center;
-        background-repeat: no-repeat;
-        border-radius:20px;}
-    #TextoEKG h1:hover{
-        transform: none;}
-
+        height:50%;
+        border-radius:20px;
+        border: ridge 4px;
+        animation:cambiocolorlive 2s linear infinite}
     #hinfo{
         font-family: Georgia, 'Times New Roman', Times, serif;
         overflow:hidden;
