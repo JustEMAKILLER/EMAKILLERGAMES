@@ -18,7 +18,6 @@ function busqueda() {
     let hayResultados = false;
 
     grupos.forEach((grupo) => {
-        const encabezado = grupo.querySelector('h4');
         const productos = grupo.querySelectorAll('.listajuegos li');
         let mostrarGrupo = false;
 
@@ -43,7 +42,6 @@ function busqueda() {
             }
         });
 
-        encabezado.style.display = mostrarGrupo ? "block" : "none";
 
         grupo.style.display = mostrarGrupo ? "block" : "none";
 
