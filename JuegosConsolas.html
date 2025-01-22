@@ -26,8 +26,12 @@
 <br>
 </header>
     <main>
-    <div class=caja>
-    <article>   
+      <div class=cajajuegosdescart id="juegosdescartados"><h2>Juegos descartados</h2><button id="botonagregatodo" class=botonelementos onclick="addall()">
+        Añadir todo</button>
+        <ul class="juegosdescart"></ul> </div>
+        <div class=cajaresultados id="resultados"><h2 id="calculoprecio"></h2><button id="botoneliminatodo" class=botonelementos onclick="borrarelem()">
+        Eliminar todo</button> </div>
+    <article class=caja>   
     <section class="grupo-juegos">
 <h4>Juegos de PSP</h4>
 <ul class="listajuegos">
@@ -112,7 +116,6 @@
   </section>
   <p id="texto"></p>
     </article>
-    </div> 
     </main>
     <footer>
     <div id="botonarriba"><a href=#subir></a></div>
