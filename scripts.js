@@ -167,7 +167,10 @@ function busqueda() {
     let calculoprecio = document.getElementById("calculoprecio");
     const resultadosDiv = document.getElementById("resultados");
     let hayResultados = false;
-
+    const botonborrarbusqueda = document.getElementById('botonborrarbusqueda');
+    botonborrarbusqueda.style.display = "inline-block";
+    const botonborrarprecio = document.getElementById('botonborrarprecio');
+    botonborrarprecio.style.display = "inline-block";
     grupos.forEach((grupo) => {
         const productos = grupo.querySelectorAll('.listajuegos li');
         let mostrarGrupo = false;
@@ -183,8 +186,16 @@ function busqueda() {
                 mostrarProducto = false;
             }
 
+            if (isNaN(maxPrice)) {
+                botonborrarprecio.style.display = "none";
+            }
+
             if (filtroNombre !== "" && !productName.includes(filtroNombre)) {
                 mostrarProducto = false;
+            }
+
+            if (filtroNombre == "" && productName.includes(filtroNombre)) {
+                botonborrarbusqueda.style.display = "none";
             }
 
             producto.style.display = mostrarProducto ? "list-item" : "none";
@@ -206,4 +217,19 @@ function busqueda() {
     });
 
     text.textContent = hayResultados ? "" : "No hay resultados.";
+    }
+    
+    // Función para borrar el campo de búsqueda
+    function borrarbusqueda() {
+    const buscarnombreInput = document.getElementById('buscarnombre');
+    // Limpiar el campo de texto
+    buscarnombreInput.value = "";
+    busqueda();
 }
+    // Función para borrar el campo de precio
+ function borrarprecio(){
+    const filtroprecioInput = document.getElementById('buscarprecio');
+    // Limpiar el campo de texto
+    filtroprecioInput.value = "";
+    busqueda();
+ }

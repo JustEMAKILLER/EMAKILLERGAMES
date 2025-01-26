@@ -52,6 +52,10 @@
         display:flex;
 		justify-content:space-evenly;
 		flex-flow:row wrap;}
+    .botonesbusqueda{
+        display: none;}
+    .botonesbusqueda:hover{
+        color:black;}
     .botonelementos{
             display:flex; 
             margin: 0 auto;
