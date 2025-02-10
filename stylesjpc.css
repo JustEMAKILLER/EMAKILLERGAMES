@@ -21,8 +21,7 @@
         user-select: none;
         transition: transform 1s;}
     button:hover{
-        transform: scale(1.10);
-    }
+        transform: scale(1.10);}
     h1,h2,h3,h4,h5,h6{
         text-align:center;
         transition: transform 1s;
@@ -51,16 +50,18 @@
     .busqueda{
         display:flex;
 		justify-content:space-evenly;
-		flex-flow:row wrap;}
+		flex-flow:row wrap;
+        margin: 0 auto;}
     .botonesbusqueda{
-        display: none;}
+        display: none;
+        cursor: pointer;}
     .botonesbusqueda:hover{
         color:black;}
     .botonelementos{
-            display:flex; 
-            margin: 0 auto;
-            margin-bottom: 5px;
-            cursor: pointer;}
+        display:flex; 
+        margin: 0 auto;
+        margin-bottom: 5px;
+        cursor: pointer;}
     .titulostjuegos{
         overflow:hidden;
         user-select: none;
@@ -75,6 +76,7 @@
     .titulostjuegos:hover{
         transform: scale(1.10);}
     .caja{
+        margin-top: 20px;
         border: outset 2px white;
         border-radius: 20px;
         box-shadow: 2px 2px 6px purple;
@@ -163,6 +165,17 @@
         display: flex;
         justify-content: center;
         align-content: center;}
+    #botonJNA{
+        display: flex;}
+    #botonMostrar{
+        display:none;}
+    #botonJNA, #botonMostrar{
+        margin: 0 auto;
+        cursor: pointer;
+        transition: transform 1s;}
+    #botonJNA:hover, #botonMostrar:hover{
+        color: black;
+        transform: scale(1.1);}
     #botonarriba{
         height: 50px;
         width: 50px;

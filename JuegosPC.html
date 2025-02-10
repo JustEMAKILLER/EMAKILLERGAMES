@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <link rel="icon" href="icon.png" type="image/x-icon">
 <link rel="stylesheet" href="stylesjpc.css">
-<script src="scripts.js"></script>
+<script src="scripts.js" defer></script>
 
 </head>
 <body>
@@ -20,493 +20,505 @@
 </div>
 <p id=subir>.</p>
 <h1 id=titulo>Juegos de PC</h1>
-<div class="busqueda">
+<div id="buscar" class="busqueda">
     <div><input type="text" id="buscarnombre" placeholder="Buscar juego..." oninput="busqueda()"><button id=botonborrarbusqueda class="botonesbusqueda" onclick="borrarbusqueda()">x</button></div>
     <div><input type="number" id="buscarprecio" placeholder="Filtrar por precio máximo..." oninput="busqueda()"><button id=botonborrarprecio class="botonesbusqueda" onclick="borrarprecio()">x</button></div>
-</div>
+  </div>
 <br>
 </header>
-    <main>
+    <main>         
     <div class=cajajuegosdescart id="juegosdescartados"><h2>Juegos descartados</h2><button id="botonagregatodo" class=botonelementos onclick="addall()">
     Añadir todo</button>
     <ul class="juegosdescart"></ul> </div>
     <div class=cajaresultados id="resultados"><h2 id="calculoprecio"></h2><button id="botoneliminatodo" class=botonelementos onclick="borrarelem()">
     Eliminar todo</button> </div>
+    <button id="botonJNA" onclick="mostrarJuegosNewOrAct()">Mostrar solo los juegos nuevos o actualizados</button>
+    <button id="botonMostrar" onclick="mostrarJuegos()">Mostrar todos los juegos</button>
     <article class=caja>
     <section class=grupo-juegos>
    <div>
 <ul class="listajuegos">
-  <li data-price="50"><a href="https://store.steampowered.com/app/251570/7_Days_to_Die/">7 Days to Die v20.2 (b2) con mods (8.03 GB) (¿LAN?)- 50$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/251570/7_Days_to_Die/">7 Days To Die v20.6.B9 con mods (7.04 GB) (¿LAN?)- 50$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/1015140/10_Miles_To_Safety/">10 Miles To Safety (477 MB) (LAN)- 25$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/322110/20XX/">20XX (664 MB) (LAN)- 15$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/1029210/30XX/">30XX Deluxe Edition v1.00.3 (404 MB) (LAN)- 20$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/1205390/Abiotic_Factor/">Abiotic Factor v0.8.0.9906a (1.1 GB) (LAN, Online vía Steam)- 30$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/1015140/10_Miles_To_Safety/" target="_blank">10 Miles To Safety (477 MB) (LAN)- 25$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/322110/20XX/" target="_blank">20XX (664 MB) (LAN)- 15$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/1029210/30XX/" target="_blank">30XX Deluxe Edition v1.00.3 (404 MB) (LAN)- 20$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/251570/7_Days_to_Die/">7 Days to Die v1.0 (b333) (7.47 GB) (¿LAN?)- 50$</a><p class=juegosactualizados>(Actualizado)</p></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/1205390/Abiotic_Factor/" target="_blank">Abiotic Factor v0.8.0.9906a (1.1 GB) (LAN, Online vía Steam)- 30$</a></li>
   <li data-price="15">Age of Empires Gold Edition HD (390 MB) (LAN)- 15$</li>
   <li data-price="15">Age of Empires II The Conquerors Expansion (326 MB) (LAN)- 15$</li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/221380/Age_of_Empires_II_HD_Edition/">Age of Empires II HD Edition (2.6 GB) (LAN)- 25$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/761890/Albion_Online/">Albion Online (1.9 GB)- 35$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/843200/Alien_Hominid_Invasion/">Alien Hominid Invasion (1.32 GB) (LAN, ¿Online vía Steam?)- 25$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/1007400/Alien_Shooter_2__The_Legend/">Alien Shooter 2 - The Legend (734 MB)- 15$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/10680/Aliens_vs_Predator/">Aliens vs Predator (2010) (5.12 GB) (LAN, Online vía Steam)- 50$</a></li>
-  <li data-price="45"><a href="https://store.steampowered.com/app/275060/Alone_in_the_Dark_Illumination/">Alone in the Dark Illumination (6.2 GB) (LAN)- 45$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/2166060/Amanda_the_Adventurer/">Amanda the Adventurer (1.1 GB)- 15$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/221380/Age_of_Empires_II_HD_Edition/" target="_blank">Age of Empires II HD Edition (2.6 GB) (LAN)- 25$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/761890/Albion_Online/" target="_blank">Albion Online (1.9 GB)- 35$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/843200/Alien_Hominid_Invasion/" target="_blank">Alien Hominid Invasion (1.32 GB) (LAN, ¿Online vía Steam?)- 25$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/1007400/Alien_Shooter_2__The_Legend/" target="_blank">Alien Shooter 2 - The Legend (734 MB)- 15$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/10680/Aliens_vs_Predator/" target="_blank">Aliens vs Predator (2010) (5.12 GB) (LAN, Online vía Steam)- 50$</a></li>
+  <li data-price="45"><a href="https://store.steampowered.com/app/275060/Alone_in_the_Dark_Illumination/" target="_blank">Alone in the Dark Illumination (6.2 GB) (LAN)- 45$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/2166060/Amanda_the_Adventurer/" target="_blank">Amanda the Adventurer (1.1 GB)- 15$</a></li>
   <li data-price="5">Armagetron Advanced (2.78 MB) (LAN)- 5$</li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/694500/Army_Men_RTS/">Army Men RTS (182 MB) (LAN)- 15$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/361420/ASTRONEER/">Astroneer v1.28.34.0 (2.51 GB) (LAN)- 25$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/694500/Army_Men_RTS/" target="_blank">Army Men RTS (182 MB) (LAN)- 15$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/361420/ASTRONEER/" target="_blank">Astroneer v1.28.34.0 (2.51 GB) (LAN)- 25$</a></li>
   <li data-price="5">Attack on Titan Tribute Game (18.2 MB) (LAN)- 5$</a></li>
-  <li data-price="60"><a href="https://store.steampowered.com/app/601050/Attack_on_Titan_2__AOT2/">Attack on Titan 2 - Final Battle (20 GB) (LAN)- 60$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/986800/AVICII_Invector/">AVICII Invector (1.6 GB)- 20$</a></li>
+  <li data-price="25">Attack on Titan Tribute Game 2 (653 MB) (Offline, Online)- 25$<p class="juegosnuevos">(Nuevo)</p></li>
+  <li data-price="60"><a href="https://store.steampowered.com/app/601050/Attack_on_Titan_2__AOT2/" target="_blank">Attack on Titan 2 - Final Battle (20 GB) (LAN)- 60$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/986800/AVICII_Invector/" target="_blank">AVICII Invector (1.6 GB)- 20$</a></li>
   <li data-price="10">BaboViolent 2 (11.8 MB) (Cliente+Servidor) (LAN)- 10$</li>
   <li data-price="35">Ballistic Overkill v1.5.4 (3 GB) (LAN)- 35$</li>
   <li data-price="50">Battlefield 2 Complete Collection con mods (6.22 GB) (LAN, ¿Online?)- 50$</li>
-  <li data-price="70"><a href="https://store.steampowered.com/app/24960/Battlefield_Bad_Company_2/">BATTLEFIELD Bad Company 2 Vietnam (8.28 GB) (Cliente+Servidores) (LAN)- 70$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/1238860/Battlefield_4/">BATTLEFIELD 4 (1.28 GB) (Servidor) (LAN)- 50$</a></li>
+  <li data-price="70"><a href="https://store.steampowered.com/app/24960/Battlefield_Bad_Company_2/" target="_blank">BATTLEFIELD Bad Company 2 Vietnam (8.28 GB) (Cliente+Servidores) (LAN)- 70$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/1238860/Battlefield_4/" target="_blank">BATTLEFIELD 4 (1.28 GB) (Servidor) (LAN)- 50$</a></li>
   <li data-price="250">Battlefield Bad Company 2 Vietnam, Battlefield 3, Battlefield 4, Battlefield Hardline, Medal of Honor Warfighter (Servidores) + Blaze + Procon + Redirector + Xampp (Todo en uno) (2.84 GB) (LAN) (MOHW NO PROBADO)- 250$</li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/1230800/Beach_Buggy_Racing_2_Island_Adventure/">Beach Buggy Racing 2 - Island Adventure (354 MB)- 15$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/622650/Bendy_and_the_Ink_Machine/">Bendy and the Ink Machine Complete Edition (1.32 GB)- 30$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/1063660/Bendy_and_the_Dark_Revival/">Bendy and the Dark Revival (2.6 GB)- 50$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/1230800/Beach_Buggy_Racing_2_Island_Adventure/" target="_blank">Beach Buggy Racing 2 - Island Adventure (354 MB)- 15$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/622650/Bendy_and_the_Ink_Machine/" target="_blank">Bendy and the Ink Machine Complete Edition (1.32 GB)- 30$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/1063660/Bendy_and_the_Dark_Revival/" target="_blank">Bendy and the Dark Revival (2.6 GB)- 50$</a></li>
   <li data-price="15">Better to Upload (241 MB)- 15$</li>
-  <li data-price="45"><a href="https://store.steampowered.com/app/509980/BIGFOOT/">BIGFOOT Build 9353363 (4.67 GB) (LAN)- 45$</a></li>
-  <li data-price="70"><a href="https://store.steampowered.com/app/362890/Black_Mesa/">Black Mesa Definitive Edition v7336708 (9.15 GB) (Cliente+Servidor) (LAN)- 70$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/774361/Blasphemous/">Blasphemous (656 MB)- 20$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/2114740/Blasphemous_2/">Blasphemous 2 Complete Sacrament Edition v2.0.0 - Mea Culpa DLC (1.77 GB)- 25$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/586140/BlazBlue_Centralfiction/">BlazBlue Centralfiction (16 GB) (LAN, Online vía Steam)- 50$</a></li>
+  <li data-price="15">Better to Upload 2 Souls (253 MB)- 15$<p class="juegosnuevos">(Nuevo)</p></li>
+  <li data-price="45"><a href="https://store.steampowered.com/app/509980/BIGFOOT/" target="_blank">BIGFOOT Build 9353363 (4.67 GB) (LAN)- 45$</a></li>
+  <li data-price="70"><a href="https://store.steampowered.com/app/362890/Black_Mesa/" target="_blank">Black Mesa Definitive Edition v7336708 (9.15 GB) (Cliente+Servidor) (LAN)- 70$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/774361/Blasphemous/" target="_blank">Blasphemous (656 MB)- 20$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/2114740/Blasphemous_2/" target="_blank">Blasphemous 2 Complete Sacrament Edition v2.0.0 - Mea Culpa DLC (1.77 GB)- 25$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/586140/BlazBlue_Centralfiction/" target="_blank">BlazBlue Centralfiction (16 GB) (LAN, Online vía Steam)- 50$</a></li>
   <li data-price="40">Blur (4.6 GB) (LAN)- 40$</li>
   <li data-price="15">BombSquad v1.5.28 (86.5 MB) (LAN)- 15$</li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/261640/Borderlands_The_PreSequel/">Borderlands - The Pre-Sequel - Remastered (8.12 GB) (LAN)- 50$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/8980/Borderlands_Game_of_the_Year/">Borderlands - GotY Edition (5.47 GB) (LAN)- 50$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/49520/Borderlands_2/">Borderlands 2 GOTY (6 GB) (LAN)- 50$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/943370/Bravery_and_Greed/">Bravery and Greed v1.03a (333 MB) (LAN)- 20$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/263720/Brawlout/">Brawlout (970 MB) (LAN)- 25$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/2422870/Bronzebeards_Tavern/">Bronzebeard's Tavern (800 MB) (LAN)- 20$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/1607680/Bread__Fred/">Bread and Fred (233 MB) (LAN, ¿Online vía Steam?)- 15$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/12200/Bully_Scholarship_Edition/">Bully Scholarship Edition con mods (3.66 GB)- 35$</a></li>
-  <li data-price="45"><a href="https://www.xbox.com/es-ES/games/store/call-of-juarez-the-cartel/BVW63H3J0JM9">Call of Juarez The Cartel (4.1 GB) (LAN)- 45$</a></li>
-  <li data-price="10"><a href="https://store.steampowered.com/app/204360/Castle_Crashers/">Castle Crashers (60 MB) (LAN)- 10$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/504230/Celeste/">Celeste (750 MB)- 20$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/1803410/Checkmate_Showdown/">Checkmate Showdown (1.24 GB) (LAN)- 25$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/1766740/ChooChoo_Charles/">Choo-Choo Charles (1.15 GB)- 25$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/1133760/CHRONO_CROSS_THE_RADICAL_DREAMERS_EDITION/">Chrono Cross The Radical Dreamers Edition (3.07 GB)- 25$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/711660/CHUCHEL/">Chuchel (646 MB)- 15$</a></li>
-  <li data-price="40"><a href="https://store.steampowered.com/app/487120/Citadel_Forged_With_Fire/">Citadel Forged With Fire - Revenge of Balarok (2.82 GB) (LAN)- 40$</a></li>
-  <li data-price="20">CLANNAD (3.21 GB)- 20$</li>
-  <li data-price="60"><a href="https://store.steampowered.com/app/678960/CODE_VEIN/">Code Vein Deluxe Edition (22.4 GB) (¿LAN?)- 60$</a></li>
-  <li data-price="15">Combat Wings - Battle of Britain (284 MB) (LAN)- 15$</li>
-  <li data-price="15">Conflict Desert Storm (451 MB) (LAN)- 15$</li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/261640/Borderlands_The_PreSequel/" target="_blank">Borderlands - The Pre-Sequel - Remastered (8.12 GB) (LAN)- 50$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/8980/Borderlands_Game_of_the_Year/" target="_blank">Borderlands - GotY Edition (5.47 GB) (LAN)- 50$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/49520/Borderlands_2/" target="_blank">Borderlands 2 GOTY (6 GB) (LAN)- 50$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/943370/Bravery_and_Greed/" target="_blank">Bravery and Greed v1.03a (333 MB) (LAN)- 20$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/263720/Brawlout/" target="_blank">Brawlout (970 MB) (LAN)- 25$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/2422870/Bronzebeards_Tavern/" target="_blank">Bronzebeard's Tavern (800 MB) (LAN)- 20$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/1607680/Bread__Fred/" target="_blank">Bread and Fred (233 MB) (LAN, ¿Online vía Steam?)- 15$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/12200/Bully_Scholarship_Edition/" target="_blank">Bully Scholarship Edition con mods (3.66 GB)- 35$</a></li>
+  <li data-price="45"><a href="https://www.xbox.com/es-ES/games/store/call-of-juarez-the-cartel/BVW63H3J0JM9" target="_blank">Call of Juarez The Cartel (4.1 GB) (LAN)- 45$</a></li>
+  <li data-price="10"><a href="https://store.steampowered.com/app/204360/Castle_Crashers/" target="_blank">Castle Crashers (60 MB) (LAN)- 10$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/504230/Celeste/" target="_blank">Celeste (750 MB)- 20$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/1803410/Checkmate_Showdown/" target="_blank">Checkmate Showdown (1.24 GB) (LAN)- 25$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/1766740/ChooChoo_Charles/" target="_blank">Choo-Choo Charles (1.15 GB)- 25$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/1133760/CHRONO_CROSS_THE_RADICAL_DREAMERS_EDITION/" target="_blank">Chrono Cross The Radical Dreamers Edition (3.07 GB)- 25$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/711660/CHUCHEL/" target="_blank">Chuchel (646 MB)- 15$</a></li>
+  <li data-price="40"><a href="https://store.steampowered.com/app/487120/Citadel_Forged_With_Fire/" target="_blank">Citadel Forged With Fire - Revenge of Balarok (2.82 GB) (LAN)- 40$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/324160/CLANNAD/" target="_blank">CLANNAD (3.21 GB)- 20$</a></li>
+  <li data-price="60"><a href="https://store.steampowered.com/app/678960/CODE_VEIN/" target="_blank">Code Vein Deluxe Edition (22.4 GB) (¿LAN?)- 60$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/34820/Combat_Wings_Battle_of_Britain/" target="_blank">Combat Wings - Battle of Britain (284 MB) (LAN)- 15$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/211780/Conflict_Desert_Storm/">Conflict Desert Storm (451 MB) (LAN)- 15$</a></li>
   <li data-price="20">Conflict Desert Storm II (983 MB)- 20$</li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/1924430/Cookie_Cutter/">Cookie Cutter (1.4 GB)- 30$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/238430/Contagion/">Contagion v2.2.0.4 (4.7 GB) (LAN)- 50$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/1621690/Core_Keeper/">Core Keeper Early Access (376 MB) (LAN)- 20$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/1218210/Coromon/">Coromon Deluxe Edition v1.1.2 (414 MB)- 20$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/10/CounterStrike/">Counter Strike v1.6 & Condition Zero con mods (726 MB) (LAN, Online)- 30$</a><p class="juegosactualizados">(Actualizado)</p></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/240/CounterStrike_Source/">Counter-Strike Source (1.20 GB) (LAN)- 30$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/">Counter-Strike Global Offensive (Unlocked) (10.3 GB) (LAN)- 50$</a></li>
-  <li data-price="30">Counter Strike Online (1.04 GB) (Cliente+Servidor) (LAN)- 30$<p class=juegosnuevos>(Nuevo)</p></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/1924430/Cookie_Cutter/" target="_blank">Cookie Cutter (1.4 GB)- 30$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/238430/Contagion/" target="_blank">Contagion v2.2.0.4 (4.7 GB) (LAN)- 50$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/1621690/Core_Keeper/" target="_blank">Core Keeper Early Access (376 MB) (LAN)- 20$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/1218210/Coromon/" target="_blank">Coromon Deluxe Edition v1.1.2 (414 MB)- 20$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/10/CounterStrike/" target="_blank">Counter Strike v1.6 & Condition Zero con mods (726 MB) (LAN, Online)- 30$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/240/CounterStrike_Source/" target="_blank">Counter-Strike Source (1.20 GB) (LAN)- 30$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/" target="_blank">Counter-Strike Global Offensive (Unlocked) (10.3 GB) (LAN)- 50$</a></li>
+  <li data-price="30">Counter Strike Online (1.04 GB) (Cliente+Servidor) (LAN)- 30$</li>
   <li data-price="60">Counter Strike Online 2 (6.47 GB) (Cliente+Servidor) (LAN)- 70$</li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/248390/Craft_The_World/">Craft The World (627 MB) (LAN)- 25$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/1307550/Craftopia/">Craftopia v20230705.1925 (8.55 GB) (¿LAN?)- 50$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/247080/Crypt_of_the_NecroDancer/">Crypt of the NecroDancer - Synchrony Expansion DLC v4.1.1.b5421 (2.42 GB) (LAN)- 25$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/203770/Crusader_Kings_II/">Crusader Kings II v3.3.5.1 (2.35 GB) (LAN)- 30$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/1313140/Cult_of_the_Lamb/">Cult of the Lamb Cultist Edition v1.2.6.183 (615 MB)- 25$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/268910/Cuphead/">Cuphead Deluxe Edition (4.6 GB)- 30$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/413410/Danganronpa_Trigger_Happy_Havoc/">Danganronpa THH (1.66 GB)- 20$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/211420/DARK_SOULS_Prepare_To_Die_Edition/">Dark Souls Prepare To Die Edition (3.5 GB) (LAN)- 35$</a></li>
-  <li data-price="45"><a href="https://store.steampowered.com/app/570940/DARK_SOULS_Remastered/">Dark Souls Remastered v1.04 LAN-PCMYMJuegos (6.8 GB)- 45$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/335300/DARK_SOULS_II_Scholar_of_the_First_Sin/">DARK SOULS II Scholar Of The First Sin v1.03 (5.98 GB)- 50$</a></li>
-  <li data-price="70"><a href="https://store.steampowered.com/app/374320/DARK_SOULS_III/">Dark Souls III The Ringed City v1.15 (15.7 GB) (Cliente+Servidor) (LAN)- 70$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/710920/Darksiders_Genesis/">Darksiders - Genesis (6.3 GB) (LAN)- 50$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/588650/Dead_Cells/">Dead Cells - Medley of Pain Bundle (1.76 GB)- 20$</a></li>
-  <li data-price="45"><a href="https://store.steampowered.com/app/383150/Dead_Island_Definitive_Edition/">Dead Island Game of The Year Edition (5.92 GB) (LAN)- 45$</a></li>
-  <li data-price="45"><a href="https://store.steampowered.com/app/383180/Dead_Island_Riptide_Definitive_Edition/">Dead Island Riptide Definitive Edition (6.5 GB) (LAN) - 45$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/311730/DEAD_OR_ALIVE_5_Last_Round/">Dead or Alive 5 - Last Round (4.34 GB) (LAN) - 50$</a></li>
-  <li data-price="60"><a href="https://store.steampowered.com/app/838380/DEAD_OR_ALIVE_6/">Dead or Alive 6 Deluxe Edition (19 GB) (¿LAN?, ¿Online vía Steam?) - 60$</a></li>
-  <li data-price="40"><a href="https://store.steampowered.com/app/231330/Deadfall_Adventures/">Deadfall Adventures Deluxe Edition (3.32 GB) (LAN) - 40$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/894020/Deaths_Door/">Death's Door (558 MB) - 25$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/548430/Deep_Rock_Galactic/">Deep Rock Galactic Season 4 - Critical Corruption (2.65 GB) (LAN) - 35$</a></li>
-  <li data-price="15">Delta Force 5 - Black Hawk Down (261 MB) (LAN) - 15$</li>
-  <li data-price="20">Diablo II Lord of Destruction v1.14d (1.94 GB) (LAN) - 20$</li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/395170/DISTRAINT_Deluxe_Edition/">DISTRAINT Deluxe Edition (132 MB) - 15$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/743390/DISTRAINT_2/">DISTRAINT 2 (218 MB) - 15$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/1422420/Dodgeball_Academia/">Dodgeball Academia (370 MB) - 15$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/322330/Dont_Starve_Together/">Dont Starve Together v570654 con mods (2.54 GB) (LAN) - 35$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/965230/DORAEMON__STORY_OF_SEASONS/">Doraemon Story Of Seasons Friends Of The Great Kingdom (1.62 GB) - 20$</a></li>
-  <li data-price="70"><a href="https://store.steampowered.com/app/570/DOTA_2/">DOTA 2 v7.30 con mods y mapas personalizados LAN-EMAKILLERGAMES (18 GB) - 70$</a></li>
-  <li data-price="45"><a href="https://store.steampowered.com/app/323470/DRAGON_BALL_XENOVERSE/">Dragon Ball Xenoverse (8.45 GB) (LAN) - 45$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/739650/Drake_Hollow/">Drake Hollow v1.3 (2.1 GB) (LAN) - 35$</a></li>
-  <li data-price="10">Dream Fallen (106 MB) - 10$</li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/312530/Duck_Game/">Duck Game (156 MB) (LAN) - 15$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/1101190/Dungeon_Defenders_Awakened/">Dungeon Defenders Awakened v2.1.0.32847 (3.1 GB) (Offline, Online vía Steam) - 50$</a></li>
-  <li data-price="45"><a href="https://store.steampowered.com/app/587520/Dungeons_of_Sundaria/">Dungeons of Sundaria (4.2 GB) (LAN, ¿Online vía Steam?) - 45$</a></li>
-  <li data-price="60"><a href="https://store.steampowered.com/app/239140/Dying_Light/">Dying Light Ultimate Edition v1.49.0 H7 (16.4 GB) (LAN, ¿Online vía Steam?) - 60$</a></li>
-  <li data-price="100"><a href="https://store.steampowered.com/app/534380/Dying_Light_2_Stay_Human/">Dying Light 2 Stay Human Ultimate Edition v1.14.0 (38.3 GB) (¿LAN?, ¿Online vía Steam?) - 100$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/415590/Earthfall/">Earthfall - Invasion (10.4 GB) (LAN) - 50$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/1836730/Echo_Point_Nova/">Echo Point Nova (2.6 GB) (¿LAN?) - 35$</a></li>
-  <li data-price="60"><a href="https://store.steampowered.com/app/383120/Empyrion_Galactic_Survival/">Empyrion Galactic Survival v1.10 (5.7 GB) (Cliente+Servidor) (¿LAN?) - 60$</a></li>
-  <li data-price="10">El Espantatiburones (535 MB) - 10$</li>
-  <li data-price="70"><a href="https://store.steampowered.com/app/1245620/ELDEN_RING/">Elden Ring Deluxe Edition v1.10.1 con mods (39.4 GB) (¿LAN?, ¿Online vía Steam?) - 70$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/1108590/Eldest_Souls/">Eldest Souls v1.1.23 (642 MB) - 15$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/1135230/Ember_Knights/">Ember Knights v1.2.0 (493 MB) (LAN, ¿Online vía Steam?) - 15$</a></li>
-  <li data-price="45"><a href="https://store.steampowered.com/app/256190/Enemy_Front/">Enemy Front (7 GB) (LAN) - 45$</a></li>
-  <li data-price="45"><a href="https://store.steampowered.com/app/1403650/Everdream_Valley/">Everdream Valley (4.45 GB) (¿LAN?)- 45$</a></li>
-  <li data-price="10"><a href="https://store.steampowered.com/app/233470/Evoland/">Evoland (72.1 MB) - 10$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/359310/Evoland_2/">Evoland 2 v1.0.9137 (318 MB) - 15$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/16450/FEAR_2_Project_Origin/">F.E.A.R. 2 Project Origin + Reborn (4.48 GB) (LAN) - 50$</a></li>
-  <li data-price="45"><a href="https://store.steampowered.com/app/21100/FEAR_3/">F.E.A.R. 3 (3.77 GB) (LAN) - 40$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/427520/Factorio/">Factorio v1.1.87 (1.4 GB) (LAN) - 20$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/2230110/Fae_Farm/">Fae Farm v2.0.0 - Coasts of Croakia DLC (1.84 GB) - 25$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/673950/Farm_Together/">Farm Together Fantasy Pack (716 MB) (LAN) - 25$</a></li>
-  <li data-price="10"><a href="https://store.steampowered.com/app/1173770/FINAL_FANTASY/">Final Fantasy 1 Pixel Remaster Series [2021] (467 MB) - 10$</a></li>
-  <li data-price="10"><a href="https://store.steampowered.com/app/1173780/FINAL_FANTASY_II/">Final Fantasy 2 Pixel Remaster Series [2021] (455 MB)- 10$</a></li>
-  <li data-price="10"><a href="https://store.steampowered.com/app/1173790/FINAL_FANTASY_III/">Final Fantasy 3 Pixel Remaster Series [2021] (560 MB)- 10$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/6220/FlatOut/">FlatOut Enhanced (740 MB) (LAN)- 25$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/2990/FlatOut_2/">FlatOut 2 Enhanced (1.24 GB) (LAN)- 30$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/2243580/Food_Fight_Culinary_Combat">Food Fight Culinary Combat (738 MB)- 30$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/362680/Fran_Bow/">Fran Bow (395 MB)- 25$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/248390/Craft_The_World/" target="_blank">Craft The World (627 MB) (LAN)- 25$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/1307550/Craftopia/" target="_blank">Craftopia v20230705.1925 (8.55 GB) (¿LAN?)- 50$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/247080/Crypt_of_the_NecroDancer/" target="_blank">Crypt of the NecroDancer - Synchrony Expansion DLC v4.1.1.b5421 (2.42 GB) (LAN)- 25$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/203770/Crusader_Kings_II/" target="_blank">Crusader Kings II v3.3.5.1 (2.35 GB) (LAN)- 30$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/1313140/Cult_of_the_Lamb/" target="_blank">Cult of the Lamb Cultist Edition v1.2.6.183 (615 MB)- 25$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/268910/Cuphead/" target="_blank">Cuphead Deluxe Edition (4.6 GB)- 30$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/413410/Danganronpa_Trigger_Happy_Havoc/" target="_blank">Danganronpa THH (1.66 GB)- 20$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/211420/DARK_SOULS_Prepare_To_Die_Edition/" target="_blank">Dark Souls Prepare To Die Edition (3.5 GB) (LAN)- 35$</a></li>
+  <li data-price="45"><a href="https://store.steampowered.com/app/570940/DARK_SOULS_Remastered/" target="_blank">Dark Souls Remastered v1.04 LAN-PCMYMJuegos (6.8 GB)- 45$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/335300/DARK_SOULS_II_Scholar_of_the_First_Sin/" target="_blank">DARK SOULS II Scholar Of The First Sin v1.03 (5.98 GB)- 50$</a></li>
+  <li data-price="70"><a href="https://store.steampowered.com/app/374320/DARK_SOULS_III/" target="_blank">Dark Souls III The Ringed City v1.15 (15.7 GB) (Cliente+Servidor) (LAN)- 70$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/710920/Darksiders_Genesis/" target="_blank">Darksiders - Genesis (6.3 GB) (LAN)- 50$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/588650/Dead_Cells/" target="_blank">Dead Cells - Medley of Pain Bundle (1.76 GB)- 20$</a></li>
+  <li data-price="45"><a href="https://store.steampowered.com/app/383150/Dead_Island_Definitive_Edition/" target="_blank">Dead Island Game of The Year Edition (5.92 GB) (LAN)- 45$</a></li>
+  <li data-price="45"><a href="https://store.steampowered.com/app/383180/Dead_Island_Riptide_Definitive_Edition/" target="_blank">Dead Island Riptide Definitive Edition (6.5 GB) (LAN)- 45$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/311730/DEAD_OR_ALIVE_5_Last_Round/" target="_blank">Dead or Alive 5 - Last Round (4.34 GB) (LAN)- 50$</a></li>
+  <li data-price="60"><a href="https://store.steampowered.com/app/838380/DEAD_OR_ALIVE_6/" target="_blank">Dead or Alive 6 Deluxe Edition (19 GB) (¿LAN?, ¿Online vía Steam?)- 60$</a></li>
+  <li data-price="40"><a href="https://store.steampowered.com/app/231330/Deadfall_Adventures/" target="_blank">Deadfall Adventures Deluxe Edition (3.32 GB) (LAN)- 40$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/894020/Deaths_Door/" target="_blank">Death's Door (558 MB)- 25$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/548430/Deep_Rock_Galactic/" target="_blank">Deep Rock Galactic Season 4 - Critical Corruption (2.65 GB) (LAN)- 35$</a></li>
+  <li data-price="15">Delta Force 5 - Black Hawk Down (261 MB) (LAN)- 15$</li>
+  <li data-price="20">Diablo II Lord of Destruction v1.14d (1.94 GB) (LAN)- 20$</li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/395170/DISTRAINT_Deluxe_Edition/" target="_blank">DISTRAINT Deluxe Edition (132 MB)- 15$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/743390/DISTRAINT_2/" target="_blank">DISTRAINT 2 (218 MB)- 15$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/1422420/Dodgeball_Academia/" target="_blank">Dodgeball Academia (370 MB)- 15$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/322330/Dont_Starve_Together/" target="_blank">Dont Starve Together v570654 con mods (2.54 GB) (LAN)- 35$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/965230/DORAEMON__STORY_OF_SEASONS/" target="_blank">Doraemon Story Of Seasons Friends Of The Great Kingdom (1.62 GB)- 20$</a></li>
+  <li data-price="70"><a href="https://store.steampowered.com/app/570/DOTA_2/" target="_blank">DOTA 2 v7.30 con mods y mapas personalizados LAN-EMAKILLERGAMES (18 GB) - 70$</a></li>
+  <li data-price="45"><a href="https://store.steampowered.com/app/323470/DRAGON_BALL_XENOVERSE/" target="_blank">Dragon Ball Xenoverse (8.45 GB) (LAN)- 45$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/1149440/Dragon_Marked_For_Death/ target="_blank">Dragon Marked For Death v5754119 (798 MB) (LAN)- 15$</a><p class="juegosnuevos">(Nuevo)</p></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/739650/Drake_Hollow/" target="_blank">Drake Hollow v1.3 (2.1 GB) (LAN)- 35$</a></li>
+  <li data-price="10">Dream Fallen (106 MB)- 10$</li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/312530/Duck_Game/" target="_blank">Duck Game (156 MB) (LAN)- 15$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/1101190/Dungeon_Defenders_Awakened/" target="_blank">Dungeon Defenders Awakened v2.1.0.32847 (3.1 GB) (Offline, Online vía Steam)- 50$</a></li>
+  <li data-price="45"><a href="https://store.steampowered.com/app/587520/Dungeons_of_Sundaria/" target="_blank">Dungeons of Sundaria (4.2 GB) (LAN, ¿Online vía Steam?)- 45$</a></li>
+  <li data-price="60"><a href="https://store.steampowered.com/app/239140/Dying_Light/" target="_blank">Dying Light Ultimate Edition v1.49.0 H7 (16.4 GB) (LAN, ¿Online vía Steam?)- 60$</a></li>
+  <li data-price="100"><a href="https://store.steampowered.com/app/534380/Dying_Light_2_Stay_Human/" target="_blank">Dying Light 2 Stay Human Ultimate Edition v1.14.0 (38.3 GB) (¿LAN?, ¿Online vía Steam?)- 100$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/415590/Earthfall/" target="_blank">Earthfall - Invasion (10.4 GB) (LAN)- 50$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/1836730/Echo_Point_Nova/" target="_blank">Echo Point Nova (2.6 GB) (¿LAN?)- 35$</a></li>
+  <li data-price="60"><a href="https://store.steampowered.com/app/383120/Empyrion_Galactic_Survival/" target="_blank">Empyrion Galactic Survival v1.10 (5.7 GB) (Cliente+Servidor) (¿LAN?)- 60$</a></li>
+  <li data-price="10">El Espantatiburones (535 MB)- 10$</li>
+  <li data-price="70"><a href="https://store.steampowered.com/app/1245620/ELDEN_RING/" target="_blank">Elden Ring Deluxe Edition v1.10.1 con mods (39.4 GB) (¿LAN?, ¿Online vía Steam?)- 70$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/1108590/Eldest_Souls/" target="_blank">Eldest Souls v1.1.23 (642 MB)- 15$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/1135230/Ember_Knights/" target="_blank">Ember Knights v1.2.0 (493 MB) (LAN, ¿Online vía Steam?)- 15$</a></li>
+  <li data-price="45"><a href="https://store.steampowered.com/app/256190/Enemy_Front/" target="_blank">Enemy Front (7 GB) (LAN)- 45$</a></li>
+  <li data-price="45"><a href="https://store.steampowered.com/app/1403650/Everdream_Valley/" target="_blank">Everdream Valley (4.45 GB) (¿LAN?)- 45$</a></li>
+  <li data-price="10"><a href="https://store.steampowered.com/app/233470/Evoland/" target="_blank">Evoland (72.1 MB)- 10$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/359310/Evoland_2/" target="_blank">Evoland 2 v1.0.9137 (318 MB)- 15$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/agecheck/app/13520/" target="_blank">Far Cry (4.33 GB) (Cliente+Servidor) (LAN)- 50$</a><p class="juegosnuevos">(Nuevo)</p></li>
+  <li data-price="50"><a href="https://store.steampowered.com/agecheck/app/19900/" target="_blank">Far Cry 2 (2.34 GB) (Cliente+Servidor) (LAN)- 50$</a><p class="juegosnuevos">(Nuevo)</p></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/427520/Factorio/" target="_blank">Factorio v1.1.87 (1.4 GB) (LAN)- 20$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/2230110/Fae_Farm/" target="_blank">Fae Farm v2.0.0 - Coasts of Croakia DLC (1.84 GB)- 25$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/673950/Farm_Together/" target="_blank">Farm Together Fantasy Pack (716 MB) (LAN)- 25$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/16450/FEAR_2_Project_Origin/" target="_blank">F.E.A.R. 2 Project Origin + Reborn (4.48 GB) (LAN)- 50$</a></li>
+  <li data-price="45"><a href="https://store.steampowered.com/app/21100/FEAR_3/" target="_blank">F.E.A.R. 3 (3.77 GB) (LAN)- 40$</a></li>
+  <li data-price="25">FIFA 2005 (998 MB) (LAN)- 25$<p class="juegosnuevos">(Nuevo)</p></li>
+  <li data-price="10"><a href="https://store.steampowered.com/app/1173770/FINAL_FANTASY/" target="_blank">Final Fantasy 1 Pixel Remaster Series [2021] (467 MB)- 10$</a></li>
+  <li data-price="10"><a href="https://store.steampowered.com/app/1173780/FINAL_FANTASY_II/" target="_blank">Final Fantasy 2 Pixel Remaster Series [2021] (455 MB)- 10$</a></li>
+  <li data-price="10"><a href="https://store.steampowered.com/app/1173790/FINAL_FANTASY_III/" target="_blank">Final Fantasy 3 Pixel Remaster Series [2021] (560 MB)- 10$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/6220/FlatOut/" target="_blank">FlatOut Enhanced (740 MB) (LAN)- 25$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/2990/FlatOut_2/" target="_blank">FlatOut 2 Enhanced (1.24 GB) (LAN)- 30$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/2243580/Food_Fight_Culinary_Combat" target="_blank">Food Fight Culinary Combat (738 MB)- 30$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/362680/Fran_Bow/" target="_blank">Fran Bow (395 MB)- 25$</a></li>
   <li data-price="15">Freedom Fighters (563 MB)- 15$</li>
-  <li data-price="45"><a href="https://store.steampowered.com/agecheck/app/438740/">Friday The 13th The Game (8.24 GB) (¿LAN?, ¿Online vía Steam?)- 45$</a><p class="juegosactualizados">(Actualizado)</p></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/416600/Full_Metal_Furies/">Full Metal Furies v1.1.0-23R LAN-PCMYMJuegos (395 MB)- 15$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/285900/Gang_Beasts/">Gang Beasts v1.18.204 (595 MB)- 20$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/2106670/Gatekeeper/">Gatekeeper v8.0.41 (1.65 GB) (LAN)- 35$</a></li>
-  <li data-price="10"><a href="https://store.steampowered.com/app/916730/Gato_Roboto/">Gato Roboto (268 MB)- 10$</a></li>
+  <li data-price="45"><a href="https://store.steampowered.com/agecheck/app/438740/" target="_blank">Friday The 13th The Game (8.24 GB) (¿LAN?, ¿Online vía Steam?)- 45$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/416600/Full_Metal_Furies/" target="_blank">Full Metal Furies v1.1.0-23R LAN-PCMYMJuegos (395 MB)- 15$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/285900/Gang_Beasts/" target="_blank">Gang Beasts v1.21.1 (921 MB) (¿LAN?, ¿Online vía Steam?)- 25$</a><p class=juegosactualizados>(Actualizado)</p></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/2106670/Gatekeeper/" target="_blank">Gatekeeper v8.0.41 (1.65 GB) (LAN)- 35$</a></li>
+  <li data-price="10"><a href="https://store.steampowered.com/app/916730/Gato_Roboto/" target="_blank">Gato Roboto (268 MB)- 10$</a></li>
   <li data-price="50">Gears of War v1.3 LAN-PCMYMJuegos (8 GB)- 50$</li>
-  <li data-price="70"><a href="https://store.steampowered.com/app/704270/Generation_Zero/">Generation Zero (11.5 GB) (LAN)- 70$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/322170/Geometry_Dash/">Geometry Dash v2.2 (260 MB)- 15$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/850190/Goat_Simulator_3/">Goat Simulator 3 v1.0.3.1 (2.73 GB) (¿LAN-Online?)- 35$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/438490/GOD_EATER_2_Rage_Burst/">God Eater 2 - Rage Burst (5.64 GB) (Offline, Online vía Steam)- 50$</a></li>
-  <li data-price="60"><a href="https://store.steampowered.com/app/899440/GOD_EATER_3/">God Eater 3 v2.50 (17 GB) (LAN, ¿Online vía Steam?)- 60$</a></li>
-  <li data-price="45"><a href="https://store.steampowered.com/app/815370/Green_Hell/">Green Hell v2.6.2 (5.21 GB) (LAN, Online vía Steam)- 45$</a></li>
-  <li data-price="45"><a href="https://store.steampowered.com/app/219990/Grim_Dawn/">Grim Dawn v1.2.0.2 H2 (6.95 GB) (LAN)- 45$</a></li>
+  <li data-price="70"><a href="https://store.steampowered.com/app/704270/Generation_Zero/" target="_blank">Generation Zero (11.5 GB) (LAN)- 70$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/322170/Geometry_Dash/" target="_blank">Geometry Dash v2.2 (260 MB)- 15$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/850190/Goat_Simulator_3/" target="_blank">Goat Simulator 3 v1.0.3.1 (2.73 GB) (¿LAN-Online?)- 35$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/438490/GOD_EATER_2_Rage_Burst/" target="_blank">God Eater 2 - Rage Burst (5.64 GB) (Offline, Online vía Steam)- 50$</a></li>
+  <li data-price="60"><a href="https://store.steampowered.com/app/899440/GOD_EATER_3/" target="_blank">God Eater 3 v2.50 (17 GB) (LAN, ¿Online vía Steam?)- 60$</a></li>
+  <li data-price="45"><a href="https://store.steampowered.com/app/815370/Green_Hell/" target="_blank">Green Hell v2.6.2 (5.21 GB) (LAN, Online vía Steam)- 45$</a></li>
+  <li data-price="45"><a href="https://store.steampowered.com/app/219990/Grim_Dawn/" target="_blank">Grim Dawn v1.2.0.2 H2 (6.95 GB) (LAN)- 45$</a></li>
   <li data-price="70">GTA San Andreas Multiplayer + Multi Theft Auto (3.5 GB) (Cliente+Servidores) (LAN, Online)- 70$</li>
   <li data-price="35">GTA Vice City (495 MB) (Cliente+Servidores) (LAN, Online)- 35$</li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/2514460/GUARDS/">GUARDS! (645 MB) (LAN)- 25$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/267900/Guilty_Gear_Isuka/">GUILTY GEAR ISUKA (421 MB)- 15$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/314030/Guilty_Gear_X2_Reload/">Guilty Gear XX #Reload (634 MB)- 15$</a></li>
-  <li data-price="40"><a href="https://store.steampowered.com/app/520440/GUILTY_GEAR_Xrd_REVELATOR/">GUILTY GEAR Xrd -REVELATOR- (5.03 GB) (LAN)- 40$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/348550/GUILTY_GEAR_XX_ACCENT_CORE_PLUS_R/">Guilty Gear XX Accent Core Plus R (1.6 GB)- 20$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/1217060/Gunfire_Reborn/">Gunfire Reborn - Artisan and Magician DLC (2.2 GB) (LAN, Online vía Steam)- 30$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/70/HalfLife_Complete/">Half-Life Complete Pack + Decay Expansion (646 MB) (LAN)- 30$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/2514460/GUARDS/" target="_blank">GUARDS! (645 MB) (LAN)- 25$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/267900/Guilty_Gear_Isuka/" target="_blank">GUILTY GEAR ISUKA (421 MB)- 15$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/314030/Guilty_Gear_X2_Reload/" target="_blank">Guilty Gear XX #Reload (634 MB)- 15$</a></li>
+  <li data-price="40"><a href="https://store.steampowered.com/app/520440/GUILTY_GEAR_Xrd_REVELATOR/" target="_blank">GUILTY GEAR Xrd -REVELATOR- (5.03 GB) (LAN)- 40$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/348550/GUILTY_GEAR_XX_ACCENT_CORE_PLUS_R/" target="_blank">Guilty Gear XX Accent Core Plus R (1.6 GB)- 20$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/1217060/Gunfire_Reborn/" target="_blank">Gunfire Reborn - Artisan and Magician DLC (2.2 GB) (LAN, Online vía Steam)- 30$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/70/HalfLife_Complete/" target="_blank">Half-Life Complete Pack + Decay Expansion (646 MB) (LAN)- 30$</a></li>
   <li data-price="20">Halo Combat Evolved (551 MB) (LAN)- 20$</li>
   <li data-price="30">Halo Combat Evolved Multiplayer con todos los mapas (576 MB) (LAN)- 30$</li>
   <li data-price="35">Halo Online ElDewrito v0.4.11.2 (2.58 GB) (LAN)- 35$</li>
   <li data-price="25">Halo Online ElDewrito v0.6.1.0 (1.88 GB) (LAN)- 25$</li>
   <li data-price="5">Halo Zero (20.6 MB) (LAN)- 5$</li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/1905530/Hammerwatch_Anniversary_Edition/">Hammerwatch Anniversary Edition (331 MB) (LAN, ¿Online vía Steam?)- 15$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/1538970/Hammerwatch_II/">Hammerwatch II (520 MB) (LAN, ¿Online vía Steam?)- 15$</a></li>
-  <li data-price="10"><a href="https://store.steampowered.com/app/567380/Heartbound/">Heartbound Early Access v1.0.9.62 (292 MB)- 10$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/521890/Hello_Neighbor/">Hello Neighbor (2.1 GB)- 25$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/960420/Hello_Neighbor_Hide_and_Seek/">Hello Neighbor - Hide and Seek (1.4 GB)- 25$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/1321680/Hello_Neighbor_2/">Hello Neighbor 2 v1.2.4.6 (4.68 GB)- 30$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/1856190/Hello_Engineer_Scrap_Machines_Constructor/">Hello Engineer - Scrap Machines Constructor (3.03 GB)- 30$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/824000/Hokko_Life/">Hokko Life (561 MB)- 20$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/1905530/Hammerwatch_Anniversary_Edition/" target="_blank">Hammerwatch Anniversary Edition (331 MB) (LAN, ¿Online vía Steam?)- 15$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/1538970/Hammerwatch_II/" target="_blank">Hammerwatch II (520 MB) (LAN, ¿Online vía Steam?)- 15$</a></li>
+  <li data-price="10"><a href="https://store.steampowered.com/app/567380/Heartbound/" target="_blank">Heartbound Early Access v1.0.9.62 (292 MB)- 10$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/521890/Hello_Neighbor/" target="_blank">Hello Neighbor (2.1 GB)- 25$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/960420/Hello_Neighbor_Hide_and_Seek/" target="_blank">Hello Neighbor - Hide and Seek (1.4 GB)- 25$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/1321680/Hello_Neighbor_2/" target="_blank">Hello Neighbor 2 v1.2.4.6 (4.68 GB)- 30$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/1856190/Hello_Engineer_Scrap_Machines_Constructor/" target="_blank">Hello Engineer - Scrap Machines Constructor (3.03 GB)- 30$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/619820/Heroes_of_Hammerwatch_II" target="_blank">Heroes of Hammerwatch I-II (506 MB) (LAN)- 20$</a><p class="juegosnuevos">(Nuevo)</p></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/824000/Hokko_Life/" target="_blank">Hokko Life (561 MB)- 20$</a></li>
   <li data-price="35"><a href="https://store.steampowered.com/app/367520/Hollow_Knight/">Hollow Knight HKMP (CIRO Repack) (1.4 GB) (Cliente+Servidor) (LAN)- 35$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/367520/Hollow_Knight_Voidheart_Edition/">Hollow Knight - Voidheart Edition EMAKILLER Repack (3.3 GB) (LAN)- 50$</a></li>
-  <li data-price="40"><a href="https://store.steampowered.com/app/477160/Human_Fall_Flat/">Human Fall Flat - Museum v1090192 (1.51 GB) (LAN)- 40$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/367520/Hollow_Knight_Voidheart_Edition/" target="_blank">Hollow Knight - Voidheart Edition EMAKILLER Repack (3.3 GB) (LAN)- 50$</a></li>
+  <li data-price="40"><a href="https://store.steampowered.com/app/477160/Human_Fall_Flat/" target="_blank">Human Fall Flat - Museum v1090192 (1.51 GB) (LAN)- 40$</a></li>
   <li data-price="5">Human Resource Machine (70.7 MB)- 5$</li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/523660/HYPERCHARGE_Unboxed/">HYPERCHARGE Unboxed (6.2 GB) (LAN)- 50$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/274980/Influent/">Influent (450 MB)- 15$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/938560/INMOST/">INMOST (565 MB)- 15$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/1369720/Innchanted/">Innchanted (681 MB)- 15$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/2009450/Invector_Rhythm_Galaxy/">Invector Rhythm Galaxy (1.92 GB)- 25$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/523660/HYPERCHARGE_Unboxed/" target="_blank">HYPERCHARGE Unboxed (6.2 GB) (LAN)- 50$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/274980/Influent/" target="_blank">Influent (450 MB)- 15$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/938560/INMOST/" target="_blank">INMOST (565 MB)- 15$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/1369720/Innchanted/" target="_blank">Innchanted (681 MB)- 15$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/2009450/Invector_Rhythm_Galaxy/" target="_blank">Invector Rhythm Galaxy (1.92 GB)- 25$</a></li>
   <li data-price="20">James Bond 007 Nightfire (1.03 GB) (LAN)- 20$</li>
-  <li data-price="40"><a href="https://store.steampowered.com/app/1432910/Jojos_Bizarre_Adventure_AllStar_Battle_R/">JoJo's Bizarre Adventure All-Star Battle R v2.3.0 - Wonder of U DLC con mods (5.06 GB) (LAN, Online vía Steam)- 40$</a></li>
+  <li data-price="40"><a href="https://store.steampowered.com/app/1432910/Jojos_Bizarre_Adventure_AllStar_Battle_R/" target="_blank">JoJo's Bizarre Adventure All-Star Battle R v2.3.0 - Wonder of U DLC con mods (5.06 GB) (LAN, Online vía Steam)- 40$</a></li>
   <li data-price="30">JoJo's Bizarre Adventure Requiem (3.2 GB) (LAN)- 30$</li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/896950/JUMANJI_The_Video_Game/">JUMANJI The Video Game (2.14 GB) (LAN)- 30$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/1877020/Jujutsu_Kaisen_Cursed_Clash/">Jujutsu Kaisen Cursed Clash Ultimate Edition v1.4.0 - Shibuya Incident DLC (13.6 GB) (LAN, ¿Online vía Steam?)- 50$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/979070/Just_Die_Already/">Just Die Already v1.4.2 (1.36 GB)- 25$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/1233800/Kandagawa_Jet_Girls/">Kandagawa Jet Girls (7.82 GB) (LAN-Online)- 50$</a></li>
-  <li data-price="40"><a href="https://store.steampowered.com/app/28000/Kane_and_Lynch_2_Dog_Days/">Kane and Lynch 2 - Dog Days (3.13 GB) (LAN)- 40$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/3068300/Katawa_Shoujo/">Katawa Shoujo (430 MB)- 15$</a></li>
-  <li data-price="10"><a href="https://store.steampowered.com/app/341800/Keep_Talking_and_Nobody_Explodes/">Keep Talking and Nobody Explodes v1.9.16 (216 MB)- 10$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/922500/KILL_la_KILL_IF/">KILL la KILL IF v1.05 (4.3 GB) (¿LAN?, ¿Online vía Steam?)- 50$</a></li>
-  <li data-price="40"><a href="https://store.steampowered.com/app/1250/Killing_Floor/">Killing Floor con mods (3.23 GB) (LAN)- 40$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/896950/JUMANJI_The_Video_Game/" target="_blank">JUMANJI The Video Game (2.14 GB) (LAN)- 30$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/1877020/Jujutsu_Kaisen_Cursed_Clash/" target="_blank">Jujutsu Kaisen Cursed Clash Ultimate Edition v1.4.0 - Shibuya Incident DLC (13.6 GB) (LAN, ¿Online vía Steam?)- 50$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/979070/Just_Die_Already/" target="_blank">Just Die Already v1.4.2 (1.36 GB)- 25$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/1233800/Kandagawa_Jet_Girls/" target="_blank">Kandagawa Jet Girls (7.82 GB) (LAN-Online)- 50$</a></li>
+  <li data-price="40"><a href="https://store.steampowered.com/app/28000/Kane_and_Lynch_2_Dog_Days/" target="_blank">Kane and Lynch 2 - Dog Days (3.13 GB) (LAN)- 40$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/3068300/Katawa_Shoujo/" target="_blank">Katawa Shoujo (430 MB)- 15$</a></li>
+  <li data-price="10"><a href="https://store.steampowered.com/app/341800/Keep_Talking_and_Nobody_Explodes/" target="_blank">Keep Talking and Nobody Explodes v1.9.16 (216 MB)- 10$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/922500/KILL_la_KILL_IF/" target="_blank">KILL la KILL IF v1.05 (4.3 GB) (¿LAN?, ¿Online vía Steam?)- 50$</a></li>
+  <li data-price="40"><a href="https://store.steampowered.com/app/1250/Killing_Floor/" target="_blank">Killing Floor con mods (3.23 GB) (LAN)- 40$</a></li>
   <li data-price="10">Kindergarten (30 MB)- 10$</li>
   <li data-price="10">Kindergarten 2 (55 MB)- 10$</li>
-  <li data-price="10"><a href="https://store.steampowered.com/app/837350/King_of_the_Hat/">King of the Hat (126 MB)- 10$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/701160/Kingdom_Two_Crowns/">Kingdom Two Crowns (506 MB) (LAN)- 15$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/1356280/Kitaria_Fables/">Kitaria Fables (511 MB)- 15$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/35130/Lara_Croft_and_the_Guardian_of_Light/">Lara Croft And The Guardian of Light (2.38 GB) (LAN)- 30$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/289690/Lara_Croft_and_the_Temple_of_Osiris/">Lara Croft and the Temple of Osiris (2.52 GB) (LAN)- 30$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/500/Left_4_Dead/">Left 4 Dead v1.0.4.5 (4.03 GB) (LAN, Online)- 45$</a><p class=juegosactualizados>(Actualizado)</p></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/550/Left_4_Dead_2/">Left 4 Dead 2 v2.2.2.7 (7.2 GB) (LAN)- 50$</a><p class=juegosactualizados>(Actualizado)</p></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/332310/LEGO_Worlds/">LEGO Worlds Classic Space Pack (2.75 GB) (LAN)- 30$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/1966720/Lethal_Company/">Lethal Company v47 - The Challenge Moons (350 MB) (LAN, Online vía Steam)- 20$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/553310/Lethal_League_Blaze/">Lethal League Blaze (515 MB) (LAN)- 25$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/48000/Limbo/">Limbo (160 MB)- 15$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/714120/Little_Misfortune/">Little Misfortune (1.82 GB)- 30$</a></li>
-  <li data-price="45"><a href="https://store.steampowered.com/app/424840/Little_Nightmares/">Little Nightmares I (2.07 GB)- 45$</a></li>
-  <li data-price="45"><a href="https://store.steampowered.com/app/860510/Little_Nightmares_II/">Little Nightmares II (2.76 GB)- 45$</a></li>
+  <li data-price="10"><a href="https://store.steampowered.com/app/837350/King_of_the_Hat/" target="_blank">King of the Hat (126 MB)- 10$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/701160/Kingdom_Two_Crowns/" target="_blank">Kingdom Two Crowns (506 MB) (LAN)- 15$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/1356280/Kitaria_Fables/" target="_blank">Kitaria Fables (511 MB)- 15$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/35130/Lara_Croft_and_the_Guardian_of_Light/" target="_blank">Lara Croft And The Guardian of Light (2.38 GB) (LAN)- 30$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/289690/Lara_Croft_and_the_Temple_of_Osiris/" target="_blank">Lara Croft and the Temple of Osiris (2.52 GB) (LAN)- 30$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/500/Left_4_Dead/" target="_blank">Left 4 Dead v1.0.4.5 (4.03 GB) (LAN, Online)- 45$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/550/Left_4_Dead_2/" target="_blank">Left 4 Dead 2 v2.2.2.7 (7.2 GB) (LAN)- 50$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/332310/LEGO_Worlds/" target="_blank">LEGO Worlds Classic Space Pack (2.75 GB) (LAN)- 30$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/1966720/Lethal_Company/" target="_blank">Lethal Company v69 (436 MB) (LAN, Online vía Steam)- 20$</a><p class=juegosactualizados>(Actualizado)</p></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/553310/Lethal_League_Blaze/" target="_blank">Lethal League Blaze (515 MB) (LAN)- 25$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/48000/Limbo/" target="_blank">Limbo (160 MB)- 15$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/714120/Little_Misfortune/" target="_blank">Little Misfortune (1.82 GB)- 30$</a></li>
+  <li data-price="45"><a href="https://store.steampowered.com/app/424840/Little_Nightmares/" target="_blank">Little Nightmares I (2.07 GB)- 45$</a></li>
+  <li data-price="45"><a href="https://store.steampowered.com/app/860510/Little_Nightmares_II/" target="_blank">Little Nightmares II (2.76 GB)- 45$</a></li>
   <li data-price="40">Lord of the Rings War in the North (4.17 GB) (LAN, ¿Online vía Steam?)- 40$</li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/434650/Lost_Castle/">Lost Castle (332 MB) (LAN-Online)- 15$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/2445690/Lost_Castle_2/">Lost Castle 2 v0.4.2.10 (666 MB) (LAN-Online, Online)- 20$</a></li>
-  <li data-price="45"><a href="https://store.steampowered.com/app/6510/Lost_Planet_Extreme_Condition/">Lost Planet Extreme Condition - Colonies Edition (3.17 GB) (LAN)- 45$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/45750/Lost_Planet_2/">Lost Planet 2 (5.6 GB) (LAN)- 50$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/2408820/Luma_Island"> Luma Island (1.52 GB) (¿LAN?, ¿Online vía Steam?)- 35$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/1571440/Lunch_Lady/">Lunch Lady (4.38 GB) (LAN)- 35$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/40700/Machinarium/">Machinarium (340 MB)- 15$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/1282760/Mad_Streets/">Mad Streets (658 MB) (Offline, ¿Online vía Steam?)- 25$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/292480/Magical_Battle_Festa/">Magical Battle Festa (330 MB) (LAN)- 15$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/434650/Lost_Castle/" target="_blank">Lost Castle (332 MB) (LAN-Online)- 15$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/2445690/Lost_Castle_2/" target="_blank">Lost Castle 2 v0.4.2.10 (666 MB) (LAN-Online, Online)- 20$</a></li>
+  <li data-price="45"><a href="https://store.steampowered.com/app/6510/Lost_Planet_Extreme_Condition/" target="_blank">Lost Planet Extreme Condition - Colonies Edition (3.17 GB) (LAN)- 45$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/45750/Lost_Planet_2/" target="_blank">Lost Planet 2 (5.6 GB) (LAN)- 50$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/2408820/Luma_Island" target="_blank">Luma Island (1.52 GB) (¿LAN?, ¿Online vía Steam?)- 35$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/1571440/Lunch_Lady/" target="_blank">Lunch Lady (4.38 GB) (LAN)- 35$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/40700/Machinarium/" target="_blank">Machinarium (340 MB)- 15$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/1282760/Mad_Streets/" target="_blank">Mad Streets (658 MB) (Offline, ¿Online vía Steam?)- 25$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/292480/Magical_Battle_Festa/" target="_blank">Magical Battle Festa (330 MB) (LAN)- 15$</a></li>
   <li data-price="30">Medal of Honor Spearhead & Allied Assault (1.18 GB) (Cliente+Servidor) (LAN)- 30$</li>
   <li data-price="25">Mega-Man X Online Deathmatch V19.12 con mods-EMAKILLERGAMES (256 MB) (Cliente+Servidor) (LAN)- 25$</li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/1372280/MELTY_BLOOD_TYPE_LUMINA/">MELTY BLOOD TYPE LUMINA v1.41 (4.85 GB) (LAN)- 50$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/2572560/Messy_Up/">Messy UP (1.2 GB) (LAN)- 20$</a><p class=juegosnuevos>(Nuevo)</p></li>
-  <li data-price="10"><a href="https://store.steampowered.com/app/250180/METAL_SLUG_3/">Metal Slug 3 (60.3 MB) (LAN)- 10$</a></li>
-  <li data-price="30"><a href="https://www.minecraft.net/es-es">Minecraft v1.12.2 con mods y shaders (542 MB) (LAN)- 30$</a></li>
-  <li data-price="25"><a href="https://www.minecraft.net/es-es">Minecraft v1.19.1+v1.12.2 (1.07 GB) (LAN)- 25$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/1672970/Minecraft_Dungeons/">Minecraft Dungeons (1.8 GB)- 30$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/1372280/MELTY_BLOOD_TYPE_LUMINA/" target="_blank">MELTY BLOOD TYPE LUMINA v1.41 (4.85 GB) (LAN)- 50$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/2572560/Messy_Up/" target="_blank">Messy UP (1.2 GB) (LAN)- 20$</a></li>
+  <li data-price="10"><a href="https://store.steampowered.com/app/250180/METAL_SLUG_3/" target="_blank">Metal Slug 3 (60.3 MB) (LAN)- 10$</a></li>
+  <li data-price="30"><a href="https://www.minecraft.net/es-es" target="_blank">Minecraft v1.12.2 con mods y shaders (542 MB) (LAN)- 30$</a></li>
+  <li data-price="25"><a href="https://www.minecraft.net/es-es" target="_blank">Minecraft v1.19.1+v1.12.2 (1.07 GB) (LAN)- 25$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/1672970/Minecraft_Dungeons/" target="_blank">Minecraft Dungeons (1.8 GB)- 30$</a></li>
   <li data-price="30">Monster Hunter Frontier Z (5 GB) (Online)- 40$</li>
-  <li data-price="40"><a href="https://store.steampowered.com/app/1446780/MONSTER_HUNTER_RISE/">Monster Hunter Rise Sunbreak Deluxe Edition v16.0.2.0 (30.7 GB) (¿LAN?, ¿Online vía Steam?)- 60$</a></li>
-  <li data-price="45"><a href="https://store.steampowered.com/app/2356560/Monster_Hunter_Stories/">Monster Hunter Stories v1.1.0 (7.63 GB)- 45$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/1277400/MONSTER_HUNTER_Stories_2_Wings_of_Ruin/">Monster Hunter Stories 2 Wings of Ruin (11.5 GB) (LAN, Online vía Steam)- 50$</a></li>
-  <li data-price="120"><a href="https://store.steampowered.com/app/582010/MONSTER_HUNTER_WORLD_Iceborne/">Monster Hunter World Icerbone v15.11.01 con mods (79.8 GB) (LAN, Online vía Steam)- 120$</a></li>
+  <li data-price="40"><a href="https://store.steampowered.com/app/1446780/MONSTER_HUNTER_RISE/" target="_blank">Monster Hunter Rise Sunbreak Deluxe Edition v16.0.2.0 (30.7 GB) (¿LAN?, ¿Online vía Steam?)- 60$</a></li>
+  <li data-price="45"><a href="https://store.steampowered.com/app/2356560/Monster_Hunter_Stories/" target="_blank">Monster Hunter Stories v1.1.0 (4.47 GB)- 45$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/1277400/MONSTER_HUNTER_Stories_2_Wings_of_Ruin/" target="_blank">Monster Hunter Stories 2 Wings of Ruin (11.5 GB) (LAN, Online vía Steam)- 50$</a></li>
+  <li data-price="120"><a href="https://store.steampowered.com/app/582010/MONSTER_HUNTER_WORLD_Iceborne/" target="_blank">Monster Hunter World Icerbone v15.11.01 con mods (79.8 GB) (LAN, Online vía Steam)- 120$</a></li>
   <li data-price="10">Mortal Kombat Trilogy PC Port + Reshade & Kommunity Patch (328 MB)- 10$</li>
   <li data-price="10">Mortal Kombat 4 (395 MB)- 10$</li>
   <li data-price="25">Mortal Kombat IMKO Edition 4.2 BETA (2.06 GB)- 25$</li>
-  <li data-price="50"><a href="https://store.steampowered.com/agecheck/app/237110/">Mortal Kombat Komplete Edition con mods (9.03 GB) (LAN)- 50$</a></li>
-  <li data-price="60"><a href="https://store.steampowered.com/app/307780/Mortal_Kombat_X/">Mortal Kombat XL (29.3 GB) (LAN)- 60$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/agecheck/app/237110/" target="_blank">Mortal Kombat Komplete Edition con mods (9.03 GB) (LAN)- 50$</a></li>
+  <li data-price="60"><a href="https://store.steampowered.com/app/307780/Mortal_Kombat_X/" target="_blank">Mortal Kombat XL (29.3 GB) (LAN)- 60$</a></li>
   <li data-price="15">Moto GP-3 (540 MB) (LAN)- 15$</li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/323850/Move_or_Die/">Move or Die v16.0.5 (487 MB) (LAN)- 15$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/996770/Moving_Out/">Moving Out (531 MB)- 15$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/1641700/Moving_Out_2/">Moving Out 2 (622 MB)- 15$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/2668760/MULTIPLAYER_OBBY/">MULTIPLAYER OBBY (323 MB) (LAN)- 15$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/638070/Murderous_Pursuits/">Murderous Pursuits (1.47 GB) (LAN)- 35$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/774171/Muse_Dash/">Muse Dash - Just as Planned (1.86 GB)- 25$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/323850/Move_or_Die/" target="_blank">Move or Die v16.0.5 (487 MB) (LAN)- 15$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/996770/Moving_Out/" target="_blank">Moving Out (531 MB)- 15$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/1641700/Moving_Out_2/" target="_blank">Moving Out 2 (622 MB)- 15$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/2668760/MULTIPLAYER_OBBY/" target="_blank">MULTIPLAYER OBBY (323 MB) (LAN)- 15$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/638070/Murderous_Pursuits/" target="_blank">Murderous Pursuits (1.47 GB) (LAN)- 35$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/774171/Muse_Dash/" target="_blank">Muse Dash - Just as Planned (1.86 GB)- 25$</a></li>
   <li data-price="25">MVP Cuba 2011 (1.18 GB) (LAN)- 25$</li>
   <li data-price="25">MVP 2013 (1.33 GB) (LAN)- 25$</li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/748360/MY_HERO_ONES_JUSTICE/">My Hero One's Justice (1.57 GB) (LAN)- 50$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/1058450/MY_HERO_ONES_JUSTICE_2/">My Hero One's Justice 2 Build 10289159 - Vigilante Dark Deku Arc DLC (10.3 GB) (LAN, Online vía Steam)- 50$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/1722760/My_Singing_Monsters_Playground/">My Singing Monsters Playground (471 MB)- 15$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/748360/MY_HERO_ONES_JUSTICE/" target="_blank">My Hero One's Justice (1.57 GB) (LAN)- 50$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/1058450/MY_HERO_ONES_JUSTICE_2/" target="_blank">My Hero One's Justice 2 Build 10289159 - Vigilante Dark Deku Arc DLC (10.3 GB) (LAN, Online vía Steam)- 50$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/1722760/My_Singing_Monsters_Playground/" target="_blank">My Singing Monsters Playground (471 MB)- 15$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/1169040/Necesse/" target="_blank">Necesse v0.30.0 (306 MB) (Cliente+Servidor) (LAN)- 25$</a><p class="juegosnuevos">(Nuevo)</p></li>
   <li data-price="20">Need for Drive (138 MB) (Offline, ¿Online?)- 20$</li>
-  <li data-price="40"><a href="https://store.steampowered.com/app/1414850/Nickelodeon_AllStar_Brawl/">Nickelodeon All-Star Brawl (4.13 GB) (Offline, Online vía Steam)- 40$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/2017080/Nickelodeon_AllStar_Brawl_2/">Nickelodeon All Star Brawl 2 v1.12.0 (3.25 GB) (Offline, Online vía Steam)- 50$</a></li>
-  <li data-price="90"><a href="https://store.steampowered.com/app/485510/Nioh_Complete_Edition/">Nioh - Complete Edition (21 GB) (¿LAN?)- 90$</a></li>
-  <li data-price="90"><a href="https://store.steampowered.com/app/1325200/Nioh_2__The_Complete_Edition/">Nioh 2 - The Complete Edition (29 GB) (¿LAN?, ¿Online vía Steam?)- 90$</a></li>
-  <li data-price="60"><a href="https://store.steampowered.com/app/794260/Outward_Definitive_Edition/">Outward Definitive Edition (7.46 GB) (LAN-Online, Online vía Steam)- 60$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/448510/Overcooked/">Overcooked! All You Can Eat (3.9 GB)- 30$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/728880/Overcooked_2/">Overcooked 2 - Too Many Cooks Pack (6.02 GB) (LAN)- 35$</a></li>
-  <li data-price="60"><a href="https://www.xbox.com/es-AR/games/store/overkills-the-walking-dead/c56lrst8l7sn">OVERKILL's The Walking Dead v1.3.2 (18 GB) (LAN, ¿Online vía Steam?)- 60$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/967050/Pacify/">Pacify The Woods Build 8189285 (3.8 GB) (LAN)- 35$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/337320/Paint_the_Town_Red/">Paint the Town Red (2 GB) (LAN)- 30$</a></li>
-  <li data-price="10"><a href="https://store.steampowered.com/app/239030/Papers_Please/">Papers Please (35 MB)- 10$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/453090/Parkitect/">Parkitect v1.8 (664 MB) (LAN)- 20$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/356570/Party_Hard/">Party Hard (207 MB)- 15$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/572430/Party_Hard_2/">Party Hard 2 (1.65 GB)- 25$</a></li>
-  <li data-price="120"><a href="https://store.steampowered.com/app/506500/Party_Panic/">Party Panic v1.6.0 (404 MB) (Offline, Online vía Steam)- 25$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/218620/PAYDAY_2/">Payday 2 GOTY Hostile Takeover Heist v1.137.180 Update 235 con mods LAN-EMAKILLERGAMES (23.4 GB)- 120$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/1048100/Peekaboo/">Peekaboo (363 MB) (LAN)- 20$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/1411020/Perennial_Order/">Perennial Order (1.9 GB)- 35$</a></li>
+  <li data-price="40"><a href="https://store.steampowered.com/app/1414850/Nickelodeon_AllStar_Brawl/" target="_blank">Nickelodeon All-Star Brawl (4.13 GB) (Offline, Online vía Steam)- 40$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/2017080/Nickelodeon_AllStar_Brawl_2/" target="_blank">Nickelodeon All Star Brawl 2 v1.12.0 (3.25 GB) (Offline, Online vía Steam)- 50$</a></li>
+  <li data-price="90"><a href="https://store.steampowered.com/app/485510/Nioh_Complete_Edition/" target="_blank">Nioh - Complete Edition (21 GB) (¿LAN?)- 90$</a></li>
+  <li data-price="90"><a href="https://store.steampowered.com/app/1325200/Nioh_2__The_Complete_Edition/" target="_blank">Nioh 2 - The Complete Edition (29 GB) (¿LAN?, ¿Online vía Steam?)- 90$</a></li>
+  <li data-price="60"><a href="https://store.steampowered.com/app/794260/Outward_Definitive_Edition/" target="_blank">Outward Definitive Edition (7.46 GB) (LAN-Online, Online vía Steam)- 60$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/448510/Overcooked/" target="_blank">Overcooked! All You Can Eat (3.9 GB)- 30$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/728880/Overcooked_2/" target="_blank">Overcooked 2 - Too Many Cooks Pack (6.02 GB) (LAN)- 35$</a></li>
+  <li data-price="60"><a href="https://www.xbox.com/es-AR/games/store/overkills-the-walking-dead/c56lrst8l7sn" target="_blank">OVERKILL's The Walking Dead v1.3.2 (18 GB) (LAN, ¿Online vía Steam?)- 60$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/967050/Pacify/" target="_blank">Pacify The Woods Build 8189285 (3.8 GB) (LAN)- 35$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/337320/Paint_the_Town_Red/" target="_blank">Paint the Town Red (2 GB) (LAN)- 30$</a></li>
+  <li data-price="10"><a href="https://store.steampowered.com/app/239030/Papers_Please/" target="_blank">Papers Please (35 MB)- 10$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/453090/Parkitect/" target="_blank">Parkitect v1.8 (664 MB) (LAN)- 20$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/356570/Party_Hard/" target="_blank">Party Hard (207 MB)- 15$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/572430/Party_Hard_2/" target="_blank">Party Hard 2 (1.65 GB)- 25$</a></li>
+  <li data-price="120"><a href="https://store.steampowered.com/app/506500/Party_Panic/" target="_blank">Party Panic v1.6.0 (404 MB) (Offline, Online vía Steam)- 25$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/218620/PAYDAY_2/" target="_blank">Payday 2 GOTY Hostile Takeover Heist v1.137.180 Update 235 con mods LAN-EMAKILLERGAMES (23.4 GB)- 120$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/1048100/Peekaboo/" target="_blank">Peekaboo (363 MB) (LAN)- 20$</a></li>
+  <li data-price="40"><a href="https://store.steampowered.com/app/2507400/Penny_Blood_Hellbound" target="_blank">Penny Blood Hellbound (1.63 GB) (¿LAN?)- 40$</a><p class="juegosnuevos">(Nuevo)</p></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/1411020/Perennial_Order/" target="_blank">Perennial Order (1.9 GB)- 35$</a></li>
   <li data-price="25">Perfect Dark Source (1.5 GB) (LAN, Online)- 25$</li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/787040/Perfect_Heist/">Perfect Heist LAN-PCMYMJuegos (638 MB)- 20$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/1521580/Perfect_Heist_2/">Perfect Heist 2 (850 MB) (LAN)- 30$</a></li>
-  <li data-price="10"><a href="https://store.steampowered.com/app/1509960/PICO_PARK/">Pico Park (136 MB) (LAN)- 10$</a></li>
-  <li data-price="10"><a href="https://store.steampowered.com/app/2644470/PICO_PARK_2/">Pico Park 2 v1.04 (135 MB) (Offline, Online vía Steam)- 10$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/593600/PixARK/">PixARK v1.190 - Every Little Thing You Do Is Magic DLC (2 GB) (LAN)- 50$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/1599600/PlateUp/">PlateUp (190 MB) (LAN)- 15$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/405640/Pony_Island/">Pony Island (223 MB)- 15$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/1679220/Portal_Dungeon/">Portal Dungeon (133 MB) (LAN)- 15$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/620/Portal_2/">Portal 2 (6.63 GB) (LAN)- 50$</a></li>
-  <li data-price="60"><a href="https://store.steampowered.com/app/374040/Portal_Knights/">Portal Knights Druids, Furfolk and Relic Defense v1.7.1 (3.04 GB) (Cliente+Servidor) (LAN)- 60$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/1110100/Power_Rangers_Battle_for_the_Grid/">Power Rangers Battle for the Grid v2.9.1.23628 (1.33 GB) (Offline, Online vía Steam)- 25$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/787040/Perfect_Heist/" target="_blank">Perfect Heist LAN-PCMYMJuegos (638 MB)- 20$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/1521580/Perfect_Heist_2/" target="_blank">Perfect Heist 2 (850 MB) (LAN)- 30$</a></li>
+  <li data-price="10"><a href="https://store.steampowered.com/app/1509960/PICO_PARK/" target="_blank">Pico Park (136 MB) (LAN)- 10$</a></li>
+  <li data-price="10"><a href="https://store.steampowered.com/app/2644470/PICO_PARK_2/" target="_blank">Pico Park 2 v1.04 (135 MB) (Offline, Online vía Steam)- 10$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/593600/PixARK/" target="_blank">PixARK v1.190 - Every Little Thing You Do Is Magic DLC (2 GB) (LAN)- 50$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/1599600/PlateUp/" target="_blank">PlateUp (190 MB) (LAN)- 15$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/405640/Pony_Island/" target="_blank">Pony Island (223 MB)- 15$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/1679220/Portal_Dungeon/" target="_blank">Portal Dungeon (133 MB) (LAN)- 15$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/620/Portal_2/" target="_blank">Portal 2 (6.63 GB) (LAN)- 50$</a></li>
+  <li data-price="60"><a href="https://store.steampowered.com/app/374040/Portal_Knights/" target="_blank">Portal Knights Druids, Furfolk and Relic Defense v1.7.1 (3.04 GB) (Cliente+Servidor) (LAN)- 60$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/1110100/Power_Rangers_Battle_for_the_Grid/" target="_blank">Power Rangers Battle for the Grid v2.9.1.23628 (1.33 GB) (Offline, Online vía Steam)- 25$</a></li>
   <li data-price="15">Power Rangers Super Legends (266 MB)- 15$</li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/494430/Praey_for_the_Gods/">Praey for the Gods (1.58 GB)- 25$</a></li>
-  <li data-price="60"><a href="https://store.steampowered.com/app/108600/Project_Zomboid/">Project Zomboid v41.78.16 con mods (3.02 GB) (Cliente+Servidor) (LAN)- 60$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/494430/Praey_for_the_Gods/" target="_blank">Praey for the Gods (1.58 GB)- 25$</a></li>
+  <li data-price="60"><a href="https://store.steampowered.com/app/108600/Project_Zomboid/" target="_blank">Project Zomboid v41.78.16 con mods (3.02 GB) (Cliente+Servidor) (LAN)- 60$</a></li>
   <li data-price="15">PROJECT IGI (164 MB)- 15$</li>
   <li data-price="20">Proyect IGI 2 - Covert Strike (700 MB) (LAN)- 20$</li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/880940/Pummel_Party/">Pummel Party v1.12.1h (1.77 GB) (LAN)- 25$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/1089130/Quake_II_Enhanced/">Quake II Enhanced (3.37 GB) (LAN)- 35$</a></li>
-  <li data-price="40"><a href="https://store.steampowered.com/app/2200/Quake_III_Arena/">Quake III Spearmint (3.8 GB) (Cliente+Servidor) (LAN)- 40$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/648800/Raft/">Raft v1.08 (2.26 GB) (LAN)- 35$</a></li>
-  <li data-price="60"><a href="https://store.steampowered.com/app/617290/Remnant_From_the_Ashes/">Remnant From the Ashes v275.957 (25 GB) (¿LAN?)- 60$</a></li>
-  <li data-price="45"><a href="https://store.steampowered.com/app/222480/Resident_Evil_Revelations/">Resident Evil Revelations v1.0 u4 (6.3 GB) (LAN)- 45$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/21690/Resident_Evil_5/">Resident Evil 5 Gold Edition v1.1.0 (2.9 GB) (LAN)- 50$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/221040/Resident_Evil_6/">Resident Evil 6 (4.76 GB) (LAN ¿Online vía Steam?)- 50$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/dlc/952070/RESIDENT_EVIL_RESISTANCE/">Resident Evil - Resistance (15.2 GB) (LAN, ¿Online vía Steam?)- 50$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/880940/Pummel_Party/" target="_blank">Pummel Party v1.12.1h (1.77 GB) (LAN)- 25$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/1089130/Quake_II_Enhanced/" target="_blank">Quake II Enhanced (3.37 GB) (LAN)- 35$</a></li>
+  <li data-price="40"><a href="https://store.steampowered.com/app/2200/Quake_III_Arena/" target="_blank">Quake III Spearmint (3.8 GB) (Cliente+Servidor) (LAN)- 40$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/648800/Raft/" target="_blank">Raft v1.08 (2.26 GB) (LAN)- 35$</a></li>
+  <li data-price="60"><a href="https://store.steampowered.com/app/617290/Remnant_From_the_Ashes/" target="_blank">Remnant From the Ashes v275.957 (25 GB) (¿LAN?)- 60$</a></li>
+  <li data-price="45"><a href="https://store.steampowered.com/app/222480/Resident_Evil_Revelations/" target="_blank">Resident Evil Revelations v1.0 u4 (6.3 GB) (LAN)- 45$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/21690/Resident_Evil_5/" target="_blank">Resident Evil 5 Gold Edition v1.1.0 (2.9 GB) (LAN)- 50$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/221040/Resident_Evil_6/" target="_blank">Resident Evil 6 (4.76 GB) (LAN ¿Online vía Steam?)- 50$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/dlc/952070/RESIDENT_EVIL_RESISTANCE/" target="_blank">Resident Evil - Resistance (15.2 GB) (LAN, ¿Online vía Steam?)- 50$</a></li>
   <li data-price="15">Re-Volt (Remasterizado y con 550 carritos nuevos) (LAN) (454 MB)- 15$</li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/774181/Rhythm_Doctor/">Rhythm Doctor v0.12.0.r27 (352 MB)- 15$</a></li>
-  <li data-price="10"><a href="https://store.steampowered.com/app/1198400/Rhythm_Fighter/">Rhythm Fighter (198 MB)- 10$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/1475840/Rhythm_Sprout_Sick_Beats__Bad_Sweets/">Rhythm Sprout Sick Beats Bad Sweets (2.25 GB)- 25$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/287450/Rise_of_Nations_Extended_Edition/">Rise of Nations Extended Edition (1.2 GB) (LAN)- 20$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/347290/Rise__Shine/">Rise And Shine (1.04 GB)- 20$</a></li>
-  <li data-price="10"><a href="https://store.steampowered.com/app/248820/Risk_of_Rain/">Risk of Rain v1.3.0 (68.2 MB) (LAN)- 10$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/1337520/Risk_of_Rain_Returns/">Risk of Rain Returns v1.0.4 (374 MB) (LAN)- 15$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/632360/Risk_of_Rain_2/">Risk of Rain 2 - Seekers of the Storm v1.3.4.290 (1.83 GB) (LAN)- 30$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/383980/Rivals_of_Aether/">Rivals of Aether v2.1.2.0 con mods (634 MB) (LAN)- 35$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/1049320/River_City_Girls/">River City Girls (1.14 GB)- 20$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/1920480/River_City_Girls_2/">River City Girls 2 (1.92 GB) (Offline, ¿Online vía Steam?)- 20$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/692890/Roboquest/">Roboquest v1.0.0-47201 (2.28 GB) (LAN)- 35$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/774181/Rhythm_Doctor/" target="_blank">Rhythm Doctor v0.12.0.r27 (352 MB)- 15$</a></li>
+  <li data-price="10"><a href="https://store.steampowered.com/app/1198400/Rhythm_Fighter/" target="_blank">Rhythm Fighter (198 MB)- 10$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/1475840/Rhythm_Sprout_Sick_Beats__Bad_Sweets/" target="_blank">Rhythm Sprout Sick Beats Bad Sweets (2.25 GB)- 25$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/287450/Rise_of_Nations_Extended_Edition/" target="_blank">Rise of Nations Extended Edition (1.2 GB) (LAN)- 20$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/347290/Rise__Shine/" target="_blank">Rise And Shine (1.04 GB)- 20$</a></li>
+  <li data-price="10"><a href="https://store.steampowered.com/app/248820/Risk_of_Rain/" target="_blank">Risk of Rain v1.3.0 (68.2 MB) (LAN)- 10$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/1337520/Risk_of_Rain_Returns/" target="_blank">Risk of Rain Returns v1.0.4 (374 MB) (LAN)- 15$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/632360/Risk_of_Rain_2/" target="_blank">Risk of Rain 2 - Seekers of the Storm v1.3.4.290 (1.83 GB) (LAN)- 30$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/383980/Rivals_of_Aether/" target="_blank">Rivals of Aether v2.1.2.0 con mods (634 MB) (LAN)- 35$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/1049320/River_City_Girls/" target="_blank">River City Girls (1.14 GB)- 20$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/1920480/River_City_Girls_2/" target="_blank">River City Girls 2 (1.92 GB) (Offline, ¿Online vía Steam?)- 20$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/692890/Roboquest/" target="_blank">Roboquest v1.0.0-47201 (2.28 GB) (LAN)- 35$</a></li>
   <li data-price="10">RoadRash (372 MB)- 10$</li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/252950/Rocket_League/">Rocket League v1.78 (5.56 GB) (LAN)- 50$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/252950/Rocket_League/" target="_blank">Rocket League v1.78 (5.56 GB) (LAN)- 50$</a></li>
   <li data-price="30">Roark's Attack On Titan Fan Game v2.086 (188 MB) (LAN, Online)- 30$</li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/1206610/Rubber_Bandits/">Rubber Bandits Winter Bash (924 MB)- 20$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/270150/Running_with_Rifles/">Running With Rifles (1.21 GB) (Cliente+Servidor) (LAN)- 25$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/348710/Saint_Seiya_Soldiers_Soul/">Saint Seiya Soldiers Soul (3.18 GB) (LAN)- 35$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/9480/Saints_Row_2/">Saints Row 2 (5.78 GB) (LAN)- 35$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/sub/17933/">Saints Row The Third - The Full Package (5.35 GB) (LAN, ¿Online vía Steam?)- 50$</a></li>
-  <li data-price="40"><a href="https://store.steampowered.com/agecheck/app/314580/">Saints Row IV - Game of the Century Edition (7.84 GB) (LAN)- 40$</a></li>
-  <li data-price="45"><a href="https://store.steampowered.com/app/301910/Saints_Row_Gat_out_of_Hell/">Saints Row - Gat out of Hell (5 GB) (LAN, ¿Online vía Steam?)- 45$</a></li>
-  <li data-price="40"><a href="https://store.steampowered.com/app/742420/Saints_Row/">Saints Row V 2022 Reboot Gold Edition v1.6.1.4735700 (34.6 GB) (¿LAN?, ¿Online vía Steam?)- 70$</a></li>
-  <li data-price="40"><a href="https://store.steampowered.com/app/1419850/Saleblazers/">Saleblazers Early Access (2.25 GB) (LAN)- 40$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/283640/Salt_and_Sanctuary/">Salt and Sanctuary (435 MB)- 15$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/1437400/Salt_and_Sacrifice/">Salt and Sacrifice v2.0.0.0 (980 MB) (Offline, Online)- 25$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/bundle/12482/Sally_Face__COMPLETE_GAME/">Sally Face (548 MB)- 25$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/787810/Rogue_Heroes_Ruins_of_Tasos/" target="_blank">Rogue Heroes Ruins of Tasos v4.0 (269 MB) (LAN)- 25$</a><p class="juegosnuevos">(Nuevo)</p></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/1206610/Rubber_Bandits/" target="_blank">Rubber Bandits Winter Bash (924 MB)- 20$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/270150/Running_with_Rifles/" target="_blank">Running With Rifles (1.21 GB) (Cliente+Servidor) (LAN)- 25$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/348710/Saint_Seiya_Soldiers_Soul/" target="_blank">Saint Seiya Soldiers Soul (3.18 GB) (LAN)- 35$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/9480/Saints_Row_2/" target="_blank">Saints Row 2 (5.78 GB) (LAN)- 35$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/sub/17933/" target="_blank">Saints Row The Third - The Full Package (5.35 GB) (LAN, ¿Online vía Steam?)- 50$</a></li>
+  <li data-price="40"><a href="https://store.steampowered.com/agecheck/app/314580/" target="_blank">Saints Row IV - Game of the Century Edition (7.84 GB) (LAN)- 40$</a></li>
+  <li data-price="45"><a href="https://store.steampowered.com/app/301910/Saints_Row_Gat_out_of_Hell/" target="_blank">Saints Row - Gat out of Hell (5 GB) (LAN, ¿Online vía Steam?)- 45$</a></li>
+  <li data-price="40"><a href="https://store.steampowered.com/app/742420/Saints_Row/" target="_blank">Saints Row V 2022 Reboot Gold Edition v1.6.1.4735700 (34.6 GB) (¿LAN?, ¿Online vía Steam?)- 70$</a></li>
+  <li data-price="40"><a href="https://store.steampowered.com/app/1419850/Saleblazers/" target="_blank">Saleblazers Early Access (2.25 GB) (LAN)- 40$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/283640/Salt_and_Sanctuary/" target="_blank">Salt and Sanctuary (435 MB)- 15$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/1437400/Salt_and_Sacrifice/" target="_blank">Salt and Sacrifice v2.0.0.0 (980 MB) (Offline, Online)- 25$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/bundle/12482/Sally_Face__COMPLETE_GAME/" target="_blank">Sally Face (548 MB)- 25$</a></li>
   <li data-price="10">Samurai Gunn (201 MB)- 10$</li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/1397790/Samurai_GUNN_2/">Samurai Gunn 2 v7.6 (1 GB) (LAN, ¿Online vía Steam?)- 20$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/526870/Satisfactory/">Satisfactory v0.8.0.5 (9.37 GB) (¿LAN?)- 50$</a></li>
-  <li data-price="25">SBG 6.0.2 (203 MB) (Cliente+Servidor) (LAN)- 25$</li>
-  <li data-price="45"><a href="https://store.steampowered.com/app/387990/Scrap_Mechanic/">Scrap Mechanic v0.6.5 Build 723 (4.2 GB) (LAN)- 45$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/1397790/Samurai_GUNN_2/" target="_blank">Samurai Gunn 2 v7.6 (1 GB) (LAN, ¿Online vía Steam?)- 20$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/526870/Satisfactory/" target="_blank">Satisfactory v0.8.0.5 (9.37 GB) (¿LAN?)- 50$</a></li>
+  <li data-price="25">SBG 6.0.2 (203 MB) (Cliente+Servidor) (LAN)- 25$</li>  
+  <li data-price="15"><a href="https://store.steampowered.com/app/1284130/Sclash/" target="_blank">Sclash v1.1.63 (421 MB) (Offline, ¿Online vía Steam?)- 15$</a><p class="juegosnuevos">(Nuevo)</p></li> 
+  <li data-price="45"><a href="https://store.steampowered.com/app/387990/Scrap_Mechanic/" target="_blank">Scrap Mechanic v0.6.5 Build 723 (4.2 GB) (LAN)- 45$</a></li>
   <li data-price="25">Screaming Chicken Ultimate Showdown v1.1.7 (996 MB) (LAN)- 25$</li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/1244090/Sea_of_Stars">Sea of Stars v1.1.53063 (2.76 GB)- 30$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/502800/SENRAN_KAGURA_ESTIVAL_VERSUS/">SENRAN KAGURA ESTIVAL VERSUS v1.06 (9.26 GB) (LAN)- 50$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/696170/SENRAN_KAGURA_Peach_Beach_Splash/">SENRAN KAGURA Peach Beach Splash v1.08 (7.95 GB) (LAN)- 50$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/411830/SENRAN_KAGURA_SHINOVI_VERSUS/">Senran Kagura Shinovi Versus v1.04 LAN-PCMYMJuegos (2.7 GB)- 30$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/1244090/Sea_of_Stars" target="_blank">Sea of Stars v1.1.53063 (2.76 GB)- 30$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/502800/SENRAN_KAGURA_ESTIVAL_VERSUS/" target="_blank">SENRAN KAGURA ESTIVAL VERSUS v1.06 (9.26 GB) (LAN)- 50$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/696170/SENRAN_KAGURA_Peach_Beach_Splash/" target="_blank">SENRAN KAGURA Peach Beach Splash v1.08 (7.95 GB) (LAN)- 50$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/411830/SENRAN_KAGURA_SHINOVI_VERSUS/" target="_blank">Senran Kagura Shinovi Versus v1.04 LAN-PCMYMJuegos (2.7 GB)- 30$</a></li>
   <li data-price="25">Shadow Ops Red Mercury (2.64 GB) (Cliente+Servidor) (LAN)- 25$</li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/1116580/Shady_Part_of_Me/">Shady Part of Me (1.4 GB)- 20$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/1116580/Shady_Part_of_Me/" target="_blank">Shady Part of Me (1.4 GB)- 20$</a></li>
   <li data-price="15">Sid Meier's Pirates! (681 MB)- 15$</li>
-  <li data-price="40"><a href="https://store.steampowered.com/app/245170/Skullgirls_2nd_Encore/">Skullgirls 2nd Encore v3.5.12 - Black Dahlia DLC (2.4 GB) (LAN, Online vía Steam)- 40$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/433340/Slime_Rancher/">Slime Rancher v1.4.3 con mods (624 MB) (LAN)- 35$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/1657630/Slime_Rancher_2/">Slime Rancher 2 - Come Rain Early Access v0.3.0 (1.1 GB)- 20$</a></li>
-  <li data-price="40"><a href="https://store.steampowered.com/app/63380/Sniper_Elite_V2/">Sniper Elite V2 v1.13 LAN-PCMYMJuegos (6.43 GB)- 40$</a></li>
-  <li data-price="60"><a href="https://store.steampowered.com/app/238090/Sniper_Elite_III_Ultimate_Edition/">Sniper Elite III Ultimate Edition (11.6 GB) (LAN)- 60$</a></li>
+  <li data-price="40"><a href="https://store.steampowered.com/app/245170/Skullgirls_2nd_Encore/" target="_blank">Skullgirls 2nd Encore v3.5.12 - Black Dahlia DLC (2.4 GB) (LAN, Online vía Steam)- 40$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/433340/Slime_Rancher/" target="_blank">Slime Rancher v1.4.3 con mods (624 MB) (LAN)- 35$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/1657630/Slime_Rancher_2/" target="_blank">Slime Rancher 2 - Come Rain Early Access v0.3.0 (1.1 GB)- 20$</a></li>
+  <li data-price="40"><a href="https://store.steampowered.com/app/63380/Sniper_Elite_V2/" target="_blank">Sniper Elite V2 v1.13 LAN-PCMYMJuegos (6.43 GB)- 40$</a></li>
+  <li data-price="60"><a href="https://store.steampowered.com/app/238090/Sniper_Elite_III_Ultimate_Edition/" target="_blank">Sniper Elite III Ultimate Edition (11.6 GB) (LAN)- 60$</a></li>
   <li data-price="15">Soldier of Fortune Platinum Edition v1.07f (474 MB) (LAN)- 15$</li>
   <li data-price="20">Soldier of Fortune II Double Helix Gold Edition v1.0.3 (1.1 GB) (LAN)- 20$</li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/1326470/Sons_of_the_Forest/">Sons of the Forest v50204 (8.5 GB) (LAN, ¿Online vía Steam?)- 50$</a><p class=juegosactualizados>(Actualizado)</p></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/2475460/SOS_OPS/">SOS OPS (234 MB) (LAN)- 20$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/544750/SOULCALIBUR_VI/">SOULCALIBUR VI - 2B DLC (11.1 GB) (LAN, Online vía Steam)- 50$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/1608700/Soundfall/">Soundfall (2.67 GB) (LAN)- 25$</a></li>
-  <li data-price="40"><a href="https://store.steampowered.com/agecheck/app/50300/">Spec Ops The Line LAN-EMAKILLERGAMES (6.95 GB)- 40$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/1326470/Sons_of_the_Forest/" target="_blank">Sons of the Forest v50204 (8.5 GB) (LAN, ¿Online vía Steam?)- 50$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/2475460/SOS_OPS/" target="_blank">SOS OPS (234 MB) (LAN)- 20$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/544750/SOULCALIBUR_VI/" target="_blank">SOULCALIBUR VI - 2B DLC (11.1 GB) (LAN, Online vía Steam)- 50$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/1608700/Soundfall/" target="_blank">Soundfall (2.67 GB) (LAN)- 25$</a></li>
+  <li data-price="40"><a href="https://store.steampowered.com/agecheck/app/50300/" target="_blank">Spec Ops The Line LAN-EMAKILLERGAMES (6.95 GB)- 40$</a></li>
   <li data-price="15">Spider-Man 2 (442 MB)- 15$</li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/1592110/Spirit_of_the_Island/">Spirit of the Island Complete Edition v2.1.0.2 (871 MB)- 25$</a></li>
-  <li data-price="40"><a href="https://store.steampowered.com/app/297860/SplitSecond/">Split Second Velocity (5.42 GB) (LAN)- 40$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/356500/STAR_WARS_Galactic_Battlegrounds_Saga/">Star Wars Galactic Battlegrounds Saga (544 MB) (LAN)- 15$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/211820/Starbound/">Starbound Bounty Hunter con mods (801 MB) (Cliente+Servidor) (LAN)- 35$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/1592110/Spirit_of_the_Island/" target="_blank">Spirit of the Island Complete Edition v2.1.0.2 (871 MB)- 25$</a></li>
+  <li data-price="40"><a href="https://store.steampowered.com/app/297860/SplitSecond/" target="_blank">Split Second Velocity (5.42 GB) (LAN)- 40$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/356500/STAR_WARS_Galactic_Battlegrounds_Saga/" target="_blank">Star Wars Galactic Battlegrounds Saga (544 MB) (LAN)- 15$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/211820/Starbound/" target="_blank">Starbound Bounty Hunter con mods (801 MB) (Cliente+Servidor) (LAN)- 35$</a></li>
   <li data-price="20">Starcraft v1.16.1 Brood War (1.23 GB) (LAN)- 20$</li>
   <li data-price="40">StarCraft Remastered (3.83 GB) (LAN)- 40$</li>
   <li data-price="70">StarCraft II Heart of the Swarm con mods (18 GB) (Cliente+Servidor) (LAN)- 70$</li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/413150/Stardew_Valley/">Stardew Valley Modded with Multiplayer (590 MB) (LAN)- 15$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/413150/Stardew_Valley/">Stardew Valley v1.5.6 con mods (858 MB) (LAN)- 35$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/978780/STORY_OF_SEASONS_Friends_of_Mineral_Town/">STORY OF SEASONS Friends of Mineral Town (1.24 GB)- 20$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/1392960/STORY_OF_SEASONS_Pioneers_of_Olive_Town/">STORY OF SEASONS Pioneers of Olive Town v1.1.0 (1.1 GB)- 20$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/2111170/STORY_OF_SEASONS_A_Wonderful_Life/">STORY OF SEASONS A Wonderful Life (658 MB)- 20$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/313120/Stranded_Deep/">Stranded Deep v1.0.17.0.23 (1.47 GB) (Offline, Online vía Steam)- 30$</a></li>
-  <li data-price="60"><a href="https://store.steampowered.com/app/312670/Strange_Brigade/">Strange Brigade Deluxe Edition v1.47.22.14 (16 GB) (LAN, ¿Online vía Steam?)- 60$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/985890/Streets_of_Rage_4/">Streets of Rage 4 v07-s r13031 - Mr. X Nightmare DLC (3.72 GB) (LAN)- 35$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/512900/Streets_of_Rogue/">Streets of Rogue v95 (142 MB) (LAN)- 15$</a></li>
-  <li data-price="60"><a href="https://store.steampowered.com/app/264710/Subnautica/">Subnautica v61056 LAN-PCMYMJuegos (5.37 GB) (Cliente+Servidor)- 60$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/418030/Subsistence/">Subsistence v60.33 (1.33 GB) (LAN)- 30$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/1432860/Sun_Haven/">Sun Haven (806 MB) (LAN)- 30$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/2080690/Sunkenland/">Sunkenland Early Access (2.66 GB) (¿LAN?, ¿Online vía Steam?)- 30$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/1812560/SUPER_CRAZY_RHYTHM_CASTLE/">SUPER CRAZY RHYTHM CASTLE (1.66 GB) (LAN)- 30$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/413150/Stardew_Valley/" target="_blank">Stardew Valley Modded with Multiplayer (590 MB) (LAN)- 15$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/413150/Stardew_Valley/" target="_blank">Stardew Valley v1.5.6 con mods (858 MB) (LAN)- 35$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/978780/STORY_OF_SEASONS_Friends_of_Mineral_Town/" target="_blank">STORY OF SEASONS Friends of Mineral Town (1.24 GB)- 20$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/1392960/STORY_OF_SEASONS_Pioneers_of_Olive_Town/" target="_blank">STORY OF SEASONS Pioneers of Olive Town v1.1.0 (1.1 GB)- 20$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/2111170/STORY_OF_SEASONS_A_Wonderful_Life/" target="_blank">STORY OF SEASONS A Wonderful Life (658 MB)- 20$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/313120/Stranded_Deep/" target="_blank">Stranded Deep v1.0.17.0.23 (1.47 GB) (Offline, Online vía Steam)- 30$</a></li>
+  <li data-price="60"><a href="https://store.steampowered.com/app/312670/Strange_Brigade/" target="_blank">Strange Brigade Deluxe Edition v1.47.22.14 (16 GB) (LAN, ¿Online vía Steam?)- 60$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/985890/Streets_of_Rage_4/" target="_blank">Streets of Rage 4 v07-s r13031 - Mr. X Nightmare DLC (3.72 GB) (LAN)- 35$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/512900/Streets_of_Rogue/" target="_blank">Streets of Rogue v95 (142 MB) (LAN)- 15$</a></li>
+  <li data-price="60"><a href="https://store.steampowered.com/app/264710/Subnautica/" target="_blank">Subnautica v61056 LAN-PCMYMJuegos (5.37 GB) (Cliente+Servidor)- 60$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/418030/Subsistence/" target="_blank">Subsistence v60.33 (1.33 GB) (LAN)- 30$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/1432860/Sun_Haven/" target="_blank">Sun Haven (806 MB) (LAN)- 30$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/2080690/Sunkenland/" target="_blank">Sunkenland Early Access (2.66 GB) (¿LAN?, ¿Online vía Steam?)- 30$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/1812560/SUPER_CRAZY_RHYTHM_CASTLE/" target="_blank">SUPER CRAZY RHYTHM CASTLE (1.66 GB) (LAN)- 30$</a></li>
   <li data-price="35">Super Smash Bros. Crusade v0.9.5 Demo (1.17 GB) (LAN)- 25$</li>
   <li data-price="35">Super Smash Bros. Crusade CMC+ v7.1.1 (4.35 GB) (LAN)- 35$</li>
   <li data-price="20">Super Smash Flash 2 Beta v.1.3.1.2 (766 MB) (Online)- 20$</li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/855860/Superfighters_Deluxe/">Superfighters Deluxe v1.3.7d (337 MB) (Cliente+Servidor) (LAN)- 25$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/855860/Superfighters_Deluxe/" target="_blank">Superfighters Deluxe v1.3.7d (337 MB) (Cliente+Servidor) (LAN)- 25$</a></li>
   <li data-price="30">SWAT 4 (808 MB) (Cliente+Servidor) (LAN)- 30$</li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/638650/Sword_Art_Online_Re_Hollow_Fragment/">Sword Art Online - Hollow Fragment (5.43 GB) (LAN)- 50$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/626690/Sword_Art_Online_Fatal_Bullet/">Sword Art Online - Fatal Bullet (12 GB) (LAN)- 50$</a></li>
-  <li data-price="60"><a href="https://store.steampowered.com/app/607890/Sword_Art_Online_Hollow_Realization_Deluxe_Edition/">Sword Art Online Hollow Realization Deluxe Edition (7.05 GB) (LAN)- 60$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/638650/Sword_Art_Online_Re_Hollow_Fragment/" target="_blank">Sword Art Online - Hollow Fragment (5.43 GB) (LAN)- 50$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/626690/Sword_Art_Online_Fatal_Bullet/" target="_blank">Sword Art Online - Fatal Bullet (12 GB) (LAN)- 50$</a></li>
+  <li data-price="60"><a href="https://store.steampowered.com/app/607890/Sword_Art_Online_Hollow_Realization_Deluxe_Edition/" target="_blank">Sword Art Online Hollow Realization Deluxe Edition (7.05 GB) (LAN)- 60$</a></li>
   <li data-price="40">Tactical Intervention (3.26 GB) (LAN)- 40$</li>
-  <li data-price="45"><a href="https://store.steampowered.com/app/440/Team_Fortress_2/">Team Fortress 2 v1.1.5.8 LAN-PCMYMJuegos (5.4 GB)- 45$</a></li>
-  <li data-price="35"><a href="https://www.xbox.com/es-AR/games/store/teenage-mutant-ninja-turtles-mutants-in-manhattan/c11mzwmhz9bb">Teenage Mutant Ninja Turtles - Mutants in Manhattan (5.37 GB) (LAN, ¿Online vía Steam?)- 35$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/1361510/Teenage_Mutant_Ninja_Turtles_Shredders_Revenge/">Teenage Mutant Ninja Turtles Shredder's Revenge (540 MB) (Offline, Online vía Steam)- 15$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/1659600/Teenage_Mutant_Ninja_Turtles_The_Cowabunga_Collection/">Teenage Mutant Ninja Turtles The Cowabunga Collection (8.14 GB) (LAN)- 30$</a></li>
+  <li data-price="45"><a href="https://store.steampowered.com/app/440/Team_Fortress_2/" target="_blank">Team Fortress 2 v1.1.5.8 LAN-PCMYMJuegos (5.4 GB)- 45$</a></li>
+  <li data-price="35"><a href="https://www.xbox.com/es-AR/games/store/teenage-mutant-ninja-turtles-mutants-in-manhattan/c11mzwmhz9bb" target="_blank">Teenage Mutant Ninja Turtles - Mutants in Manhattan (5.37 GB) (LAN, ¿Online vía Steam?)- 35$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/1361510/Teenage_Mutant_Ninja_Turtles_Shredders_Revenge/" target="_blank">Teenage Mutant Ninja Turtles Shredder's Revenge (540 MB) (Offline, Online vía Steam)- 15$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/1659600/Teenage_Mutant_Ninja_Turtles_The_Cowabunga_Collection/" target="_blank">Teenage Mutant Ninja Turtles The Cowabunga Collection (8.14 GB) (LAN)- 30$</a></li>
   <li data-price="15">Teeworlds DDNet-16.2.2 con skins (45.7 MB) (Cliente+Servidor) (LAN, Online)- 15$</li>
   <li data-price="15">Teeworlds v0.7.5 (9.22 MB) (Cliente+Servidor) (LAN, Online)- 15$</li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/105600/Terraria/">Terraria v1.3.5.2 con mods (628 MB) (Cliente+Servidor) (LAN)- 35$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/105600/Terraria/">Terraria v1.4.4.9 (502 MB) (Cliente+Servidor) (LAN)- 25$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/250900/The_Binding_of_Isaac_Rebirth/">The Binding of Isaac Rebirth (1.36 GB)- 20$</a></li>
-  <li data-price="10"><a href="https://store.steampowered.com/app/298630/The_Escapists/">The Escapists v1.37 (104 MB)- 10$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/641990/The_Escapists_2/">The Escapists 2 v1.1.8 LAN Online-PCMYMJuegos (600 MB) (LAN-Online, ¿Online vía Steam?)- 25$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/242760/The_Forest/">The Forest v14.05.2018 LAN-PCMYMJuegos (1.2 GB)- 30$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/403120/THE_GAME_OF_LIFE/">The Game of Life 2 Superhero World (735 MB)- 20$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/43190/The_Haunted_Hells_Reach/">The Haunted Hells Reach The Island (2.03 GB) (LAN)- 30$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/222940/The_King_of_Fighters_XIII/">The King Of Fighters XIII (2.05 GB) (LAN)- 25$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/1274600/The_Last_Faith/">The Last Faith (951 MB)- 25$</a></li>
-  <li data-price="45"><a href="https://store.steampowered.com/app/1766100/The_Last_Hero_of_Nostalgaia">The Last Hero of Nostalgaia - The Rise of Evil DLC v3.3.6.2 (3.8 GB) (LAN)- 45$</a></li>
-  <li data-price="20">The Legend of Zelda Ocarina of Time HD (694 MB)- 20$<p class="juegosnuevos">(Nuevo)</p></li>
-  <li data-price="20">The Legend of Zelda Majora's Mask HD (754 MB)- 20$<p class="juegosnuevos">(Nuevo)</p></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/360940/The_Mean_Greens_Plastic_Warfare/">The Mean Greens – Plastic Warfare (2.6 GB) (LAN)- 50$</a></li>
-  <li data-price="60"><a href="https://store.steampowered.com/sub/469/">The Orange Box (5.85 GB)- 60$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/1515210/The_Past_Within/">The Past Within (256 MB)- 15$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/2059960/The_Rumble_Fish_2/">The Rumble Fish 2 (982 MB) (LAN)- 15$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/897450/The_Survivalists/">The Survivalists (397 MB) (LAN)- 20$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/574980/Thems_Fightin_Herds/">Them's Fightin' Herds v2.3.1 (1.73 GB) (LAN)- 25$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/756530/TOKYO_GHOULre_CALL_to_EXIST/">TOKYO GHOUL re CALL to EXIST (5.94 GB) (LAN)- 50$</a></li>
-  <li data-price="40"><a href="https://store.steampowered.com/app/15120/Tom_Clancys_Rainbow_Six_Vegas_2/">Tom Clancy's Rainbow Six Vegas 2 (2.71 GB) (LAN)- 40$</a></li>
-  <li data-price="30"><a href="https://www.gog.com/en/game/tomb_raider_123">Tomb Raider 1-5 (2.18 GB)- 30$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/2478970/Tomb_Raider_IIII_Remastered_Starring_Lara_Croft/">Tomb Raider I-III Remastered Starring Lara Croft (2.86 GB)- 35$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/8000/Tomb_Raider_Anniversary/">Tomb Raider Anniversary (2.6 GB)- 20$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/203160/Tomb_Raider/">Tomb Raider (2013) (9.42 GB) (LAN)- 50$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/1004490/Tools_Up/">Tools Up! Ultimate Edition (607 MB)- 20$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/200710/Torchlight_II/">Torchlight II con mods (1.75 GB)- 35$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/200710/Torchlight_II/">Torchlight II (1.42 GB) (LAN)- 25$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/105600/Terraria/" target="_blank">Terraria v1.3.5.2 con mods (628 MB) (Cliente+Servidor) (LAN)- 35$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/105600/Terraria/" target="_blank">Terraria v1.4.4.9 (502 MB) (Cliente+Servidor) (LAN)- 25$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/250900/The_Binding_of_Isaac_Rebirth/" target="_blank">The Binding of Isaac Rebirth (1.36 GB)- 20$</a></li>
+  <li data-price="10"><a href="https://store.steampowered.com/app/298630/The_Escapists/" target="_blank">The Escapists v1.37 (104 MB)- 10$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/641990/The_Escapists_2/" target="_blank">The Escapists 2 v1.1.8 LAN Online-PCMYMJuegos (600 MB) (LAN-Online, ¿Online vía Steam?)- 25$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/242760/The_Forest/" target="_blank">The Forest v14.05.2018 LAN-PCMYMJuegos (1.2 GB)- 30$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/403120/THE_GAME_OF_LIFE/" target="_blank">The Game of Life 2 Superhero World (735 MB)- 20$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/43190/The_Haunted_Hells_Reach/" target="_blank">The Haunted Hells Reach The Island (2.03 GB) (LAN)- 30$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/222940/The_King_of_Fighters_XIII/" target="_blank">The King Of Fighters XIII (2.05 GB) (LAN)- 25$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/1274600/The_Last_Faith/" target="_blank">The Last Faith (951 MB)- 25$</a></li>
+  <li data-price="45"><a href="https://store.steampowered.com/app/1766100/The_Last_Hero_of_Nostalgaia" target="_blank">The Last Hero of Nostalgaia - The Rise of Evil DLC v3.3.6.2 (3.8 GB) (LAN)- 45$</a></li>
+  <li data-price="20">The Legend of Zelda Ocarina of Time HD (694 MB)- 20$</li>
+  <li data-price="20">The Legend of Zelda Majora's Mask HD (754 MB)- 20$</li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/360940/The_Mean_Greens_Plastic_Warfare/" target="_blank">The Mean Greens – Plastic Warfare (2.6 GB) (LAN)- 50$</a></li>
+  <li data-price="60"><a href="https://store.steampowered.com/sub/469/" target="_blank">The Orange Box (5.85 GB)- 60$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/1515210/The_Past_Within/" target="_blank">The Past Within (256 MB) (LAN)- 15$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/2059960/The_Rumble_Fish_2/" target="_blank">The Rumble Fish 2 (982 MB) (LAN)- 15$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/897450/The_Survivalists/" target="_blank">The Survivalists (397 MB) (LAN)- 20$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/574980/Thems_Fightin_Herds/" target="_blank">Them's Fightin' Herds v2.3.1 (1.73 GB) (LAN)- 25$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/756530/TOKYO_GHOULre_CALL_to_EXIST/" target="_blank">TOKYO GHOUL re CALL to EXIST (5.94 GB) (LAN)- 50$</a></li>
+  <li data-price="40"><a href="https://store.steampowered.com/app/15120/Tom_Clancys_Rainbow_Six_Vegas_2/" target="_blank">Tom Clancy's Rainbow Six Vegas 2 (2.71 GB) (LAN)- 40$</a></li>
+  <li data-price="30"><a href="https://www.gog.com/en/game/tomb_raider_123" target="_blank">Tomb Raider 1-5 (2.18 GB)- 30$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/2478970/Tomb_Raider_IIII_Remastered_Starring_Lara_Croft/" target="_blank">Tomb Raider I-III Remastered Starring Lara Croft (2.86 GB)- 35$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/8000/Tomb_Raider_Anniversary/" target="_blank">Tomb Raider Anniversary (2.6 GB)- 20$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/203160/Tomb_Raider/" target="_blank">Tomb Raider (2013) (9.42 GB) (LAN)- 50$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/1004490/Tools_Up/" target="_blank">Tools Up! Ultimate Edition (607 MB)- 20$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/200710/Torchlight_II/" target="_blank">Torchlight II con mods (1.75 GB)- 35$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/200710/Torchlight_II/" target="_blank">Torchlight II (1.42 GB) (LAN)- 25$</a></li>
   <li data-price="20">Total Overdose (1.16 GB)- 20$</li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/363130/Toukiden_Kiwami/">Toukiden Kiwami v1.1.0 (12.3 GB) (¿LAN?)- 50$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/551730/Toukiden_2/">Toukiden 2 v1.0.3 (5.9 GB) (¿LAN?)- 50$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/553420/TUNIC/">Tunic (1.44 GB)- 25$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/357190/Ultimate_Marvel_vs_Capcom_3/">Ultimate Marvel vs. Capcom 3 (3.33 GB) (LAN)- 30$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/1229490/ULTRAKILL/">ULTRAKILL Early Access (1.4 GB) (LAN, ¿Online vía Steam?)- 25$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/45760/Ultra_Street_Fighter_IV/">Ultra Street Fighter IV (9.25 GB) (LAN, Online vía Steam)- 50$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/390340/Umbrella_Corps/">Umbrella Corps (3.47 GB) (LAN)- 35$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/801630/UNDER_NIGHT_INBIRTH_ExeLateclr/">UNDER NIGHT IN-BIRTH Exe:Late [clr] (4.42 GB) (LAN)- 50$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/2076010/UNDER_NIGHT_INBIRTH_II_SysCeles/">UNDER NIGHT IN-BIRTH II Sys:Celes (2.37 GB) (LAN, ¿Online vía Steam?)- 50$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/363130/Toukiden_Kiwami/" target="_blank">Toukiden Kiwami v1.1.0 (12.3 GB) (¿LAN?)- 50$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/551730/Toukiden_2/" target="_blank">Toukiden 2 v1.0.3 (5.9 GB) (¿LAN?)- 50$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/553420/TUNIC/" target="_blank">Tunic (1.44 GB)- 25$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/357190/Ultimate_Marvel_vs_Capcom_3/" target="_blank">Ultimate Marvel vs. Capcom 3 (3.33 GB) (LAN)- 30$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/1229490/ULTRAKILL/" target="_blank">ULTRAKILL Early Access (1.4 GB) (LAN, ¿Online vía Steam?)- 25$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/45760/Ultra_Street_Fighter_IV/" target="_blank">Ultra Street Fighter IV (9.25 GB) (LAN, Online vía Steam)- 50$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/390340/Umbrella_Corps/" target="_blank">Umbrella Corps (3.47 GB) (LAN)- 35$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/801630/UNDER_NIGHT_INBIRTH_ExeLateclr/" target="_blank">UNDER NIGHT IN-BIRTH Exe:Late [clr] (4.42 GB) (LAN)- 50$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/2076010/UNDER_NIGHT_INBIRTH_II_SysCeles/" target="_blank">UNDER NIGHT IN-BIRTH II Sys:Celes (2.37 GB) (LAN, ¿Online vía Steam?)- 50$</a></li>
   <li data-price="15">Unreal Tournament - Game of the Year Edition (368 MB) (LAN)- 15$</li>
-  <li data-price="40"><a href="https://store.steampowered.com/app/13210/Unreal_Tournament_3/">Unreal Tournament 3 (6.36 GB) (LAN)- 40$</a></li>
-  <li data-price="40"><a href="https://store.steampowered.com/app/892970/Valheim/">Valheim v0.206.5 con mods (672 MB) (LAN)- 35$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/892970/Valheim/">Valheim v0.217.31 (856 MB) (LAN, ¿Online vía Steam?)- 30$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/325930/Viking_Squad/">Viking Squad v1.015 (640 MB) (LAN)- 15$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/334540/Vox_Machinae/">Vox Machinae v1.3.0 - Hostile Conditions Update (6.78 GB) (LAN)- 50$</a></li>
+  <li data-price="40"><a href="https://store.steampowered.com/app/13210/Unreal_Tournament_3/" target="_blank">Unreal Tournament 3 (6.36 GB) (LAN)- 40$</a></li>
+  <li data-price="40"><a href="https://store.steampowered.com/app/892970/Valheim/" target="_blank">Valheim v0.206.5 con mods (672 MB) (LAN)- 35$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/892970/Valheim/" target="_blank">Valheim v0.217.31 (856 MB) (LAN, ¿Online vía Steam?)- 30$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/325930/Viking_Squad/" target="_blank">Viking Squad v1.015 (640 MB) (LAN)- 15$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/334540/Vox_Machinae/" target="_blank">Vox Machinae v1.3.0 - Hostile Conditions Update (6.78 GB) (LAN)- 50$</a></li>
   <li data-price="10">War Chess (18.4 MB) (LAN)- 10$</li>
   <li data-price="35">Warcraft 3 v1.26 The Frozen Throne con mapas personalizados & Dota (2.35 GB) (LAN)- 35$</li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/392580/WARSHIFT/">WARSHIFT (980 MB) (LAN)- 25$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/1288320/Way_of_the_Hunter/">Way of the Hunter (10.7 GB) (¿LAN?)- 50$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/307110/We_Need_To_Go_Deeper/">We Need To Go Deeper (444 MB) (LAN)- 15$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/582500/We_Were_Here/">We Were Here (510 MB) (Online)- 25$</a></li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/677160/We_Were_Here_Too/">We Were Here Too (1.52 GB) (LAN-Online, ¿Online vía Steam?)- 35$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/865360/We_Were_Here_Together/">We Were Here Together (4 GB) (¿LAN-Online?, ¿Online vía Steam?)- 50$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/2296990/We_Were_Here_Expeditions_The_FriendShip/">We Were Here Expeditions The FriendShip (3.33 GB) (¿Online vía Steam?)- 50$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/503350/White_Noise_2/">White Noise 2 LAN-PCMYMJuegos (1.85 GB)- 30$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/1150530/Wizard_with_a_Gun/">Wizard with a Gun v1.3.3 (1.13 GB) (LAN)- 30$</a></li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/1211020/Wobbly_Life/">Wobbly Life (891 MB) (LAN)- 25$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/392580/WARSHIFT/" target="_blank">WARSHIFT (980 MB) (LAN)- 25$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/1288320/Way_of_the_Hunter/" target="_blank">Way of the Hunter (10.7 GB) (¿LAN?)- 50$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/307110/We_Need_To_Go_Deeper/" target="_blank">We Need To Go Deeper (444 MB) (LAN)- 15$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/582500/We_Were_Here/" target="_blank">We Were Here (510 MB) (Online)- 25$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/677160/We_Were_Here_Too/" target="_blank">We Were Here Too (1.52 GB) (LAN-Online, ¿Online vía Steam?)- 35$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/865360/We_Were_Here_Together/" target="_blank">We Were Here Together (4 GB) (¿LAN-Online?, ¿Online vía Steam?)- 50$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/2296990/We_Were_Here_Expeditions_The_FriendShip/" target="_blank">We Were Here Expeditions The FriendShip (3.33 GB) (¿Online vía Steam?)- 50$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/503350/White_Noise_2/" target="_blank">White Noise 2 LAN-PCMYMJuegos (1.85 GB)- 30$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/1150530/Wizard_with_a_Gun/" target="_blank">Wizard with a Gun v1.3.3 (1.13 GB) (LAN)- 30$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/1211020/Wobbly_Life/" target="_blank">Wobbly Life (891 MB) (LAN)- 25$</a></li>
   <li data-price="30">Yandere Simulator v17.09.2023 (2.15 GB)- 30$</li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/985900/Young_Souls/">Young Souls (766 MB)- 25$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/33180/Zombie_Shooter_2/">Zombie Shooter 2 (462 MB)- 15$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/985900/Young_Souls/" target="_blank">Young Souls (766 MB)- 25$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/33180/Zombie_Shooter_2/" target="_blank">Zombie Shooter 2 (462 MB)- 15$</a></li>
   <li data-price="20">Zoo Tycoon Complete Collection (1.12 GB)- 20$</li>
 </ul></section>
   <section class=grupo-juegos>
-<div id="amongus"><img class="titulostjuegos" src="Imagen-1-3-768x384 - copia.png">
+<div id="amongus" class="encabezadosjuegos"><img class="titulostjuegos" src="Imagen-1-3-768x384 - copia.png">
   <h4>Among Us (A 10$ cada elemento y todos funcionan en LAN)</h4></div>
 <ul class="listajuegos">
-  <li data-price="10"><a href="https://store.steampowered.com/app/945360/Among_Us/">Amoedios Among Us Conejos (55.6 MB)</a></li>
-  <li data-price="10"><a href="https://store.steampowered.com/app/945360/Among_Us/">Among Us (GIGANTES) 11.17 - smixxims1 (53.4 MB)</a></li>
-  <li data-price="10"><a href="https://store.steampowered.com/app/945360/Among_Us/">Among Us (KIRBY) 11.17s - smixxims1 (55.5 MB)</a></li>
-  <li data-price="10"><a href="https://store.steampowered.com/app/945360/Among_Us/">Among Us (MINECRAFT) 11.17s - smixxims1 (67.1 MB)</a></li>
-  <li data-price="10"><a href="https://store.steampowered.com/app/945360/Among_Us/">Among Us (NARUTO) 11.17s - smixxims1 (54 MB)</a></li>
-  <li data-price="10"><a href="https://store.steampowered.com/app/945360/Among_Us/">Among Us (SONIC 2) 11.17s - smixxims1 (56.6 MB)</a></li>
-  <li data-price="10"><a href="https://store.steampowered.com/app/945360/Among_Us/">Among Us (YOSHIS) 11.17 S - smixxims1 (66.4 MB)</a></li>
-  <li data-price="10"><a href="https://store.steampowered.com/app/945360/Among_Us/">Among Us 12.5s (SirLuqueMod) (89.3 MB)</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/945360/Among_Us/">Among Us The Fungle v2024.6.18i (418 MB) (LAN, Online)- 15$</a><p class="juegosactualizados">(Actualizado)</p></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/945360/Among_Us/">Among Us The Fungle v2024.11.26i (Unlocked) (427 MB)- 15$</a><p class="juegosactualizados">(Actualizado)</p></li>
+  <li data-price="10"><a href="https://store.steampowered.com/app/945360/Among_Us/" target="_blank">Amoedios Among Us Conejos (55.6 MB)</a></li>
+  <li data-price="10"><a href="https://store.steampowered.com/app/945360/Among_Us/" target="_blank">Among Us (GIGANTES) 11.17 - smixxims1 (53.4 MB)</a></li>
+  <li data-price="10"><a href="https://store.steampowered.com/app/945360/Among_Us/" target="_blank">Among Us (KIRBY) 11.17s - smixxims1 (55.5 MB)</a></li>
+  <li data-price="10"><a href="https://store.steampowered.com/app/945360/Among_Us/" target="_blank">Among Us (MINECRAFT) 11.17s - smixxims1 (67.1 MB)</a></li>
+  <li data-price="10"><a href="https://store.steampowered.com/app/945360/Among_Us/" target="_blank">Among Us (NARUTO) 11.17s - smixxims1 (54 MB)</a></li>
+  <li data-price="10"><a href="https://store.steampowered.com/app/945360/Among_Us/" target="_blank">Among Us (SONIC 2) 11.17s - smixxims1 (56.6 MB)</a></li>
+  <li data-price="10"><a href="https://store.steampowered.com/app/945360/Among_Us/" target="_blank">Among Us (YOSHIS) 11.17 S - smixxims1 (66.4 MB)</a></li>
+  <li data-price="10"><a href="https://store.steampowered.com/app/945360/Among_Us/" target="_blank">Among Us 12.5s (SirLuqueMod) (89.3 MB)</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/945360/Among_Us/" target="_blank">Among Us The Fungle v2024.6.18i (418 MB) (LAN, Online)- 15$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/945360/Among_Us/" target="_blank">Among Us The Fungle v2024.11.26i (Unlocked) (427 MB)- 15$</a></li>
   <li data-price="10">PACK de Mods de AMONG US (102 MB)</li>
 </ul></section>
 <section class=grupo-juegos>
-  <div id="duty"><img id=dutyimg class="titulostjuegos" src="call_of_duty_black_ops_13-wallpaper-1280x1024.png">
+  <div id="duty" class="encabezadosjuegos"><img id=dutyimg class="titulostjuegos" src="call_of_duty_black_ops_13-wallpaper-1280x1024.png">
     <h4>Juegos de Call of Duty</h4></div>
 <ul class="listajuegos">
-  <li data-price="25"><a href="https://store.steampowered.com/app/2620/Call_of_Duty/">Call Of Duty 1 - United Offensive Expansion Pack (1.4 GB) (LAN)- 25$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/2630/Call_of_Duty_2/">Call Of Duty 2 (2.4 GB) (LAN)- 30$</a></li>
-  <li data-price="45"><a href="https://store.steampowered.com/app/10090/Call_of_Duty_World_at_War/">Call of Duty 5 World at War Plutonium (6.35 GB) (LAN, Online)- 45$</a></li>
-  <li data-price="45"><a href="https://store.steampowered.com/app/7940/Call_of_Duty_4_Modern_Warfare_2007/">CALL OF DUTY MW CoD4X v21.1 con mods (7.7 GB) (LAN, Online)- 45$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/10180/Call_of_Duty_Modern_Warfare_2_2009/">CALL OF DUTY MW2 IW4X Singleplayer+Multiplayer (13.4 GB) (LAN, Online)- 50$</a></li>
-  <li data-price="60"><a href="https://store.steampowered.com/app/10180/Call_of_Duty_Modern_Warfare_2_2009/">CALL OF DUTY MW2 Singleplayer+Multiplayer+Coop (English) (12.5 GB) (Cliente+Servidor) (LAN)- 60$</a></li>
-  <li data-price="70"><a href="https://store.steampowered.com/app/115300/Call_of_Duty_Modern_Warfare_3_2011/">CALL OF DUTY MW3 Plutonium (13.8 GB) (Cliente+Servidor) (LAN, Online)- 70$</a></li>
-  <li data-price="70"><a href="https://store.steampowered.com/app/42700/Call_of_Duty_Black_Ops/">Call of Duty Black Ops Plutonium (10 GB) (Cliente+Servidor) (LAN, Online)- 70$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/202970/Call_of_Duty_Black_Ops_II/">Call of Duty Black Ops 2 Plutonium Multiplayer+Zombies LAN & Online-EMAKILLERGAMES (13.6 GB)- 50$</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/2620/Call_of_Duty/" target="_blank">Call Of Duty 1 - United Offensive Expansion Pack (1.4 GB) (LAN)- 25$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/2630/Call_of_Duty_2/" target="_blank">Call Of Duty 2 (2.4 GB) (LAN)- 30$</a></li>
+  <li data-price="45"><a href="https://store.steampowered.com/app/10090/Call_of_Duty_World_at_War/" target="_blank">Call of Duty 5 World at War Plutonium (6.35 GB) (LAN, Online)- 45$</a></li>
+  <li data-price="45"><a href="https://store.steampowered.com/app/7940/Call_of_Duty_4_Modern_Warfare_2007/" target="_blank">CALL OF DUTY MW CoD4X v21.1 con mods (7.7 GB) (LAN, Online)- 45$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/10180/Call_of_Duty_Modern_Warfare_2_2009/" target="_blank">CALL OF DUTY MW2 IW4X Singleplayer+Multiplayer (13.4 GB) (LAN, Online)- 50$</a></li>
+  <li data-price="60"><a href="https://store.steampowered.com/app/10180/Call_of_Duty_Modern_Warfare_2_2009/" target="_blank">CALL OF DUTY MW2 Singleplayer+Multiplayer+Coop (English) (12.5 GB) (Cliente+Servidor) (LAN)- 60$</a></li>
+  <li data-price="70"><a href="https://store.steampowered.com/app/115300/Call_of_Duty_Modern_Warfare_3_2011/" target="_blank">CALL OF DUTY MW3 Plutonium (13.8 GB) (Cliente+Servidor) (LAN, Online)- 70$</a></li>
+  <li data-price="70"><a href="https://store.steampowered.com/app/42700/Call_of_Duty_Black_Ops/" target="_blank">Call of Duty Black Ops Plutonium (10 GB) (Cliente+Servidor) (LAN, Online)- 70$</a></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/202970/Call_of_Duty_Black_Ops_II/" target="_blank">Call of Duty Black Ops 2 Plutonium Multiplayer+Zombies LAN & Online-EMAKILLERGAMES (13.6 GB)- 50$</a></li>
 </ul></section>
-<section class="grupo-juegos"><div id="doki"><img src="08.png"  class="titulostjuegos">
+<section class="grupo-juegos"><div id="doki" class="encabezadosjuegos"><img src="08.png" class="titulostjuegos">
   <h4>Doki Doki Literature Club y mods (A 15$ cada elemento)</h4></div>
 <ul class="listajuegos">
-  <li data-price="15"><a href="https://store.steampowered.com/app/698780/Doki_Doki_Literature_Club/">Doki Doki Literature Club! (608 MB)</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/1388880/Doki_Doki_Literature_Club_Plus/">Doki Doki Literature Club Plus! (1.05 GB)- 20$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/698780/Doki_Doki_Literature_Club/" target="_blank">Doki Doki Literature Club! (608 MB)</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/1388880/Doki_Doki_Literature_Club_Plus/" target="_blank">Doki Doki Literature Club Plus! (1.05 GB)- 20$</a></li>
   <li data-price="15">A Brand New Day 2.1 (806 MB)</li>
   <li data-price="15">DDLC - Our time - Español (212 MB)</li>
   <li data-price="15">DDLCPuristModEsp (Traducido por Locum Litterae Interpres) (405 MB)</li>
@@ -529,27 +541,27 @@
   <li data-price="15">The Fruits of The Literature Club - DDLCMod v1.0-Español (918 MB)</li>
   <li data-price="15">We Are the Literature Club II (382 MB)</li>
   <li data-price="15">Yandere club (395 MB)</li></ul></section>
-  <section class="grupo-juegos"><div id="FNAF"><img src="fnaf-1920x1080.png"  class="titulostjuegos">
+  <section class="grupo-juegos"><div id="FNAF" class="encabezadosjuegos"><img src="fnaf-1920x1080.png" class="titulostjuegos">
     <h4>FNAF y fangames</h4></div>
   <ul class="listajuegos">
   <li data-price="20">Baby's Nightmare Circus (1.13 GB)- 20$</li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/489360/CASE_Animatronics/">Case Animatronics (417 MB)- 20$</a></li>
-  <li data-price="40"><a href="https://store.steampowered.com/app/722960/CASE_2_Animatronics_Survival/">CASE 2 Animatronics Survival (4.87 GB) (LAN)- 40$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/489360/CASE_Animatronics/" target="_blank">Case Animatronics (417 MB)- 20$</a></li>
+  <li data-price="40"><a href="https://store.steampowered.com/app/722960/CASE_2_Animatronics_Survival/" target="_blank">CASE 2 Animatronics Survival (4.87 GB) (LAN)- 40$</a></li>
   <li data-price="15">Circus Baby's Diner Remake (246 MB)- 15$</li>
   <li data-price="15">EL ULTIMO SUSPIRO (112 MB)- 15$</li>
   <li data-price="15">Five Nights at Candy's 1 Remastered (243 MB)- 15$</li>
   <li data-price="15">Five Nights at Candy's 2 (219 MB)- 15$</li>
   <li data-price="15">Five Nights at Candy's 3 (469 MB)- 15$</li>
-  <li data-price="25">Five Nights at Freddy's - In Real Time (798 MB)- 25$<p class=juegosnuevos>(Nuevo)</p></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/319510/Five_Nights_at_Freddys/">Five Nights at Freddy's (217 MB)- 15$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/332800/Five_Nights_at_Freddys_2/">Five Nights at Freddy's 2 (205 MB)- 15$</a></li>
+  <li data-price="25">Five Nights at Freddy's - In Real Time (798 MB)- 25$</li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/319510/Five_Nights_at_Freddys/" target="_blank">Five Nights at Freddy's (217 MB)- 15$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/332800/Five_Nights_at_Freddys_2/" target="_blank">Five Nights at Freddy's 2 (205 MB)- 15$</a></li>
   <li data-price="15">Five Nights at Freddy's 2.1 (198 MB)- 15$</li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/354140/Five_Nights_at_Freddys_3/">Five Nights at Freddy's 3 (107 MB)- 15$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/388090/Five_Nights_at_Freddys_4/">Five Nights at Freddy's 4 (442 MB)- 15$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/506610/Five_Nights_at_Freddys_Sister_Location/">Five Nights at Freddy's 5 (Sister Location) (758 MB)- 15$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/738060/Freddy_Fazbears_Pizzeria_Simulator/">Five Nights at Freddy's 6 Pizzeria Simulator (289 MB)- 15$</a></li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/871720/Ultimate_Custom_Night/">Five Nights at Freddy's 7 Ultimate Custom Night (261 MB)- 15$</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/2638370/Five_Nights_at_Freddys_Into_the_Pit/">Five Nights at Freddy's Into the Pit v1.0.6.0 (880 MB)- 30$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/354140/Five_Nights_at_Freddys_3/" target="_blank">Five Nights at Freddy's 3 (107 MB)- 15$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/388090/Five_Nights_at_Freddys_4/" target="_blank">Five Nights at Freddy's 4 (442 MB)- 15$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/506610/Five_Nights_at_Freddys_Sister_Location/" target="_blank">Five Nights at Freddy's 5 (Sister Location) (758 MB)- 15$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/738060/Freddy_Fazbears_Pizzeria_Simulator/" target="_blank">Five Nights at Freddy's 6 Pizzeria Simulator (289 MB)- 15$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/871720/Ultimate_Custom_Night/" target="_blank">Five Nights at Freddy's 7 Ultimate Custom Night (261 MB)- 15$</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/2638370/Five_Nights_at_Freddys_Into_the_Pit/" target="_blank">Five Nights at Freddy's Into the Pit v1.0.6.0 (880 MB)- 30$</a></li>
   <li data-price="15">Five Nights At Treasure Island (600 MB)- 15$</li>
   <li data-price="15">Five Nights At Treasure Island - Back to Life v.2.5.0 Full Version (84.5 MB)- 15$</li>
   <li data-price="15">Five Nights at Freddy's Reborn (139 MB)- 15$</li>
@@ -582,7 +594,7 @@
   <li data-price="25">Ultra Custom Night 1.6.45 (1.4 GB)- 25$</li>
   <li data-price="10">Watch Your Nightmares (130 MB)- 10$</li>
 </ul></section>
-<section class="grupo-juegos"><div id="fnf"><img src="thumb-1920-1158734.png" class="titulostjuegos">
+<section class="grupo-juegos"><div id="fnf" class="encabezadosjuegos"><img src="thumb-1920-1158734.png" class="titulostjuegos">
    <h4>Friday Night Funkin y mods</h4></div>
 <ul class="listajuegos">
   <li data-price="10">Friday Night Funkin (137 MB)- 10$</li>
@@ -647,7 +659,7 @@
   <li data-price="10">vstricky (407 MB)- 10$</li>
   <li data-price="10">wednesday infidelity (186 MB)- 10$</li>
   </ul></section>
-  <section class="grupo-juegos"><div id="mario"><img src="mario_game-1920x1200.png" class="titulostjuegos">
+  <section class="grupo-juegos"><div id="mario" class="encabezadosjuegos"><img src="mario_game-1920x1200.png" class="titulostjuegos">
     <h4>Juegos de Mario</h4></div>
   <ul class="listajuegos">
   <li data-price="5">Mario 2 (1.54 MB)- 5$</li>
@@ -662,29 +674,29 @@
   <li data-price="20">Super Mario 64 Online v2.0.4 (171 MB) (Cliente+Servidor) (LAN)- 20$</li>
   <li data-price="15">Super Mario 64 HD (168 MB)- 15$</li>
 </ul></section>
-<section class="grupo-juegos"><div id="naruto"><img src="apps.54991.68307864442603829.676cbe70-1643-4bcc-a72b-f8ed4e2d4cc2.png" class="titulostjuegos">
+<section class="grupo-juegos"><div id="naruto" class="encabezadosjuegos"><img src="apps.54991.68307864442603829.676cbe70-1643-4bcc-a72b-f8ed4e2d4cc2.png" class="titulostjuegos">
   <h4>Juegos de Naruto y Modpacks</h4></div>
 <ul class="listajuegos">
   <li data-price="10">Naruto Storm M.U.G.E.N (2010) (442 MB)- 10$</li>
   <li data-price="15">Naruto 5 M.U.G.E.N (187 MB)- 15$</li>
   <li data-price="30">Naruto Shippuden Ultimate Ninja 6 (3.8 GB)- 30$</li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/495140/NARUTO_Ultimate_Ninja_STORM/">NARUTO Ultimate Ninja STORM (5.94 GB)- 35$</a></li>
-  <li data-price="40"><a href="https://store.steampowered.com/app/543870/NARUTO_SHIPPUDEN_Ultimate_Ninja_STORM_2/">NARUTO SHIPPUDEN Ultimate Ninja STORM 2 (6.34 GB) (LAN)- 40$</a></li>
-  <li data-price="45"><a href="https://store.steampowered.com/app/234670/NARUTO_SHIPPUDEN_Ultimate_Ninja_STORM_3_Full_Burst_HD/">NARUTO SHIPPUDEN Ultimate Ninja STORM 3 Full Burst (6.12 GB) (LAN)- 45$</a></li>
-  <li data-price="45"><a href="https://store.steampowered.com/app/272510/NARUTO_SHIPPUDEN_Ultimate_Ninja_STORM_Revolution/">Naruto Shippuden Ultimate Ninja Storm Revolution (6.36 GB) (LAN, Online vía Steam)- 45$</a></li>
-  <li data-price="70"><a href="https://store.steampowered.com/app/349040/NARUTO_SHIPPUDEN_Ultimate_Ninja_STORM_4/">Naruto Storm 4 Evolution 1.06 & Road to Connections 1.12 con mods (36.3 GB) (LAN, Online vía Steam)- 70$</a></li>
-  <li data-price="60"><a href="https://store.steampowered.com/app/1020790/NARUTO_X_BORUTO_Ultimate_Ninja_STORM_CONNECTIONS/">Naruto X Boruto Ultimate Ninja Storm Connections (Deluxe Edition v1.50 - Boruto Uzumaki (Karma Progression) DLC) (22.2 GB) (LAN, ¿Online vía Steam?)- 60$</a></li>
-  <li data-price="50"><a href="https://store.steampowered.com/app/633230/Naruto_to_Boruto_Shinobi_Striker/">Naruto to Boruto Shinobi Striker v2.43.00 (6.3 GB)- 50$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/495140/NARUTO_Ultimate_Ninja_STORM/" target="_blank">NARUTO Ultimate Ninja STORM (5.94 GB)- 35$</a></li>
+  <li data-price="40"><a href="https://store.steampowered.com/app/543870/NARUTO_SHIPPUDEN_Ultimate_Ninja_STORM_2/" target="_blank">NARUTO SHIPPUDEN Ultimate Ninja STORM 2 (6.34 GB) (LAN)- 40$</a></li>
+  <li data-price="45"><a href="https://store.steampowered.com/app/234670/NARUTO_SHIPPUDEN_Ultimate_Ninja_STORM_3_Full_Burst_HD/" target="_blank">NARUTO SHIPPUDEN Ultimate Ninja STORM 3 Full Burst (6.12 GB) (LAN)- 45$</a></li>
+  <li data-price="45"><a href="https://store.steampowered.com/app/272510/NARUTO_SHIPPUDEN_Ultimate_Ninja_STORM_Revolution/" target="_blank">Naruto Shippuden Ultimate Ninja Storm Revolution (6.36 GB) (LAN, Online vía Steam)- 45$</a></li>
+  <li data-price="70"><a href="https://store.steampowered.com/app/349040/NARUTO_SHIPPUDEN_Ultimate_Ninja_STORM_4/" target="_blank">Naruto Storm 4 Evolution 1.06 & Road to Connections 1.12 con mods (36.3 GB) (LAN, Online vía Steam)- 70$</a></li>
+  <li data-price="60"><a href="https://store.steampowered.com/app/1020790/NARUTO_X_BORUTO_Ultimate_Ninja_STORM_CONNECTIONS/" target="_blank">Naruto X Boruto Ultimate Ninja Storm Connections Deluxe Edition v1.60 (21.8 GB) (LAN, ¿Online vía Steam?)- 60$</a><p class=juegosactualizados>(Actualizado)</p></li>
+  <li data-price="50"><a href="https://store.steampowered.com/app/633230/Naruto_to_Boruto_Shinobi_Striker/" target="_blank">Naruto to Boruto Shinobi Striker v2.43.00 (6.3 GB)- 50$</a></li>
   <li data-price="20">Naruto Storm 3 Full Burst Road To Boruto MOD Pack (811 MB)- 20$</li>
   <li data-price="20">Naruto Storm Revolution Road To Boruto MOD Pack (570 MB)- 20$</li>
   <li data-price="40">Naruto To Boruto 2.0 Storm 4 Mod Pack (2.5 GB)- 40$</li>
   <li data-price="25">Ultimate AIO Storm 4 2020 1.09 Patch (782 MB)- 25$</li>
 </ul></section>
-<section class="grupo-juegos"><div id="nfs"><img src="Need For Speed Most Wanted.png" class="titulostjuegos">
+<section class="grupo-juegos"><div id="nfs" class="encabezadosjuegos"><img src="Need For Speed Most Wanted.png" class="titulostjuegos">
   <h4>Juegos de Need for Speed</h4></div>
 <ul class="listajuegos">
   <li data-price="35">Need For Speed Carbon Remastered con mods (3.2 GB)- 35$</li>
-  <li data-price="35"><a href="https://store.steampowered.com/app/1262560/Need_for_Speed_Most_Wanted/">Need For Speed Most Wanted Online (2.28 GB) (Online)- 35$</a></li>
+  <li data-price="35"><a href="https://store.steampowered.com/app/1262560/Need_for_Speed_Most_Wanted/" target="_blank">Need For Speed Most Wanted Online (2.28 GB) (Online)- 35$</a></li>
   <li data-price="50">Need For Speed ProStreet (3.86 GB) (Cliente+Servidor) (¿LAN?)- 50$</li>
   <li data-price="35">Need for Speed Undercover Remastered con mods (3.28 GB)- 35$</li>
   <li data-price="25">Need for Speed Underground v1.4 Definitive Edition con mods (1.02 GB)- 25$</li>
@@ -692,7 +704,7 @@
   <li data-price="20">Need for Speed Underground 2 (1.1 GB) (¿LAN?)- 20$</li>
 </ul></section>
 <section class="grupo-juegos">
-  <div id="pokemon"><img src="IMG-20201022-WA0001.png" class="titulostjuegos" >
+  <div id="pokemon" class="encabezadosjuegos"><img src="IMG-20201022-WA0001.png" class="titulostjuegos" >
     <h4>Juegos de Pokémon</h4></div>
 <ul class="listajuegos">
   <li data-price="40">PokeMMO con mods (2.14 GB) (Online)- 40$</li>
@@ -709,21 +721,21 @@
   <li data-price="15">Pokemon Uranium v1.2.4 (264 MB)- 15$</li>
 </ul></section>
 <section class="grupo-juegos">
-  <div id="sonic"><img src="Sonic all stars racing.png" class="titulostjuegos">
+  <div id="sonic" class="encabezadosjuegos"><img src="Sonic all stars racing.png" class="titulostjuegos">
     <h4>Juegos de Sonic</h4></div>
 <ul class="listajuegos">
-  <li data-price="45"><a href="https://store.steampowered.com/app/212480/Sonic__AllStars_Racing_Transformed_Collection/">Sonic & All-Stars Racing Transformed (3.98 GB) (LAN)- 45$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/71250/Sonic_Adventure_DX/">Sonic Adventure DX (1 GB)- 20$</a></li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/213610/Sonic_Adventure_2/">Sonic Adventure 2 - Battle (2.28 GB)- 20$</a></li>
+  <li data-price="45"><a href="https://store.steampowered.com/app/212480/Sonic__AllStars_Racing_Transformed_Collection/" target="_blank">Sonic & All-Stars Racing Transformed (3.98 GB) (LAN)- 45$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/71250/Sonic_Adventure_DX/" target="_blank">Sonic Adventure DX (1 GB)- 20$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/213610/Sonic_Adventure_2/" target="_blank">Sonic Adventure 2 - Battle (2.28 GB)- 20$</a></li>
   <li data-price="25">Sonic Battle R ProtoV3-0.6.43 (1.3 GB) (LAN, Online)- 25$</li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/584400/Sonic_Mania/">Sonic Mania v1.06.0503 (318 MB)- 15$</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/584400/Sonic_Mania/" target="_blank">Sonic Mania v1.06.0503 (318 MB)- 15$</a></li>
   <li data-price="20">Sonic RoboBlast 2 v2.2.13 con mods (534 MB) (LAN, Online)- 20$</li>
   </ul></section>
   <section class="grupo-juegos">
-    <div id="undertale"><img src="647679.png" class="titulostjuegos">
+    <div id="undertale" class="encabezadosjuegos"><img src="647679.png" class="titulostjuegos">
       <h4>Juegos de Undertale y Fangames</h4></div>
 <ul class="listajuegos">
-  <li data-price="10"><a href="https://store.steampowered.com/app/1671210/DELTARUNE/">DELTARUNE Chapter 1&2 (Windows 1.07) (157 MB)- 10</a></li>
+  <li data-price="10"><a href="https://store.steampowered.com/app/1671210/DELTARUNE/" target="_blank">DELTARUNE Chapter 1&2 (Windows 1.07) (157 MB)- 10$</a></li>
   <li data-price="15">DF CONNECTED v2.7.6c (Windows) (185 MB) (Offline, Online)- 15$</li>
   <li data-price="10">DON'T FORGET v1.3.3 (103 MB)- 10$</li>
   <li data-price="10">Don't Forget Classic Multiplayer (102 MB)- 10$</li>
@@ -733,21 +745,21 @@
   <li data-price="10">UNDERTALE 0 GENOCIDE (98.3 MB)- 10$</li>
   <li data-price="15">Undertale Battle Mode v1.5.0 (432 MB)- 15$</li>
   <li data-price="10">Undertale Yellow Español (214 MB)- 10$</li>
-  <li data-price="10"><a href="https://store.steampowered.com/app/391540/undertale/">Undertale (133 MB)- 10$</li></a>
+  <li data-price="10"><a href="https://store.steampowered.com/app/391540/undertale/" target="_blank">Undertale (133 MB)- 10$</li></a>
 </ul></section>
-<section class="grupo-juegos"><div id="worms"><img src="100054100716_204798.png" class="titulostjuegos">
+<section class="grupo-juegos"><div id="worms" class="encabezadosjuegos"><img src="100054100716_204798.png" class="titulostjuegos">
   <h4>Juegos de Worms</h4></div>
 <ul class="listajuegos">
-  <li data-price="10"><a href="https://store.steampowered.com/app/217200/worms_armageddon/">Worms Armageddon (535 MB) (LAN) - $10</a></li>
-  <li data-price="30"><a href="https://store.steampowered.com/app/233840/worms_clan_wars/">Worms Clan Wars (1.34 GB) (LAN) - $30</a></li>
+  <li data-price="10"><a href="https://store.steampowered.com/app/217200/worms_armageddon/" target="_blank">Worms Armageddon (535 MB) (LAN) - $10</a></li>
+  <li data-price="30"><a href="https://store.steampowered.com/app/233840/worms_clan_wars/" target="_blank">Worms Clan Wars (1.34 GB) (LAN) - $30</a></li>
   <li data-price="15">Worms Forts Under Siege (429 MB) (LAN) - $15</li>
-  <li data-price="15"><a href="https://store.steampowered.com/app/270910/Worms_World_Party_Remastered/">Worms World Party Remastered (601 MB) (LAN) - $15</a></li>
+  <li data-price="15"><a href="https://store.steampowered.com/app/270910/Worms_World_Party_Remastered/" target="_blank">Worms World Party Remastered (601 MB) (LAN) - $15</a></li>
   <li data-price="15">Worms World Party 2-3D (69.4 MB) (LAN) - $15</li>
   <li data-price="20">Worms World Party 4 MAYHEM (1.17 GB) (LAN) - $20</li>
-  <li data-price="25"><a href="https://store.steampowered.com/app/327030/Worms_WMD/">Worms W.M.D (1.54 GB) (LAN) - $25</a></li>
+  <li data-price="25"><a href="https://store.steampowered.com/app/327030/Worms_WMD/" target="_blank">Worms W.M.D (1.54 GB) (LAN) - $25</a></li>
 </ul></section>
 <p id="texto"> Todos funcionan en LAN</p>
-<section class="grupo-juegos"><div id="yugio"><img src="yu-gi-oh!!.png" class="titulostjuegos">
+<section class="grupo-juegos"><div id="yugio" class="encabezadosjuegos"><img src="yu-gi-oh!!.png" class="titulostjuegos">
   <h4>Juegos de Yu-Gi-Oh!</h4></div>
 <ul class="listajuegos">
   <li data-price="15">ProjectIgnis EDOPro v40.1.1 (63.8 MB) (LAN, Online)- 15$</li>
@@ -755,7 +767,7 @@
   <li data-price="15">Yu-Gi-Oh! ARC V Power of Chaos (527 MB) (¿LAN?)- 15$</li>
   <li data-price="15">Yu-Gi-Oh! GX Power of Chaos - Jaden the Fusion (515 MB) (¿LAN?)- 15$</li>
   <li data-price="15">Yu-Gi-Oh! Kaiba Corp Ultimate Masters (455 MB) (¿LAN?)- 15$</li>
-  <li data-price="20"><a href="https://store.steampowered.com/app/1150640/Yu_Gi_Oh_Legacy_of_the_Duelist_Link_Evolution/">Yu-Gi-Oh! Legacy of the Duelist Link Evolution (1.36 GB) (¿LAN?)- 20$</a></li>
+  <li data-price="20"><a href="https://store.steampowered.com/app/1150640/Yu_Gi_Oh_Legacy_of_the_Duelist_Link_Evolution/" target="_blank">Yu-Gi-Oh! Legacy of the Duelist Link Evolution (1.36 GB) (¿LAN?)- 20$</a></li>
   <li data-price="15">Yu-Gi-Oh! Power of Chaos - Pegasus The Illusion MOD (615 MB) (¿LAN?)- 15$</li>
   <li data-price="15">Yu-Gi-Oh! Power of Chaos - The Ancient Duel (354 MB) (¿LAN?)- 15$</li>
   <li data-price="15">Yu-Gi-Oh! Power of Chaos Bastion Misawa MOD-by YassinE ParadoX & Pharaohmods (342 MB) (¿LAN?)- 15$</li>

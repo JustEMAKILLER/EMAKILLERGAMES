@@ -233,3 +233,54 @@ function busqueda() {
     filtroprecioInput.value = "";
     busqueda();
  }
+//Función para mostrar solo los titulos nuevos o actualizados
+function mostrarJuegosNewOrAct() {
+    borrarbusqueda();
+    borrarprecio();
+    const grupos = document.querySelectorAll('.grupo-juegos');
+    const botonJNA = document.getElementById("botonJNA");
+    const botonMostrar = document.getElementById("botonMostrar");
+    const encabezadosJuegos = document.querySelectorAll('.encabezadosjuegos');
+    const text = document.getElementById("texto");
+    const divBusqueda = document.getElementById("buscar");
+    let hayResultados = false;
+ grupos.forEach((grupo) => {
+    const productos = grupo.querySelectorAll('.listajuegos li');
+    productos.forEach((producto) => {
+        const esNewOrAct = producto.querySelector('p.juegosnuevos, p.juegosactualizados') !== null; 
+    if (esNewOrAct){
+        producto.style.display = "list-item";
+        hayResultados = true;
+    } else {
+        producto.style.display = "none";
+    }
+})
+ })
+ encabezadosJuegos.forEach((encabezadoJuego) => {
+ encabezadoJuego.style.display = "none";})
+ divBusqueda.style.display = "none";
+ text.textContent = hayResultados ? "" : "No hay juegos nuevos o actualizados.";
+ botonJNA.style.display = "none";
+ botonMostrar.style.display = "flex";
+}
+//Función para mostrar todos los juegos de nuevo
+function mostrarJuegos() {
+    const grupos = document.querySelectorAll('.grupo-juegos');
+    const botonJNA = document.getElementById("botonJNA");
+    const botonMostrar = document.getElementById("botonMostrar");
+    const encabezadosJuegos = document.querySelectorAll('.encabezadosjuegos');
+    const divBusqueda = document.getElementById("buscar");
+    const text = document.getElementById("texto");
+ grupos.forEach((grupo) => {
+    const productos = grupo.querySelectorAll('.listajuegos li');
+    productos.forEach((producto) => {
+        producto.style.display = "list-item";
+})
+ })
+ encabezadosJuegos.forEach((encabezadoJuego) => {
+ encabezadoJuego.style.display = "block";})
+ divBusqueda.style.display = "flex";
+ botonMostrar.style.display = "none";
+ botonJNA.style.display = "flex";
+ text.textContent = "Todos funcionan en LAN";
+}
