@@ -165,12 +165,13 @@ function busqueda() {
     const grupos = document.querySelectorAll('.grupo-juegos');
     const text = document.getElementById("texto");
     let calculoprecio = document.getElementById("calculoprecio");
-    const resultadosDiv = document.getElementById("resultados");
     let hayResultados = false;
     const botonborrarbusqueda = document.getElementById('botonborrarbusqueda');
-    botonborrarbusqueda.style.display = "inline-block";
     const botonborrarprecio = document.getElementById('botonborrarprecio');
-    botonborrarprecio.style.display = "inline-block";
+
+    botonborrarbusqueda.style.display = filtroNombre ? "inline-block" : "none";
+    botonborrarprecio.style.display = isNaN(maxPrice) ? "none" : "inline-block";
+
     grupos.forEach((grupo) => {
         const productos = grupo.querySelectorAll('.listajuegos li');
         let mostrarGrupo = false;
@@ -178,46 +179,44 @@ function busqueda() {
         productos.forEach((producto) => {
             const productName = producto.textContent.toLowerCase();
             const productPrice = parseFloat(producto.getAttribute("data-price"));
-
             let mostrarProducto = true;
 
-            // Filtrar por precio y nombre
+            // Filtrar por precio
             if (!isNaN(maxPrice) && productPrice > maxPrice) {
                 mostrarProducto = false;
             }
 
-            if (isNaN(maxPrice)) {
-                botonborrarprecio.style.display = "none";
-            }
-
+            // Filtrar por nombre
             if (filtroNombre !== "" && !productName.includes(filtroNombre)) {
                 mostrarProducto = false;
             }
 
-            if (filtroNombre == "" && productName.includes(filtroNombre)) {
-                botonborrarbusqueda.style.display = "none";
-            }
-
+            text.style.display = mostrarProducto ? "flex" : "none";
             producto.style.display = mostrarProducto ? "list-item" : "none";
 
             if (mostrarProducto) {
                 mostrarGrupo = true;
+                hayResultados = true;
             }
         });
 
         grupo.style.display = mostrarGrupo ? "block" : "none";
-
-        if (mostrarGrupo) {
-            hayResultados = true;
-        }
-
-        if (calculoprecio.textContent !== "") {
-            calculoprecio.style.display = "block";
-        }
     });
 
-    text.textContent = hayResultados ? "" : "No hay resultados.";
+    // Manejo correcto del texto de "No hay resultados."
+    if (!hayResultados) {
+        text.textContent = "No hay resultados.";
+        text.style.display = "flex"; // Asegurar que el elemento sea visible
+    } else {
+        text.textContent = "Todos funcionan en LAN";
     }
+
+    // Mostrar u ocultar el cálculo de precio
+    if (calculoprecio.textContent.trim() !== "") {
+        calculoprecio.style.display = "block";
+    }
+}
+
     
     // Función para borrar el campo de búsqueda
     function borrarbusqueda() {
