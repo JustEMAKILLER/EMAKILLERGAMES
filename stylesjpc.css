@@ -428,8 +428,11 @@
     box-shadow: 2px 2px 10px black;
     transition: box-shadow 0.3s ease;}
 #buscar input[type="text"]:hover,
-#buscar input[type="number"]:hover {
-    box-shadow: 2px 2px 10px purple;}
+#buscar input[type="number"]:hover,
+#buscar input[type="text"]:focus,
+#buscar input[type="number"]:focus {
+    box-shadow: 2px 2px 10px purple;
+	outline: none;}
 	#cajaNoHayResultados{
 		display: none;
 		text-align: center;
