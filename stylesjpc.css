@@ -1,212 +1,551 @@
-
+/* Variables raíz */
+:root {
+	--Bl-svg: white;
+	--Bl-background-nav: rgba(0, 0, 0, 0.863);
+	--Bl-border-nav: rgb(119, 119, 119);
+	--Bl-shadow-nav: rgb(59, 2, 42);
+	--Bl-background-title: rgba(0, 0, 0, 0.473);
+	--Bl-border-title: rgb(83, 4, 50);
+	--Bl-shadow-title: rgb(2, 0, 0);
+	--Bl-color-title: rgb(255, 255, 255);}
 /* Reglas responsivas */
-@media (min-width: 601px) and (max-width: 1024px) {
-    #botonarriba{
-        height: 30px;
-        width: 30px;}}
-@media (max-width: 600px) {
-    #botonarriba {
-        height: 30px;
-        width: 30px;}}
 /* Palabras reservadas */
-    body{
-        color:#FFFFEE;
-        background-color:#001723fd;
-	    overflow-x:hidden;}
-    button{
-        border-radius:10px;
-        border:ridge black;
-        font-size:16px;
-        font-weight:bold;
-        user-select: none;
+	body {
+	background: linear-gradient(
+		to bottom,
+		rgba(252, 0, 0, 0) 8vw,
+		rgba(0, 0, 0, 0.999)35vw
+	  ),
+	  url(img/photo_2024-12-18_11-58-57.jpg);
+	color: var(--Bl-svg);
+	background-repeat: no-repeat;
+	background-position: 0% 0%;
+	background-size: 100%;
+	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+	overflow-x: hidden;
+	overflow-y: auto;}
+	button{
+		color:white;
+		border-radius:10px;
+		border:ridge black;
+		background-color: var(--Bl-background-nav);
+		font-size:16px;
+		font-weight:bold;
+		user-select: none;
+		transition: transform 0.3s ease;}
+	button:hover{
+		transform: scale(1.10);}
+	h1,h2,h3,h4,h5,h6{
+		text-align:center;
+		user-select:none;
+		overflow-x:auto;}   
+	h4{
+		font-family:Verdana, Geneva, Tahoma, sans-serif;
+		font-size: x-large;
+		margin-bottom: 25px;}
+	a:hover,button:hover{
+		color:lightblue;
+		text-decoration:none;
+		transform:scale(1.15);}
+	nav {
+        display: flex;
+        justify-content:right;
+        position: sticky;
+        top: 1%;
+        height: 65px;
+        min-width: fit-content;
+        max-width: fit-content;
+        margin-top: 20px;
+        margin-left: 10px;
+        border: 1px solid var(--Bl-border-nav);
+        border-radius: 20px;
+        background-color: var(--Bl-background-nav);
+        box-shadow: 0 0 10px var(--Bl-shadow-nav);
+        z-index: 200;}
+    nav a{
+        border-radius: 30px;
         transition: transform 1s;}
-    button:hover{
-        transform: scale(1.10);}
-    h1,h2,h3,h4,h5,h6{
-        text-align:center;
-        transition: transform 1s;
-	    user-select:none;
-        overflow-x:auto;}           
-    h1:hover{
-        transform:scale(1.15);}
-    a{
-        color:whitesmoke;
-        text-decoration: underline 1px;}
-    a:hover,button:hover{
-        color:lightblue;
-        text-decoration:none;
-        transform:scale(1.15);}
-    input[type=text], input[type=number]{
-        font-weight:bold;
-        border:2px outset purple;
-        border-radius:10px;
+    nav a:hover{
+            transform: scale(1.2);
+            background-color: rgb(166, 11, 180);
+            z-index: 2;}
+	input[type=text], input[type=number]{
+		font-weight:bold;
+		border:2px outset purple;
+		border-radius:10px;
 		user-select:none;
 		margin: 5px 5px 5px 5px;
-        box-shadow: 2px 2px 10px black;}
-    input[type=text]:hover, input[type=number]:hover{
-        animation:cambiocolorbusqueda 0.5s linear;
-        box-shadow: 2px 2px 10px purple;}
-        /* Clases */
-    .busqueda{
-        display:flex;
-		justify-content:space-evenly;
-		flex-flow:row wrap;
-        margin: 0 auto;}
-    .botonesbusqueda{
-        display: none;
-        cursor: pointer;}
-    .botonesbusqueda:hover{
-        color:black;}
-    .botonelementos{
-        display:flex; 
-        margin: 0 auto;
-        margin-bottom: 5px;
-        cursor: pointer;}
-    .titulostjuegos{
-        overflow:hidden;
-        user-select: none;
-        display: flex;
-        justify-content: center;
-        margin: 0 auto;
-        margin-top: 30px;
-        margin-bottom: 30px;
-        width: 250px;
-        height: 150px;
-        transition: transform 1s;}
-    .titulostjuegos:hover{
-        transform: scale(1.10);}
-    .caja{
-        margin-top: 20px;
-        border: outset 2px white;
-        border-radius: 20px;
-        box-shadow: 2px 2px 6px purple;
-        padding-right:10px;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
-    .cajaresultados{
-        display: none;
-        margin-bottom: 20px;
-        padding-left: 25px;
-        padding-bottom: 10px;
-        border: outset 2px white;
-        box-shadow: 2px 2px 6px blue;
-        font-weight: bolder;
-        font-family: sans-serif;}
-    .cajajuegosdescart{
-        display: none;
-        margin-bottom: 20px;
-        border: outset 2px white;
-        box-shadow: 2px 2px 6px red;
-        font-weight: bolder;
-        font-family: sans-serif;}
-    .juegosnuevos{
-        color:rgb(187, 16, 187);
-        display: inline;
-        margin-left: 20px;}
-    .juegosactualizados{
-        color:lightskyblue;
-        display: inline;
-        margin-left: 20px;}
-    .oculto {
+		box-shadow: 2px 2px 10px black;
+		color: rgb(255, 255, 255);
+		background-color: black;}
+	input[type=text]:hover, input[type=number]:hover{
+		animation:cambiocolorbusqueda 0.3s ease;
+		box-shadow: 2px 2px 10px purple;}
+	li img{
+		width: 100%;
+		height: 100%;}
+	li:hover .add-button,li:hover .remove-button{
+		display: block;}
+	ul{
+		list-style-type: none;
+		display: flex;
+		flex-flow: row wrap;
+		gap: 20px 10px;
+		justify-content: center;
+		align-content: center;
+		margin: 10px;}
+	ul li{
+		width: 300px;
+		height: 250px;
+		background-size: cover;
+		background: linear-gradient(to bottom , rgba(0, 0, 0, 0) 50% , rgb(128, 3, 128) 90% );
+		border-radius: 30px;
+		box-shadow: inset 0 0 10px black;
+		transition: transform 1s;}
+	ul li:hover{
+		box-shadow: 2px 2px 10px black;
+		animation:cambiocolorbusqueda 0.5s linear;
+		box-shadow: 2px 2px 10px purple;
+		transform: scale(1.02);}
+	ul img{
+		opacity: 1;
+		border-radius: 30px;
+		box-shadow: inset 0 0 30px black;} 
+	ul img:hover{
+		opacity: 0.3;}
+	svg {
+		position: relative;
+		width: 200%;
+		top: 40%;
+		left: 30%;
+		fill: white;
+		max-width: 50px;
+		min-width: 50px;}
+/* Clases */
+	.add-button,.remove-button{
+		display: none;
+		z-index: 100;
+		position: absolute;
+		top: 45%;
+		left: 40%;
+		width: 35px;
+		height: 35px;
+		border-radius: 30px;
+		box-shadow: outset 0 0 10px black;}
+	.add-button:hover{
+		animation:cambiocoloraddbutton 0.3s ease;
+		box-shadow: 2px 2px 10px blue;}
+	.remove-button:hover{
+		animation:cambiocolorremovebutton 0.3s ease;
+		box-shadow: 2px 2px 10px red;}
+	.botonelementos{
+		position: relative;
+		top:-5px;
+		color: white;
+		display:flex; 
+		margin: 0 auto;
+		margin-bottom: 5px;
+		border:2px outset purple;
+		border-radius: 0px;
+		box-shadow: 2px 2px 10px black;
+		background-color: var(--Bl-background-nav);
+		cursor: pointer;}
+	.botonelementos:hover{
+		animation:cambiocolorbusqueda 0.3s ease;
+		box-shadow: 2px 2px 10px purple;}
+.busqueda {
+	margin-left:75%;
+	margin-top: -8%;
+	width: fit-content;
+	scale: 0.75;
+    position: sticky;
+    top: 0%; /* Distancia desde la parte superior */
+    height: fit-content; /* Altura cero para no ocupar espacio adicional */
+    z-index: 200; /* Asegura que esté por encima de otros elementos */
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido a la derecha */
+    padding-right: 10px; /* Espacio desde el borde derecho */
+}
+	.caja{
+		user-select: none;
+		margin-top: 20px;
+		border: outset 2px rgb(44, 0, 31);
+		border-radius: 20px;
+		box-shadow: 2px 2px 6px purple;
+		padding-top: 10px;
+		padding-right:10px;
+		font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
+	.cajaresultados{
+		user-select: none;
+		display: none;
+		margin-bottom: 20px;
+		padding-bottom: 10px;
+		border: outset 1px blue;
+		border-radius: 20px;
+		box-shadow: 2px 2px 6px blue;
+		font-weight: bolder;
+		font-family: sans-serif;}
+	.cajaresultados li{
+		list-style-type: none;}
+	.cajajuegosdescart{
+		user-select: none;
+		display: none;
+		margin-bottom: 20px;
+		padding-bottom: 10px;
+		border: outset 1px red;
+		border-radius: 20px;
+		box-shadow: 2px 2px 6px red;
+		font-weight: bolder;
+		font-family: sans-serif;}
+	.cajajuegosdescart li {
+		list-style-type: none;
+		width: 300px;
+		height: 250px;}
+	.cajajuegosdescart li:hover, .cajaresultados li:hover {
+		transform: translateY(-5px);}
+	.encabezadosjuegos{
+		border-top: 1px solid purple;}
+	.juegosnuevos{
+		border:solid 10px rgb(171, 9, 171);
+		border-radius: 40px;}
+	.juegosnuevos img{
+		width: 100%;
+		height: 100%;}
+	.juegosnuevos p,.juegosactualizados p{
+		display: none;
+		color: whitesmoke;
+		text-shadow: 2px 2px 2px black;
+		font-weight: bolder;}
+	.juegosactualizados{
+		border:solid 10px rgb(88, 88, 236);
+		border-radius: 40px;}
+	.juegosactualizados img{
+		width: 100%;
+		height: 100%;}
+	.titulostjuegos{
+		overflow:hidden;
+		user-select: none;
+		display: flex;
+		justify-content: center;
+		margin: 0 auto;
+		margin-top: 30px;
+		margin-bottom: 30px;
+		width: 250px;
+		height: 150px;
+		transition: transform 1s;}
+	.titulostjuegos:hover{
+		transform: scale(1.10);}
+	.vista-tradicional li {
+    	width: auto !important;
+    	height: auto !important;
+    	background: none !important;
+    	border: none !important;
+    	border-radius: 0 !important;
+    	box-shadow: none !important;
+    	transition: none !important;
+    	display: list-item;
+    	padding: 12px !important;
+		transition: transform 0.3s ease !important;}
+	.vista-tradicional #juegosdescartados ul, .vista-tradicional #resultados ul{
+		display: block !important;}
+	.vista-tradicional .juegosactualizados p{
+		color: rgb(88, 88, 236);} 
+	.vista-tradicional .juegosnuevos p{
+		color:rgb(157, 5, 157);}
+	.vista-tradicional .juegosnuevos p, .vista-tradicional .juegosactualizados p{
+		display: inline;}
+	.vista-tradicional a{
+		color:white !important;
+		text-decoration:none !important;}
+	.vista-tradicional li a:hover{
+		text-decoration: underline solid lightblue !important;
+		color:lightblue !important;
+		transform: translateX(-10px);}
+	.vista-tradicional .juegosSinEnlace:hover{
+		text-decoration: none !important;
+		color:white !important;
+	}		
+	.vista-tradicional .add-button,.vista-tradicional .remove-button{
+		display: inline-block !important;
+		position: relative !important; 
+		top: 0 !important;
+		left: 0 !important;
+		width: auto !important;
+		height: auto !important;
+		margin-left: 10px;
+		padding: 5px 10px;
+		transition: transform 0.2s ease-in-out;}
+/* ID's */
+	/* SVGs */
+	#casa{
+		left: 3px;
+		width: 30px;
+		min-width: 30px;
+		max-width: 30px;}
+	#Livello_1 {
+		scale: 0.3;
+		top: 7%;
+		left: 0%;}
+	#Layer_1 {
+		scale: 0.5;
+		top: 20%;
+		left: 0%;}
+	#Capa_1 {
+		scale: 0.5;
+		top: 3%;
+		left: 0%;}
+	/* Botones */
+	#botonJNA{
+		display: block;}
+	#botonMostrar{
+		display:none;}
+	#botonJNA, #botonMostrar{
+		margin: 0 auto;
+		cursor: pointer;
+		color: white;
+		border:2px outset purple;
+		border-radius: 0px;
+		box-shadow: 2px 2px 10px black;
+		background-color: var(--Bl-background-nav);}
+	#botonJNA:hover, #botonMostrar:hover{
+		animation:cambiocolorbusqueda 0.3s linear;
+		box-shadow: 2px 2px 10px purple;
+		transform: scale(1.1);}
+	#botonCambiarVista{
+		display:flex; 
+		margin: 0 auto;
+	    cursor:pointer;
+		border:2px outset purple;
+	}
+	#botonCambiarVista:hover{
+		color:orange;
+		animation:cambiocolorbusqueda 0.3s ease;
+		box-shadow: 2px 2px 10px purple;
+	}
+	#botonarriba{
+		height: 50px;
+		width: 50px;
+		border: solid 2px black;
+		border-radius: 40px;
+		box-shadow:2px 2px 20px black;
+		background-position: center;
+		background-image: url("img/ieaksie009.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		position:fixed;
+		display: none;
+		bottom: 2%;
+		right: 1%;
+		transition: transform 1s;}
+	#botonarriba.show{
+		display: block;}
+	#botonarriba a{
+		display: block;
+		width: 100%;
+		height: 100%;}
+	#botonarriba:hover{
+		border-color: purple;
+		transform:scale(1.15);}
+	#botoneliminatodo:hover{
+		color:red;}
+	#botonagregatodo:hover{
+		color:blue;}
+	#botonEnviarWhatsapp{
+			color: white;
+			display:flex; 
+			margin: 0 auto;
+			margin-bottom: 5px;
+			border:2px outset purple;
+			border-radius: 0px;
+			box-shadow: 2px 2px 10px black;
+			background-color: var(--Bl-background-nav);
+			cursor: pointer;}
+	#botonEnviarWhatsapp:hover{
+			color:rgb(49, 238, 2);
+			transform:scale(1.05);
+			animation:cambiocolorbusqueda 0.3s ease;
+			box-shadow: 2px 2px 10px purple;}
+    #botonMenuDesplegable2{
         display: none;}
-        /* ID's */
-    #menu{
-        z-index: 50;
-        text-align:center;
-        position:fixed;
-        width: 100%;
-        top:0px;
-        background:black;
-        line-height:40px;
-        overflow-x:auto;
-        white-space:nowrap;}
-    #menu a{
-        display:inline-block;
-	    padding-right:5px;
-        padding-left:5px;
-        color:white;
-        text-decoration:none;}
-    #menu a:hover{
-        color:lightblue;
-        transform:none;
-        border-right: solid 1px white;
-        border-left: solid 1px white;
-        background-color: rgb(49, 44, 44);}
-    #titulo{
-        margin-top:15px;
-        font-family:"Comic Sans MS",Arial;}
-    #amongus h4{
-        color: rgb(4, 255, 0);}
-    #dutyimg{
-        width: 190px;
-        height: 200px;}
-    #duty h4{   
-        color:rgb(227, 153, 15);}
-    #doki h4{
-        color: rgb(235, 102, 124);}
-    #FNAF h4{
-            color:brown;}
-    #fnf h4{
-        color: lightcyan;}
-    #mario h4{
-        color: rgb(255, 0, 0);}
-    #naruto h4{
-        color: rgb(255, 180, 7);}
-    #pokemon h4{
-        color: rgb(195, 248, 2);}
-    #sonic h4{
-        color: rgba(64, 64, 244, 0.986);}
-    #undertale h4{
-        color: lightcyan;}
-    #worms h4{
-        color: rgba(242, 234, 124, 0.936);}
-    #yugio h4{
-        color: rgb(218, 54, 54);}
-    #texto{
-        display: flex;
-        justify-content: center;
-        align-content: center;}
-    #botonJNA{
-        display: flex;}
-    #botonMostrar{
-        display:none;}
-    #botonJNA, #botonMostrar{
-        margin: 0 auto;
+	/* Encabezados de juegos */ 
+	#amongus h4{
+		color: rgb(4, 255, 0);}
+	#dutyimg{
+		width: 190px;
+		height: 200px;}
+	#duty h4{   
+		color:rgb(227, 153, 15);}
+	#doki h4{
+		color: rgb(235, 102, 124);}
+	#FNAF h4{
+		color:brown;}
+	#fnf h4{
+		color: lightcyan;}
+	#mario h4{
+		color: rgb(255, 0, 0);}
+	#naruto h4{
+		color: rgb(255, 180, 7);}
+	#pokemon h4{
+		color: rgb(195, 248, 2);}
+	#sonic h4{
+		color: rgba(64, 64, 244, 0.986);}
+	#undertale h4{
+		color: lightcyan;}
+	#worms h4{
+		color: rgba(242, 234, 124, 0.936);}
+	#yugio h4{
+		color: rgb(218, 54, 54);}
+	/* Otros */
+/* Contenedor principal de búsqueda */
+#buscar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacio entre los elementos de búsqueda */
+    width: 100%; /* Ancho automático basado en el contenido */
+    max-width: 300px; /* Limita el ancho máximo para no ocupar demasiado espacio */
+    padding: 10px;
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+    background-color: var(--Bl-background-nav); /* Fondo para que el contenido no se vea detrás */
+    border: 1px solid var(--Bl-border-nav);
+    border-radius: 20px;
+    box-shadow: 0 0 10px var(--Bl-shadow-nav);
+}
+
+/* Contenedor de cada campo de búsqueda */
+#buscar > div {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Espacio entre el input y el botón */
+    width: 100%;
+}
+
+/* Estilos para los inputs de búsqueda */
+#buscar input[type="text"],
+#buscar input[type="number"] {
+    flex-grow: 1; /* Hace que el input ocupe el espacio disponible */
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem; /* Tamaño de fuente relativo */
+    border: 2px solid var(--Bl-border-nav);
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    box-shadow: 2px 2px 10px black;
+    transition: box-shadow 0.3s ease;
+}
+
+#buscar input[type="text"]:hover,
+#buscar input[type="number"]:hover {
+    box-shadow: 2px 2px 10px purple;
+}
+
+/* Estilos para los botones de borrar */
+#buscar .botonesbusqueda {
+    display: none; /* Oculto por defecto */
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--Bl-background-nav);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#buscar .botonesbusqueda:hover {
+    background-color: rgb(166, 11, 180);
+    transform: scale(1.1);
+}
+
+/* Mostrar el botón de borrar cuando el input tiene contenido */
+#buscar input:not(:placeholder-shown) + .botonesbusqueda {
+    display: inline-block;
+}
+	#cajaNoHayResultados{
+		display: none;
+		text-align: center;
+		padding-bottom: 3px;}
+	#calculoprecio, #encabezadoDescartados {
+			text-align: center;
+			margin:  20px auto;
+			padding: 15px;
+			font-size: 1.4em;
+			font-weight: bold;
+			color: white;
+			background: rgba(255, 255, 255, 0.1);
+			border-radius: 10px;
+		width: 80%;}		
+	#subir{
+		display:inline;
+		opacity: 0;}
+	#texto{
+		display: flex;
+		justify-content: center;
+		align-content: center;}
+	#Titulo{
+		position: relative;
+		width: 100%;
+		height: 40px;
+		margin-top: 30%;
+		padding-top: 10px;
+		scale: 0.9;
+		border: 1px solid var(--Bl-border-title);
+		border-radius: 20px;
+		background-color: var(--Bl-background-title);
+		box-shadow: inset 0 0 30px var(--Bl-shadow-title);
+		text-align: center;
+		font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-seri;
+		font-size: 20px;
+		color: var(--Bl-color-title);}
+    #menuDesplegable {
         cursor: pointer;
-        transition: transform 1s;}
-    #botonJNA:hover, #botonMostrar:hover{
-        color: black;
-        transform: scale(1.1);}
-    #botonarriba{
-        height: 50px;
-        width: 50px;
-        border: solid 2px black;
-        border-radius: 40px;
-        box-shadow:2px 2px 20px black;
-        background-position: center;
-        background-image: url("ieaksie 009.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
         position:fixed;
-        display: none;
-        bottom: 5px;
-        right: 10px;
+        bottom: 8px;
+        left: 5px;
+        display: flex;
+        height: 80px;
+		width: auto;
+        margin-top: 20px;
+        margin-left: 20px;
+        border: 1px solid var(--Bl-border-nav);
+        border-radius: 50px;
+        background-color: var(--Bl-background-nav);
+        scale: 0.9;
+		user-select: none;
+        z-index: 200;}
+    #menuDesplegable a{
+        border-radius: 30px;
         transition: transform 1s;}
-    #botonarriba.show{
-        display: block;}
-    #botonarriba a{
-        display: block;
-        width: 100%;
-        height: 100%;}
-    #botonarriba:hover{
-        border-color: purple;
-        transform:scale(1.15);}
-    #botoneliminatodo:hover{
-        color:red;}
-    #botonagregatodo:hover{
-            color:blue;}
-    #subir{
-	    display:inline;}
-        /* Animaciones */
-    @keyframes cambiocolorbusqueda{
-        from {box-shadow: 2px 2px 10px black;}
-        to {box-shadow: 2px 2px 10px purple;}}
+    #menuDesplegable a:hover{
+        transform: scale(1.1);
+        z-index: 2;}
+    #menuDesplegado{
+        display: none;
+        overflow-y: auto;
+        overflow-x: hidden;
+        justify-content:left;
+        flex-flow: row wrap;
+        border: 1px solid var(--Bl-border-nav);
+        background-color: var(--Bl-background-nav);
+        box-shadow: 0 0 10px var(--Bl-shadow-nav);
+		width:auto;}
+    #menuDesplegado img {
+        margin-left: 5px;
+        border-radius: 30px;
+        width: 70px;
+        height: 68px;
+        transition: transform 1s;}
+    #menuDesplegado img:hover{
+        transform: scale(1.1);
+        background-color: rgb(166, 11, 180);
+        z-index: 2;}   
+/* Animaciones */
+	@keyframes cambiocolorbusqueda{
+		from {box-shadow: 2px 2px 10px black;}
+		to {box-shadow: 2px 2px 10px purple;}}
+	@keyframes cambiocoloraddbutton{
+			from {box-shadow: 2px 2px 10px black;}
+			to {box-shadow: 2px 2px 10px blue;}}
+	@keyframes cambiocolorremovebutton{
+		from {box-shadow: 2px 2px 10px black;}
+		to {box-shadow: 2px 2px 10px red;}}

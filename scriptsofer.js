@@ -68,16 +68,85 @@ function busqueda() {
     text.textContent = hayResultados ? "" : "No hay resultados.";
 }    
 // Función para borrar el campo de búsqueda
-function borrarbusqueda() {
+function borrarBusqueda() {
 const buscarnombreInput = document.getElementById('buscarnombre');
 // Limpiar el campo de texto
 buscarnombreInput.value = "";
 busqueda();
 }
 // Función para borrar el campo de precio
-function borrarprecio(){
+function borrarPrecio(){
 const filtroprecioInput = document.getElementById('buscarprecio');
 // Limpiar el campo de texto
 filtroprecioInput.value = "";
 busqueda();
+}
+function cambiarVista() {
+    const body = document.body;
+    body.classList.toggle("vista-tradicional"); // Activa o desactiva la clase en el body
+
+    const uls = document.querySelectorAll("ul");
+    const lis = document.querySelectorAll("li");
+
+    if (body.classList.contains("vista-tradicional")) {
+        // Modo lista tradicional activado
+        uls.forEach(ul => {
+            ul.style.display = "block"; // Cambia a lista vertical
+        });
+
+        lis.forEach(li => {
+            const enlace = li.querySelector("a");
+            const img = li.querySelector("img");
+
+            // Guardar el contenido original antes de modificarlo
+            if (!li.dataset.originalContent) {
+                li.dataset.originalContent = li.innerHTML;
+            }
+
+            if (img) {
+                const nombreJuego = document.createTextNode(img.title);
+                li.setAttribute('data-imgSrc', img.src); // Guarda la imagen antes de eliminarla
+                img.remove(); // Elimina la imagen
+
+                if (enlace) {
+                    enlace.innerHTML = ""; // Limpia el enlace antes de agregar texto
+                    enlace.appendChild(nombreJuego);
+                } else {
+                    li.innerHTML = ""; // Limpia el contenido del <li> para evitar duplicados
+                    li.appendChild(nombreJuego);
+                }
+            }
+        });
+
+    } else {
+        // Modo con imágenes activado (restaurar diseño original)
+        uls.forEach(ul => {
+            ul.style.display = "flex"; // Restaura el display original
+        });
+
+        lis.forEach(li => {
+            const enlace = li.querySelector("a");
+            const imgSrc = li.getAttribute('data-imgSrc');
+
+            if (imgSrc) {
+                const img = document.createElement("img");
+                img.src = imgSrc;
+                img.title = li.textContent.trim();
+
+                if (enlace) {
+                    enlace.innerHTML = "";
+                    enlace.appendChild(img);
+                } else {
+                    li.innerHTML = ""; // Limpia el <li> antes de agregar la imagen
+                    li.appendChild(img);
+                }
+            }
+
+            // Restaurar el contenido original si existe
+            if (li.dataset.originalContent) {
+                li.innerHTML = li.dataset.originalContent;
+                delete li.dataset.originalContent; // Eliminar el dato temporal
+            }
+        });
+    }
 }
