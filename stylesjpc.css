@@ -50,11 +50,10 @@
         display: flex;
         justify-content:right;
         position: sticky;
-        top: 1%;
+        top: 2%;
         height: 65px;
         min-width: fit-content;
         max-width: fit-content;
-        margin-top: 20px;
         margin-left: 10px;
         border: 1px solid var(--Bl-border-nav);
         border-radius: 20px;
@@ -158,12 +157,12 @@
 	width: fit-content;
 	scale: 0.75;
     position: sticky;
-    top: 0%; /* Distancia desde la parte superior */
-    height: fit-content; /* Altura cero para no ocupar espacio adicional */
-    z-index: 200; /* Asegura que esté por encima de otros elementos */
+    top: 0%; 
+    height: fit-content; 
+    z-index: 200; 
     display: flex;
-    justify-content: flex-end; /* Alinea el contenido a la derecha */
-    padding-right: 10px; /* Espacio desde el borde derecho */
+    justify-content: flex-end;
+    padding-right: 10px;
 }
 	.caja{
 		user-select: none;
@@ -349,6 +348,22 @@
 		color:red;}
 	#botonagregatodo:hover{
 		color:blue;}
+		#buscar .botonesbusqueda {
+			display: none; 
+			padding: 10px;
+			font-size: 1rem;
+			border: none;
+			border-radius: 20px;
+			background-color: var(--Bl-background-nav);
+			color: white;
+			cursor: pointer;
+			transition: background-color 0.3s ease, transform 0.3s ease;}
+		#buscar .botonesbusqueda:hover {
+			background-color: rgb(166, 11, 180);
+			transform: scale(1.1);}
+			/* Mostrar el botón de borrar cuando el input tiene contenido */
+			#buscar input:not(:placeholder-shown) + .botonesbusqueda {
+				display: inline-block;}
 	#botonEnviarWhatsapp{
 			color: white;
 			display:flex; 
@@ -395,71 +410,40 @@
 	#yugio h4{
 		color: rgb(218, 54, 54);}
 	/* Otros */
-/* Contenedor principal de búsqueda */
 #buscar {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Espacio entre los elementos de búsqueda */
-    width: 100%; /* Ancho automático basado en el contenido */
-    max-width: 300px; /* Limita el ancho máximo para no ocupar demasiado espacio */
+    gap: 10px; 
+    width: 100%; 
+    max-width: 300px; 
     padding: 10px;
-    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
-    background-color: var(--Bl-background-nav); /* Fondo para que el contenido no se vea detrás */
+    box-sizing: border-box; 
+    background-color: var(--Bl-background-nav);
     border: 1px solid var(--Bl-border-nav);
     border-radius: 20px;
     box-shadow: 0 0 10px var(--Bl-shadow-nav);
 }
-
 /* Contenedor de cada campo de búsqueda */
 #buscar > div {
     display: flex;
     align-items: center;
-    gap: 5px; /* Espacio entre el input y el botón */
-    width: 100%;
-}
-
-/* Estilos para los inputs de búsqueda */
+    gap: 5px; 
+    width: 100%;}
 #buscar input[type="text"],
 #buscar input[type="number"] {
-    flex-grow: 1; /* Hace que el input ocupe el espacio disponible */
+    flex-grow: 1;
     width: 100%;
     padding: 10px;
-    font-size: 1rem; /* Tamaño de fuente relativo */
+    font-size: 1rem; 
     border: 2px solid var(--Bl-border-nav);
     border-radius: 10px;
     background-color: black;
     color: white;
     box-shadow: 2px 2px 10px black;
-    transition: box-shadow 0.3s ease;
-}
-
+    transition: box-shadow 0.3s ease;}
 #buscar input[type="text"]:hover,
 #buscar input[type="number"]:hover {
-    box-shadow: 2px 2px 10px purple;
-}
-
-/* Estilos para los botones de borrar */
-#buscar .botonesbusqueda {
-    display: none; /* Oculto por defecto */
-    padding: 10px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 20px;
-    background-color: var(--Bl-background-nav);
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-#buscar .botonesbusqueda:hover {
-    background-color: rgb(166, 11, 180);
-    transform: scale(1.1);
-}
-
-/* Mostrar el botón de borrar cuando el input tiene contenido */
-#buscar input:not(:placeholder-shown) + .botonesbusqueda {
-    display: inline-block;
-}
+    box-shadow: 2px 2px 10px purple;}
 	#cajaNoHayResultados{
 		display: none;
 		text-align: center;
