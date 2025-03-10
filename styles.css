@@ -37,48 +37,41 @@ body {
 }
 h1,h2,h3,h4,h5,h6{
   user-select: none;}
-svg {
-  position: relative;
-  width: 200%;
-  top: 40%;
-  left: 30%;
-  fill: white;
-  max-width: 50px;
-  min-width: 50px;}
-
-	nav {
-    display: flex;
-    justify-content:right;
-    position: sticky;
-    top: 1%;
-    height: 65px;
-    min-width: fit-content;
-    max-width: fit-content;
-    margin-top: 20px;
-    margin-left: 10px;
-    border: 1px solid var(--Bl-border-nav);
-    border-radius: 20px;
-    background-color: var(--Bl-background-nav);
-    box-shadow: 0 0 10px var(--Bl-shadow-nav);
-    z-index: 2;}
-
-nav a{
-  border-radius: 30px;
-  transition: transform 1s;}
-
-  nav a:hover{
-    transform: scale(1.2);
-    background-color: rgb(166, 11, 180);
-    z-index: 2;
-  }
-  
-
 /* Clases */
+.cajasjuegos {
+  width: 90%;
+  max-width: 500px;
+  height: 200px; 
+  border: solid 2px black;
+  box-shadow: 2px 2px 6px purple;
+  border-radius: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 20px; 
+  transition: box-shadow 0.5s ease, transform 0.5s ease;
+  z-index: 1;
+  overflow: hidden;
+}
+
 .cajasjuegos:hover{
   z-index: 2;
-  animation:cambiobordecajas 1s linear;
   transform: scale(1.05);
   box-shadow: 2px 2px 6px blue;
+}
+
+
+.cajasjuegos p {
+  user-select: none;
+  position: relative;
+  top: 30px;
+  width: 100%;
+  height: 100%;
+  font-size: 4vw; 
+}
+
+.cajasjuegos a{
+  width: 100%;
+  height: 100%;
 }
 
 .cajasjuegos:hover .frente{
@@ -192,64 +185,34 @@ text-shadow: 0 0 10px black;}
   text-align: center;
 }
 
-.cajasjuegos {
-  width: 90%; /* Usamos un porcentaje para que el ancho sea relativo al contenedor padre */
-  max-width: 500px; /* Limitamos el ancho máximo para evitar que se vea demasiado grande en pantallas grandes */
-  height: 200px; /* Altura fija para mantener la proporción */
-  border: solid 2px black;
-  box-shadow: 2px 2px 6px purple;
-  border-radius: 20px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin-bottom: 20px; /* Añadimos un margen inferior para separar los elementos */
-  transition: transform 0.5s ease;
-  z-index: 1;
-  overflow: hidden; /* Simplificamos el overflow */
-}
-
-.cajasjuegos p {
-  user-select: none;
-  position: relative;
-  top: 30px;
-  width: 100%;
-  height: 100%;
-  font-size: 4vw; /* Usamos vw para que el tamaño de la fuente sea relativo al ancho de la pantalla */
-}
-
-.cajasjuegos a{
-  width: 100%;
-  height: 100%;
-}
-
-
 .Download {
   display: flex;
-  justify-content: center; /* Centramos el contenido horizontalmente */
-  align-items: center; /* Centramos el contenido verticalmente */
-  margin-top: 20px; /* Margen superior para separar del contenido anterior */
-  padding: 10px; /* Añadimos un padding para dar espacio interno */
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para resaltar el botón */
-  border-radius: 10px; /* Bordes redondeados */
-  border: 1px solid var(--Bl-border-title); /* Borde con el color definido en las variables */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad */
-  transition: transform 0.3s ease, background-color 0.3s ease; /* Transición suave */
+  justify-content: center; 
+  align-items: center; 
+  margin-top: 20px; 
+  padding: 10px; 
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px; 
+  border: 1px solid var(--Bl-border-title); 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .Download a {
   display: flex;
-  align-items: center; /* Centramos el ícono y el texto verticalmente */
-  gap: 10px; /* Espacio entre el ícono y el texto */
-  text-decoration: none; /* Quitamos el subrayado del enlace */
-  color: var(--Bl-color-title); /* Color del texto */
-  font-family: 'FuenteImpact', Haettenschweiler, "Arial Narrow Bold", sans-serif; /* Fuente */
-  font-size: 1.5vw; /* Tamaño de fuente relativo al ancho de la pantalla */
+  align-items: center;
+  gap: 10px; 
+  text-decoration: none; 
+  color: var(--Bl-color-title);
+  font-family: 'FuenteImpact', Haettenschweiler, "Arial Narrow Bold", sans-serif; 
+  font-size: 1.5vw;
 }
 /* ID's */
 #Titulo {
   position: relative;
   width: 100%;
   height: auto;
-  margin-top: 30%;
+  margin-top: 35%;
   scale: 0.8;
   border: 1px solid var(--Bl-border-title);
   border-radius: 20px;
@@ -286,11 +249,11 @@ text-shadow: 0 0 10px black;}
 }
 
 #fotoMega {
-  width: 40px; /* Tamaño fijo para el ícono */
+  width: 40px; 
   height: 40px;
-  border-radius: 50%; /* Hacemos el ícono circular */
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Sombra para resaltar el ícono */
-  margin-right: 10px; /* Espacio entre la imagen y el texto */
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  margin-right: 10px; 
 }
 
 #reglas{
@@ -357,6 +320,3 @@ text-shadow: 0 0 10px black;}
   33% {color:rgb(26, 102, 123)}
   86% {color:#FAAD00}
   100% {color:red}}
-@keyframes cambiobordecajas{
-  from {box-shadow: 2px 2px 6px purple;}
-  to {box-shadow: 2px 2px 6px blue;}}
