@@ -329,7 +329,7 @@ text-shadow: 0 0 10px black;}
 
   #live{
     animation:cambiocolorlive 3.5s linear infinite;
-    font-size: 1rem;
+    font-size: 0.7rem;
     text-align: center;
     color: blueviolet;
     font-family: "FuenteVirtualDJ", "Arial Narrow", Arial, sans-serif;}
