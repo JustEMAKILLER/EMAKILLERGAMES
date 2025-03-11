@@ -8,7 +8,6 @@
 	--Bl-border-title: rgb(83, 4, 50);
 	--Bl-shadow-title: rgb(2, 0, 0);
 	--Bl-color-title: rgb(255, 255, 255);}
-/* Reglas responsivas */
 /* Palabras reservadas */
 	body {
 	background: linear-gradient(
@@ -32,7 +31,7 @@
 		font-size:16px;
 		font-weight:bold;
 		user-select: none;
-		transition: box-shadow 0.3s ease, transform 0.3s ease;}
+		transition: color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;}
 	button:hover{
 		transform: scale(1.10);}
 	h1,h2,h3,h4,h5,h6{
@@ -246,7 +245,8 @@
 		display: inline;}
 	.vista-tradicional a{
 		color:white !important;
-		text-decoration:none !important;}
+		text-decoration:none !important;
+		transition: color 0.3s ease;}
 	.vista-tradicional li a:hover{
 		text-decoration: underline solid lightblue !important;
 		color:lightblue !important;

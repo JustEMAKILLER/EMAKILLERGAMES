@@ -9,6 +9,18 @@
   font-style: normal;
   font-display: swap;
 }
+  
+@font-face {
+  font-family: 'FuenteVirtualDJ';
+  src: url('fonts/VirtualDJ.eot?#iefix') format('embedded-opentype'),
+  url('fonts/VirtualDJ.woff2') format('woff2'),
+  url('fonts/VirtualDJ.woff') format('woff'),
+  url('fonts/VirtualDJ.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Variables raíz */
 :root {
   --Bl-svg: white;
@@ -37,6 +49,14 @@ body {
 }
 h1,h2,h3,h4,h5,h6{
   user-select: none;}
+  svg {
+    position: relative;
+    width: 200%;
+    top: 40%;
+    left: 30%;
+    fill: white;
+    max-width: 50px;
+    min-width: 50px;}
 /* Clases */
 .cajasjuegos {
   width: 90%;
@@ -312,7 +332,7 @@ text-shadow: 0 0 10px black;}
     font-weight:900;
     text-align: center;
     color: blueviolet;
-    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;}
+    font-family: "FuenteVirtualDJ", "Arial Narrow", Arial, sans-serif;}
 
 /* Animaciones */
 @keyframes cambiocolorlive{
