@@ -89,7 +89,7 @@
 		gap: 20px 10px;
 		justify-content: center;
 		align-content: center;
-		margin: 10px;}
+		padding: 0px;}
 	ul li{
 		width: 300px;
 		height: 250px;
@@ -144,9 +144,9 @@
 	.botonelementos:hover{
 		box-shadow: 2px 2px 10px purple;}
 .busqueda {
-	margin-left:75%;
+	left:100%;
 	margin-top: -8%;
-	width: fit-content;
+	max-width: 40%;
 	scale: 0.75;
     position: sticky;
     top: 0%; 
@@ -319,11 +319,9 @@
 		background-size: cover;
 		position:fixed;
 		display: none;
-		bottom: 2%;
+		bottom: 0%;
 		right: 1%;
 		transition: box-shadow 0.2s ease, transform 0.5s ease;}
-	#botonarriba.show{
-		display: block;}
 	#botonarriba a{
 		display: block;
 		width: 100%;

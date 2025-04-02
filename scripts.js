@@ -2,22 +2,70 @@
 document.addEventListener('DOMContentLoaded', function () {
     crearBotonesAdicion();
     actualizarPrecio();
-    mostrarBoton();
 });
 
-// Función para mostrar/ocultar el botón basado en el scroll
-window.onscroll = function () {
-    mostrarBoton();
-};
+// Escuchar el evento de scroll para mostrar el botón de desplazamiento
+window.addEventListener("scroll", mostrarBoton);
+
+// Variables globales para controlar el intervalo y la posición
+let animationInterval = null;
+let pos = 0;
+let isAnimating = false;
 
 function mostrarBoton() {
-const scrollButton = document.getElementById("botonarriba");
-    if (document.body.scrollTop > 650 || document.documentElement.scrollTop > 650) {
-        scrollButton.classList.add('show'); // Muestra el botón si el scroll supera 100px
-    } else {
-        scrollButton.classList.remove('show'); // Oculta el botón si el scroll es menor
+    const scrollButton = document.getElementById("botonarriba");
+    const scrollPosition = document.body.scrollTop || document.documentElement.scrollTop;
+
+    // Si el scroll es mayor a 650px, mostrar el botón con animación hacia arriba
+    if (scrollPosition > 650) {
+        // Si ya está visible y en posición, no hacer nada
+        if (pos === 2 && scrollButton.style.display === "block") return;
+        
+        // Si estaba ocultándose (animación hacia abajo), cancelarla
+        if (isAnimating && pos > 0) {
+            clearInterval(animationInterval);
+            isAnimating = false;
+        }
+        
+        scrollButton.style.display = "block";
+        
+        // Animación de entrada (hacia arriba)
+        if (!isAnimating && pos < 2) {
+            isAnimating = true;
+            animationInterval = setInterval(() => {
+                if (pos < 2) {
+                    pos += 0.5; // Velocidad de subida
+                    scrollButton.style.bottom = pos + "%";
+                } else {
+                    clearInterval(animationInterval);
+                    isAnimating = false;
+                }
+            }, 20); 
+        }
+    } 
+    // Si el scroll es menor a 650px, ocultar el botón con animación hacia abajo
+    else {
+        // Si ya está oculto o en posición 0, no hacer nada
+        if (pos === 0 || scrollButton.style.display === "none") return;
+        
+        // Animación de salida (hacia abajo)
+        if (!isAnimating && pos > 0) {
+            isAnimating = true;
+            clearInterval(animationInterval); // Limpiar intervalo previo
+            animationInterval = setInterval(() => {
+                if (pos > 0) {
+                    pos -= 0.5; // Velocidad de bajada
+                    scrollButton.style.bottom = pos + "%";
+                } else {
+                    scrollButton.style.display = "none";
+                    clearInterval(animationInterval);
+                    isAnimating = false;
+                }
+            }, 20);
+        }
     }
 }
+
 
 // Función para crear botones de adición
 function crearBotonesAdicion() {
