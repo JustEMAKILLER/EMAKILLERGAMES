@@ -163,7 +163,6 @@
 		border-radius: 20px;
 		box-shadow: 2px 2px 6px purple;
 		padding-top: 10px;
-		padding-right:10px;
 		font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
 	.cajaresultados{
 		user-select: none;
@@ -195,21 +194,21 @@
 		transform: translateY(-5px);}
 	.encabezadosjuegos{
 		border-top: 1px solid purple;}
-	.juegosnuevos{
+	.juegosNuevos{
 		border:solid 10px rgb(171, 9, 171);
 		border-radius: 40px;}
-	.juegosnuevos img{
+	.juegosNuevos img{
 		width: 100%;
 		height: 100%;}
-	.juegosnuevos p,.juegosactualizados p{
+	.juegosNuevos p,.juegosActualizados p{
 		display: none;
 		color: whitesmoke;
 		text-shadow: 2px 2px 2px black;
 		font-weight: bolder;}
-	.juegosactualizados{
+	.juegosActualizados{
 		border:solid 10px rgb(88, 88, 236);
 		border-radius: 40px;}
-	.juegosactualizados img{
+	.juegosActualizados img{
 		width: 100%;
 		height: 100%;}
 	.titulostjuegos{
@@ -237,11 +236,11 @@
 		transition: transform 0.3s ease !important;}
 	.vista-tradicional #juegosdescartados ul, .vista-tradicional #resultados ul{
 		display: block !important;}
-	.vista-tradicional .juegosactualizados p{
+	.vista-tradicional .juegosActualizados p{
 		color: rgb(88, 88, 236);} 
-	.vista-tradicional .juegosnuevos p{
+	.vista-tradicional .juegosNuevos p{
 		color:rgb(157, 5, 157);}
-	.vista-tradicional .juegosnuevos p, .vista-tradicional .juegosactualizados p{
+	.vista-tradicional .juegosNuevos p, .vista-tradicional .juegosActualizados p{
 		display: inline;}
 	.vista-tradicional a{
 		color:white !important;

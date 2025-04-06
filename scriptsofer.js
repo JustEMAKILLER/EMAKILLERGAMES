@@ -148,6 +148,8 @@ function cambiarVista() {
             const enlace = li.querySelector("a");
             const img = li.querySelector("img");
 
+            li.style.marginLeft += "10px";
+
             // Guardar el contenido original antes de modificarlo
             if (!li.dataset.originalContent) {
                 li.dataset.originalContent = li.innerHTML;
@@ -177,6 +179,8 @@ function cambiarVista() {
         lis.forEach(li => {
             const enlace = li.querySelector("a");
             const imgSrc = li.getAttribute('data-imgSrc');
+
+            li.style.marginLeft -= "10px";
 
             if (imgSrc) {
                 const img = document.createElement("img");

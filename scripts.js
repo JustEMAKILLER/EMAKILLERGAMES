@@ -114,6 +114,8 @@ function moverProducto(producto) {
     }
 
     listaResultados.appendChild(producto);
+
+    ordenarListaAlfabeticamente(listaResultados);
     hayDescartados();
     actualizarPrecio();
 }
@@ -306,7 +308,7 @@ function mostrarJuegosNewOrAct() {
  grupos.forEach((grupo) => {
     const productos = grupo.querySelectorAll('.listajuegos li');
     productos.forEach((producto) => {
-        if (producto.classList.contains('juegosnuevos') || producto.classList.contains('juegosactualizados')){
+        if (producto.classList.contains('juegosNuevos') || producto.classList.contains('juegosActualizados')){
         producto.style.display = "list-item";
         hayResultados = true;
     } else {
@@ -316,7 +318,7 @@ function mostrarJuegosNewOrAct() {
  })
  encabezadosJuegos.forEach((encabezadoJuego) => {
  encabezadoJuego.style.display = "none";})
- divBusqueda.style.opacity = "0";
+ divBusqueda.style.scale = "0";
  text.textContent = hayResultados ? "" : "No hay juegos nuevos o actualizados en esta sección.";
  botonJNA.style.display = "none";
  botonMostrar.style.display = "block";
@@ -337,7 +339,7 @@ function mostrarJuegos() {
  })
  encabezadosJuegos.forEach((encabezadoJuego) => {
  encabezadoJuego.style.display = "block";})
- divBusqueda.style.opacity = "1";
+ divBusqueda.style.scale = "1";
  botonMostrar.style.display = "none";
  botonJNA.style.display = "block";
  text.textContent = "Todos funcionan en LAN";
@@ -433,6 +435,8 @@ function cambiarVista() {
         lis.forEach(li => {
             const enlace = li.querySelector("a");
             const img = li.querySelector("img");
+            
+            li.style.marginLeft += "10px";
 
             // Guardar el contenido original antes de modificarlo
             if (!li.dataset.originalContent) {
@@ -462,6 +466,8 @@ function cambiarVista() {
         lis.forEach(li => {
             const enlace = li.querySelector("a");
             const imgSrc = li.getAttribute('data-imgSrc');
+
+            li.style.marginLeft -= "10px";
 
             if (imgSrc) {
                 const img = document.createElement("img");
