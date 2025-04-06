@@ -1,7 +1,4 @@
 Errores:
-La barra de búsqueda rompe la lógica de los titulos que salen al mostrar solamente los juegos nuevos o actualizados, se le puso opacity en 0 para evitar su uso pero aún así es posible de usar.
-
-Agregar y eliminar un elemento con la vista de texto varias veces hace que se rompa la lógica y no se quiera mover de contenedor hasta que se agregue o elimine todo o se cambie de vista a imágenes.
 
 Ideas para futuras actualizaciones:
 Agregar iconos en la esquina superior izquierda de cada juego (elemento li) en la vista con imágenes para saber si funcionan el LAN con una imagen de dos PC interconectadas, Online con un planeta, Online vía Steam con un icono de Steam y Offline con una PC desconectada con una equis o similar.

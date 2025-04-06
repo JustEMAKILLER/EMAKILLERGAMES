@@ -192,13 +192,27 @@ function ordenarListaAlfabeticamente(lista) {
     const items = Array.from(lista.querySelectorAll('li'));
 
     items.sort((a, b) => {
-        const textA = a.textContent.trim().toLowerCase();
-        const textB = b.textContent.trim().toLowerCase();
+        // Obtener el título del juego de manera consistente, independientemente del modo de visualización
+        const textA = obtenerTituloJuego(a).toLowerCase();
+        const textB = obtenerTituloJuego(b).toLowerCase();
         return textA.localeCompare(textB);
     });
 
     lista.innerHTML = ""; // Vaciar la lista
     items.forEach(item => lista.appendChild(item));
+}
+
+// Función para obtener el título del juego de manera consistente, independientemente del modo de visualización
+function obtenerTituloJuego(item) {
+    // Si está en modo tradicional, obtener el texto del enlace o del li
+    if (document.body.classList.contains("vista-tradicional")) {
+        const enlace = item.querySelector('a');
+        return enlace ? enlace.textContent.trim() : item.textContent.trim();
+    } else {
+        // En modo imágenes, obtener el título de la imagen
+        const img = item.querySelector('img');
+        return img ? img.getAttribute('title').split(" -")[0].trim() : item.textContent.trim();
+    }
 }
 
 // Función para crear un botón con propiedades
