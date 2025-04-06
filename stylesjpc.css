@@ -394,6 +394,8 @@
 		color: rgb(218, 54, 54);}
 	/* Otros */
 #buscar {
+	position: relative;
+	right: -7vw;
     display: flex;
     flex-direction: column;
     gap: 10px; 
