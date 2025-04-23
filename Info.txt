@@ -1,4 +1,9 @@
 Errores:
 
+
 Ideas para futuras actualizaciones:
 Agregar iconos en la esquina superior izquierda de cada juego (elemento li) en la vista con imágenes para saber si funcionan el LAN con una imagen de dos PC interconectadas, Online con un planeta, Online vía Steam con un icono de Steam y Offline con una PC desconectada con una equis o similar.
+
+mostrar las categorías de los otros juegos de PC en caso de que alguno sea nuevo o actualizado en la sección de mostrar juegos nuevos o actualizados
+
+agregar botones de tipo checkbox con imágenes con las figuras explicadas en la parte superior del listado de juegos para mostrar solamente los que son LAN, online, online vía steam y offline. TIP para la lógica: agregar un atributo en cada elemento li que contenga los tipos de conexión disponibles para cada juego y mostrar solamente esos juegos en la lista en dependencia del tipo de conexión seleccionado, aunque tenga otros más.
