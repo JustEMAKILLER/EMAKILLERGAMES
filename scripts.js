@@ -14,75 +14,49 @@ let isAnimating = false;
 
 function mostrarBoton() {
     const scrollButton = document.getElementById("botonarriba");
-    const scrollPosition = document.body.scrollTop || document.documentElement.scrollTop;
+    const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+
+    // Limpiar intervalo anterior si existe
+    if (animationInterval) {
+        clearInterval(animationInterval);
+        isAnimating = false;
+    }
 
     // Si el scroll es mayor a 650px, mostrar el botón con animación hacia arriba
     if (scrollPosition > 650) {
-        // Si ya está visible y en posición, no hacer nada
-        if (pos === 2 && scrollButton.style.display === "block") return;
-        
-        // Si estaba ocultándose (animación hacia abajo), cancelarla
-        if (isAnimating && pos > 0) {
-            clearInterval(animationInterval);
-            isAnimating = false;
-        }
-        
         scrollButton.style.display = "block";
         
         // Animación de entrada (hacia arriba)
-        if (!isAnimating && pos < 2) {
-            isAnimating = true;
-            animationInterval = setInterval(() => {
-                if (pos < 2) {
-                    pos += 0.5; // Velocidad de subida
-                    scrollButton.style.bottom = pos + "%";
-                } else {
-                    clearInterval(animationInterval);
-                    isAnimating = false;
-                }
-            }, 20); 
-        }
+        animationInterval = setInterval(() => {
+            if (pos < 2) {
+                pos = Math.min(2, pos + 0.5); // Asegurar que no pase de 2
+                scrollButton.style.bottom = pos + "%";
+            } else {
+                clearInterval(animationInterval);
+                isAnimating = false;
+            }
+        }, 20);
     } 
     // Si el scroll es menor a 650px, ocultar el botón con animación hacia abajo
     else {
-        // Si ya está oculto o en posición 0, no hacer nada
-        if (pos === 0 || scrollButton.style.display === "none") return;
-        
         // Animación de salida (hacia abajo)
-        if (!isAnimating && pos > 0) {
-            isAnimating = true;
-            clearInterval(animationInterval); // Limpiar intervalo previo
-            animationInterval = setInterval(() => {
-                if (pos > 0) {
-                    pos -= 0.5; // Velocidad de bajada
-                    scrollButton.style.bottom = pos + "%";
-                } else {
-                    scrollButton.style.display = "none";
-                    clearInterval(animationInterval);
-                    isAnimating = false;
-                }
-            }, 20);
-        }
+        animationInterval = setInterval(() => {
+            if (pos > 0) {
+                pos = Math.max(0, pos - 0.5); // Asegurar que no sea menor que 0
+                scrollButton.style.bottom = pos + "%";
+            } else {
+                scrollButton.style.display = "none";
+                clearInterval(animationInterval);
+                isAnimating = false;
+            }
+        }, 20);
     }
 }
 
-
 // Función para crear botones de adición
 function crearBotonesAdicion() {
-    const productos = document.querySelectorAll('.listajuegos li');
-
-    productos.forEach((producto) => {
-        // Eliminar botones de adición existentes para evitar duplicados
-        const existingAddButton = producto.querySelector('.add-button');
-        if (existingAddButton) {
-            existingAddButton.remove();
-        }
-
-        // Crear y agregar el botón de adición
-        const addButton = crearBoton("+", "add-button", "blue", function () {
-            moverProducto(producto);
-        });
-        producto.appendChild(addButton);
+    document.querySelectorAll('.listajuegos li:not(#resultados li):not(#juegosdescartados li)').forEach(producto => {
+        reconstruirBotonPrincipal(producto);
     });
 }
     
@@ -388,7 +362,7 @@ function enviarListado() {
     const resultadosDiv = document.getElementById("resultados");
     const items = resultadosDiv.querySelectorAll('li');
     let total = 0;
-    let mensaje = "Hola! Le escribo para pedirle los siguientes juegos:\n";
+    let mensaje = "Hola! Le escribo para solicitar los siguientes juegos:\n";
 
     items.forEach(item => {
         // Obtener el precio del juego
@@ -432,116 +406,140 @@ function enviarListado() {
     window.open(URL, "_blank");
 }
 
-//Función para cambiar la vista de imágenes a texto
+// Función para cambiar la vista de imágenes a texto
 function cambiarVista() {
     const body = document.body;
-    body.classList.toggle("vista-tradicional"); // Activa o desactiva la clase en el body
+    const isTraditional = body.classList.toggle("vista-tradicional");
 
-    const uls = document.querySelectorAll("ul");
-    const lis = document.querySelectorAll("li");
+    // Actualizar la visualización de las listas
+    document.querySelectorAll("ul").forEach(ul => {
+        ul.style.display = isTraditional ? "block" : "flex";
+    });
 
-    if (body.classList.contains("vista-tradicional")) {
-        // Modo lista tradicional activado
-        uls.forEach(ul => {
-            ul.style.display = "block"; // Cambia a lista vertical
-        });
-
-        lis.forEach(li => {
-            const enlace = li.querySelector("a");
-            const img = li.querySelector("img");
+    // Procesar cada elemento de la lista
+    document.querySelectorAll("li").forEach(li => {
+        if (isTraditional) {
+            // Modo texto tradicional
+            li.style.marginLeft = "10px";
             
-            li.style.marginLeft += "10px";
-
-            // Guardar el contenido original antes de modificarlo
+            // Guardar contenido original si es la primera vez
             if (!li.dataset.originalContent) {
                 li.dataset.originalContent = li.innerHTML;
             }
 
+            const img = li.querySelector('img');
             if (img) {
                 const nombreJuego = document.createTextNode(img.title);
-                li.setAttribute('data-imgSrc', img.src); // Guarda la imagen antes de eliminarla
-                img.remove(); // Elimina la imagen
-
+                li.setAttribute('data-imgSrc', img.src);
+                
+                const enlace = li.querySelector('a');
                 if (enlace) {
-                    enlace.innerHTML = ""; // Limpia el enlace antes de agregar texto
+                    enlace.innerHTML = "";
                     enlace.appendChild(nombreJuego);
                 } else {
-                    li.innerHTML = ""; // Limpia el contenido del <li> para evitar duplicados
+                    li.innerHTML = "";
                     li.appendChild(nombreJuego);
                 }
             }
-        });
-    } else {
-        // Modo con imágenes activado (restaurar diseño original)
-        uls.forEach(ul => {
-            ul.style.display = "flex"; // Restaura el display original
-        });
-
-        lis.forEach(li => {
-            const enlace = li.querySelector("a");
-            const imgSrc = li.getAttribute('data-imgSrc');
-
-            li.style.marginLeft -= "10px";
-
-            if (imgSrc) {
+        } else {
+            // Modo imágenes
+            li.style.marginLeft = "0";
+            
+            // Restaurar contenido original si existe
+            if (li.dataset.originalContent) {
+                li.innerHTML = li.dataset.originalContent;
+            } else if (li.getAttribute('data-imgSrc')) {
                 const img = document.createElement("img");
-                img.src = imgSrc;
+                img.src = li.getAttribute('data-imgSrc');
                 img.title = li.textContent.trim();
-
+                
+                const enlace = li.querySelector('a');
                 if (enlace) {
                     enlace.innerHTML = "";
                     enlace.appendChild(img);
                 } else {
-                    li.innerHTML = ""; // Limpia el <li> antes de agregar la imagen
+                    li.innerHTML = "";
                     li.appendChild(img);
                 }
             }
+        }
+    });
 
-            // Restaurar el contenido original si existe
-            if (li.dataset.originalContent) {
-                li.innerHTML = li.dataset.originalContent;
-                delete li.dataset.originalContent; // Eliminar el dato temporal
-            }
-        });
-    }
-
-    // Llamar a la función para recrear los botones de adición y eliminación
-    recrearBotonesEliminacion();
-    recrearBotonesAdicion();
+    // Reconstruir todos los botones manteniendo los eventos
+    reconstruirTodosLosBotones();
 }
 
-function recrearBotonesEliminacion() {
-    const productosEnResultados = document.querySelectorAll('#resultados li');
+/**
+ * Reconstruye todos los botones manteniendo sus eventos
+ */
+function reconstruirTodosLosBotones() {
+    // 1. Botones en la lista principal
+    document.querySelectorAll('.listajuegos li:not(#resultados li):not(#juegosdescartados li)').forEach(producto => {
+        reconstruirBotonPrincipal(producto);
+    });
 
-    productosEnResultados.forEach((producto) => {
-        // Eliminar botones de eliminación existentes para evitar duplicados
-        const existingRemoveButton = producto.querySelector('.remove-button');
-        if (existingRemoveButton) {
-            existingRemoveButton.remove();
-        }
+    // 2. Botones en la lista de resultados
+    document.querySelectorAll('#resultados li').forEach(producto => {
+        reconstruirBotonResultado(producto);
+    });
 
-        // Crear y agregar el botón de eliminación solo si el producto está en resultados
-        const removeButton = crearBoton("x", "remove-button", "red", function () {
-            devolverProducto(producto);
-        });
-        producto.appendChild(removeButton);
+    // 3. Botones en la lista de descartados
+    document.querySelectorAll('#juegosdescartados li').forEach(producto => {
+        reconstruirBotonDescartado(producto);
     });
 }
 
-function recrearBotonesAdicion() {
-    const productosEnDescartados = document.querySelectorAll('#juegosdescartados li');
+/**
+ * Reconstruye botón para un producto en la lista principal
+ */
+function reconstruirBotonPrincipal(producto) {
+    // Eliminar cualquier botón existente
+    const existingAddButton = producto.querySelector('.add-button');
+    const existingRemoveButton = producto.querySelector('.remove-button');
+    if (existingAddButton) existingAddButton.remove();
+    if (existingRemoveButton) existingRemoveButton.remove();
 
-    productosEnDescartados.forEach((producto) => {
-        // Eliminar botones de adicion existentes para evitar duplicados
-        const existingAddButton = producto.querySelector('.add-button');
-        if (existingAddButton) {
-            existingAddButton.remove();
-        }
-
-        // Crear y agregar el botón de adicion solo si el producto está en descartados
-        const addButton = crearBoton("+", "add-button", "blue", function () {
+    // Solo crear botón de añadir si no está en resultados/descartados
+    if (!producto.closest('#resultados') && !producto.closest('#juegosdescartados')) {
+        const addButton = crearBoton("+", "add-button", "blue", function() {
             moverProducto(producto);
         });
         producto.appendChild(addButton);
+    }
+}
+
+/**
+ * Reconstruye botón para un producto en resultados
+ */
+function reconstruirBotonResultado(producto) {
+    // Eliminar cualquier botón de añadir
+    const existingAddButton = producto.querySelector('.add-button');
+    if (existingAddButton) existingAddButton.remove();
+
+    // Recrear botón de eliminar
+    const existingRemoveButton = producto.querySelector('.remove-button');
+    if (existingRemoveButton) existingRemoveButton.remove();
+    
+    const removeButton = crearBoton("x", "remove-button", "red", function() {
+        devolverProducto(producto);
     });
+    producto.appendChild(removeButton);
+}
+
+/**
+ * Reconstruye botón para un producto en descartados
+ */
+function reconstruirBotonDescartado(producto) {
+    // Eliminar cualquier botón de eliminar
+    const existingRemoveButton = producto.querySelector('.remove-button');
+    if (existingRemoveButton) existingRemoveButton.remove();
+
+    // Recrear botón de añadir
+    const existingAddButton = producto.querySelector('.add-button');
+    if (existingAddButton) existingAddButton.remove();
+    
+    const addButton = crearBoton("+", "add-button", "blue", function() {
+        moverProducto(producto);
+    });
+    producto.appendChild(addButton);
 }

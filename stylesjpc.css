@@ -155,6 +155,7 @@
     display: flex;
     justify-content: flex-end;
     padding-right: 10px;
+	pointer-events: none;
 }
 	.caja{
 		user-select: none;
@@ -407,6 +408,7 @@
     border: 1px solid var(--Bl-border-nav);
     border-radius: 20px;
     box-shadow: 0 0 10px var(--Bl-shadow-nav);
+	pointer-events: auto;
 }
 /* Contenedor de cada campo de búsqueda */
 #buscar > div {
