@@ -1,9 +1,10 @@
 Errores:
-
+La busqueda devuelve resultados que no coinciden con las condiciones establecidas en los juegos nuevos o actualizados. Por eso que quitó la barra de busqueda.
 
 Ideas para futuras actualizaciones:
-Agregar iconos en la esquina superior izquierda de cada juego (elemento li) en la vista con imágenes para saber si funcionan el LAN con una imagen de dos PC interconectadas, Online con un planeta, Online vía Steam con un icono de Steam y Offline con una PC desconectada con una equis o similar.
+Crear botones para los juegos de regalo junto con un div al que se moverán cuando se presionen. Los botones de regalo solo aparecerán cuando se cumpla el monto mínimo para obtenerlos. Se puede descartar un juego de regalo que se enviará al div de descartados. En el texto del mensaje que genera el botón de enviar por whatsapp incluirá abajo antes del precio y tamaño totales el listado de regalos.
 
-mostrar las categorías de los otros juegos de PC en caso de que alguno sea nuevo o actualizado en la sección de mostrar juegos nuevos o actualizados
+Reducir un poco el tamaño de los li de los juegos para que en moviles se puedan ver mas elemetos a la vez
 
-agregar botones de tipo checkbox con imágenes con las figuras explicadas en la parte superior del listado de juegos para mostrar solamente los que son LAN, online, online vía steam y offline. TIP para la lógica: agregar un atributo en cada elemento li que contenga los tipos de conexión disponibles para cada juego y mostrar solamente esos juegos en la lista en dependencia del tipo de conexión seleccionado, aunque tenga otros más.
+Elementos a verificar:
+probar los yugio para verificar si se juegan en LAN
