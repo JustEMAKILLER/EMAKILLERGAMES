@@ -431,7 +431,8 @@
 		display: none;
 		bottom: 0%;
 		right: 1%;
-		transition: box-shadow 0.2s ease, transform 0.5s ease;}
+		transition: box-shadow 0.2s ease, transform 0.5s ease;
+		z-index: 50;}
 	#botonarriba a{
 		display: block;
 		width: 100%;
@@ -629,3 +630,31 @@
         transform: scale(1.1);
         background-color: rgb(166, 11, 180);
         z-index: 2;}
+
+		/* Media Queries para móviles (hasta 768px) */
+		@media screen and (max-width: 768px) {
+			
+			/* Ajustes para los elementos li (contenedores de juegos) */
+			ul li {
+				width: 100px; /* Ancho relativo al viewport */
+				height: 200px; /* Altura proporcional */
+			}
+			
+			/* Ajustes para los botones de añadir/eliminar */
+			.add-button, .remove-button {
+				top: 40%;
+				left: 35%;
+				width: 30px;
+				height: 30px;
+			}
+			
+		}
+		
+		/* Media Queries para móviles muy pequeños (hasta 480px) */
+		@media screen and (max-width: 480px) {
+			ul li {
+				width: 300px; /* Ancho relativo al viewport */
+				height: 200px; /* Altura proporcional */
+			}
+		}
+		
