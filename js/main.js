@@ -1,0 +1,1 @@
+document.addEventListener('DOMContentLoaded', alert("Los precios de los juegos han sido alterados. Además ya se cuenta oficialmente con regalos, consulte las Ofertas Especiales para más información."));
