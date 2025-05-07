@@ -308,6 +308,10 @@ text-shadow: 0 0 10px black;}
   text-align:center;
 }
 
+#info{
+  letter-spacing: 0.5px;
+}
+
 #info a {
   text-decoration: none;
   color: blueviolet;
