@@ -633,7 +633,7 @@ function enviarListado() {
         const regalo = cantidadDe500 * 100;
         textoRegalo = ` (${regalo} CUP de regalo disponibles)`; 
         // Agregar el precio total al mensaje
-        mensaje = "Precio y tamaño totales: " + PrecioTotal + " CUP; " + TamanoTotal.toFixed(2) + " GB" + textoRegalo;
+        mensaje += "Precio y tamaño totales: " + PrecioTotal + " CUP; " + TamanoTotal.toFixed(2) + " GB" + textoRegalo;
     }
 
     else{
