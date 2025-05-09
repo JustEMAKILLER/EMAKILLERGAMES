@@ -375,9 +375,9 @@ function busqueda() {
             const productNameFromLink = producto.querySelector('a')?.textContent.trim().toLowerCase();
 
             // Si hay un título en la imagen, usa eso, si no, usa el texto del enlace
-            const productName = productNameFromImg ? 
-                              productNameFromImg.split(" -")[0].toLowerCase() : 
-                              (productNameFromLink ? productNameFromLink.toLowerCase() : "");
+            const productName = productNameFromImg ? productNameFromImg : 
+                              (productNameFromLink ? productNameFromLink : "");
+                              
             const productPrice = parseFloat(producto.getAttribute("Precio"));
             let mostrarProducto = true;
 

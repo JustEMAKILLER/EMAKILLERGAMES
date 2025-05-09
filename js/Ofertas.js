@@ -66,7 +66,13 @@ function busqueda() {
         let mostrarGrupo = false;
 
         productos.forEach((producto) => {
-            const productName = producto.textContent.toLowerCase();
+            const productNameFromImg = producto.querySelector('img')?.getAttribute("title").toLowerCase();
+            const productNameFromLink = producto.querySelector('a')?.textContent.trim().toLowerCase();
+
+            // Si hay un título en la imagen, usa eso, si no, usa el texto del enlace
+            const productName = productNameFromImg ? productNameFromImg : 
+                              (productNameFromLink ? productNameFromLink : "");
+                              
             const productPrice = parseFloat(encabezado.getAttribute("data-price"));
 
             let mostrarProducto = true;
