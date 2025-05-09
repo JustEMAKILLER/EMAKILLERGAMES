@@ -371,8 +371,8 @@ function busqueda() {
         checkbox.checked = false;
     });
             // Verificar si hay una imagen con el atributo title o solo un enlace
-            const productNameFromImg = producto.querySelector('img')?.getAttribute("title");
-            const productNameFromLink = producto.querySelector('a')?.textContent.trim();
+            const productNameFromImg = producto.querySelector('img')?.getAttribute("title").toLowerCase();
+            const productNameFromLink = producto.querySelector('a')?.textContent.trim().toLowerCase();
 
             // Si hay un título en la imagen, usa eso, si no, usa el texto del enlace
             const productName = productNameFromImg ? 
