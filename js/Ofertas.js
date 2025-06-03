@@ -17,9 +17,9 @@ function mostrarBoton() {
     }
 
     // Si el scroll es mayor a 650px, mostrar el botón con animación hacia arriba
-    if (scrollPosition > 650) {
+    if (scrollPosition > 1000) {
         scrollButton.style.display = "block";
-        
+
         // Animación de entrada (hacia arriba)
         animationInterval = setInterval(() => {
             if (pos < 2) {
@@ -30,7 +30,7 @@ function mostrarBoton() {
                 isAnimating = false;
             }
         }, 20);
-    } 
+    }
     // Si el scroll es menor a 650px, ocultar el botón con animación hacia abajo
     else {
         // Animación de salida (hacia abajo)
@@ -70,9 +70,9 @@ function busqueda() {
             const productNameFromLink = producto.querySelector('a')?.textContent.trim().toLowerCase();
 
             // Si hay un título en la imagen, usa eso, si no, usa el texto del enlace
-            const productName = productNameFromImg ? productNameFromImg : 
-                              (productNameFromLink ? productNameFromLink : "");
-                              
+            const productName = productNameFromImg ? productNameFromImg :
+                (productNameFromLink ? productNameFromLink : "");
+
             const productPrice = parseFloat(encabezado.getAttribute("data-price"));
 
             let mostrarProducto = true;
@@ -108,22 +108,22 @@ function busqueda() {
             hayResultados = true;
         }
     });
-    
+
     text.textContent = hayResultados ? "" : "No hay resultados.";
-}    
+}
 // Función para borrar el campo de búsqueda
 function borrarBusqueda() {
-const buscarnombreInput = document.getElementById('buscarnombre');
-// Limpiar el campo de texto
-buscarnombreInput.value = "";
-busqueda();
+    const buscarnombreInput = document.getElementById('buscarnombre');
+    // Limpiar el campo de texto
+    buscarnombreInput.value = "";
+    busqueda();
 }
 // Función para borrar el campo de precio
-function borrarPrecio(){
-const filtroprecioInput = document.getElementById('buscarprecio');
-// Limpiar el campo de texto
-filtroprecioInput.value = "";
-busqueda();
+function borrarPrecio() {
+    const filtroprecioInput = document.getElementById('buscarprecio');
+    // Limpiar el campo de texto
+    filtroprecioInput.value = "";
+    busqueda();
 }
 function cambiarVista() {
     const body = document.body;
