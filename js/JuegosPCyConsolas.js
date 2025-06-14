@@ -377,8 +377,7 @@ function busqueda() {
             const productNameFromLink = producto.querySelector('a')?.textContent.trim().toLowerCase();
 
             // Si hay un título en la imagen, usa eso, si no, usa el texto del enlace
-            const productName = productNameFromImg ? productNameFromImg :
-                (productNameFromLink ? productNameFromLink : "");
+            const productName = obtenerTituloJuego(producto).toLowerCase();
 
             const productPrice = parseFloat(producto.getAttribute("Precio"));
             let mostrarProducto = true;
@@ -721,6 +720,9 @@ function cambiarVista() {
 
     // Reconstruir todos los botones manteniendo los eventos
     reconstruirTodosLosBotones();
+
+    // Forzar una nueva búsqueda para actualizar los resultados
+    busqueda();
 }
 
 /**
