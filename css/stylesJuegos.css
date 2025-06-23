@@ -762,6 +762,10 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	width: 80%;
 }
 
+#EncabezadoJnewAct.mostrar {
+    display: block !important;
+}
+
 #texto {
 	display: flex;
 	justify-content: center;

@@ -372,9 +372,6 @@ function busqueda() {
             checkboxesgenero.forEach(checkbox => {
                 checkbox.checked = false;
             });
-            // Verificar si hay una imagen con el atributo title o solo un enlace
-            const productNameFromImg = producto.querySelector('img')?.getAttribute("title").toLowerCase();
-            const productNameFromLink = producto.querySelector('a')?.textContent.trim().toLowerCase();
 
             // Si hay un título en la imagen, usa eso, si no, usa el texto del enlace
             const productName = obtenerTituloJuego(producto).toLowerCase();
@@ -439,7 +436,7 @@ function borrarPrecio() {
     filtroprecioInput.value = "";
     busqueda();
 }
-//Función para mostrar solo los titulos nuevos o actualizados
+// Función para mostrar solo los titulos nuevos o actualizados
 function mostrarJuegosNewOrAct() {
     borrarBusqueda();
     borrarPrecio();
@@ -452,7 +449,7 @@ function mostrarJuegosNewOrAct() {
     const divJuegos = document.getElementById("divJuegos");
     let hayResultados = false;
     const encabezado = document.getElementById("EncabezadoJnewAct");
-    encabezado.style.display = "block";
+    encabezado.classList.add("mostrar");
 
     // Desmarcar automáticamente todos los checkboxes de conexión
     desmarcarCheckboxes()
@@ -496,14 +493,14 @@ function mostrarJuegosNewOrAct() {
     if (!hayResultados) {
         const text = document.getElementById("texto");
         text.textContent = "No hay juegos nuevos o actualizados en esta sección.";
-        encabezado.style.display = "none";
+        encabezado.classList.remove("mostrar");
     }
 
     botonJNA.style.display = "none";
     botonMostrar.style.display = "block";
 
 }
-//Función para mostrar todos los juegos de nuevo
+// Función para mostrar todos los juegos de nuevo
 function mostrarJuegos() {
     const grupos = document.querySelectorAll('.grupo-juegos');
     const botonJNA = document.getElementById("botonJNA");
@@ -511,7 +508,7 @@ function mostrarJuegos() {
     const encabezadosJuegos = document.querySelectorAll('.encabezadosjuegos');
     const divBusqueda = document.getElementById("buscar");
     const encabezado = document.getElementById("EncabezadoJnewAct");
-    encabezado.style.display = "none";
+    encabezado.classList.remove("mostrar");
 
     // Desmarcar automáticamente todos los checkboxes de conexión
     desmarcarCheckboxes()
@@ -535,7 +532,7 @@ function mostrarJuegos() {
     // Forzar actualización de filtros
     aplicarFiltrosCombinados();
 }
-//Mostrar todos los juegos desde el menú de juegos en caso de que esté activado el modo solo nuevos/actualizados
+// Mostrar todos los juegos desde el menú de juegos en caso de que esté activado el modo solo nuevos/actualizados
 function mostrarJuegosDesdeMenuJuegos() {
     const grupos = document.querySelectorAll('.grupo-juegos');
     const botonJNA = document.getElementById("botonJNA");
@@ -562,7 +559,7 @@ function mostrarJuegosDesdeMenuJuegos() {
     botonJNA.style.display = "block";
 }
 
-//Función para mostrar el Menú Desplegable
+// Función para mostrar el Menú Desplegable
 function mostrarMenu() {
     const menuDesplegado = document.getElementById("menuDesplegado");
     menuDesplegado.style.display = "block";
@@ -578,7 +575,7 @@ function mostrarMenu() {
     })
 }
 
-//Función para cerrar el Menú Desplegable
+// Función para cerrar el Menú Desplegable
 function cerrarMenu() {
     const menuDesplegado = document.getElementById("menuDesplegado");
     const botonMenuDesplegable = document.getElementById("botonMenuDesplegable");
@@ -588,7 +585,7 @@ function cerrarMenu() {
     menuDesplegado.style.display = "none";
 }
 
-//Función para enviar el listado de juegos agregados por Whatsapp
+// Función para enviar el listado de juegos agregados por Whatsapp
 function enviarListado() {
     const resultadosDiv = document.getElementById("resultados");
     const items = resultadosDiv.querySelectorAll('li');
@@ -723,6 +720,12 @@ function cambiarVista() {
 
     // Forzar una nueva búsqueda para actualizar los resultados
     busqueda();
+
+    // Mantener mostrado solo los juegos nuevos o actualizados en caso de haberse llamado a la funcion mostrarJuegosNewOrAct
+    const botonMostrar = document.getElementById("botonMostrar");
+    if (botonMostrar.style.display === "block") {
+            mostrarJuegosNewOrAct();
+    }
 }
 
 /**
