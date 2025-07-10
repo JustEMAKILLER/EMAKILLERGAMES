@@ -7,4 +7,3 @@ Crear botones para los juegos de regalo junto con un div al que se moverán cuan
 Reducir un poco el tamaño de los li de los juegos para que en moviles se puedan ver mas elemetos a la vez
 
 Elementos a verificar:
-probar los yugio para verificar si se juegan en LAN

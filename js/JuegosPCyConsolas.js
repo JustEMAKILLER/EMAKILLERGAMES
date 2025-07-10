@@ -14,7 +14,7 @@ function crearBotonesAdicion() {
     });
 }
 
-//Añadir el texto de Nuevo o Actualizado a los juegos que lo sean
+// Añadir el texto de Nuevo o Actualizado a los juegos que lo sean
 function agregarTextoNuevoOActualizado() {
     // Seleccionar los elementos li con las clases relevantes
     const elementosLi = document.querySelectorAll('li.juegosNuevos, li.juegosActualizados');
@@ -589,9 +589,11 @@ function cerrarMenu() {
 function enviarListado() {
     const resultadosDiv = document.getElementById("resultados");
     const items = resultadosDiv.querySelectorAll('li');
+    let CantTotalJuegos = items.length;
     let PrecioTotal = 0;
     let TamanoTotal = 0;
-    let mensaje = "Hola! Le escribo para solicitar los siguientes juegos:\n";
+
+    let mensaje = "Hola! Le escribo para solicitar los siguientes " + CantTotalJuegos + " juegos:\n";
 
     items.forEach(item => {
         // Obtener el precio y tamaño del juego
