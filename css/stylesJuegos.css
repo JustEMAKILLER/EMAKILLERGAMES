@@ -140,6 +140,7 @@ ul {
 }
 
 ul li {
+	box-sizing:border-box;
 	width: 300px;
 	height: 250px;
 	background-size: cover;
