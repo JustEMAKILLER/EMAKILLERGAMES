@@ -1,3 +1,22 @@
+document.addEventListener('DOMContentLoaded', function () {
+    agregarClasesEncabezados();
+    agregarListenersEncabezados();}
+);
+
+// Agregar clases a los encabezados h4
+function agregarClasesEncabezados() {
+    document.querySelectorAll('h4').forEach(h4 => 
+        h4.classList.add("Encabezados"));
+}
+
+// Agregar eventos a los encabezados h4
+function agregarListenersEncabezados() {
+    document.querySelectorAll('h4').forEach(h4 => {
+        h4.addEventListener('click', function(){
+            clickEncabezado()});
+    });
+}
+
 // Escuchar el evento de scroll para mostrar el botón de desplazamiento
 window.addEventListener("scroll", mostrarBoton);
 
@@ -197,4 +216,10 @@ function cambiarVista() {
             }
         });
     }
+}
+
+// Si se hace click en algún encabezado en medio de la búsqueda, este lo redirigirá a su contenedor
+function clickEncabezado(){
+    borrarBusqueda();
+    borrarPrecio();
 }
