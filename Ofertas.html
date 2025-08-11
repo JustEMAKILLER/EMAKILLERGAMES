@@ -7,6 +7,18 @@
 <link rel="icon" href="img/icon.png" type="image/x-icon">
 <link rel="stylesheet" href="css/stylesJuegos.css">
 <script src="js/Ofertas.js" defer></script>
+<style>
+  .Encabezados a{
+    transition: font-size 0.3s ease;
+  }
+  .Encabezados a:hover{
+    font-size: larger;
+  }
+  .Encabezados a, .Encabezados a:hover{
+    color: whitesmoke;
+    text-decoration: none;
+  }
+</style>
 </head>
 <body>
   <nav>
@@ -38,7 +50,7 @@
   </div><br>
   <button id="botonCambiarVista" onclick="cambiarVista()">Cambiar vista</button>
 <div class=caja>
-<section class=grupo-juegos><h4 data-price="250">Among Us Pack (250 CUP)</h4>
+  <section class=grupo-juegos><h4 data-price="250" id="AmongUsPack"><a href="#AmongUsPack">Among Us Pack (250 CUP)</a></h4>
 <ul class="listajuegos">
   <li><a href="https://store.steampowered.com/app/945360/Among_Us/" target="_blank"><img src="https://i.ytimg.com/vi/FdOTLFCP6Mw/sddefault.jpg" title="Amoedios Among Us Conejos"></a></li>
   <li><a href="https://store.steampowered.com/app/945360/Among_Us/" target="_blank"><img src="https://i.ytimg.com/vi/h_Y-RU6Nd08/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAS-oIaaCQdQjc-HLNL8XXXH_LDIQ" title="Among Us (GIGANTES)"></a></li>
@@ -51,41 +63,47 @@
   <li><a href="https://store.steampowered.com/app/945360/Among_Us/" target="_blank"><img src="https://i.ytimg.com/vi/rS75cFVEvUA/maxresdefault.jpg" title="Among Us The Fungle v2024.6.18i"></a></li>
   <li><a href="https://store.steampowered.com/app/945360/Among_Us/" target="_blank"><img src="https://i.ytimg.com/vi/rS75cFVEvUA/maxresdefault.jpg" title="Among Us v2024.11.26i (Unlocked)"></a></li>
   <li><img src="https://cdn1.epicgames.com/salesEvent/salesEvent/amoguslandscape_2560x1440-3fac17e8bb45d81ec9b2c24655758075" title="PACK de Mods de AMONG US"></a></li>
-</ul></section>
-<section class=grupo-juegos><h4 data-price="135">Age of Empires Pack (135 CUP)</h4>
+    </ul></section>
+  <section class=grupo-juegos><h4 data-price="135" id="AgeofEmpiresPack"><a href="#AgeofEmpiresPack">Age of Empires Pack (135 CUP)</a></h4>
 <ul class="listajuegos">
   <li><img src="https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co2xcn.jpg" title="Age of Empires Gold Edition HD"></li>
   <li><img src="https://lutris.net/media/igdb/cover_big/co1xya.jpg" title="Age of Empires II The Conquerors Expansion"></li>
   <li><a href="https://store.steampowered.com/app/221380/Age_of_Empires_II_HD_Edition/" target="_blank"><img src="https://products.eneba.games/resized-products/VGD3QzS_vTA7C87Dy-obTve3z71WRg5KEGJ3LKE-fds_350x200_3x-0.jpeg" title="Age of Empires II HD Edition"></a></li>
-</ul class="listajuegos"></section>
-<section class=grupo-juegos><h4 data-price="450">Counter Strike Pack (450 CUP)</h4>
+    </ul class="listajuegos"></section>
+  <section class=grupo-juegos><h4 data-price="450" id="CounterStrikePack"><a href="#CounterStrikePack">Counter Strike Pack (450 CUP)</a></h4>
 <ul class="listajuegos">
   <li><a href="https://store.steampowered.com/app/10/CounterStrike/" target="_blank"><img src="https://loadcs.com/images/full/hl_2023-01-13_11-36-38-337.jpg" title="Counter Strike v1.6 & Condition Zero"></a></li>
   <li><a href="https://store.steampowered.com/app/240/CounterStrike_Source/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/240/header.jpg?t=1729702412" title="Counter-Strike Source"></a></li>
   <li><a href="https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/" target="_blank"><img src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2012/08/184043-counter-strike-global-offensive-analizado.jpg?tf=3840x" title="Counter-Strike Global Offensive"></a></li>
   <li><img src="https://jagatplay.com/wp-content/uploads/2015/11/cs-online.jpg" title="Counter Strike Online"></li>
   <li><img src="https://mmoculture.com/wp-content/uploads/2018/02/Counter-Strike-Online-2.jpg" title="Counter Strike Online 2"></li>
-</ul></section>
-<section class=grupo-juegos><h4 data-price="225">Borderlands Pack (225 CUP)</h4>
+    </ul></section>
+  <section class=grupo-juegos><h4 data-price="225" id="BorderlandsPack"><a href="#BorderlandsPack">Borderlands Pack (225 CUP)</a></h4>
 <ul class="listajuegos">
   <li><a href="https://store.steampowered.com/app/261640/Borderlands_The_PreSequel/" target="_blank"><img src="https://cdn1.epicgames.com/6110c92696a54f108c8e9002713ea5f9/offer/EGS_BorderlandsThePreSequel_Wide-2560x1440-0e1682595bdaab7a226149a5154c426e.jpg" title="Borderlands - The Pre-Sequel - Remastered"></a></li>
   <li><a href="https://store.steampowered.com/app/8980/Borderlands_Game_of_the_Year/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/729040/header.jpg?t=1728609218" title="Borderlands - GotY Edition"></a></li>
   <li><a href="https://store.steampowered.com/app/49520/Borderlands_2/" target="_blank"><img src="https://assets.nuuvem.com/image/upload/v1/products/557dba4c69702d0a9c3e1300/sharing_images/ecqqjariv1suhpxzh0ig.jpg" title="Borderlands 2 GOTY"></a></li>
-  </ul></section>
-  <section class=grupo-juegos><h4 data-price="260">Call of Duty Old School Pack (260 CUP)</h4>
+    </ul></section>
+  <section class=grupo-juegos><h4 data-price="260" id="CallofDutyOldSchoolPack"><a href="#CallofDutyOldSchoolPack">Call of Duty Old School Pack (260 CUP)</a></h4>
 <ul class="listajuegos">
   <li><a href="https://store.steampowered.com/app/2620/Call_of_Duty/" target="_blank"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/2640/header.jpg" title="Call Of Duty 1 - United Offensive Expansion Pack"></a></li>
   <li><a href="https://store.steampowered.com/app/2630/Call_of_Duty_2/" target="_blank"><img src="https://gepig.com/game_cover_460w/342.jpg" title="Call Of Duty 2"></a></li>
   <li><a href="https://store.steampowered.com/app/10090/Call_of_Duty_World_at_War/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/10090/capsule_616x353.jpg?t=1654830025" title="Call of Duty 5 World at War"></a></li>
-</ul></section>
-<section class=grupo-juegos><h4 data-price="560">Call of Duty Modern Warfare Classic Trilogy Pack (560 CUP)</h4>
+    </ul></section>
+  <section class=grupo-juegos><h4 data-price="560" id="CallofDutyModernWarfareClassicTrilogyPack"><a href="#CallofDutyModernWarfareClassicTrilogyPack">Call of Duty Modern Warfare Classic Trilogy Pack (560 CUP)</a></h4>
 <ul class="listajuegos">
   <li><a href="https://store.steampowered.com/app/7940/Call_of_Duty_4_Modern_Warfare_2007/" target="_blank"><img src="https://gpstatic.com/acache/22/23/1/us/t620x300-c994e623b7a30d886cd0115fe501f4b7.jpg" title="CALL OF DUTY MW CoD4X"></a></li>
   <li><a href="https://store.steampowered.com/app/10180/Call_of_Duty_Modern_Warfare_2_2009/" target="_blank"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/10180/capsule_616x353.jpg?t=1654809646" title="CALL OF DUTY MW2 IW4X"></a></li>
   <li><a href="https://store.steampowered.com/app/10180/Call_of_Duty_Modern_Warfare_2_2009/" target="_blank"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/10180/header.jpg?t=1654809646" title="CALL OF DUTY MW2"></a></li>
   <li><a href="https://store.steampowered.com/app/115300/Call_of_Duty_Modern_Warfare_3_2011/" target="_blank"><img src="https://cdn.gracza.pl/i/h/1/147768000.jpg" title="CALL OF DUTY MW3 Plutonium"></a></li>
-</ul></section>
-<section class=grupo-juegos><h4 data-price="1125">Call of Duty Complete Pack (1125 CUP)</h4>
+    </ul></section>
+  <section class=grupo-juegos><h4 data-price="525" id="CallofDutyBlackOpsTrilogyPack"><a href="#CallofDutyBlackOpsTrilogyPack">Call of Duty Black Ops Trilogy Pack (525 CUP)</a></h4>
+<ul class="listajuegos">
+      <li><a href="https://store.steampowered.com/app/42700/Call_of_Duty_Black_Ops/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/42700/header.jpg?t=1654809667" title="Call of Duty Black Ops"></a></li>
+      <li><a href="https://store.steampowered.com/app/202970/Call_of_Duty_Black_Ops_II/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/202970/capsule_616x353.jpg?t=1654830020" title="Call of Duty Black Ops 2"></a></li>
+	  <li><a href="https://vandal.elespanol.com/juegos/ps4/call-of-duty-black-ops-iii/30391#p-73" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/311210/header.jpg?t=1748022663" title="Call of Duty Black Ops 3"></a></li>
+    </ul></section>
+  <section class=grupo-juegos><h4 data-price="1350" id="CallofDutyCompletePack"><a href="#CallofDutyCompletePack">Call of Duty Complete Pack (1350 CUP)</a></h4>
     <ul class="listajuegos">
       <li><a href="https://store.steampowered.com/app/2620/Call_of_Duty/" target="_blank"><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/2640/header.jpg" title="Call Of Duty 1 - United Offensive Expansion Pack"></a></li>
       <li><a href="https://store.steampowered.com/app/2630/Call_of_Duty_2/" target="_blank"><img src="https://gepig.com/game_cover_460w/342.jpg" title="Call Of Duty 2"></a></li>
@@ -96,8 +114,9 @@
       <li><a href="https://store.steampowered.com/app/115300/Call_of_Duty_Modern_Warfare_3_2011/" target="_blank"><img src="https://cdn.gracza.pl/i/h/1/147768000.jpg" title="CALL OF DUTY MW3"></a></li>
       <li><a href="https://store.steampowered.com/app/42700/Call_of_Duty_Black_Ops/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/42700/header.jpg?t=1654809667" title="Call of Duty Black Ops"></a></li>
       <li><a href="https://store.steampowered.com/app/202970/Call_of_Duty_Black_Ops_II/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/202970/capsule_616x353.jpg?t=1654830020" title="Call of Duty Black Ops 2"></a></li>
+	  <li><a href="https://vandal.elespanol.com/juegos/ps4/call-of-duty-black-ops-iii/30391#p-73" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/311210/header.jpg?t=1748022663" title="Call of Duty Black Ops 3"></a></li>
     </ul></section>
-  <section class=grupo-juegos><h4 data-price="160">Classic Five Nights at Freddy's Pack (160 CUP)</h4>
+  <section class=grupo-juegos><h4 data-price="160" id="ClassicFiveNightsatFreddysPack"><a href="#ClassicFiveNightsatFreddysPack">Classic Five Nights at Freddy's Pack (160 CUP)</a></h4>
     <ul class="listajuegos">
       <li><a href="https://store.steampowered.com/app/319510/Five_Nights_at_Freddys/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/319510/header.jpg?t=1666889251" title="Five Nights at Freddy's"></a></li>
       <li><a href="https://store.steampowered.com/app/332800/Five_Nights_at_Freddys_2/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/332800/capsule_616x353.jpg?t=1579635993" title="Five Nights at Freddy's 2"></a></li>
@@ -107,15 +126,15 @@
       <li><a href="https://store.steampowered.com/app/738060/Freddy_Fazbears_Pizzeria_Simulator/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/738060/header.jpg?t=1512422259" title="Five Nights at Freddy's 6"></a></li>
       <li><a href="https://store.steampowered.com/app/871720/Ultimate_Custom_Night/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/871720/capsule_616x353.jpg?t=1568143255" title="Five Nights at Freddy's 7"></a></li>
     </ul></section>
-  <section class=grupo-juegos><h4 data-price="600">Fighting Games Pack (600 CUP)</h4>
+  <section class=grupo-juegos><h4 data-price="600" id="FightingGamesPack"><a href="#FightingGamesPack">Fighting Games Pack (600 CUP)</a></h4>
       <ul class="listajuegos">
         <li><a href="https://store.steampowered.com/app/311730/DEAD_OR_ALIVE_5_Last_Round/" target="_blank"><img src="https://products.eneba.games/resized-products/nvivsmnd9zjlbgawcdz6_350x200_2x-0.jpg" title="Dead or Alive 5"></a></li>
         <li><a href="https://store.steampowered.com/app/520440/GUILTY_GEAR_Xrd_REVELATOR/" target="_blank"><img src="https://ztgd.com/wp-content/uploads/2017/06/guiltygearxrd2_01.jpg" title="GUILTY GEAR Xrd -REVELATOR-"></a></li>
         <li><a href="https://store.steampowered.com/agecheck/app/237110/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/237110/header.jpg?t=1584723816" title="Mortal Kombat Komplete Edition"></a></li>
         <li><a href="https://store.steampowered.com/app/234670/NARUTO_SHIPPUDEN_Ultimate_Ninja_STORM_3_Full_Burst_HD/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/234670/capsule_616x353.jpg?t=1703662542" title="NARUTO SHIPPUDEN Ultimate Ninja STORM 3 Full Burst"></a></li>
         <li><a href="https://store.steampowered.com/app/45760/Ultra_Street_Fighter_IV/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/45760/capsule_616x353.jpg?t=1727684497" title="Ultra Street Fighter IV"></a></li>
-      </ul></section>
-  <section class=grupo-juegos><h4 data-price="900">FROMSOFTWARE Pack (900 CUP)</h4>
+    </ul></section>
+  <section class=grupo-juegos><h4 data-price="900" id="FROMSOFTWAREPack"><a href="#FROMSOFTWAREPack">FROMSOFTWARE Pack (900 CUP)</a></h4>
     <ul class="listajuegos">
       <li><a href="https://store.steampowered.com/app/211420/DARK_SOULS_Prepare_To_Die_Edition/" target="_blank"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/211420/header.jpg?t=1721682669" title="Dark Souls Prepare To Die Edition"></a></li>
       <li><a href="https://store.steampowered.com/app/570940/DARK_SOULS_Remastered/" target="_blank"><img src="https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000008122/453d17f26995df6bd67d698c90ba2fd27157a61875e1a9730545da23474c6aaf" title="Dark Souls Remastered"></a></li>
@@ -124,14 +143,14 @@
       <li><a href="https://www.ign.com/games/demons-souls" target="_blank"><img src="https://products.eneba.games/resized-products/u08W3WUsfDZmuGVzSzRp6STRiMndhckhvUqO1tu-D2M_1920x1080_1x-0.jpg" title="Demon’s Souls Black Phantom Edition"></a></li>
       <li><a href="https://store.steampowered.com/app/1245620/ELDEN_RING/" target="_blank"><img src="https://gaming-cdn.com/images/products/9986/616x353/elden-ring-deluxe-edition-deluxe-edition-pc-juego-steam-europe-cover.jpg?v=1734078526" title="ELDEN RING Deluxe Edition"></a></li>
     </ul></section>
-      <section class=grupo-juegos><h4 data-price="120">Guilty Gear Pack (120 CUP)</h4>
+  <section class=grupo-juegos><h4 data-price="120" id="GuiltyGearPack"><a href="#GuiltyGearPack">Guilty Gear Pack (120 CUP)</a></h4>
     <ul class="listajuegos">
       <li><a href="https://store.steampowered.com/app/267900/Guilty_Gear_Isuka/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/267900/header.jpg?t=1634717908" title="GUILTY GEAR ISUKA"></a></li>
       <li><a href="https://store.steampowered.com/app/314030/Guilty_Gear_X2_Reload/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/314030/header.jpg?t=1634717936" title="Guilty Gear X2 #Reload"></a></li>
       <li><a href="https://store.steampowered.com/app/520440/GUILTY_GEAR_Xrd_REVELATOR/" target="_blank"><img src="https://ztgd.com/wp-content/uploads/2017/06/guiltygearxrd2_01.jpg" title="GUILTY GEAR Xrd -REVELATOR-"></a></li>
       <li><a href="https://store.steampowered.com/app/348550/GUILTY_GEAR_XX_ACCENT_CORE_PLUS_R/" target="_blank"><img src="https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000003609/57fd2bc1c6078ecc1baffae2a2e0b564da4e40042d9f99d2e3aa59b8a3a629bc" title="Guilty Gear XX Accent Core Plus R"></a></li>    
     </ul></section>
-      <section class=grupo-juegos><h4 data-price="170">Halo Pack (170 CUP)</h4>
+  <section class=grupo-juegos><h4 data-price="170" id="HaloPack"><a href="#HaloPack">Halo Pack (170 CUP)</a></h4>
     <ul class="listajuegos">
       <li><img src="https://gepig.com/game_cover_460w/326.jpg" title="Halo Combat Evolved"></li>
       <li><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1064221/ss_7c18976027966ad6f9efc1bb83904c5b3ffb6dc9.1920x1080.jpg?t=1634231276" title="Halo Combat Evolved Multiplayer con todos los mapas"></li>
@@ -139,14 +158,14 @@
       <li><img src="https://www.pcgamesn.com/wp-content/sites/pcgamesn/legacy/Halo_Online_1.jpg" title="Halo Online ElDewrito v0.6.1.0"></li>
       <li><img src="https://www.speedrun.com/static/game/o6gv7x62/cover.png?v=a87691b" title="Halo Zero (20.6 MB)"></li>
     </ul></section>
-      <section class=grupo-juegos><h4 data-price="225">Hello Neighbor Pack (225 CUP)</h4>
+  <section class=grupo-juegos><h4 data-price="225" id="HelloNeighborPack"><a href="#HelloNeighborPack">Hello Neighbor Pack (225 CUP)</a></h4>
     <ul class="listajuegos">
       <li><a href="https://store.steampowered.com/app/521890/Hello_Neighbor/" target="_blank"><img src="https://images.gog-statics.com/818658294fc9ed5ce966acf2792e93aa8cb6d4776813071c6774b93c73d0f6f5_product_card_v2_mobile_slider_639.jpg" title="Hello Neighbor"></a></li>
       <li><a href="https://store.steampowered.com/app/960420/Hello_Neighbor_Hide_and_Seek/" target="_blank"><img src="https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000014417/21b5c0c9d295f38e842783ec8b66ccdcacb91da02f51db64f8ba9df759ed26b0" title="Hello Neighbor - Hide and Seek"></a></li>
       <li><a href="https://store.steampowered.com/app/1321680/Hello_Neighbor_2/" target="_blank"><img src="https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000043413/8500d786b70f598d6612081a6b88f8eb0c54d8d8b4e4b030a188925887d481b4" title="Hello Neighbor 2"></a></li>
       <li><a href="https://store.steampowered.com/app/1856190/Hello_Engineer_Scrap_Machines_Constructor/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1856190/497c4b90e1167974b5e18bf3f0d4c4a3fc5584c2/capsule_616x353.jpg?t=1728663879" title="Hello Engineer - Scrap Machines Constructor"></a></li>    
     </ul></section>
-      <section class=grupo-juegos><h4 data-price="580">LAN Party Games Pack (580 CUP)</h4>
+  <section class=grupo-juegos><h4 data-price="580" id="LANPartyGamesPack"><a href="#LANPartyGamesPack">LAN Party Games Pack (580 CUP)</a></h4>
     <ul class="listajuegos">
         <li><a href="https://play.google.com/store/apps/details?id=net.froemling.bombsquad&pli=1" target="_blank"><img src="https://m.media-amazon.com/images/I/91gpUW9nbdL.png" title="BombSquad"></li>
         <li><a href="https://store.steampowered.com/app/204360/Castle_Crashers/" target="_blank"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/204360/header.jpg?t=1733782774" title="Castle Crashers"></a></li>
@@ -157,24 +176,24 @@
         <li><img src="https://shared.steamstatic.com/store_item_assets/steam/apps/1194250/header.jpg?t=1698840890" title="Screaming Chicken Ultimate Showdown"></li>
         <li><a href="https://store.steampowered.com/app/2475460/SOS_OPS/" target="_blank"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2475460/034c2d4814cdce02577c7cd025425156b22ca8a2/capsule_616x353.jpg?t=1739526489" title="SOS OPS"></a></li>
         <li><a href="https://store.steampowered.com/app/880940/Pummel_Party/" target="_blank"><img src="https://clan.fastly.steamstatic.com/images/33104705/451dc7e1f34d24a337827f14d2a4dd736db48791_400x225.png" title="Pummel Party"></a></li>
-      </ul></section>
-    <section class=grupo-juegos><h4 data-price="470">LAN Survival Games Alpha Pack (470 CUP)</h4>
+    </ul></section>
+  <section class=grupo-juegos><h4 data-price="470" id="LANSurvivalGamesAlphaPack"><a href="#LANSurvivalGamesAlphaPack">LAN Survival Games Alpha Pack (470 CUP)</a></h4>
 <ul class="listajuegos">
   <li><a href="https://store.steampowered.com/app/322330/Dont_Starve_Together/" target="_blank"><img src="https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000019795/081425533fd5a75ad96eb4333f260edf690b91110402ac801e07fd332035da8e" title="Dont Starve Together"></a></li>
   <li><a href="https://store.steampowered.com/app/815370/Green_Hell/" target="_blank"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/815370/header.jpg?t=1738071747" title="Green Hell"></a></li>
   <li><a href="https://www.minecraft.net/es-es" target="_blank"><img src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2017/02/guia-todos-trucos-consejos-minecraft.jpg?tf=3840x" title="Minecraft v1.12.2 con mods y shaders"></a></li>
   <li><a href="https://www.minecraft.net/es-es" target="_blank"><img src="https://cloudfront-us-east-1.images.arcpublishing.com/infobae/EXPB4AGS2ZA7VKTZKFMVELDHQU.jpg" title="Minecraft v1.19.1 + v1.12.2"></a></li>
   <li><a href="https://store.steampowered.com/app/593600/PixARK/" target="_blank"><img src="https://preview.redd.it/fxokpw1qdrbd1.jpeg?width=640&crop=smart&auto=webp&s=732c78964c3ffe15a031d1dbddb9c4b6a0c2d9a9" title="PixARK"></a></li>
-</ul></section>
-<section class=grupo-juegos><h4 data-price="490">LAN Survival Games Beta Pack (490 CUP)</h4>
+    </ul></section>
+  <section class=grupo-juegos><h4 data-price="490" id="LANSurvivalGamesBetaPack"><a href="#LANSurvivalGamesBetaPack">LAN Survival Games Beta Pack (490 CUP)</a></h4>
 <ul class="listajuegos">
   <li><a href="https://store.steampowered.com/app/251570/7_Days_to_Die/" target="_blank"><img src=" https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/251570/header.jpg?t=1732723404" title="7 Days to Die"></a></li>
   <li><a href="https://store.steampowered.com/app/648800/Raft/" target="_blank"><img src="https://static1.cbrimages.com/wordpress/wp-content/uploads/2020/10/RAFT-Feature.jpg" title="Raft"></a></li>
   <li><a href="https://store.steampowered.com/app/1326470/Sons_of_the_Forest/" target="_blank"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1326470/capsule_616x353.jpg?t=1708624856" title="Sons of the Forest"></a></li>
   <li><a href="https://store.steampowered.com/app/418030/Subsistence/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/418030/header.jpg?t=1734721808" title="Subsistence"></a></li>
   <li><a href="https://store.steampowered.com/app/242760/The_Forest/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/242760/header.jpg?t=1699381053" title="The Forest"></a></li>
-</ul></section>
-<section class=grupo-juegos><h4 data-price="600">LAN Terror Games Alpha Pack (600 CUP)</h4>
+    </ul></section>
+  <section class=grupo-juegos><h4 data-price="600" id="LANTerrorGamesAlphaPack"><a href="#LANTerrorGamesAlphaPack">LAN Terror Games Alpha Pack (600 CUP)</a></h4>
 <ul class="listajuegos">
   <li><a href="https://store.steampowered.com/app/10680/Aliens_vs_Predator/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/10680/capsule_616x353.jpg?t=1603127038" title="Aliens vs Predator (2010)"></a></li>
   <li><a href="https://store.steampowered.com/app/275060/Alone_in_the_Dark_Illumination/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/275060/capsule_616x353.jpg?t=1727861130" title="Alone in the Dark Illumination"></a></li>
@@ -183,8 +202,8 @@
   <li><a href="https://store.steampowered.com/app/238430/Contagion/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/238430/capsule_616x353.jpg?t=1730224564" title="Contagion"></a></li>
   <li><a href="https://store.steampowered.com/app/16450/FEAR_2_Project_Origin/" target="_blank"><img src="https://images.gog-statics.com/97d1098aadfb627bde444919eed5ee080bdddb39186738c8f562bd5d9031284a_product_card_v2_mobile_slider_639.jpg" title="F.E.A.R. 2 Project Origin + Reborn"></a></li>
   <li><a href="https://store.steampowered.com/app/21100/FEAR_3/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/21100/header.jpg?t=1666213659" title="F.E.A.R. 3"></a></li>
-</ul class="listajuegos"></section>
-<section class=grupo-juegos><h4 data-price="715">LAN Terror Games Beta Pack (715 CUP)</h4>
+    </ul class="listajuegos"></section>
+  <section class=grupo-juegos><h4 data-price="715" id="LANTerrorGamesBetaPack"><a href="#LANTerrorGamesBetaPack">LAN Terror Games Beta Pack (715 CUP)</a></h4>
 <ul class="listajuegos">
   <li><a href="https://store.steampowered.com/agecheck/app/438740/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/438740/header.jpg?t=1704032773" title="Friday The 13th The Game"></a></li>
   <li><a href="https://store.steampowered.com/app/1250/Killing_Floor/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1250/header.jpg?t=1726777771" title="Killing Floor"></a></li>
@@ -193,31 +212,31 @@
   <li><a href="https://store.steampowered.com/app/1571440/Lunch_Lady/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1571440/capsule_616x353.jpg?t=1725038970" title="Lunch Lady"></a></li>
   <li><a href="https://store.steampowered.com/app/967050/Pacify/" target="_blank"><img src="https://clan.fastly.steamstatic.com/images/34338162/c6c88e87e49d6ef0a8d616c5bd0492ceeabb9eab.png" title="Pacify The Woods"></a></li>
   <li><a href="https://store.steampowered.com/app/503350/White_Noise_2/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/503350/capsule_616x353.jpg?t=1695383070" title="White Noise 2"></a></li>
-</ul></section>
-<section class=grupo-juegos><h4 data-price="415">LAN Valve Games Pack (415 CUP)</h4>
+    </ul></section>
+  <section class=grupo-juegos><h4 data-price="415" id="LANValveGamesPack"><a href="#LANValveGamesPack">LAN Valve Games Pack (415 CUP)</a></h4>
 <ul class="listajuegos">
   <li><a href="https://store.steampowered.com/app/570/DOTA_2/" target="_blank"><img src="https://cdn.fastly.steamstatic.com/steam/apps/570/header.jpg" title="DOTA 2"></a></li>
   <li><a href="https://store.steampowered.com/app/70/HalfLife_Complete/" target="_blank"><img src="https://i.redd.it/htvu0vd16tma1.jpg" title="Half-Life Complete Pack + Decay Expansion"></a></li>
   <li><a href="https://store.steampowered.com/app/620/Portal_2/" target="_blank"><img src="https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000050313/75484f73fedd25cb830c5d93fbb3fca643a5ec0b09df2815291ead880bc7d6b1" title="Portal 2"></a></li>
   <li><a href="https://store.steampowered.com/app/440/Team_Fortress_2/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/440/capsule_616x353.jpg?t=1729702978" title="Team Fortress 2"></a></li>
-</ul></section>
-<section class=grupo-juegos><h4 data-price="715">Monster Hunter Pack (715 CUP)</h4>
+    </ul></section>
+  <section class=grupo-juegos><h4 data-price="715" id="MonsterHunterPack"><a href="#MonsterHunterPack">Monster Hunter Pack (715 CUP)</a></h4>
 <ul class="listajuegos">
   <li><a href="https://monsterhunter.fandom.com/es/wiki/Monster_Hunter_Frontier_Z" target="_blank"><img src="https://mmoculture.com/wp-content/uploads/2019/06/Monster-Hunter-Frontier-Z.jpg" title="Monster Hunter Frontier Z"></a></li>
   <li><a href="https://store.steampowered.com/app/1446780/MONSTER_HUNTER_RISE/" target="_blank"><img src="https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70070000013653/313a480a021228349a0bdefac2209f8c64407c5f208500ea8d23bc0edd456f8e" title="Monster Hunter Rise Sunbreak"></a></li>
   <li><a href="https://store.steampowered.com/app/2356560/Monster_Hunter_Stories/" target="_blank"><img src="https://sm.ign.com/ign_es/cover/m/monster-hu/monster-hunter-stories-remaster_4ge8.jpg" title="Monster Hunter Stories"></a></li>
   <li><a href="https://store.steampowered.com/app/1277400/MONSTER_HUNTER_Stories_2_Wings_of_Ruin/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1277400/capsule_616x353.jpg?t=1732755703" title="Monster Hunter Stories 2 Wings of Ruin"></a></li>
   <li><a href="https://store.steampowered.com/app/582010/MONSTER_HUNTER_WORLD_Iceborne/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1118010/capsule_616x353.jpg?t=1727684185" title="Monster Hunter World Icerbone"></a></li>
-</ul></section>
-<section class=grupo-juegos><h4 data-price="380">Mortal Kombat Pack (380 CUP)</h4>
+    </ul></section>
+  <section class=grupo-juegos><h4 data-price="380" id="MortalKombatPack"><a href="#MortalKombatPack">Mortal Kombat Pack (380 CUP)</a></h4>
 <ul class="listajuegos">
   <li><a href="https://vandal.elespanol.com/juegos/x360/ultimate-mortal-kombat-3-xbla/6853" target="_blank"><img src="https://images.gog-statics.com/3e089afcc4c7b7d1864ca16a5cd936609b393af749415437edc06ab4f0372e56.jpg" title="Mortal Kombat Trilogy PC Port + Reshade & Kommunity Patch"></a></li>
   <li><a href="https://vandal.elespanol.com/juegos/n64/mortal-kombat-4/2144#p-19" target="_blank"><img src="https://media.vandal.net/m/3-2020/202031211502988_1.jpg" title="Mortal Kombat 4"></a></li>
   <li><img src="https://juegosdemugen.com/wp-content/uploads/2021/09/Mortal-Kombat-Project-IMKO-Mugen.jpg" title="Mortal Kombat Project IMKO"></li>
   <li><a href="https://store.steampowered.com/agecheck/app/237110/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/237110/header.jpg?t=1584723816" title="Mortal Kombat Komplete Edition"></a></li>
   <li><a href="https://store.steampowered.com/app/307780/Mortal_Kombat_X/" target="_blank"><img src="https://s.pacn.ws/1/p/w4/mortal-kombat-xl-578433.22.jpg?v=rnyv8z&width=800&crop=598,898" title="Mortal Kombat XL"></a></li>
-</ul></section>
-<section class=grupo-juegos><h4 data-price="790">Naruto Ultimate Ninja Storm Pack (790 CUP)</h4>
+    </ul></section>
+  <section class=grupo-juegos><h4 data-price="790" id="NarutoUltimateNinjaStormPack"><a href="#NarutoUltimateNinjaStormPack">Naruto Ultimate Ninja Storm Pack (790 CUP)</a></h4>
 <ul class="listajuegos">
   <li><a href="https://store.steampowered.com/app/495140/NARUTO_Ultimate_Ninja_STORM/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/495140/capsule_616x353.jpg?t=1701305352" title="NARUTO Ultimate Ninja STORM"></a></li>
   <li><a href="https://store.steampowered.com/app/543870/NARUTO_SHIPPUDEN_Ultimate_Ninja_STORM_2/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/543870/capsule_616x353.jpg?t=1701323477" title="NARUTO SHIPPUDEN Ultimate Ninja STORM 2"></a></li>
@@ -225,36 +244,36 @@
   <li><a href="https://store.steampowered.com/app/272510/NARUTO_SHIPPUDEN_Ultimate_Ninja_STORM_Revolution/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/272510/capsule_616x353.jpg?t=1701322146" title="Naruto Shippuden Ultimate Ninja Storm Revolution"></a></li>
   <li><a href="https://store.steampowered.com/app/349040/NARUTO_SHIPPUDEN_Ultimate_Ninja_STORM_4/" target="_blank"><img src="https://cdn2.steamgriddb.com/grid/7fbb89dba4aac377fee4230937efc310.png" title="Naruto Storm 4 Evolution & Road to Connections"></a></li>
   <li><a href="https://store.steampowered.com/app/1020790/NARUTO_X_BORUTO_Ultimate_Ninja_STORM_CONNECTIONS/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1020790/capsule_616x353.jpg?t=1727301927" title="Naruto X Boruto Ultimate Ninja Storm Connections"></a></li>
-</ul></section>
-<section class=grupo-juegos><h4 data-price="900">Need For Speed Pack (900 CUP)</h4>
+    </ul></section>
+  <section class=grupo-juegos><h4 data-price="940" id="NeedForSpeedPack"><a href="#NeedForSpeedPack">Need For Speed Pack (940 CUP)</a></h4>
 <ul class="listajuegos">
   <li><a href="https://vandal.elespanol.com/juegos/pc/need-for-speed-carbono/5912" target="_blank"><img src="https://phoenix-g.site/wp-content/uploads/2024/07/need-for-speed-cover.webp" title="Need For Speed Carbon Remastered"></a></li>
   <li><a href="https://store.steampowered.com/app/1262560/Need_for_Speed_Most_Wanted/" target="_blank"><img src="https://cdn2.steamgriddb.com/grid/6fdb8f7d90e975d5d19959a0fcebf123.png" title="Need For Speed Most Wanted Online"></a></li>
   <li><a href="https://vandal.elespanol.com/juegos/ps3/need-for-speed-prostreet/7234" target="_blank"><img src="https://gepig.com/game_cover_460w/3.jpg" title="Need For Speed ProStreet"></a></li>
-  <li><a href="https://vandal.elespanol.com/juegos/ps3/need-for-speed-the-run/14312#p-41" target="_blank"><img src="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_3ds_25/SI_3DS_NeedForSpeedTheRun_image1600w.jpg" title="
-  Need For Speed The Run"></a></li>
+  <li><a href="https://vandal.elespanol.com/juegos/ps3/need-for-speed-the-run/14312#p-41" target="_blank"><img src="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_3ds_25/SI_3DS_NeedForSpeedTheRun_image1600w.jpg" title="Need For Speed The Run"></a></li>
+  <li><a href="https://store.steampowered.com/app/24870/Need_for_Speed_Shift/" target="_blank"><img src="https://gaming-cdn.com/images/products/1972/orig/need-for-speed-shift-pc-juego-ea-app-cover.jpg?v=1705418709" title="Need for Speed Shift"></a></li>
   <li><a href="https://vandal.elespanol.com/juegos/ps3/need-for-speed-undercover/9033" target="_blank"><img src="https://media.moddb.com/images/mods/1/25/24814/bgrem2.jpg" title="Need for Speed Undercover Remastered"></a></li>
   <li><a href="https://vandal.elespanol.com/juegos/ps2/need-for-speed-underground/1963" target="_blank"><img src="https://i.ytimg.com/vi/XSRPsnCDDpc/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBMJTfIHv_FJhLDqv6c7CCUyUx5oA" title="Need for Speed Underground Definitive Edition"></a></li>
   <li><a href="https://vandal.elespanol.com/juegos/ps2/need-for-speed-underground/1963" target="_blank"><img src="https://www.lokalizacie.sk/images/game_main/need-for-speed-underground.jpg" title="Need for Speed Underground Online"></a></li>
   <li><a href="https://vandal.elespanol.com/juegos/pc/need-for-speed-underground-2/3399" target="_blank"><img src="https://i.ytimg.com/vi/ATkYMnlwHpY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDqQQpgytAri58Z62ZB1G2sfZQ6sg" title="Need for Speed Underground 2"></a></li>
   <li><img src="https://gepig.com/game_cover_460w/1082.jpg" title="Need For Speed World"></li>
-</ul></section>
-<section class=grupo-juegos><h4 data-price="450">Resident Evil Pack (450 CUP)</h4>
+    </ul></section>
+  <section class=grupo-juegos><h4 data-price="450" id="ResidentEvilPack"><a href="#ResidentEvilPack">Resident Evil Pack (450 CUP)</a></h4>
 <ul class="listajuegos">
   <li><a href="https://store.steampowered.com/app/222480/Resident_Evil_Revelations/" target="_blank"><img src="https://gaming-cdn.com/images/products/192/orig/resident-evil-revelations-pc-game-steam-europe-cover.jpg?v=1720682304" title="Resident Evil Revelations"></a></li>
   <li><a href="https://store.steampowered.com/app/21690/Resident_Evil_5/" target="_blank"><img src="https://static.driffle.com/fit-in/720x512/media-gallery/prod/167542888018247500_resident_evil_gold_edition.webp" title="Resident Evil 5 Gold Edition"></a></li>
   <li><a href="https://store.steampowered.com/app/221040/Resident_Evil_6/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/221040/capsule_616x353.jpg?t=1700452901" title="Resident Evil 6"></a></li>
   <li><a href="https://store.steampowered.com/dlc/952070/RESIDENT_EVIL_RESISTANCE/" target="_blank"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/952070/capsule_616x353.jpg?t=1682298836" title="Resident Evil - Resistance"></a></li>
-</ul></section>
-<section class=grupo-juegos><h4 data-price="560">Saints Row Pack (560 CUP)</h4>
+    </ul></section>
+  <section class=grupo-juegos><h4 data-price="560" id="SaintsRowPack"><a href="#SaintsRowPack">Saints Row Pack (560 CUP)</a></h4>
 <ul class="listajuegos">
   <li><a href="https://store.steampowered.com/app/9480/Saints_Row_2/" target="_blank"><img src="https://images.gog-statics.com/e5054aacbe4d66cc91783dfe5d2eb996e49d08523f8ed6f2cb07bd9cc747aed2.jpg" title="Saints Row 2"></li>
   <li><a href="https://store.steampowered.com/sub/17933/" target="_blank"><img src="https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000013514/7883a9cb430c498a09d37bfa31d6f57143977919e349ec51a4585b135d755421" title="Saints Row The Third - The Full Package"></a></li>
   <li><a href="https://store.steampowered.com/agecheck/app/314580/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/314580/header.jpg?t=1684278782" title="Saints Row IV - Game of the Century Edition"></a></li>
   <li><a href="https://store.steampowered.com/app/301910/Saints_Row_Gat_out_of_Hell/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/301910/capsule_616x353.jpg?t=1726482177" title="Saints Row - Gat out of Hell"></a></li>
   <li><a href="https://store.steampowered.com/app/742420/Saints_Row/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/742420/capsule_616x353.jpg?t=1726748689" title="Saints Row V 2022 Reboot Gold Edition"></a></li>
-</ul></section>
-<section class=grupo-juegos><h4 data-price="310">Sonic Pack (310 CUP)</h4>
+    </ul></section>
+  <section class=grupo-juegos><h4 data-price="310" id="SonicPack"><a href="#SonicPack">Sonic Pack (310 CUP)</a></h4>
 <ul class="listajuegos">
   <li><a href="https://store.steampowered.com/app/212480/Sonic__AllStars_Racing_Transformed_Collection/" target="_blank"><img src="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_3ds_25/SI_3DS_SonicAndAllStarsRacingTransformed_image1600w.jpg" title="Sonic & All-Stars Racing Transformed"></a></li>
   <li><a href="https://store.steampowered.com/app/71250/Sonic_Adventure_DX/" target="_blank"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/71250/header.jpg?t=1721832639" title="Sonic Adventure DX Director's Cut"></a></li>
@@ -262,28 +281,28 @@
   <li><img src="https://m.gjcdn.net/game-header/1200/425118-g8t2w2uz-v4.webp" title="Sonic Battle R ProtoV3"></li>
   <li><a href="https://store.steampowered.com/app/584400/Sonic_Mania/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/584400/capsule_616x353.jpg?t=1721834294" title="Sonic Mania"></a></li>
   <li><img src="https://srb2wp-data.nyc3.cdn.digitaloceanspaces.com/wp-content/uploads/srb2-title.png" title="Sonic Robo Blast 2"></li>
-</ul></section>
-<section class=grupo-juegos><h4 data-price="300">Starcraft Pack (300 CUP)</h4>
+    </ul></section>
+  <section class=grupo-juegos><h4 data-price="300" id="StarcraftPack"><a href="#StarcraftPack">Starcraft Pack (300 CUP)</a></h4>
 <ul class="listajuegos">
   <li><a href="https://vandal.elespanol.com/juegos/pc/starcraft-brood-war/35784" target="_blank"><img src="https://e.rpp-noticias.io/xlarge/2017/04/03/385638_378424.jpg" title="Starcraft Brood War"></a></li>
   <li><a href="https://vandal.elespanol.com/juegos/pc/starcraft-remastered/47260" target="_blank"><img src="https://blz-contentstack-images.akamaized.net/v3/assets/blt0e00eb71333df64e/blt4c868636503e9946/65815173d086840586bc0b04/og_image.webp" title="StarCraft Remastered"></a></li>
   <li><a href="https://vandal.elespanol.com/juegos/pc/starcraft-ii-heart-of-the-swarm/9603" target="_blank"><img src="https://i1.sndcdn.com/artworks-000043084607-zshzm2-t500x500.jpg" title="StarCraft II Heart of the Swarm"></a></li>
-</ul></section>
-<section class=grupo-juegos><h4 data-price="170">Super Smash Pack (170 CUP)</h4>
+    </ul></section>
+  <section class=grupo-juegos><h4 data-price="170" id="SuperSmashPack"><a href="#SuperSmashPack">Super Smash Pack (170 CUP)</a></h4>
 <ul class="listajuegos">
   <li><img src="https://i.ytimg.com/vi/iZ-R0XH-vB8/maxresdefault.jpg" title="Super Smash Bros. Crusade"></li>
   <li><img src="https://cdn2.steamgriddb.com/grid/c3f1082e56cfbb26b28b185233dc119e.jpg" title="Super Smash Bros. Crusade CMC+"></li>
   <li><img src="https://archive.org/download/SSF2BetaLinux.v1.1.0.1/DOhCI27X0AAV1PJ.jpg" title="Super Smash Flash 2 Beta"></li>
   <li><a href="https://www.ign.com/games/super-smash-bros-for-nintendo-3ds" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/01/08/super-smash-bros-for-nintendo-3ds-button-1641601574897.jpg" title="Super Smash Bros. (3DS)"></a></li>
   <li><a href="https://www.ign.com/games/super-smash-bros-brawl" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/01/08/super-smash-bros-brawl-button-1641601587266.jpg" title="Super Smash Bros. Brawl"></a></li>
-</ul></section>
-<section class=grupo-juegos><h4 data-price="410">Sword Art Online Pack (410 CUP)</h4>
+    </ul></section>
+  <section class=grupo-juegos><h4 data-price="410" id="SwordArtOnlinePack"><a href="#SwordArtOnlinePack">Sword Art Online Pack (410 CUP)</a></h4>
 <ul class="listajuegos">
   <li><a href="https://store.steampowered.com/app/638650/Sword_Art_Online_Re_Hollow_Fragment/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/638650/capsule_616x353.jpg?t=1703657343" title="Sword Art Online - Hollow Fragment"></a></li>
   <li><a href="https://store.steampowered.com/app/626690/Sword_Art_Online_Fatal_Bullet/" target="_blank"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/626690/capsule_616x353.jpg?t=1701314169" title="Sword Art Online - Fatal Bullet"></a></li>
   <li><a href="https://store.steampowered.com/app/607890/Sword_Art_Online_Hollow_Realization_Deluxe_Edition/" target="_blank"><img src="https://image.api.playstation.com/cdn/EP0700/CUSA05033_00/cHANjgqXacVov5SQVD91xuohvlu873cA.png" title="Sword Art Online Hollow Realization"></a></li>
-</ul></section>
-<section class=grupo-juegos><h4 data-price="490">Tomb Raider Pack (490 CUP)</h4>
+    </ul></section>
+  <section class=grupo-juegos><h4 data-price="490" id="TombRaiderPack"><a href="#TombRaiderPack">Tomb Raider Pack (490 CUP)</a></h4>
 <ul class="listajuegos">
   <li><a href="https://store.steampowered.com/app/35130/Lara_Croft_and_the_Guardian_of_Light/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/35130/capsule_616x353.jpg?t=1729009567" title="Lara Croft And The Guardian of Light"></a></li>
   <li><a href="https://store.steampowered.com/app/289690/Lara_Croft_and_the_Temple_of_Osiris/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/289690/header.jpg?t=1729011550" title="Lara Croft and the Temple of Osiris"></a></li>
@@ -292,15 +311,15 @@
   <li><a href="https://store.steampowered.com/app/2525380/Tomb_Raider_IVVI_Remastered/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2525380/header.jpg?t=1739906418" title="Tomb Raider IV-VI Remastered"></a></li>  
   <li><a href="https://store.steampowered.com/app/8000/Tomb_Raider_Anniversary/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/8000/capsule_616x353.jpg?t=1729009457" title="Tomb Raider Anniversary"></a></li>
   <li><a href="https://store.steampowered.com/app/203160/Tomb_Raider/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/203160/capsule_616x353.jpg?t=1729010886" title="Tomb Raider (2013)"></a></li>
-</ul></section>
-<section class=grupo-juegos><h4 data-price="375">We Were Here Pack (375 CUP)</h4>
+    </ul></section>
+  <section class=grupo-juegos><h4 data-price="375" id="WeWereHerePack"><a href="#WeWereHerePack">We Were Here Pack (375 CUP)</a></h4>
 <ul class="listajuegos">
   <li><a href="https://store.steampowered.com/app/582500/We_Were_Here/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/582500/header.jpg?t=1730302269" title="We Were Here"></a></li>
   <li><a href="https://store.steampowered.com/app/677160/We_Were_Here_Too/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/677160/header.jpg?t=1730302500" title="We Were Here Too"></a></li>
   <li><a href="https://store.steampowered.com/app/865360/We_Were_Here_Together/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/865360/0de3cc415d89b19a3337945935b157dbbd96fa72/capsule_616x353.jpg?t=1734424078" title="We Were Here Together"></a></li>
   <li><a href="https://store.steampowered.com/app/2296990/We_Were_Here_Expeditions_The_FriendShip/" target="_blank"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2296990/de41533095146bf25df7fa4dc9e342f7145c802e/capsule_616x353.jpg?t=1730303893" title="We Were Here Expeditions The FriendShip"></a></li>
-</ul></section>
-<section class=grupo-juegos><h4 data-price="315">Worms Pack (315 CUP)</h4>
+    </ul></section>
+  <section class=grupo-juegos><h4 data-price="315" id="WormsPack"><a href="#WormsPack">Worms Pack (315 CUP)</a></h4>
 <ul class="listajuegos">
   <li><a href="https://store.steampowered.com/app/217200/worms_armageddon/" target="_blank"><img src="https://m.media-amazon.com/images/M/MV5BY2VkNjljNjEtNzZlNC00ODMxLWFiNmMtNzBlNTE0MjEzYmFlXkEyXkFqcGc@._V1_.jpg" title="Worms Armageddon"></a></li>
   <li><a href="https://store.steampowered.com/app/233840/worms_clan_wars/" target="_blank"><img src="https://m.media-amazon.com/images/I/61CmqIF3wbL._AC_UF1000,1000_QL80_.jpg" title="Worms Clan Wars"></a></li>
