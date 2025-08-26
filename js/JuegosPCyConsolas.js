@@ -82,6 +82,16 @@ function agregarIconosFiltrosAJuegos() {
                 }
             });
 
+            // Añadir iconos de activación si el juego lo requiere
+            if (li.classList.contains('Activacion')){
+                const icono = document.createElement('img');
+                icono.className = 'li-icono-filtro';
+                icono.src = 'img/candado.png';
+                icono.alt = "Activación requerida";
+                icono.title = "Activación requerida";
+                iconosContainer.appendChild(icono);   
+            } 
+
             // Añadir contenedor de iconos al li
             li.appendChild(iconosContainer);
         }
@@ -325,7 +335,7 @@ function obtenerTituloJuego(item) {
     } else {
         // En modo imágenes, obtener el título de la imagen
         const img = item.querySelector('img');
-        return img ? img.getAttribute('title').split(" -")[0].trim() : item.textContent.trim();
+        return img ? img.getAttribute('title').trim() : item.textContent.trim();
     }
 }
 

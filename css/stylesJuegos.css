@@ -56,6 +56,10 @@ h4 {
 	font-size: x-large;
 }
 
+a {
+	color:whitesmoke;
+}
+
 a:hover,
 button:hover {
 	color: lightblue;
@@ -140,7 +144,7 @@ ul {
 }
 
 ul li {
-	box-sizing:border-box;
+	box-sizing: border-box;
 	width: 300px;
 	height: 250px;
 	background-size: cover;
@@ -166,6 +170,10 @@ ul img:hover {
 }
 
 /* Clases */
+.Activacion{
+	animation: cambiocolorJActiv 2.5s linear infinite;
+}
+
 .add-button,
 .remove-button {
 	display: none;
@@ -222,7 +230,7 @@ ul img:hover {
 .caja {
 	user-select: none;
 	margin-top: 20px;
-	border: outset 2px rgb(44, 0, 31);
+	border: 1px solid rgb(83, 4, 50);
 	border-radius: 20px;
 	box-shadow: 2px 2px 6px purple;
 	padding-top: 10px;
@@ -348,14 +356,14 @@ ul img:hover {
 }
 
 .vista-tradicional a {
-	color: white !important;
+	color: whitesmoke !important;
 	text-decoration: none !important;
-	transition: color 0.3s ease;
+	transition: all 0.3s ease;
 }
 
 .vista-tradicional li a:hover {
-	text-decoration: underline solid lightblue !important;
-	color: lightblue !important;
+	text-decoration: underline solid rgb(197, 113, 233) !important;
+	color: rgb(197, 113, 233) !important;
 	transform: translateX(-10px);
 }
 
@@ -750,6 +758,34 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	align-content: center;
 }
 
+#divInfoJActiv{
+	word-spacing: 0.7px;
+	margin: 10px;
+	margin-bottom: 15px;
+	text-align: justify;
+	border: 1px solid var(--Bl-border-title);
+	border-radius: 20px;
+	padding: 13px;
+	animation: cambiocolorJActiv 2.5s linear infinite;
+}
+
+#divInfoJActiv h2,h3{
+	font-weight: 100;
+}
+
+#divInfoJActiv a{
+	transition: all 0.3s ease;
+	display: block;
+	text-decoration: none;
+	}
+
+#divInfoJActiv a:hover{
+	color:rgb(197, 113, 233) !important;
+	text-decoration: underline !important;
+	text-decoration-color:rgb(197, 113, 233) !important;
+	transform: translateX(-5px);
+} 
+
 #Titulo {
 	position: relative;
 	width: 100%;
@@ -841,4 +877,23 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	position: relative;
 	bottom: 8%;
 	left: 6%;
+}
+
+/* Animaciones */
+@keyframes cambiocolorJActiv {
+	0% {
+	  border-color: red
+	}
+  
+	33% {
+		border-color: rgb(26, 102, 123)
+	}
+  
+	86% {
+		border-color: #FAAD00
+	}
+  
+	100% {
+		border-color: red
+	}
 }
