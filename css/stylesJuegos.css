@@ -85,6 +85,7 @@ nav {
 }
 
 nav:hover{
+	background-color: black;
 	box-shadow: 2px 2px 10px purple;
 }
 
@@ -692,11 +693,16 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	max-width: 300px;
 	padding: 10px;
 	box-sizing: border-box;
+	transition: all 0.5s ease;
 	background-color: var(--Bl-background-nav);
 	border: 1px solid var(--Bl-border-nav);
 	border-radius: 20px;
 	box-shadow: 0 0 10px var(--Bl-shadow-nav);
 	pointer-events: auto;
+}
+
+#buscar:hover{
+	background-color: black;
 }
 
 /* Contenedor de cada campo de búsqueda */
