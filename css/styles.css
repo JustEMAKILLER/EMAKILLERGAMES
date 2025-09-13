@@ -36,9 +36,9 @@
 /* Palabras reservadas */
 body {
   background: linear-gradient(to bottom,
-      rgba(252, 0, 0, 0) 8vw,
-      rgba(0, 0, 0, 0.999)35vw),
-    url(../img/photo_2024-12-18_11-58-57.jpg);
+      rgba(252, 0, 0, 0) 37vw,
+      rgba(0, 0, 0, 0.999)37.2vw),
+    url(../img/Banner_nuevo.jpg);
   color: var(--Bl-svg);
   background-repeat: no-repeat;
   background-position: 0% 0%;
@@ -264,10 +264,9 @@ svg {
 
 /* ID's */
 #Titulo {
-  position: relative;
   width: 100%;
   height: auto;
-  margin-top: 35%;
+  margin-top: 39%;
   scale: 0.8;
   border: 1px solid var(--Bl-border-title);
   border-radius: 20px;

@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     crearBotonesAdicion();
     agregarTextoNuevoOActualizado();
     agregarIconosFiltrosAJuegos();
+    agregarPreciosAJuegos();
     agregarListenersFiltros();
     agregarListenersImgBotonesMenu();
 });
@@ -83,14 +84,14 @@ function agregarIconosFiltrosAJuegos() {
             });
 
             // Añadir iconos de activación si el juego lo requiere
-            if (li.classList.contains('Activacion')){
+            if (li.classList.contains('Activacion')) {
                 const icono = document.createElement('img');
                 icono.className = 'li-icono-filtro';
                 icono.src = 'img/candado.png';
                 icono.alt = "Activación requerida";
                 icono.title = "Activación requerida";
-                iconosContainer.appendChild(icono);   
-            } 
+                iconosContainer.appendChild(icono);
+            }
 
             // Añadir contenedor de iconos al li
             li.appendChild(iconosContainer);
@@ -119,11 +120,44 @@ function agregarListenersFiltros() {
     });
 }
 
-//Agregar los listeners a las imágenes de los botones del menú de juegos
+// Agregar los listeners a las imágenes de los botones del menú de juegos
 function agregarListenersImgBotonesMenu() {
     document.querySelectorAll('#menuDesplegado a img').forEach(img => {
         img.addEventListener('click', desmarcarCheckboxes);
     });
+}
+
+// Agregar los precios a cada juego ya sea en el atributo del li como en el de su img
+function agregarPreciosAJuegos() {
+    const juegos = document.querySelectorAll('li');
+    juegos.forEach(juego => {
+        let precio = 0;
+        if (juego.getAttribute("Precio")) {
+            precio = juego.getAttribute('Precio');
+        }
+        else {
+            if (juego.classList.contains("precio1")) precio += 50;
+            if (juego.classList.contains("precio2")) precio += 100;
+            if (juego.classList.contains("precio3")) precio += 200;
+            if (juego.classList.contains("precio4")) precio += 300;
+            if (juego.classList.contains("precio5")) precio += 400;
+            if (juego.classList.contains("crack")) precio += 100;
+            if (juego.classList.contains("pocosMods")) precio += 50;
+            if (juego.classList.contains("muchosMods")) precio += 100;
+            if (juego.classList.contains("servidor")) precio += 150;
+            if (juego.classList.contains("Activacion")) precio += 1500;
+            if (juego.classList.contains("consolas")) precio += 100;
+        }
+        agregarPrecioANombresJuegos(juego, precio);
+        juego.setAttribute("Precio", precio);
+    });
+}
+
+function agregarPrecioANombresJuegos(juego, precio) {
+    let nombre = obtenerTituloJuego(juego);
+    nombre += "- " + precio + " CUP";
+    img = juego.querySelector('img');
+    img.setAttribute("title", nombre);
 }
 
 // Escuchar el evento de scroll para mostrar el botón de desplazamiento
@@ -139,8 +173,8 @@ function mostrarBoton() {
         isAnimating = false;
     }
 
-    // Si el scroll es mayor a 650px, mostrar el botón con animación hacia arriba
-    if (scrollPosition > 650) {
+    // Si el scroll es mayor a 800px, mostrar el botón con animación hacia arriba
+    if (scrollPosition > 800) {
         scrollButton.style.display = "block";
 
         // Animación de entrada (hacia arriba)
@@ -154,7 +188,7 @@ function mostrarBoton() {
             }
         }, 20);
     }
-    // Si el scroll es menor a 650px, ocultar el botón con animación hacia abajo
+    // Si el scroll es menor a 800px, ocultar el botón con animación hacia abajo
     else {
         // Animación de salida (hacia abajo)
         animationInterval = setInterval(() => {
@@ -170,10 +204,10 @@ function mostrarBoton() {
     }
 }
 
-//Desmarcar todos los checkboxes de los filtros de conexión y género
+// Desmarcar todos los checkboxes de los filtros de conexión y género
 function desmarcarCheckboxes() {
-    //Determinar si estamos en modo "solo nuevos/actualizados"
-    const soloNuevos = document.getElementById("botonMostrar").style.display === "block";
+    // Determinar si estamos en modo "solo nuevos/actualizados"
+    const soloNuevos = document.getElementById("botonJNA").classList.contains("BotonBolaVerde");
     if (soloNuevos) {
         mostrarJuegosDesdeMenuJuegos();
     }
@@ -207,6 +241,9 @@ function moverProducto(producto) {
     const resultadosDiv = document.getElementById("resultados");
     const listaResultados = resultadosDiv.querySelector("ul");
     const calculoprecio = document.getElementById("calculoprecio");
+    const precioJuego = parseFloat(producto.getAttribute("Precio"));
+    const inputPrecio = document.getElementById("buscarprecio");
+    let precioMax = parseFloat(inputPrecio.value);
 
     listaResultados.style.display = "flex";
     calculoprecio.style.display = "block";
@@ -224,11 +261,40 @@ function moverProducto(producto) {
     }
 
     listaResultados.appendChild(producto);
+    if (!isNaN(precioMax)) {
+        const nuevoPrecio = precioMax - precioJuego;
+        inputPrecio.value = nuevoPrecio;
+
+        // Cambiar color según el valor
+        if (nuevoPrecio <= 0) {
+            inputPrecio.classList.remove("amarillo");
+            inputPrecio.classList.add("rojo");
+        } else {
+            inputPrecio.classList.remove("rojo");
+            inputPrecio.classList.add("amarillo");
+        }
+    }
 
     ordenarListaAlfabeticamente(listaResultados);
     hayDescartados();
     actualizarPrecioYTamano();
+
+    // Si se mueve (selecciona) alguno de los títulos nuevos o actualizados cuando solo se muestran estos, asegurar que se sigan mostrando
+    if (document.getElementById("botonJNA").classList.contains("BotonBolaVerde")) {
+        mostrarJuegosNewOrAct();
+    }
+    else {
+        busqueda();
+    }
 }
+
+// Event listener para detectar cuando el usuario modifica el precio
+document.getElementById("buscarprecio").addEventListener("input", function () {
+
+    // Si el usuario modifica el precio, resetear a verde
+    this.classList.remove("amarillo", "rojo");
+});
+
 // Función para devolver un producto a juegosdescartadosDiv
 function devolverProducto(producto) {
     const juegosdescartadosDiv = document.getElementById("juegosdescartados");
@@ -257,7 +323,6 @@ function devolverProducto(producto) {
 // Función para mover todos los elementos de juegosdescartadosDiv a resultadosDiv
 function agregarTodo() {
     const juegosdescartadosDiv = document.getElementById("juegosdescartados");
-    const resultadosDiv = document.getElementById("resultados");
     const items = Array.from(juegosdescartadosDiv.querySelectorAll('li'));
 
     items.forEach(item => {
@@ -284,21 +349,27 @@ function actualizarPrecioYTamano() {
     const resultadosDiv = document.getElementById("resultados");
     const calculoprecio = document.getElementById("calculoprecio");
     const items = resultadosDiv.querySelectorAll('li');
+    let PrecioJuegos = 0;
+    let PrecioActivaciones = 0;
     let PrecioTotal = 0;
     let TamanoTotal = 0;
 
+    // Hallar el total de precios y tamaños de los juegos seleccionados
     items.forEach(item => {
         const precio = parseFloat(item.getAttribute("Precio"));
         const tamano = parseFloat(item.getAttribute("Tamano"));
-        if (!isNaN(precio)) PrecioTotal += precio;
+        if (!isNaN(precio) && (item.classList.contains('Activacion'))) PrecioActivaciones += precio;
+        else if (!isNaN(precio)) PrecioJuegos += precio;
         if (!isNaN(tamano)) TamanoTotal += tamano;
     });
 
+    PrecioTotal = PrecioJuegos + PrecioActivaciones;
+
     // Calcular el regalo (si aplica)
     let textoRegalo = "";
-    if (PrecioTotal >= 500) {
-        const cantidadDe500 = Math.floor(PrecioTotal / 500);
-        const regalo = cantidadDe500 * 100;
+    if (PrecioJuegos >= 500) {
+        const cantidadDe500 = Math.floor(PrecioJuegos / 500);
+        const regalo = cantidadDe500 * 150;
         textoRegalo = ` (${regalo} CUP de regalo disponibles)`;
         calculoprecio.textContent = "Precio y tamaño totales: " + PrecioTotal + " CUP; " + TamanoTotal.toFixed(2) + " GB" + textoRegalo;
     }
@@ -383,6 +454,16 @@ function busqueda() {
                 checkbox.checked = false;
             });
 
+            // Limitar la búsqueda a los juegos nuevos y actualizados si solo se muestran estos
+            if (document.getElementById("botonJNA").classList.contains("BotonBolaVerde")) {
+                if (!producto.classList.contains("juegosNuevos") &&
+                    !producto.classList.contains("juegosActualizados")) {
+                    producto.style.display = "none";
+                    return;
+                }
+            }
+
+
             // Si hay un título en la imagen, usa eso, si no, usa el texto del enlace
             const productName = obtenerTituloJuego(producto).toLowerCase();
 
@@ -432,6 +513,7 @@ function busqueda() {
         calculoprecio.style.display = "block";
     }
 }
+
 // Función para borrar el campo de búsqueda
 function borrarBusqueda() {
     const buscarnombreInput = document.getElementById('buscarnombre');
@@ -452,10 +534,8 @@ function mostrarJuegosNewOrAct() {
     borrarPrecio();
     const grupos = document.querySelectorAll('.grupo-juegos');
     const botonJNA = document.getElementById("botonJNA");
-    const botonMostrar = document.getElementById("botonMostrar");
     const encabezadosJuegos = document.querySelectorAll('.encabezadosjuegos');
     const text = document.getElementById("texto");
-    const divBusqueda = document.getElementById("buscar");
     const divJuegos = document.getElementById("divJuegos");
     let hayResultados = false;
     const encabezado = document.getElementById("EncabezadoJnewAct");
@@ -495,8 +575,6 @@ function mostrarJuegosNewOrAct() {
         }
     });
 
-    divBusqueda.style.scale = "0";
-
     text.style.display = hayResultados ? 'none' : 'flex';
     divJuegos.style.display = hayResultados ? 'block' : 'none';
 
@@ -506,17 +584,15 @@ function mostrarJuegosNewOrAct() {
         encabezado.classList.remove("mostrar");
     }
 
-    botonJNA.style.display = "none";
-    botonMostrar.style.display = "block";
+    botonJNA.classList.add("BotonBolaVerde");
+    botonJNA.addEventListener('click', mostrarJuegos);
 
 }
 // Función para mostrar todos los juegos de nuevo
 function mostrarJuegos() {
     const grupos = document.querySelectorAll('.grupo-juegos');
     const botonJNA = document.getElementById("botonJNA");
-    const botonMostrar = document.getElementById("botonMostrar");
     const encabezadosJuegos = document.querySelectorAll('.encabezadosjuegos');
-    const divBusqueda = document.getElementById("buscar");
     const encabezado = document.getElementById("EncabezadoJnewAct");
     encabezado.classList.remove("mostrar");
 
@@ -534,10 +610,9 @@ function mostrarJuegos() {
         encabezadoJuego.style.display = "block";
     });
 
-
-    divBusqueda.style.scale = "1";
-    botonMostrar.style.display = "none";
-    botonJNA.style.display = "block";
+    botonJNA.classList.remove("BotonBolaVerde");
+    botonJNA.removeEventListener('click', mostrarJuegos);
+    botonJNA.addEventListener('click', mostrarJuegosNewOrAct);
 
     // Forzar actualización de filtros
     aplicarFiltrosCombinados();
@@ -546,11 +621,9 @@ function mostrarJuegos() {
 function mostrarJuegosDesdeMenuJuegos() {
     const grupos = document.querySelectorAll('.grupo-juegos');
     const botonJNA = document.getElementById("botonJNA");
-    const botonMostrar = document.getElementById("botonMostrar");
     const encabezadosJuegos = document.querySelectorAll('.encabezadosjuegos');
-    const divBusqueda = document.getElementById("buscar");
     const encabezado = document.getElementById("EncabezadoJnewAct");
-    encabezado.style.display = "none";
+    encabezado.classList.remove("mostrar");
 
     grupos.forEach((grupo) => {
         const productos = grupo.querySelectorAll('.listajuegos li');
@@ -563,10 +636,9 @@ function mostrarJuegosDesdeMenuJuegos() {
         encabezadoJuego.style.display = "block";
     });
 
-
-    divBusqueda.style.scale = "1";
-    botonMostrar.style.display = "none";
-    botonJNA.style.display = "block";
+    botonJNA.classList.remove("BotonBolaVerde");
+    botonJNA.removeEventListener('click', mostrarJuegos);
+    botonJNA.addEventListener('click', mostrarJuegosNewOrAct);
 }
 
 // Función para mostrar el Menú Desplegable
@@ -574,9 +646,7 @@ function mostrarMenu() {
     const menuDesplegado = document.getElementById("menuDesplegado");
     menuDesplegado.style.display = "block";
     const botonMenuDesplegable = document.getElementById("botonMenuDesplegable");
-    botonMenuDesplegable.style.display = "none";
-    const botonMenuDesplegable2 = document.getElementById("botonMenuDesplegable2");
-    botonMenuDesplegable2.style.display = "block";
+    botonMenuDesplegable.addEventListener('click', cerrarMenu);
     const botonesMenuDesplegado = document.querySelectorAll('#menuDesplegado a');
     botonesMenuDesplegado.forEach(botonMenu => {
         botonMenu.addEventListener('click', function () {
@@ -589,9 +659,8 @@ function mostrarMenu() {
 function cerrarMenu() {
     const menuDesplegado = document.getElementById("menuDesplegado");
     const botonMenuDesplegable = document.getElementById("botonMenuDesplegable");
-    botonMenuDesplegable.style.display = "block";
-    const botonMenuDesplegable2 = document.getElementById("botonMenuDesplegable2");
-    botonMenuDesplegable2.style.display = "none";
+    botonMenuDesplegable.removeEventListener('click', cerrarMenu);
+    botonMenuDesplegable.addEventListener('click', mostrarMenu);
     menuDesplegado.style.display = "none";
 }
 
@@ -600,38 +669,26 @@ function enviarListado() {
     const resultadosDiv = document.getElementById("resultados");
     const items = resultadosDiv.querySelectorAll('li');
     let CantTotalJuegos = items.length;
+    let PrecioJuegos = 0;
+    let PrecioActivaciones = 0;
     let PrecioTotal = 0;
     let TamanoTotal = 0;
 
-    let mensaje = "Hola! Le escribo para solicitar los siguientes " + CantTotalJuegos + " juegos:\n";
+    let mensaje = (CantTotalJuegos > 1) ? "Hola! Le escribo para solicitar los siguientes " + CantTotalJuegos + " juegos:\n" : "Hola! Le escribo para solicitar el siguiente juego\n";
 
     items.forEach(item => {
         // Obtener el precio y tamaño del juego
         const precio = parseFloat(item.getAttribute("Precio"));
         const tamano = parseFloat(item.getAttribute("Tamano"));
 
-        if (!isNaN(precio)) PrecioTotal += precio;
+        if (!isNaN(precio) && (item.classList.contains('Activacion'))) PrecioActivaciones += precio;
+        else if (!isNaN(precio)) PrecioJuegos += precio;
         if (!isNaN(tamano)) TamanoTotal += tamano;
 
-        // Obtener el título del juego en ambas vistas (imágenes o texto)
-        let tituloJuego = "";
+        PrecioTotal = PrecioJuegos + PrecioActivaciones;
 
-        // Verificar si estamos en modo texto tradicional
-        if (document.body.classList.contains("vista-tradicional")) {
-            // En modo texto, el título está en el texto del <li> o del enlace
-            const enlace = item.querySelector('a');
-            if (enlace) {
-                tituloJuego = enlace.textContent.trim(); // Obtener el texto del enlace
-            } else {
-                tituloJuego = item.textContent.trim(); // Obtener el texto del <li>
-            }
-        } else {
-            // En modo imágenes, el título está en el atributo "title" de la imagen
-            const img = item.querySelector('img');
-            if (img) {
-                tituloJuego = img.getAttribute('title'); // Obtener el título de la imagen
-            }
-        }
+        // Obtener el título del juego en ambas vistas (imágenes o texto)
+        let tituloJuego = obtenerTituloJuego(item);
 
         // Agregar el título del juego al mensaje
         if (tituloJuego) {
@@ -641,9 +698,9 @@ function enviarListado() {
 
     // Calcular el regalo (si aplica)
     let textoRegalo = "";
-    if (PrecioTotal >= 500) {
-        const cantidadDe500 = Math.floor(PrecioTotal / 500);
-        const regalo = cantidadDe500 * 100;
+    if (PrecioJuegos >= 500) {
+        const cantidadDe500 = Math.floor(PrecioJuegos / 500);
+        const regalo = cantidadDe500 * 150;
         textoRegalo = ` (${regalo} CUP de regalo disponibles)`;
         // Agregar el precio total al mensaje
         mensaje += "Precio y tamaño totales: " + PrecioTotal + " CUP; " + TamanoTotal.toFixed(2) + " GB" + textoRegalo;
@@ -664,12 +721,7 @@ function enviarListado() {
 // Función para cambiar la vista de imágenes a texto
 function cambiarVista() {
     const textoBoton = document.getElementById('botonCambiarVista');
-    if (textoBoton.textContent === "Cambiar vista (Texto)") {
-        textoBoton.textContent = "Cambiar vista (Imágenes)";
-    }
-    else {
-        textoBoton.textContent = "Cambiar vista (Texto)";
-    }
+    textoBoton.classList.toggle("BotonBolaVerde");
     const body = document.body;
     const isTraditional = body.classList.toggle("vista-tradicional");
 
@@ -733,11 +785,11 @@ function cambiarVista() {
     // Forzar una nueva búsqueda para actualizar los resultados
     busqueda();
 
-    // Mantener mostrado solo los juegos nuevos o actualizados en caso de haberse llamado a la funcion mostrarJuegosNewOrAct
-    const botonMostrar = document.getElementById("botonMostrar");
-    if (botonMostrar.style.display === "block") {
-            mostrarJuegosNewOrAct();
+    // Mantener mostrado solo los juegos nuevos o actualizados en caso de haberse llamado a la función mostrarJuegosNewOrAct
+    if (document.getElementById("botonJNA").classList.contains("BotonBolaVerde")) {
+        mostrarJuegosNewOrAct();
     }
+
 }
 
 /**
@@ -815,10 +867,10 @@ function reconstruirBotonDescartado(producto) {
     producto.appendChild(addButton);
 }
 
-//Funciones para filtrar por tipo de conexión y género
+// Funciones para filtrar por tipo de conexión y género
 function aplicarFiltrosCombinados() {
     const text = document.getElementById("texto");
-    // 1. Obtener selecciones actuales
+    // Obtener selecciones actuales
     const conexionesSeleccionadas = Array.from(
         document.querySelectorAll('#filtro-conexion input[name="conexion"]:checked')
     ).map(c => c.value.trim());
@@ -827,14 +879,15 @@ function aplicarFiltrosCombinados() {
         document.querySelectorAll('#filtro-generos input[name="genero"]:checked')
     ).map(g => g.value.trim());
 
-    // 2. Determinar si estamos en modo "solo nuevos/actualizados"
-    const soloNuevos = document.getElementById("botonMostrar").style.display === "block";
+    // Determinar si estamos en modo "solo nuevos/actualizados"
+    const soloNuevos = document.getElementById("botonJNA").classList.contains("BotonBolaVerde");
+
 
     // Variables para controlar si hay resultados
     let hayResultados = false;
     const divJuegos = document.getElementById("divJuegos");
 
-    // 3. Aplicar filtros a cada juego
+    // Aplicar filtros a cada juego
     document.querySelectorAll('.listajuegos li').forEach(juego => {
         // Filtro de nuevos/actualizados (prioritario)
         if (soloNuevos && !juego.classList.contains('juegosNuevos') && !juego.classList.contains('juegosActualizados')) {
@@ -845,10 +898,10 @@ function aplicarFiltrosCombinados() {
         const conexionesJuego = (juego.getAttribute('Tconex') || '').split(',').map(c => c.trim());
         const generosJuego = (juego.getAttribute('Genero') || '').split(',').map(g => g.trim());
 
-        // 4. Lógica de filtrado combinado (AND entre conexión y género)
+        // Lógica de filtrado combinado (AND entre conexión y género)
         let mostrarJuego = true;
 
-        // A. Filtro de conexión (solo si hay selección)
+        // Filtro de conexión (solo si hay selección)
         if (conexionesSeleccionadas.length > 0) {
             const cumpleConexion = conexionesSeleccionadas.some(conexion =>
                 conexionesJuego.includes(conexion)
@@ -856,7 +909,7 @@ function aplicarFiltrosCombinados() {
             mostrarJuego = mostrarJuego && cumpleConexion;
         }
 
-        // B. Filtro de género (solo si hay selección)
+        // Filtro de género (solo si hay selección)
         if (generosSeleccionados.length > 0) {
             const cumpleGenero = generosSeleccionados.some(genero =>
                 generosJuego.includes(genero)
@@ -867,7 +920,7 @@ function aplicarFiltrosCombinados() {
         // Respetar otros filtros (como búsqueda)
         mostrarJuego = mostrarJuego && !juego.dataset.forceHidden;
 
-        // 5. Aplicar resultado
+        // Aplicar resultado
         juego.style.display = mostrarJuego ? 'list-item' : 'none';
 
         if (mostrarJuego) {

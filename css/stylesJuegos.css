@@ -12,14 +12,8 @@
 
 /* Palabras reservadas */
 body {
-	background: linear-gradient(to bottom,
-			rgba(252, 0, 0, 0) 8vw,
-			rgba(0, 0, 0, 0.999)35vw),
-		url(../img/photo_2024-12-18_11-58-57.jpg);
+	background-color: rgba(0, 0, 0, 0.999);
 	color: var(--Bl-svg);
-	background-repeat: no-repeat;
-	background-position: 0% 0%;
-	background-size: 100%;
 	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -57,7 +51,7 @@ h4 {
 }
 
 a {
-	color:whitesmoke;
+	color: whitesmoke;
 }
 
 a:hover,
@@ -75,7 +69,7 @@ nav {
 	height: 65px;
 	min-width: fit-content;
 	max-width: fit-content;
-	margin-left: 10px;
+	margin-left: -5px;
 	border: 1px solid var(--Bl-border-nav);
 	border-radius: 20px;
 	background-color: var(--Bl-background-nav);
@@ -84,7 +78,7 @@ nav {
 	transition: all 0.5s ease;
 }
 
-nav:hover{
+nav:hover {
 	background-color: black;
 	box-shadow: 2px 2px 10px purple;
 }
@@ -171,10 +165,8 @@ ul img:hover {
 }
 
 /* Clases */
-.Activacion{
-	animation: cambiocolorJActiv 2.5s linear infinite;
-}
 
+/* Botones */
 .add-button,
 .remove-button {
 	display: none;
@@ -211,6 +203,11 @@ ul img:hover {
 
 .botonelementos:hover {
 	box-shadow: 2px 2px 10px purple;
+}
+
+/* Otros */
+.Activacion {
+	animation: cambiocolorJActiv 2.5s linear infinite;
 }
 
 .busqueda {
@@ -272,6 +269,13 @@ ul img:hover {
 	height: 250px;
 }
 
+.divsBotonesRojoVerde {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	justify-content: center;
+}
+
 .cajajuegosdescart li:hover,
 .cajaresultados li:hover {
 	transform: translateY(-5px);
@@ -279,6 +283,19 @@ ul img:hover {
 
 .encabezadosjuegos {
 	border-top: 1px solid purple;
+}
+
+.divFotosEncabezadosConsolas {
+	display: flex;
+	gap: 8px;
+	flex-flow: row nowrap;
+	justify-content: center;
+}
+
+.fotosEncabezadosConsolas {
+	margin-top: 25px;
+	width: 50px;
+	height: 40px;
 }
 
 .juegosNuevos {
@@ -488,6 +505,13 @@ ul img:hover {
 	opacity: 0.65;
 }
 
+.Ofertas>p {
+	text-align: justify;
+	font-weight: bold;
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
 .vista-tradicional .li-iconos-filtros {
 	position: relative;
 	top: auto;
@@ -515,42 +539,6 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 /* ID's */
 
 /* Botones */
-#botonJNA {
-	display: block;
-}
-
-#botonMostrar {
-	display: none;
-}
-
-#botonJNA,
-#botonMostrar {
-	margin: 0 auto;
-	cursor: pointer;
-	color: white;
-	border: 2px outset purple;
-	border-radius: 0px;
-	background-color: var(--Bl-background-nav);
-}
-
-#botonJNA:hover,
-#botonMostrar:hover {
-	box-shadow: 2px 2px 10px purple;
-	transform: scale(1.1);
-}
-
-#botonCambiarVista {
-	display: flex;
-	margin: 0 auto;
-	cursor: pointer;
-	border: 2px outset purple;
-}
-
-#botonCambiarVista:hover {
-	color: orange;
-	box-shadow: 2px 2px 10px purple;
-}
-
 #botonarriba {
 	height: 50px;
 	width: 50px;
@@ -566,7 +554,7 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	bottom: 0%;
 	right: 1%;
 	transition: box-shadow 0.2s ease, transform 0.5s ease;
-	z-index: 50;
+	z-index: 500;
 }
 
 #botonarriba a {
@@ -628,8 +616,38 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	box-shadow: 2px 2px 10px purple;
 }
 
-#botonMenuDesplegable2 {
-	display: none;
+.bordeBotonBola {
+	display: inline-block;
+	border: solid 3.5px purple;
+	border-radius: 27%;
+	width: 70px;
+	height: 30px;
+	transition: all 0.3s ease;
+}
+
+.bordeBotonBola:hover {
+	box-shadow: 2px 2px 10px purple;
+}
+
+.BotonBolaRoja {
+	display: inline-block;
+	background-color: red;
+	box-sizing: border-box;
+	border: solid black;
+	border-radius: 27%;
+	width: 35px;
+	height: 30px;
+	transition: background-color 0.2s ease;
+}
+
+.BotonBolaVerde {
+	display: inline-block;
+	background-color: rgb(0, 255, 0);
+	border-radius: 27%;
+	width: 35px;
+	height: 30px;
+	position: relative;
+	left: 51%;
 }
 
 /* Encabezados de juegos */
@@ -683,9 +701,15 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 }
 
 /* Otros */
+#banner {
+	width: 100%;
+	user-select: none;
+	pointer-events: none;
+}
+
 #buscar {
 	position: relative;
-	right: -7vw;
+	right: -9vw;
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
@@ -701,7 +725,7 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	pointer-events: auto;
 }
 
-#buscar:hover{
+#buscar:hover {
 	background-color: black;
 }
 
@@ -722,9 +746,27 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	border: 2px solid var(--Bl-border-nav);
 	border-radius: 10px;
 	background-color: black;
-	color: white;
 	box-shadow: 2px 2px 10px black;
 	transition: box-shadow 0.3s ease;
+}
+
+#buscar input[type="text"] {
+	color: white;
+
+}
+
+#buscar input[type="number"] {
+	color: rgb(20, 238, 20);
+}
+
+#buscar input[type="number"].amarillo {
+	transition: color 0.5s ease;
+	color: yellow;
+}
+
+#buscar input[type="number"].rojo {
+	transition: color 0.5s ease;
+	color: red;
 }
 
 #buscar input[type="text"]:hover,
@@ -755,7 +797,7 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 }
 
 #EncabezadoJnewAct.mostrar {
-    display: block !important;
+	display: block !important;
 }
 
 #texto {
@@ -764,7 +806,7 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	align-content: center;
 }
 
-#divInfoJActiv{
+#divInfoJActiv {
 	word-spacing: 0.7px;
 	margin: 10px;
 	margin-bottom: 15px;
@@ -775,28 +817,27 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	animation: cambiocolorJActiv 2.5s linear infinite;
 }
 
-#divInfoJActiv h2,h3{
+#divInfoJActiv h2,
+h3 {
 	font-weight: 100;
 }
 
-#divInfoJActiv a{
+#divInfoJActiv a {
 	transition: all 0.3s ease;
 	display: block;
 	text-decoration: none;
-	}
+}
 
-#divInfoJActiv a:hover{
-	color:rgb(197, 113, 233) !important;
+#divInfoJActiv a:hover {
+	color: rgb(157, 5, 157) !important;
 	text-decoration: underline !important;
-	text-decoration-color:rgb(197, 113, 233) !important;
+	text-decoration-color: rgb(157, 5, 157) !important;
 	transform: translateX(-5px);
-} 
+}
 
 #Titulo {
-	position: relative;
 	width: 100%;
 	height: 40px;
-	margin-top: 25%;
 	padding-top: 10px;
 	scale: 0.9;
 	border: 1px solid var(--Bl-border-title);
@@ -832,7 +873,7 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	background-color: var(--Bl-background-nav);
 	scale: 0.9;
 	user-select: none;
-	z-index: 200;
+	z-index: 550;
 	transition: all 0.5s ease;
 }
 
@@ -857,7 +898,6 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	cursor: default;
 	overflow-y: auto;
 	overflow-x: hidden;
-	justify-content: left;
 	flex-flow: row wrap;
 	border: 1px solid var(--Bl-border-nav);
 	background-color: var(--Bl-background-nav);
@@ -879,7 +919,7 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	z-index: 2;
 }
 
-#mando{
+#mando {
 	position: relative;
 	bottom: 8%;
 	left: 6%;
@@ -888,17 +928,17 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 /* Animaciones */
 @keyframes cambiocolorJActiv {
 	0% {
-	  border-color: red
+		border-color: red
 	}
-  
+
 	33% {
 		border-color: rgb(26, 102, 123)
 	}
-  
+
 	86% {
 		border-color: #FAAD00
 	}
-  
+
 	100% {
 		border-color: red
 	}

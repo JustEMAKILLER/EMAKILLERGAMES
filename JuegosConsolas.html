@@ -1,156 +1,366 @@
 <!DOCTYPE html>
 <html lang=es>
+
 <head>
-<title>Juegos de Consolas - EMAKILLERGAMES</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="UTF-8">
-<link rel="icon" href="img/icon.png" type="image/x-icon">
-<link rel="stylesheet" href="css/stylesJuegos.css">
-<script src="js/JuegosPCyConsolas.js" defer></script>
-<style>
-  .encabezadosjuegos{
-     border-top:none;}
-     #menuDesplegado img {
-        border-radius: 10px;}
-</style>
+  <title>Juegos de Consolas - EMAKILLERGAMES</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <link rel="icon" href="img/icon.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/stylesJuegos.css">
+  <script src="js/JuegosPCyConsolas.js" defer></script>
+  <style>
+    .encabezadosjuegos {
+      border-top: none;
+    }
+
+    #menuDesplegado img {
+      border-radius: 10px;
+    }
+  </style>
 </head>
+
 <body>
   <nav>
-    <a href="index.html"><img id="casa" src="img/menunavegacion/hogar.png"></a> 
+    <a href="index.html"><img id="casa" src="img/menunavegacion/hogar.png"></a>
     <a href="JuegosPC.html"><img id="computadora" src="img/menunavegacion/computadora.png"></a>
     <a href="JuegosConsolas.html"><img id="mando" src="img/menunavegacion/palanca-de-mando.png"></a>
     <a href="Ofertas.html"><img id="estrella" src="img/menunavegacion/estrella.png"></a>
-</nav>
-    <!--Menú de acceso rápido a juegos-->
-    <div id="menuDesplegable">
-      <img src="img/menujuegos/menubutton.png" id="botonMenuDesplegable" onclick="mostrarMenu()">
-      <img src="img/menujuegos/menubutton.png" id="botonMenuDesplegable2" onclick="cerrarMenu()">
+  </nav>
+  <!--Menú de acceso rápido a juegos-->
+  <div id="menuDesplegable">
+    <img src="img/menujuegos/menubutton.png" id="botonMenuDesplegable" onclick="mostrarMenu()">
     <div id="menuDesplegado">
-    <a href="#psp"><img src="img/menujuegos/consolas/Sony Playstation Portable.png"></a>
-    <a href="#3ds"><img src="img/menujuegos/consolas/Nintendo 3DS.png"></a>
-    <a href="#play2"><img src="img/menujuegos/consolas/Playstation2.png"></a>
-    <a href="#play3"><img src="img/menujuegos/consolas/Playstation3.png"></a>
-    <a href="#wii"><img src="img/menujuegos/consolas/Wii.png"></a>
-    <a href="#otrasConsolas"><img src="img/menujuegos/consolas/Otras consolas.png"></a>
+      <a href="#psp"><img src="img/menujuegos/consolas/Sony Playstation Portable.png"></a>
+      <a href="#3ds"><img src="img/menujuegos/consolas/Nintendo 3DS.png"></a>
+      <a href="#play2"><img src="img/menujuegos/consolas/Playstation2.png"></a>
+      <a href="#play3"><img src="img/menujuegos/consolas/Playstation3.png"></a>
+      <a href="#wii"><img src="img/menujuegos/consolas/Wii.png"></a>
+      <a href="#otrasConsolas"><img src="img/menujuegos/consolas/Otras consolas.png"></a>
+    </div>
   </div>
+  <div class="busqueda">
+    <div id="buscar">
+      <div><input type="text" id="buscarnombre" placeholder="Buscar juego..." oninput="busqueda()"><button
+          id=botonborrarbusqueda class="botonesbusqueda" onclick="borrarBusqueda()">x</button></div>
+      <div><input type="number" id="buscarprecio" placeholder="Filtrar por precio máximo..."
+          oninput="busqueda()"><button id=botonborrarprecio class="botonesbusqueda" onclick="borrarPrecio()">x</button>
+      </div>
+    </div>
   </div>
-<div class="busqueda">
-  <div id="buscar">
-      <div><input type="text" id="buscarnombre" placeholder="Buscar juego..." oninput="busqueda()"><button id=botonborrarbusqueda class="botonesbusqueda" onclick="borrarBusqueda()">x</button></div>
-      <div><input type="number" id="buscarprecio" placeholder="Filtrar por precio máximo..." oninput="busqueda()"><button id=botonborrarprecio class="botonesbusqueda" onclick="borrarPrecio()">x</button></div>
-  </div>
-  </div>
-<header>
-<h1 id=Titulo>Juegos de Consolas</h1>
-</header>
-    <main>
-      <!--Contenedores de juegos seleccionados y descartados-->
-      <div class=cajajuegosdescart id="juegosdescartados"><h2>Juegos descartados</h2><button id="botonagregatodo" class=botonelementos onclick="agregarTodo()">
+  <header>
+    <img id="banner" src="img/Banner_nuevo.jpg">
+    <h1 id=Titulo>Juegos de Consolas</h1>
+  </header>
+  <main>
+    <!--Contenedores de juegos seleccionados y descartados-->
+    <div class=cajajuegosdescart id="juegosdescartados">
+      <h2>Juegos descartados</h2><button id="botonagregatodo" class=botonelementos onclick="agregarTodo()">
         Añadir todo</button>
-        <ul></ul> </div>
-        <div class=cajaresultados id="resultados"><h2 id="calculoprecio"></h2><button id="botoneliminatodo" class=botonelementos onclick="eliminarTodo()">
+      <ul></ul>
+    </div>
+    <div class=cajaresultados id="resultados">
+      <h2 id="calculoprecio"></h2><button id="botoneliminatodo" class=botonelementos onclick="eliminarTodo()">
         Eliminar todo</button>
-        <ul></ul><button id="botonEnviarWhatsapp" onclick="enviarListado()">Enviar listado por Whatsapp</button> </div>
-        <button id="botonJNA" onclick="mostrarJuegosNewOrAct()">Mostrar solo los juegos <span style="color:rgb(157, 5, 157)">nuevos</span> o <span style="color:rgb(88, 88, 236)">actualizados</span></button>
-        <button id="botonMostrar" onclick="mostrarJuegos()">Mostrar todos los juegos</button>
-        <br>
-        <button id="botonCambiarVista" onclick="cambiarVista()">Cambiar vista</button>
-    <article class=caja>  
-      <!--Texto que muestra si no hay resultados--> 
+      <ul></ul><button id="botonEnviarWhatsapp" onclick="enviarListado()">Enviar listado por Whatsapp</button>
+    </div>
+
+    <!--Contenedores de juegos nuevos/actualizados y cambio de vista-->
+    <div class="divsBotonesRojoVerde">
+      <p>Solo juegos <span style="color:rgb(157, 5, 157)">nuevos</span> o <span
+          style="color:rgb(88, 88, 236)">actualizados</span></p>
+      <div class="bordeBotonBola">
+        <div style="cursor: pointer" id="botonJNA" class="BotonBolaRoja" onclick="mostrarJuegosNewOrAct()">
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="divsBotonesRojoVerde">
+      <p>Cambiar vista (Texto)</p>
+      <div class="bordeBotonBola">
+        <div style="cursor: pointer" id="botonCambiarVista" class="BotonBolaRoja" onclick="cambiarVista()">
+        </div>
+      </div>
+    </div>
+    <article class=caja>
+      <!--Texto que muestra si no hay resultados-->
       <p id="texto"></p>
       <section id="divJuegos">
-    <section class="grupo-juegos">
-     <!--Encabezado de vista de juegos nuevos o actualizados-->
-     <h2 id="EncabezadoJnewAct">Juegos <span style="color:rgb(157, 5, 157)">nuevos</span> o <span style="color:rgb(88, 88, 236)">actualizados</span></h2>
-     <!--Listado de Juegos de Consolas-->
-<h4 class="encabezadosjuegos" id="psp">Juegos de PSP</h4>
-<ul class="listajuegos">
-  <li Precio="50" Tamano="0.47"><a href="https://www.ign.com/wikis/assassins-creed-bloodlines/" target="_blank"><img src="https://assets-prd.ignimgs.com/2021/12/30/assassins-creed-bloodlines-button-crop-1640888500149.jpg" title="Assassin's Creed - Bloodlines (478 MB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.36"><a href="https://www.ign.com/games/call-of-duty-roads-to-victory" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/03/29/codroads-1648512985146.jpg" title="Call of Duty (Roads to Victory) (365 MB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.45"><a href="https://www.ign.com/games/code-lyoko-quest-for-infinity/" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/12/17/codelyoko-1671294581346.jpg" title="Code Lyoko - Quest for Infinity (455 MB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.98"><a href="https://www.ign.com/games/dragon-ball-z-tenkaichi-tag-team" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/01/06/dragon-ball-z-tenkaichi-tag-team-button-blur-1641510668363.jpg" title="Dragon Ball Z Tenkaichi Tag Team (983 MB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.49"><a href="https://www.ign.com/games/the-godfather" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/10/08/godfather-1665251929807.jpg" title="El Padrino (493 MB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.62"><a href="https://www.ign.com/games/fifa-14" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/10/09/fifa14-1665357274944.jpg" title="FIFA 14 (625 MB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.91"><a href="https://www.ign.com/games/gods-eater-burst" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/01/12/godseaterburst-sq-1642007559180.jpg" title="Gods Eater Burst (910 MB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.966"><a href="https://www.ign.com/games/god-of-war-ghost-of-sparta" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/01/07/god-of-war-ghost-of-sparta-button-1641590929380.jpg" title="God of War - Ghost of Sparta (966 MB)- 50 CUP"></a></li>
-  <li  Precio="50" Tamano="1.12"><a href="https://www.ign.com/games/god-of-war-chains-of-olympus" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/01/07/god-of-war-chains-of-olympis-button-1641590933835.jpg" title="God of War Chains of Olympus (1.12 GB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.50"><a href="https://www.ign.com/games/grand-theft-auto-chinatown-wars" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/01/07/grand-theft-auto-chinatown-wars-button-char-1641587533817.jpg" title="Grand Theft Auto - Chinatown Wars (500 MB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.43"><a href="https://www.ign.com/games/grand-theft-auto-liberty-city-stories" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/01/07/grand-theft-auto-liberty-city-stories-button-char-1641590782347.jpg" title="Grand Theft Auto - Liberty City Stories (432 MB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.35"><a href="https://www.ign.com/games/grand-theft-auto-vice-city-stories" target="_blank"><img src="https://gamefaqs.gamespot.com/a/box/4/5/0/76450_front.jpg" title="Grand Theft Auto Vice City Stories (350 MB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="1.13"><a href="https://www.ign.com/games/hatsune-miku-project-diva" target="_blank"><img src="https://assets-prd.ignimgs.com/2023/07/14/divaextend-1689296133349.jpg" title="Hatsune Miku - Project Diva Extend (1.13 GB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.21"><a href="https://www.igdb.com/games/katekyo-hitman-reborn-battle-arena-2-spirit-burst" target="_blank"><img src="https://cdn2.steamgriddb.com/grid/cd6bd09417e3b1108e69505c3b828790.png" title="Katekyo Hitman Reborn! - Battle Arena (211 MB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="1.03"><a class="juegosSinEnlace"><img src="https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA11625_00/1/i_4ace143aeb8302dcf8f78c309d222e26212b3299bdd199c31cea90d593271a01/i/icon0.png" title="JUMP FORCE PPSSPP (1.03 GB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="1.36"><a href="https://www.ign.com/games/kingdom-hearts-birth-by-sleep" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/01/18/kingdom-hearts-birth-by-sleep-button-crop-1642535836197.jpg" title="Kingdom hearts - Birth by Sleep (1.36 GB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="1.03"><a href="https://www.ign.com/games/monster-hunter-portable-3rd" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/03/30/mhportable3-1648659920002.jpg" title="Monster Hunter 3 ESPAÑOL (1.03 GB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.59"><a href="https://www.ign.com/games/monster-hunter-freedom" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/03/30/mhfreedomus-1648655950262.jpg" title="Monster Hunter Freedom 1 (597 MB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.76"><a href="https://www.ign.com/games/monster-hunter-freedom-unite" target="_blank"><img src="https://assets-prd.ignimgs.com/2021/12/14/monsterhunterfreedomunite-1639515609933.jpg" title="Monster Hunter Freedom Unite (762 MB)- 50 CUP"></a></li>
-  <li Precio="100" Tamano="3.9"><a href="https://www.ign.com/games/monster-hunter-portable-3rd" target="_blank"><img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co304p.jpg" title="Monster Hunter Portable 3rd HD con texturas, misiones de evento y cheat vida de monstruos (3.9 GB)- 100 CUP"></a></li>
-  <li Precio="50" Tamano="0.49"><a href="https://www.ign.com/games/naruto-shippuden-legends-akatsuki-rising/articles" target="_blank"><img src="https://assets-prd.ignimgs.com/2023/07/03/narutolegends-1688425862900.jpg" title="Naruto Shipuden Legends Akatsuki Rising (495 MB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.90"><a href="https://www.ign.com/games/naruto-shippuden-ultimate-ninja-impact/user-reviews" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/11/25/narutoimpact-1669419262075.jpg" title="Naruto Shippuden Ultimate Ninja Impact (904 MB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.85"><a href="https://www.ign.com/games/shin-megami-tensei-persona-2-innocent-sin" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/06/14/persona-2-innocent-sin-button-01-1655168755231.jpg" title="Shin Megami Tensei - Persona 2 - Innocent Sin (853 MB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.87"><a href="https://www.ign.com/games/shin-megami-tensei-persona-3-portable" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/06/29/persona-3-portable-button-1656480330638.jpg?width=300&crop=1%3A1%2Csmart&auto=webp" title="Shin Megami Tensei - Persona 3 Portable (874 MB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.65"><a href="https://www.ign.com/games/silent-hill-origins" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/01/28/silent-hill-origins-button-crop-1643356352267.jpg" title="Silent Hill - Origins (650 MB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.37"><a href="https://www.ign.com/games/soulcalibur-broken-destiny" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/09/07/soulcaliburbd-1662570109435.jpg" title="Soulcalibur - Broken Destiny (372 MB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.72"><a href="https://www.ign.com/games/tekken-6" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/03/21/tekken6-1647879653971.jpg" title="Tekken 6 (727 MB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="1.23"><a href="https://www.ign.com/games/toukiden-kiwami" target="_blank"><img src="https://assets1.ignimgs.com/2019/01/22/toukiden-kiwami---button-1548184153823.jpg?width=300&crop=1%3A1%2Csmart&auto=webp" title="Toukiden Kiwami (English Patched v2) (1.23 GB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.14"><a href="https://www.ign.com/games/toy-story-3-the-videogame" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/02/14/toystory3-game-1644857506830.jpg" title="Toy Story 3 (146 MB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.79"><a href="https://www.ign.com/games/yu-gi-oh-gx-tag-force-3" target="_blank"><img src="https://assets-prd.ignimgs.com/2023/07/03/yugigx3-1688418029733.jpg" title="Yu-Gi-Oh Gx Tag Force 3 (797 MB)- 50 CUP"></a></li>
-</ul><br>
-</section><section class="grupo-juegos">
-<h4 class="encabezadosjuegos" id="3ds">Juegos de 3DS</h4>
-<ul class="listajuegos">
-  <li Precio="50" Tamano="0.89"><a href="https://www.ign.com/games/fire-emblem-awakening" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/01/08/fire-emblem-awakening-button-1641605153835.jpg" title="Fire Emblem Awakening (891 MB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="1.28"><a href="https://www.ign.com/games/fire-emblem-fates-collectors-edition" target="_blank"><img src="https://assets2.ignimgs.com/2015/08/03/fire-emblem-fates-button-03jpg-434ea3.jpg?width=300&crop=1%3A1%2Csmart&auto=webp" title="Fire Emblem Fates (1.28 GB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="2.38"><a href="https://www.ign.com/games/inazuma-eleven-go-chrono-stones-thunderflash" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/05/03/inazuma-eleven-go-chrono-stones-thunderflash-button-1651556924535.jpg" title="Inazuma Eleven GO - Chrono Stones - Llamarada (2.38 GB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.55"><a href="https://www.ign.com/games/mario-kart-7" target="_blank"><img src="https://assets1.ignimgs.com/2019/05/31/mario-kart-7---button-1559263987476.jpg" title="MARIO KART 7 (556 MB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="1.38"><a href="https://www.ign.com/games/monster-hunter-3-ultimate" target="_blank"><img src="https://assets-prd.ignimgs.com/2021/12/14/monsterhunter3ultimate-1639515649829.jpg" title="Monster Hunter 3 Ultimate (1.38 GB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="2.03"><a href="https://www.ign.com/games/monster-hunter-4-ultimate" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/02/07/monsterhunter4jp-sq-1644270842591.jpg" title="MONSTER HUNTER 4 ULTIMATE (2.03 GB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="1.53"><a class="juegosSinEnlace"><img src="https://cdn.wccftech.com/wp-content/uploads/2017/05/monster-hunter-xx.jpg" title="Monster Hunter Doble Cross + Traducción al Español (1.53 GB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="1.10"><a href="https://www.ign.com/games/monster-hunter-generations" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/03/30/mhgenerations-1648660306964.jpg" title="Monster Hunter Generations 3d (1.1 GB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="1.12"><a href="https://www.ign.com/games/monster-hunter-stories" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/02/16/mhstories-sq-1645042790347.jpg" title="MONSTER HUNTER STORIES (1.12 GB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="1.15"><a href="https://www.ign.com/games/pokemon-alpha-sapphire" target="_blank"><img src="https://assets1.ignimgs.com/2019/05/17/pokemon-alphasapphire---button-1558055142101.jpg" title="Pokémon Alpha Sapphire (1.15 GB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="1.57"><a href="https://www.ign.com/games/pokemon-moon-version" target="_blank"><img src="https://assets1.ignimgs.com/2019/05/17/pokemon-moon---button-1558055594983.jpg" title="Pokémon LUNA (1.57 GB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="1.15"><a href="https://www.ign.com/games/pokemon-omega-ruby" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/01/08/pokemon-omega-ruby-version-button-blur-1641603897734.jpg" title="Pokémon Omega Ruby (1.15 GB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="1.83"><a href="https://www.ign.com/games/pokemon-ultra-sun-version" target="_blank"><img src="https://assets1.ignimgs.com/2019/05/17/pokemon-ultrasun---button-1558057647977.jpg?width=300&crop=1%3A1%2Csmart&auto=webp" title="Pokémon Ultra Sol (1.83 GB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.92"><a href="https://www.ign.com/games/pokemon-x-version" target="_blank"><img src="https://assets1.ignimgs.com/2019/05/17/pokemon-x---button-1558057647988.jpg" title="Pokémon X (927 MB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.92"><a href="https://www.ign.com/games/pokemon-y-version" target="_blank"><img src="https://assets1.ignimgs.com/2019/05/17/pokemon-y---button-1558057648001.jpg" title="Pokémon Y (927 MB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="1.10"><a href="https://www.ign.com/games/super-smash-bros-for-nintendo-3ds" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/01/08/super-smash-bros-for-nintendo-3ds-button-1641601574897.jpg" title="Super Smash Bros. + Update (1.1 GB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.46"><a href="https://www.ign.com/games/the-legend-of-zelda-a-link-between-worlds" target="_blank"><img src="https://assets1.ignimgs.com/2019/06/04/legend-of-zelda-a-link-between-worlds---button-1559683061433.jpg" title="The Legend of Zelda A Link Between Worlds (463 MB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.21"><a href="https://www.ign.com/games/the-legend-of-zelda-ocarina-of-time-3d" target="_blank"><img src="https://assets1.ignimgs.com/2019/06/04/legend-of-zelda-ocarina-of-time-3d-1559683061479.jpg" title="The Legend of Zelda Ocarina of Time 3D (218 MB)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.52"><a href="https://www.ign.com/games/the-legend-of-zelda-majoras-mask-3d" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/01/08/the-legend-of-zelda-majoras-mask-3d-button-art-1641604731328.jpg" title="The Legend of Zelda Majora's Mask 3D (523 MB)- 50 CUP"></a></li>
-</ul>
-</section><section class="grupo-juegos">
-<h4 class="encabezadosjuegos" id="play2">Juegos de PlayStation 2</h4>
-<ul class="listajuegos">
-  <li Precio="50" Tamano="1.08"><a href="https://www.ign.com/games/bloody-roar-4" target="_blank"><img src="https://products.eneba.games/resized-products/y6tbvT4c3Sua789DNWj6FbNKWBh9P6MrvWAl1DB5MVk_1920x1080_1x-0.jpg" title="Bloody Roar 4 (1.08 GB) (Emulador incluido)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="2.08"><a href="https://www.ign.com/games/kingdom-hearts" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/01/08/kh-coverart-b-1641607094985.jpg" title="Kingdom Hearts (2.08 GB) (Emulador incluido)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="3.02"><a href="https://www.ign.com/games/kingdom-hearts-ii" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/01/08/kh2-coverart-b-1641607049266.jpg" title="Kingdom Hearts 2 (3.02 GB) (Emulador incluido)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="0.84"><a href="https://vandal.elespanol.com/juegos/ps2/shadow-of-the-colossus/1903" target="_blank"><img src="img/portadasjuegosfaltantes/Shadow of the Colossus.jpg" title="Shadow of the Colossus (845 MB) (Emulador incluido)- 50 CUP"></a></li>
-</ul>
-</section><section class="grupo-juegos">
-<h4 class="encabezadosjuegos" id="play3">PlayStation 3</h4>
-<ul class="listajuegos">
-  <li Precio="100" Tamano="4.40"><a href="https://www.ign.com/games/demons-souls" target="_blank"><img src="https://products.eneba.games/resized-products/u08W3WUsfDZmuGVzSzRp6STRiMndhckhvUqO1tu-D2M_1920x1080_1x-0.jpg" title="Demon’s Souls Black Phantom Edition con mods (4.4 GB) (Emulador incluido) (Offline, Online)- 100 CUP"></a></li>
-</ul>
-</section><section class="grupo-juegos">
-<h4 class="encabezadosjuegos" id="wii">Wii</h4>
-<ul class="listajuegos">
-  <li Precio="50" Tamano="6.54"><a href="https://www.ign.com/games/super-smash-bros-brawl" target="_blank"><img src="https://assets-prd.ignimgs.com/2022/01/08/super-smash-bros-brawl-button-1641601587266.jpg" title="Super Smash Bros. Brawl (6.54 GB) (Emulador incluido) (LAN)- 50 CUP"></a></li>
-</ul>
-</section><section class="grupo-juegos">
-<h4 class="encabezadosjuegos" id="otrasConsolas">Pack de juegos de otras consolas</h4>
-<ul class="listajuegos">
-  <li Precio="50" Tamano="1.54"><a class="juegosSinEnlace"><img src="https://www.nintendo.com/eu/media/images/10_share_images/support_9/H2x1_GameBoyAdvance_support_no_logo_image1280w.jpg" title="Pack de juegos Game Boy Advance (1.54 GB) (Emulador incluido) (LAN)- 50 CUP"></a></li>
-  <li Precio="50" Tamano="2.98"><a class="juegosSinEnlace"><img src="https://media.revistagq.com/photos/60d5a48054e0443ce59c73fd/16:9/w_2560%2Cc_limit/174122452" title="Pack de juegos Nintendo 64 (2.98 GB) (Emulador incluido) (LAN)- 50 CUP"></a></li>
-  <li Precio="40" Tamano="0.08"><a class="juegosSinEnlace"><img src="https://i.ebayimg.com/images/g/GlYAAOSwKBBggm8s/s-l1200.jpg" title="Pack de 830 juegos NES (81.4 MB) (Emulador incluido)- 40 CUP"></a></li>
-  <li Precio="40" Tamano="0.29"><a class="juegosSinEnlace"><img src="https://m.media-amazon.com/images/I/A1qpwekNGbL._CR3,0,1914,1080_SR684,386_.jpg" title="Pack de juegos Super Nintendo (295 MB) (Emulador incluido) (LAN)- 40 CUP"></a></li>
-  <li Precio="40" Tamano="0.45"><a class="juegosSinEnlace"><img src="https://www.giantbomb.com/a/uploads/scale_tiny/8/87790/2575462-box_ki.png" title="MK1 MK2 MK3 UMK3 KI KI2 PACK (453 MB) (Emulador incluido) (Cliente+Servidor) (LAN, Online)- 40 CUP"></a></li>
-</ul> </section>
-    </section>
+        <section class="grupo-juegos">
+          <!--Encabezado de vista de juegos nuevos o actualizados-->
+          <h2 id="EncabezadoJnewAct">Juegos <span style="color:rgb(157, 5, 157)">nuevos</span> o <span
+              style="color:rgb(88, 88, 236)">actualizados</span></h2>
+          <!--Listado de Juegos de Consolas-->
+          <div class="divFotosEncabezadosConsolas"><img class="fotosEncabezadosConsolas"
+              src="img/menujuegos/consolas/Sony Playstation Portable.png">
+            <h4 class="encabezadosjuegos" id="psp">Juegos de PSP</h4>
+          </div>
+          <ul class="listajuegos">
+            <li class="consolas" Tamano="0.47"><a href="https://www.ign.com/wikis/assassins-creed-bloodlines/"
+                target="_blank"><img
+                  src="https://assets-prd.ignimgs.com/2021/12/30/assassins-creed-bloodlines-button-crop-1640888500149.jpg"
+                  title="Assassin's Creed - Bloodlines (478 MB)"></a></li>
+            <li class="consolas" Tamano="0.36"><a href="https://www.ign.com/games/call-of-duty-roads-to-victory"
+                target="_blank"><img src="https://assets-prd.ignimgs.com/2022/03/29/codroads-1648512985146.jpg"
+                  title="Call of Duty (Roads to Victory) (365 MB)"></a></li>
+            <li class="consolas" Tamano="0.45"><a href="https://www.ign.com/games/code-lyoko-quest-for-infinity/"
+                target="_blank"><img src="https://assets-prd.ignimgs.com/2022/12/17/codelyoko-1671294581346.jpg"
+                  title="Code Lyoko - Quest for Infinity (455 MB)"></a></li>
+            <li class="consolas" Tamano="0.98"><a href="https://www.ign.com/games/dragon-ball-z-tenkaichi-tag-team"
+                target="_blank"><img
+                  src="https://assets-prd.ignimgs.com/2022/01/06/dragon-ball-z-tenkaichi-tag-team-button-blur-1641510668363.jpg"
+                  title="Dragon Ball Z Tenkaichi Tag Team (983 MB)"></a></li>
+            <li class="consolas" Tamano="0.49"><a href="https://www.ign.com/games/the-godfather" target="_blank"><img
+                  src="https://assets-prd.ignimgs.com/2022/10/08/godfather-1665251929807.jpg"
+                  title="El Padrino (493 MB)"></a></li>
+            <li class="consolas" Tamano="0.62"><a href="https://www.ign.com/games/fifa-14" target="_blank"><img
+                  src="https://assets-prd.ignimgs.com/2022/10/09/fifa14-1665357274944.jpg" title="FIFA 14 (625 MB)"></a>
+            </li>
+            <li class="consolas" Tamano="0.91"><a href="https://www.ign.com/games/gods-eater-burst" target="_blank"><img
+                  src="https://assets-prd.ignimgs.com/2022/01/12/godseaterburst-sq-1642007559180.jpg"
+                  title="Gods Eater Burst (910 MB)"></a></li>
+            <li class="consolas" Tamano="0.966"><a href="https://www.ign.com/games/god-of-war-ghost-of-sparta"
+                target="_blank"><img
+                  src="https://assets-prd.ignimgs.com/2022/01/07/god-of-war-ghost-of-sparta-button-1641590929380.jpg"
+                  title="God of War - Ghost of Sparta (966 MB)"></a></li>
+            <li class="consolas" Tamano="1.12"><a href="https://www.ign.com/games/god-of-war-chains-of-olympus"
+                target="_blank"><img
+                  src="https://assets-prd.ignimgs.com/2022/01/07/god-of-war-chains-of-olympis-button-1641590933835.jpg"
+                  title="God of War Chains of Olympus (1.12 GB)"></a></li>
+            <li class="consolas" Tamano="0.50"><a href="https://www.ign.com/games/grand-theft-auto-chinatown-wars"
+                target="_blank"><img
+                  src="https://assets-prd.ignimgs.com/2022/01/07/grand-theft-auto-chinatown-wars-button-char-1641587533817.jpg"
+                  title="Grand Theft Auto - Chinatown Wars (500 MB)"></a></li>
+            <li class="consolas" Tamano="0.43"><a href="https://www.ign.com/games/grand-theft-auto-liberty-city-stories"
+                target="_blank"><img
+                  src="https://assets-prd.ignimgs.com/2022/01/07/grand-theft-auto-liberty-city-stories-button-char-1641590782347.jpg"
+                  title="Grand Theft Auto - Liberty City Stories (432 MB)"></a></li>
+            <li class="consolas" Tamano="0.35"><a href="https://www.ign.com/games/grand-theft-auto-vice-city-stories"
+                target="_blank"><img src="https://gamefaqs.gamespot.com/a/box/4/5/0/76450_front.jpg"
+                  title="Grand Theft Auto Vice City Stories (350 MB)"></a></li>
+            <li class="consolas" Tamano="1.13"><a href="https://www.ign.com/games/hatsune-miku-project-diva"
+                target="_blank"><img src="https://assets-prd.ignimgs.com/2023/07/14/divaextend-1689296133349.jpg"
+                  title="Hatsune Miku - Project Diva Extend (1.13 GB)"></a></li>
+            <li class="consolas" Tamano="0.21"><a
+                href="https://www.igdb.com/games/katekyo-hitman-reborn-battle-arena-2-spirit-burst" target="_blank"><img
+                  src="https://cdn2.steamgriddb.com/grid/cd6bd09417e3b1108e69505c3b828790.png"
+                  title="Katekyo Hitman Reborn! - Battle Arena (211 MB)"></a></li>
+            <li class="consolas" Tamano="1.03"><a class="juegosSinEnlace"><img
+                  src="https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA11625_00/1/i_4ace143aeb8302dcf8f78c309d222e26212b3299bdd199c31cea90d593271a01/i/icon0.png"
+                  title="JUMP FORCE PPSSPP (1.03 GB)"></a></li>
+            <li class="consolas" Tamano="1.36"><a href="https://www.ign.com/games/kingdom-hearts-birth-by-sleep"
+                target="_blank"><img
+                  src="https://assets-prd.ignimgs.com/2022/01/18/kingdom-hearts-birth-by-sleep-button-crop-1642535836197.jpg"
+                  title="Kingdom hearts - Birth by Sleep (1.36 GB)"></a></li>
+            <li class="consolas" Tamano="1.03"><a href="https://www.ign.com/games/monster-hunter-portable-3rd"
+                target="_blank"><img src="https://assets-prd.ignimgs.com/2022/03/30/mhportable3-1648659920002.jpg"
+                  title="Monster Hunter 3 ESPAÑOL (1.03 GB)"></a></li>
+            <li class="consolas" Tamano="0.59"><a href="https://www.ign.com/games/monster-hunter-freedom"
+                target="_blank"><img src="https://assets-prd.ignimgs.com/2022/03/30/mhfreedomus-1648655950262.jpg"
+                  title="Monster Hunter Freedom 1 (597 MB)"></a></li>
+            <li class="consolas" Tamano="0.76"><a href="https://www.ign.com/games/monster-hunter-freedom-unite"
+                target="_blank"><img
+                  src="https://assets-prd.ignimgs.com/2021/12/14/monsterhunterfreedomunite-1639515609933.jpg"
+                  title="Monster Hunter Freedom Unite (762 MB)"></a></li>
+            <li Precio="150" Tamano="3.9"><a href="https://www.ign.com/games/monster-hunter-portable-3rd"
+                target="_blank"><img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co304p.jpg"
+                  title="Monster Hunter Portable 3rd HD con texturas, misiones de evento y cheat vida de monstruos (3.9 GB)"></a>
+            </li>
+            <li class="consolas" Tamano="0.49"><a
+                href="https://www.ign.com/games/naruto-shippuden-legends-akatsuki-rising/articles" target="_blank"><img
+                  src="https://assets-prd.ignimgs.com/2023/07/03/narutolegends-1688425862900.jpg"
+                  title="Naruto Shipuden Legends Akatsuki Rising (495 MB)"></a></li>
+            <li class="consolas" Tamano="0.90"><a
+                href="https://www.ign.com/games/naruto-shippuden-ultimate-ninja-impact/user-reviews"
+                target="_blank"><img src="https://assets-prd.ignimgs.com/2022/11/25/narutoimpact-1669419262075.jpg"
+                  title="Naruto Shippuden Ultimate Ninja Impact (904 MB)"></a></li>
+            <li class="consolas" Tamano="0.85"><a
+                href="https://www.ign.com/games/shin-megami-tensei-persona-2-innocent-sin" target="_blank"><img
+                  src="https://assets-prd.ignimgs.com/2022/06/14/persona-2-innocent-sin-button-01-1655168755231.jpg"
+                  title="Shin Megami Tensei - Persona 2 - Innocent Sin (853 MB)"></a></li>
+            <li class="consolas" Tamano="0.87"><a href="https://www.ign.com/games/shin-megami-tensei-persona-3-portable"
+                target="_blank"><img
+                  src="https://assets-prd.ignimgs.com/2022/06/29/persona-3-portable-button-1656480330638.jpg?width=300&crop=1%3A1%2Csmart&auto=webp"
+                  title="Shin Megami Tensei - Persona 3 Portable (874 MB)"></a></li>
+            <li class="consolas" Tamano="0.65"><a href="https://www.ign.com/games/silent-hill-origins"
+                target="_blank"><img
+                  src="https://assets-prd.ignimgs.com/2022/01/28/silent-hill-origins-button-crop-1643356352267.jpg"
+                  title="Silent Hill - Origins (650 MB)"></a></li>
+            <li class="consolas" Tamano="0.37"><a href="https://www.ign.com/games/soulcalibur-broken-destiny"
+                target="_blank"><img src="https://assets-prd.ignimgs.com/2022/09/07/soulcaliburbd-1662570109435.jpg"
+                  title="Soulcalibur - Broken Destiny (372 MB)"></a></li>
+            <li class="consolas" Tamano="0.72"><a href="https://www.ign.com/games/tekken-6" target="_blank"><img
+                  src="https://assets-prd.ignimgs.com/2022/03/21/tekken6-1647879653971.jpg"
+                  title="Tekken 6 (727 MB)"></a></li>
+            <li class="consolas" Tamano="1.23"><a href="https://www.ign.com/games/toukiden-kiwami" target="_blank"><img
+                  src="https://assets1.ignimgs.com/2019/01/22/toukiden-kiwami---button-1548184153823.jpg?width=300&crop=1%3A1%2Csmart&auto=webp"
+                  title="Toukiden Kiwami (English Patched v2) (1.23 GB)"></a></li>
+            <li class="consolas" Tamano="0.14"><a href="https://www.ign.com/games/toy-story-3-the-videogame"
+                target="_blank"><img src="https://assets-prd.ignimgs.com/2022/02/14/toystory3-game-1644857506830.jpg"
+                  title="Toy Story 3 (146 MB)"></a></li>
+            <li class="consolas" Tamano="0.79"><a href="https://www.ign.com/games/yu-gi-oh-gx-tag-force-3"
+                target="_blank"><img src="https://assets-prd.ignimgs.com/2023/07/03/yugigx3-1688418029733.jpg"
+                  title="Yu-Gi-Oh Gx Tag Force 3 (797 MB)"></a></li>
+          </ul><br>
+        </section>
+        <section class="grupo-juegos">
+          <div class="divFotosEncabezadosConsolas"><img class="fotosEncabezadosConsolas"
+              src="img/menujuegos/consolas/Nintendo 3DS.png">
+            <h4 class="encabezadosjuegos" id="3ds">Juegos de 3DS</h4>
+          </div>
+          <ul class="listajuegos">
+            <li class="consolas" Tamano="0.89"><a href="https://www.ign.com/games/fire-emblem-awakening"
+                target="_blank"><img
+                  src="https://assets-prd.ignimgs.com/2022/01/08/fire-emblem-awakening-button-1641605153835.jpg"
+                  title="Fire Emblem Awakening (891 MB)"></a></li>
+            <li class="consolas" Tamano="1.28"><a href="https://www.ign.com/games/fire-emblem-fates-collectors-edition"
+                target="_blank"><img
+                  src="https://assets2.ignimgs.com/2015/08/03/fire-emblem-fates-button-03jpg-434ea3.jpg?width=300&crop=1%3A1%2Csmart&auto=webp"
+                  title="Fire Emblem Fates (1.28 GB)"></a></li>
+            <li class="juegosNuevos consolas" Tamano="1.32"><a href="https://www.ign.com/games/hyrule-warriors-legends"
+                target="_blank"><img
+                  src="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_3ds_25/SI_3DS_HyruleWarriorsLegends_image1600w.jpg"
+                  title="Hyrule Warriors Legends (1.32 GB)"></a></li>
+            <li class="consolas" Tamano="2.38"><a
+                href="https://www.ign.com/games/inazuma-eleven-go-chrono-stones-thunderflash" target="_blank"><img
+                  src="https://assets-prd.ignimgs.com/2022/05/03/inazuma-eleven-go-chrono-stones-thunderflash-button-1651556924535.jpg"
+                  title="Inazuma Eleven GO - Chrono Stones - Llamarada (2.38 GB)"></a></li>
+            <li class="consolas" Tamano="0.55"><a href="https://www.ign.com/games/mario-kart-7" target="_blank"><img
+                  src="https://assets1.ignimgs.com/2019/05/31/mario-kart-7---button-1559263987476.jpg"
+                  title="MARIO KART 7 (556 MB)"></a></li>
+            <li class="consolas" Tamano="1.38"><a href="https://www.ign.com/games/monster-hunter-3-ultimate"
+                target="_blank"><img
+                  src="https://assets-prd.ignimgs.com/2021/12/14/monsterhunter3ultimate-1639515649829.jpg"
+                  title="Monster Hunter 3 Ultimate (1.38 GB)"></a></li>
+            <li class="consolas" Tamano="2.03"><a href="https://www.ign.com/games/monster-hunter-4-ultimate"
+                target="_blank"><img
+                  src="https://assets-prd.ignimgs.com/2022/02/07/monsterhunter4jp-sq-1644270842591.jpg"
+                  title="MONSTER HUNTER 4 ULTIMATE (2.03 GB)"></a></li>
+            <li class="consolas" Tamano="1.53"><a class="juegosSinEnlace"><img
+                  src="https://cdn.wccftech.com/wp-content/uploads/2017/05/monster-hunter-xx.jpg"
+                  title="Monster Hunter Doble Cross + Traducción al Español (1.53 GB)"></a></li>
+            <li class="consolas" Tamano="1.10"><a href="https://www.ign.com/games/monster-hunter-generations"
+                target="_blank"><img src="https://assets-prd.ignimgs.com/2022/03/30/mhgenerations-1648660306964.jpg"
+                  title="Monster Hunter Generations 3d (1.1 GB)"></a></li>
+            <li class="consolas" Tamano="1.12"><a href="https://www.ign.com/games/monster-hunter-stories"
+                target="_blank"><img src="https://assets-prd.ignimgs.com/2022/02/16/mhstories-sq-1645042790347.jpg"
+                  title="MONSTER HUNTER STORIES (1.12 GB)"></a></li>
+            <li class="consolas" Tamano="1.15"><a href="https://www.ign.com/games/pokemon-alpha-sapphire"
+                target="_blank"><img
+                  src="https://assets1.ignimgs.com/2019/05/17/pokemon-alphasapphire---button-1558055142101.jpg"
+                  title="Pokémon Alpha Sapphire (1.15 GB)"></a></li>
+            <li class="consolas" Tamano="1.57"><a href="https://www.ign.com/games/pokemon-moon-version"
+                target="_blank"><img
+                  src="https://assets1.ignimgs.com/2019/05/17/pokemon-moon---button-1558055594983.jpg"
+                  title="Pokémon LUNA (1.57 GB)"></a></li>
+            <li class="consolas" Tamano="1.15"><a href="https://www.ign.com/games/pokemon-omega-ruby"
+                target="_blank"><img
+                  src="https://assets-prd.ignimgs.com/2022/01/08/pokemon-omega-ruby-version-button-blur-1641603897734.jpg"
+                  title="Pokémon Omega Ruby (1.15 GB)"></a></li>
+            <li class="consolas" Tamano="1.83"><a href="https://www.ign.com/games/pokemon-ultra-sun-version"
+                target="_blank"><img
+                  src="https://assets1.ignimgs.com/2019/05/17/pokemon-ultrasun---button-1558057647977.jpg?width=300&crop=1%3A1%2Csmart&auto=webp"
+                  title="Pokémon Ultra Sol (1.83 GB)"></a></li>
+            <li class="consolas" Tamano="0.92"><a href="https://www.ign.com/games/pokemon-x-version"
+                target="_blank"><img src="https://assets1.ignimgs.com/2019/05/17/pokemon-x---button-1558057647988.jpg"
+                  title="Pokémon X (927 MB)"></a></li>
+            <li class="consolas" Tamano="0.92"><a href="https://www.ign.com/games/pokemon-y-version"
+                target="_blank"><img src="https://assets1.ignimgs.com/2019/05/17/pokemon-y---button-1558057648001.jpg"
+                  title="Pokémon Y (927 MB)"></a></li>
+            <li class="consolas" Tamano="1.10"><a href="https://www.ign.com/games/super-smash-bros-for-nintendo-3ds"
+                target="_blank"><img
+                  src="https://assets-prd.ignimgs.com/2022/01/08/super-smash-bros-for-nintendo-3ds-button-1641601574897.jpg"
+                  title="Super Smash Bros. + Update (1.1 GB)"></a></li>
+            <li class="consolas" Tamano="0.46"><a
+                href="https://www.ign.com/games/the-legend-of-zelda-a-link-between-worlds" target="_blank"><img
+                  src="https://assets1.ignimgs.com/2019/06/04/legend-of-zelda-a-link-between-worlds---button-1559683061433.jpg"
+                  title="The Legend of Zelda A Link Between Worlds (463 MB)"></a></li>
+            <li class="consolas" Tamano="0.21"><a
+                href="https://www.ign.com/games/the-legend-of-zelda-ocarina-of-time-3d" target="_blank"><img
+                  src="https://assets1.ignimgs.com/2019/06/04/legend-of-zelda-ocarina-of-time-3d-1559683061479.jpg"
+                  title="The Legend of Zelda Ocarina of Time 3D (218 MB)"></a></li>
+            <li class="consolas" Tamano="0.52"><a href="https://www.ign.com/games/the-legend-of-zelda-majoras-mask-3d"
+                target="_blank"><img
+                  src="https://assets-prd.ignimgs.com/2022/01/08/the-legend-of-zelda-majoras-mask-3d-button-art-1641604731328.jpg"
+                  title="The Legend of Zelda Majora's Mask 3D (523 MB)"></a></li>
+          </ul>
+        </section>
+        <section class="grupo-juegos">
+          <div class="divFotosEncabezadosConsolas"><img class="fotosEncabezadosConsolas"
+              src="img/menujuegos/consolas/Playstation2.png">
+            <h4 class="encabezadosjuegos" id="play2">Juegos de PlayStation 2</h4>
+          </div>
+          <ul class="listajuegos">
+            <li class="consolas" Tamano="1.08"><a href="https://www.ign.com/games/bloody-roar-4" target="_blank"><img
+                  src="https://products.eneba.games/resized-products/y6tbvT4c3Sua789DNWj6FbNKWBh9P6MrvWAl1DB5MVk_1920x1080_1x-0.jpg"
+                  title="Bloody Roar 4 (1.08 GB) (Emulador incluido)"></a></li>
+            <li class="consolas" Tamano="2.08"><a href="https://www.ign.com/games/kingdom-hearts" target="_blank"><img
+                  src="https://assets-prd.ignimgs.com/2022/01/08/kh-coverart-b-1641607094985.jpg"
+                  title="Kingdom Hearts (2.08 GB) (Emulador incluido)"></a></li>
+            <li class="consolas" Tamano="3.02"><a href="https://www.ign.com/games/kingdom-hearts-ii"
+                target="_blank"><img src="https://assets-prd.ignimgs.com/2022/01/08/kh2-coverart-b-1641607049266.jpg"
+                  title="Kingdom Hearts 2 (3.02 GB) (Emulador incluido)"></a></li>
+            <li class="consolas" Tamano="0.84"><a
+                href="https://vandal.elespanol.com/juegos/ps2/shadow-of-the-colossus/1903" target="_blank"><img
+                  src="img/portadasjuegosfaltantes/Shadow of the Colossus.jpg"
+                  title="Shadow of the Colossus (845 MB) (Emulador incluido)"></a></li>
+          </ul>
+        </section>
+        <section class="grupo-juegos">
+          <div class="divFotosEncabezadosConsolas"><img class="fotosEncabezadosConsolas"
+              src="img/menujuegos/consolas/Playstation3.png">
+            <h4 class="encabezadosjuegos" id="play3">PlayStation 3</h4>
+          </div>
+          <ul class="listajuegos">
+            <li Precio="250" Tamano="4.40"><a href="https://www.ign.com/games/demons-souls" target="_blank"><img
+                  src="https://products.eneba.games/resized-products/u08W3WUsfDZmuGVzSzRp6STRiMndhckhvUqO1tu-D2M_1920x1080_1x-0.jpg"
+                  title="Demon’s Souls Black Phantom Edition con mods (4.4 GB) (Emulador incluido) (Offline, Online)"></a>
+            </li>
+          </ul>
+        </section>
+        <section class="grupo-juegos">
+          <div class="divFotosEncabezadosConsolas"><img class="fotosEncabezadosConsolas"
+              src="img/menujuegos/consolas/Wii.png">
+            <h4 class="encabezadosjuegos" id="wii">Wii</h4>
+          </div>
+          <ul class="listajuegos">
+            <li class="consolas" Tamano="6.54"><a href="https://www.ign.com/games/super-smash-bros-brawl"
+                target="_blank"><img
+                  src="https://assets-prd.ignimgs.com/2022/01/08/super-smash-bros-brawl-button-1641601587266.jpg"
+                  title="Super Smash Bros. Brawl (6.54 GB) (Emulador incluido) (LAN)"></a></li>
+          </ul>
+        </section>
+        <section class="grupo-juegos">
+          <div class="divFotosEncabezadosConsolas"><img class="fotosEncabezadosConsolas"
+              src="img/menujuegos/consolas/Otras consolas.png">
+            <h4 class="encabezadosjuegos" id="otrasConsolas">Packs de juegos de otras consolas</h4>
+          </div>
+          <ul class="listajuegos">
+            <li class="consolas" Tamano="1.54"><a class="juegosSinEnlace"><img
+                  src="https://www.nintendo.com/eu/media/images/10_share_images/support_9/H2x1_GameBoyAdvance_support_no_logo_image1280w.jpg"
+                  title="Pack de juegos Game Boy Advance (1.54 GB) (Emulador incluido) (LAN)"></a></li>
+            <li class="consolas" Tamano="2.98"><a class="juegosSinEnlace"><img
+                  src="https://media.revistagq.com/photos/60d5a48054e0443ce59c73fd/16:9/w_2560%2Cc_limit/174122452"
+                  title="Pack de juegos Nintendo 64 (2.98 GB) (Emulador incluido) (LAN)"></a></li>
+            <li Precio="80" Tamano="0.08"><a class="juegosSinEnlace"><img
+                  src="img/portadasjuegosfaltantes/Pack de juegos NES.jpg"
+                  title="Pack de 830 juegos NES (81.4 MB) (Emulador incluido)"></a></li>
+            <li Precio="80" Tamano="0.29"><a class="juegosSinEnlace"><img
+                  src="https://m.media-amazon.com/images/I/A1qpwekNGbL._CR3,0,1914,1080_SR684,386_.jpg"
+                  title="Pack de juegos Super Nintendo (295 MB) (Emulador incluido) (LAN)"></a></li>
+            <li Precio="80" Tamano="0.45"><a class="juegosSinEnlace"><img
+                  src="https://www.giantbomb.com/a/uploads/scale_tiny/8/87790/2575462-box_ki.png"
+                  title="MK1 MK2 MK3 UMK3 KI KI2 PACK (453 MB) (Emulador incluido) (Cliente+Servidor) (LAN, Online)"></a>
+            </li>
+          </ul>
+        </section>
+      </section>
     </article>
-    </main>
-    <footer>
+  </main>
+  <footer>
     <div id="botonarriba"><a href=#Titulo></a></div>
-    </footer>
+  </footer>
 </body>
+
 </html>

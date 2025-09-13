@@ -1,20 +1,34 @@
 document.addEventListener('DOMContentLoaded', function () {
     agregarClasesEncabezados();
-    agregarListenersEncabezados();}
+    agregarListenersEncabezados();
+    agregarPreciosEncabezados();
+}
 );
 
 // Agregar clases a los encabezados h4
 function agregarClasesEncabezados() {
-    document.querySelectorAll('h4').forEach(h4 => 
+    document.querySelectorAll('h4').forEach(h4 =>
         h4.classList.add("Encabezados"));
 }
 
 // Agregar eventos a los encabezados h4
 function agregarListenersEncabezados() {
     document.querySelectorAll('h4').forEach(h4 => {
-        h4.addEventListener('click', function(){
-            clickEncabezado()});
+        h4.addEventListener('click', function () {
+            clickEncabezado()
+        });
     });
+}
+
+// Añadir los precios de cada pack desde el atributo Precio a los encabezados
+function agregarPreciosEncabezados() {
+    const encabezados = document.querySelectorAll('h4');
+
+    encabezados.forEach(encabezado => {
+        const tituloEncabezado = encabezado.querySelector('a');
+        const precioPack = encabezado.getAttribute("Precio");
+        tituloEncabezado.textContent = tituloEncabezado.textContent + " (" + precioPack + " CUP)";
+    })
 }
 
 // Escuchar el evento de scroll para mostrar el botón de desplazamiento
@@ -35,8 +49,8 @@ function mostrarBoton() {
         isAnimating = false;
     }
 
-    // Si el scroll es mayor a 650px, mostrar el botón con animación hacia arriba
-    if (scrollPosition > 1000) {
+    // Si el scroll es mayor a 1250px, mostrar el botón con animación hacia arriba
+    if (scrollPosition > 1250) {
         scrollButton.style.display = "block";
 
         // Animación de entrada (hacia arriba)
@@ -50,7 +64,7 @@ function mostrarBoton() {
             }
         }, 20);
     }
-    // Si el scroll es menor a 650px, ocultar el botón con animación hacia abajo
+    // Si el scroll es menor a 1250px, ocultar el botón con animación hacia abajo
     else {
         // Animación de salida (hacia abajo)
         animationInterval = setInterval(() => {
@@ -92,7 +106,7 @@ function busqueda() {
             const productName = productNameFromImg ? productNameFromImg :
                 (productNameFromLink ? productNameFromLink : "");
 
-            const productPrice = parseFloat(encabezado.getAttribute("data-price"));
+            const productPrice = parseFloat(encabezado.getAttribute("Precio"));
 
             let mostrarProducto = true;
 
@@ -145,6 +159,8 @@ function borrarPrecio() {
     busqueda();
 }
 function cambiarVista() {
+    const textoBoton = document.getElementById('botonCambiarVista');
+    textoBoton.classList.toggle("BotonBolaVerde");
     const body = document.body;
     body.classList.toggle("vista-tradicional"); // Activa o desactiva la clase en el body
 
@@ -219,7 +235,9 @@ function cambiarVista() {
 }
 
 // Si se hace click en algún encabezado en medio de la búsqueda, este lo redirigirá a su contenedor
-function clickEncabezado(){
+function clickEncabezado() {
     borrarBusqueda();
     borrarPrecio();
 }
+
+

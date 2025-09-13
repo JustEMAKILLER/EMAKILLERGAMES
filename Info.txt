@@ -1,9 +1,10 @@
 Errores:
-La busqueda devuelve resultados que no coinciden con las condiciones establecidas en los juegos nuevos o actualizados. Por eso que quitó la barra de busqueda.
+El encabezado de juegos de PSP en los juegos de consolas pierde margin-top desplazándose un poco hacia arriba cuando se cambia de vista a texto, y cuando se retorna a la vista de imágenes mantiene ese margin sin recuperar el que tenia originalmente.
 
 Ideas para futuras actualizaciones:
-Crear botones para los juegos de regalo junto con un div al que se moverán cuando se presionen. Los botones de regalo solo aparecerán cuando se cumpla el monto mínimo para obtenerlos. Se puede descartar un juego de regalo que se enviará al div de descartados. En el texto del mensaje que genera el botón de enviar por whatsapp incluirá abajo antes del precio y tamaño totales el listado de regalos.
+Crear botones para los juegos de regalo los cuales al ser seleccionados se enviarán al fondo del div de selección con una línea de separación. Los botones de regalo solo aparecerán cuando se cumpla el monto mínimo para obtenerlos. Se puede descartar un juego de regalo que se enviará al div de descartados. Si se descartan juegos haciendo que la oferta de regalo desaparezca o reduzca, los juegos elegidos como regalo se moverán automáticamente al div de descartados. En el texto del mensaje que genera el botón de enviar por whatsapp incluirá abajo antes del precio y tamaño totales el listado de regalos.
 
-Reducir un poco el tamaño de los li de los juegos para que en moviles se puedan ver mas elemetos a la vez
+Reducir un poco el tamaño de los li de los juegos para que en móviles se puedan ver mas elemetos a la vez
+
 
 Elementos a verificar:
