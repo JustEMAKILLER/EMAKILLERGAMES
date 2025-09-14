@@ -206,9 +206,7 @@ function mostrarBoton() {
 
 // Desmarcar todos los checkboxes de los filtros de conexión y género
 function desmarcarCheckboxes() {
-    // Determinar si estamos en modo "solo nuevos/actualizados"
-    const soloNuevos = document.getElementById("botonJNA").classList.contains("BotonBolaVerde");
-    if (soloNuevos) {
+    if (document.getElementById("botonJNA").classList.contains("BotonBolaVerde")) {
         mostrarJuegosDesdeMenuJuegos();
     }
 
@@ -528,7 +526,19 @@ function borrarPrecio() {
     filtroprecioInput.value = "";
     busqueda();
 }
-// Función para mostrar solo los titulos nuevos o actualizados
+
+// Funciones para mostrar solo los titulos nuevos o actualizados
+
+// Programar los eventos del botónJNA sobre la clase BotonBolaVerde
+document.getElementById("botonJNA").addEventListener("click", () => {
+    if (document.getElementById("botonJNA").classList.contains("BotonBolaVerde")) {
+        mostrarJuegos(); // Volver a mostrar todo
+    } else {
+        mostrarJuegosNewOrAct(); // Mostrar solo nuevos/actualizados
+    }
+});
+
+// Resto de la lógica
 function mostrarJuegosNewOrAct() {
     borrarBusqueda();
     borrarPrecio();
@@ -584,8 +594,8 @@ function mostrarJuegosNewOrAct() {
         encabezado.classList.remove("mostrar");
     }
 
+    // Marcar botón como activo
     botonJNA.classList.add("BotonBolaVerde");
-    botonJNA.addEventListener('click', mostrarJuegos);
 
 }
 // Función para mostrar todos los juegos de nuevo
@@ -610,9 +620,8 @@ function mostrarJuegos() {
         encabezadoJuego.style.display = "block";
     });
 
+    // Quitar estado de activo 
     botonJNA.classList.remove("BotonBolaVerde");
-    botonJNA.removeEventListener('click', mostrarJuegos);
-    botonJNA.addEventListener('click', mostrarJuegosNewOrAct);
 
     // Forzar actualización de filtros
     aplicarFiltrosCombinados();
@@ -637,8 +646,6 @@ function mostrarJuegosDesdeMenuJuegos() {
     });
 
     botonJNA.classList.remove("BotonBolaVerde");
-    botonJNA.removeEventListener('click', mostrarJuegos);
-    botonJNA.addEventListener('click', mostrarJuegosNewOrAct);
 }
 
 // Función para mostrar el Menú Desplegable
@@ -784,12 +791,6 @@ function cambiarVista() {
 
     // Forzar una nueva búsqueda para actualizar los resultados
     busqueda();
-
-    // Mantener mostrado solo los juegos nuevos o actualizados en caso de haberse llamado a la función mostrarJuegosNewOrAct
-    if (document.getElementById("botonJNA").classList.contains("BotonBolaVerde")) {
-        mostrarJuegosNewOrAct();
-    }
-
 }
 
 /**

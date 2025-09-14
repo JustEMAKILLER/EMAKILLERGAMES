@@ -803,8 +803,6 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 #texto {
 	display: flex;
 	justify-content: center;
-	align-content: center;
-	text-align: center;
 }
 
 #divInfoJActiv {
