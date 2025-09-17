@@ -654,6 +654,8 @@ function mostrarMenu() {
     menuDesplegado.style.display = "block";
     const botonMenuDesplegable = document.getElementById("botonMenuDesplegable");
     botonMenuDesplegable.addEventListener('click', cerrarMenu);
+    botonMenuDesplegable.style.borderTopLeftRadius = "50px";
+    botonMenuDesplegable.style.borderBottomLeftRadius = "50px";
     const botonesMenuDesplegado = document.querySelectorAll('#menuDesplegado a');
     botonesMenuDesplegado.forEach(botonMenu => {
         botonMenu.addEventListener('click', function () {
@@ -668,6 +670,7 @@ function cerrarMenu() {
     const botonMenuDesplegable = document.getElementById("botonMenuDesplegable");
     botonMenuDesplegable.removeEventListener('click', cerrarMenu);
     botonMenuDesplegable.addEventListener('click', mostrarMenu);
+    botonMenuDesplegable.style.borderRadius = "50px";
     menuDesplegado.style.display = "none";
 }
 

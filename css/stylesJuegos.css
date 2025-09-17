@@ -861,10 +861,10 @@ h3 {
 	cursor: pointer;
 	position: fixed;
 	bottom: 8px;
-	left: 5px;
+	left: -15px;
 	display: flex;
 	height: 80px;
-	width: auto;
+	max-width: 75%;
 	margin-top: 20px;
 	margin-left: 20px;
 	border: 1px solid var(--Bl-border-nav);
@@ -897,7 +897,6 @@ h3 {
 	cursor: default;
 	overflow-y: auto;
 	overflow-x: hidden;
-	flex-flow: row wrap;
 	border: 1px solid var(--Bl-border-nav);
 	background-color: var(--Bl-background-nav);
 	box-shadow: 0 0 10px var(--Bl-shadow-nav);
