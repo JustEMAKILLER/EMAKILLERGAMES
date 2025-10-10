@@ -205,6 +205,40 @@ ul img:hover {
 	box-shadow: 2px 2px 10px purple;
 }
 
+.BotonBolaRoja {
+	display: inline-block;
+	background-color: red;
+	box-sizing: border-box;
+	border: solid black;
+	border-radius: 27%;
+	width: 35px;
+	height: 30px;
+	transition: background-color 0.2s ease;
+}
+
+.BotonBolaVerde {
+	display: inline-block;
+	background-color: rgb(0, 255, 0);
+	border-radius: 27%;
+	width: 35px;
+	height: 30px;
+	position: relative;
+	left: 51%;
+}
+
+.bordeBotonBola {
+	display: inline-block;
+	border: solid 3.5px purple;
+	border-radius: 27%;
+	width: 70px;
+	height: 30px;
+	transition: all 0.3s ease;
+}
+
+.bordeBotonBola:hover {
+	box-shadow: 2px 2px 10px purple;
+}
+
 /* Otros */
 .Activacion {
 	animation: cambiocolorJActiv 2.5s linear infinite;
@@ -522,7 +556,7 @@ ul img:hover {
 }
 
 ul:not(.vista-tradicional) li {
-	overflow: visible !important;
+	overflow: ContVisible !important;
 	position: relative;
 }
 
@@ -616,38 +650,16 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	box-shadow: 2px 2px 10px purple;
 }
 
-.bordeBotonBola {
-	display: inline-block;
-	border: solid 3.5px purple;
-	border-radius: 27%;
-	width: 70px;
-	height: 30px;
-	transition: all 0.3s ease;
-}
-
-.bordeBotonBola:hover {
-	box-shadow: 2px 2px 10px purple;
-}
-
-.BotonBolaRoja {
-	display: inline-block;
-	background-color: red;
-	box-sizing: border-box;
-	border: solid black;
-	border-radius: 27%;
-	width: 35px;
-	height: 30px;
-	transition: background-color 0.2s ease;
-}
-
-.BotonBolaVerde {
-	display: inline-block;
-	background-color: rgb(0, 255, 0);
-	border-radius: 27%;
-	width: 35px;
-	height: 30px;
+#botonMostrarInfoJActiv {
 	position: relative;
-	left: 51%;
+	top: 21px;
+	width: 30px;
+	height: 30px;
+	color: white;
+	z-index: 10;
+	border: none;
+	cursor: pointer;
+	transform: none;
 }
 
 /* Encabezados de juegos */
@@ -676,12 +688,12 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	color: lightcyan;
 }
 
-#monster h4{
-	color:#c0bfbd;
+#monster h4 {
+	color: #c0bfbd;
 }
 
-#mortal h4{
-	color:rgba(203, 70, 3, 0.818)
+#mortal h4 {
+	color: rgba(203, 70, 3, 0.818)
 }
 
 #naruto h4 {
@@ -804,13 +816,21 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	width: 80%;
 }
 
-#EncabezadoJnewAct.mostrar {
-	display: block !important;
+#contenidoInfoJActiv {
+	display: none;
 }
 
-#texto {
+#divHeaderInfoJActiv {
+	cursor: pointer;
 	display: flex;
+	flex-flow: row nowrap;
 	justify-content: center;
+	gap: -1%;
+	transition: transform 0.3s ease;
+}
+
+#divHeaderInfoJActiv:hover {
+	transform: scale(1.08);
 }
 
 #divInfoJActiv {
@@ -822,6 +842,18 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	border-radius: 20px;
 	padding: 13px;
 	animation: cambiocolorJActiv 2.5s linear infinite;
+}
+
+#divInfoJActiv.contVisible #contenidoInfoJActiv {
+	display: block;
+}
+
+#divInfoJActiv.contVisible #botonMostrarInfoJActiv::after {
+	content: "▼";
+}
+
+#divInfoJActiv:not(.contVisible) #botonMostrarInfoJActiv::after {
+	content: "▶";
 }
 
 #divInfoJActiv h2,
@@ -840,6 +872,15 @@ h3 {
 	text-decoration: underline !important;
 	text-decoration-color: rgb(157, 5, 157) !important;
 	transform: translateX(-5px);
+}
+
+#EncabezadoJnewAct.mostrar {
+	display: block !important;
+}
+
+#texto {
+	display: flex;
+	justify-content: center;
 }
 
 #Titulo {
@@ -862,6 +903,12 @@ h3 {
 	display: none;
 	margin-top: 1%;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#mando {
+	position: relative;
+	bottom: 8%;
+	left: 6%;
 }
 
 #menuDesplegable {
@@ -923,12 +970,6 @@ h3 {
 	transform: scale(1.1);
 	background-color: rgb(166, 11, 180);
 	z-index: 2;
-}
-
-#mando {
-	position: relative;
-	bottom: 8%;
-	left: 6%;
 }
 
 /* Animaciones */

@@ -956,3 +956,8 @@ function actualizarEncabezados() {
     });
 }
 
+// Mostrar Información del contenedor de los Juegos por Activación
+function mostrarInfoDivInfoJActiv() {
+    const infoDiv = document.getElementById('divInfoJActiv');
+    infoDiv.classList.toggle('contVisible');
+}
