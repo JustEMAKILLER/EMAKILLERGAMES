@@ -676,6 +676,14 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	color: lightcyan;
 }
 
+#monster h4{
+	color:#c0bfbd;
+}
+
+#mortal h4{
+	color:rgba(203, 70, 3, 0.818)
+}
+
 #naruto h4 {
 	color: rgb(255, 180, 7);
 }
