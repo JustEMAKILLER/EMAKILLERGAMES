@@ -1,2 +1,0 @@
-alert("🆕 Nueva ofertas disponibles: Juegos por Activación 🎮🔥, servicio de descarga de Internet y paquetes de juegos 500 y 900 GB. Consulte el apartado de Juegos de PC y las Ofertas para más información ℹ️");
-alert("Los precios 💲 de los juegos han sido sutilmente elevados 🆙 debido a limitaciones  técnicas 🛠️ con el objetivo de poder ofrecer más y mejores títulos 💪. Gracias por su comprensión 🤝");
