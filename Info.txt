@@ -6,5 +6,6 @@ Crear botones para los juegos de regalo los cuales al ser seleccionados se envia
 
 Reducir un poco el tamaño de los li de los juegos para que en móviles se puedan ver mas elemetos a la vez
 
+Combinar el filtro de géneros con el de los valores introducidos en la búsqueda para que se puedan encontrar títulos que cumplan con dichas especificaciones en su conjunción.
 
 Elementos a verificar:

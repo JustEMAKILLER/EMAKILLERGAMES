@@ -873,6 +873,10 @@ function reconstruirBotonDescartado(producto) {
 
 // Funciones para filtrar por tipo de conexión y género
 function aplicarFiltrosCombinados() {
+    document.getElementById('buscarprecio').value = "";
+    document.getElementById('buscarnombre').value = "";
+    document.getElementById('botonborrarbusqueda').style.display = "none";
+    document.getElementById('botonborrarprecio').style.display = "none";
     const text = document.getElementById("texto");
     // Obtener selecciones actuales
     const conexionesSeleccionadas = Array.from(
