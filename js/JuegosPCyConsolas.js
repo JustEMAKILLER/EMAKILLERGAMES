@@ -426,85 +426,85 @@ function busqueda() {
     const filtroNombre = document.getElementById("buscarnombre").value.toLowerCase();
     const grupos = document.querySelectorAll('.grupo-juegos');
     const text = document.getElementById("texto");
-    let calculoprecio = document.getElementById("calculoprecio");
-    let hayResultados = false;
+    const calculoprecio = document.getElementById("calculoprecio");
     const botonborrarbusqueda = document.getElementById('botonborrarbusqueda');
     const botonborrarprecio = document.getElementById('botonborrarprecio');
     const divJuegos = document.getElementById("divJuegos");
 
-    // Mostrar u ocultar los botones de limpieza de búsqueda según corresponda
+    // Mostrar u ocultar botones de limpieza
     botonborrarbusqueda.style.display = filtroNombre ? "inline-block" : "none";
     botonborrarprecio.style.display = isNaN(maxPrice) ? "none" : "inline-block";
 
-    grupos.forEach((grupo) => {
+    // Solo desmarcar checkboxes si hay texto de búsqueda por nombre y no solamente por precio
+    if (filtroNombre !== "") {
+        document.querySelectorAll('#filtro-conexion input[name="conexion"]').forEach(cb => cb.checked = false);
+        document.querySelectorAll('#filtro-generos input[name="genero"]').forEach(cb => cb.checked = false);
+    }
+
+    // Obtener filtros activos para combinarlos con la búsqueda
+    const conexionesSeleccionadas = Array.from(
+        document.querySelectorAll('#filtro-conexion input[name="conexion"]:checked')
+    ).map(c => c.value.trim());
+
+    const generosSeleccionados = Array.from(
+        document.querySelectorAll('#filtro-generos input[name="genero"]:checked')
+    ).map(g => g.value.trim());
+
+    const soloNuevos = document.getElementById("botonJNA").classList.contains("BotonBolaVerde");
+
+    let hayResultados = false;
+
+    grupos.forEach(grupo => {
         const productos = grupo.querySelectorAll('.listajuegos li');
         let mostrarGrupo = false;
 
-        productos.forEach((producto) => {
-            // Desmarcar automáticamente todos los checkboxes de conexión y género antes de recorrer la lista de juegos
-            const checkboxes = document.querySelectorAll('#filtro-conexion input[name="conexion"]');
-            checkboxes.forEach(checkbox => {
-                checkbox.checked = false;
-            });
-
-            const checkboxesgenero = document.querySelectorAll('#filtro-generos input[name="genero"]');
-            checkboxesgenero.forEach(checkbox => {
-                checkbox.checked = false;
-            });
-
-            // Limitar la búsqueda a los juegos nuevos y actualizados si solo se muestran estos
-            if (document.getElementById("botonJNA").classList.contains("BotonBolaVerde")) {
-                if (!producto.classList.contains("juegosNuevos") &&
-                    !producto.classList.contains("juegosActualizados")) {
-                    producto.style.display = "none";
-                    return;
-                }
-            }
-
-
-            // Si hay un título en la imagen, usa eso, si no, usa el texto del enlace
+        productos.forEach(producto => {
             const productName = obtenerTituloJuego(producto).toLowerCase();
-
             const productPrice = parseFloat(producto.getAttribute("Precio"));
-            let mostrarProducto = true;
+            let mostrar = true;
 
-            // Filtrar por precio
-            if (!isNaN(maxPrice)) {
-                if (isNaN(productPrice)) {
-                    mostrarProducto = false;
-                } else if (productPrice > maxPrice) {
-                    mostrarProducto = false;
-                }
+            // Filtro de modo "solo nuevos/actualizados"
+            if (soloNuevos && !producto.classList.contains("juegosNuevos") && !producto.classList.contains("juegosActualizados")) {
+                mostrar = false;
             }
 
-            // Filtrar por nombre
+            // Filtro de precio
+            if (!isNaN(maxPrice) && (!isNaN(productPrice) && productPrice > maxPrice)) {
+                mostrar = false;
+            }
+
+            // Filtro de nombre
             if (filtroNombre !== "" && !productName.includes(filtroNombre)) {
-                mostrarProducto = false;
+                mostrar = false;
             }
 
-            producto.style.display = mostrarProducto ? "list-item" : "none";
+            // Filtro de conexión y género (combinado)
+            if (mostrar && conexionesSeleccionadas.length > 0) {
+                const conexionesJuego = (producto.getAttribute('Tconex') || '').split(',').map(c => c.trim());
+                mostrar = conexionesSeleccionadas.some(c => conexionesJuego.includes(c));
+            }
 
-            if (mostrarProducto) {
+            if (mostrar && generosSeleccionados.length > 0) {
+                const generosJuego = (producto.getAttribute('Genero') || '').split(',').map(g => g.trim());
+                mostrar = generosSeleccionados.some(g => generosJuego.includes(g));
+            }
+
+            producto.style.display = mostrar ? "list-item" : "none";
+            if (mostrar) {
                 mostrarGrupo = true;
                 hayResultados = true;
             }
         });
 
-        // Ocultar/mostrar el encabezado de la sección según si hay resultados
         const encabezado = grupo.querySelector('.encabezadosjuegos');
-        if (encabezado) {
-            encabezado.style.display = mostrarGrupo ? "block" : "none";
-        }
-
+        if (encabezado) encabezado.style.display = mostrarGrupo ? "block" : "none";
         grupo.style.display = mostrarGrupo ? "block" : "none";
     });
 
     // Mostrar mensaje si no hay resultados
     divJuegos.style.display = hayResultados ? 'block' : 'none';
     text.style.display = hayResultados ? 'none' : 'flex';
-    if (!hayResultados) {
-        text.textContent = "No hay resultados que coincidan con la búsqueda.";
-    }
+    if (!hayResultados) text.textContent = "No hay resultados que coincidan con la búsqueda.";
 
     // Mostrar u ocultar el cálculo de precio
     if (calculoprecio.textContent.trim() !== "") {
@@ -522,10 +522,21 @@ function borrarBusqueda() {
 // Función para borrar el campo de precio
 function borrarPrecio() {
     const filtroprecioInput = document.getElementById('buscarprecio');
-    // Limpiar el campo de texto
     filtroprecioInput.value = "";
-    busqueda();
+
+    // Si hay búsqueda por nombre, vuelve a ejecutar búsqueda completa
+    const filtroNombre = document.getElementById('buscarnombre').value.trim();
+    if (filtroNombre !== "") {
+        busqueda();
+    } else {
+        // Si no hay búsqueda por nombre, mantener filtros combinados activos
+        aplicarFiltrosCombinados();
+    }
+
+    // Ocultar el botón de borrar precio
+    document.getElementById('botonborrarprecio').style.display = "none";
 }
+
 
 // Funciones para mostrar solo los titulos nuevos o actualizados
 
@@ -873,12 +884,20 @@ function reconstruirBotonDescartado(producto) {
 
 // Funciones para filtrar por tipo de conexión y género
 function aplicarFiltrosCombinados() {
-    document.getElementById('buscarprecio').value = "";
-    document.getElementById('buscarnombre').value = "";
-    document.getElementById('botonborrarbusqueda').style.display = "none";
-    document.getElementById('botonborrarprecio').style.display = "none";
+    const inputPrecio = document.getElementById('buscarprecio');
+    const inputNombre = document.getElementById('buscarnombre');
     const text = document.getElementById("texto");
-    // Obtener selecciones actuales
+    const divJuegos = document.getElementById("divJuegos");
+
+    // Obtener valores actuales
+    const maxPrice = parseFloat(inputPrecio.value);
+    const filtroNombre = inputNombre.value.toLowerCase();
+
+    // Mostrar/ocultar botones de borrar según corresponda
+    document.getElementById('botonborrarbusqueda').style.display = filtroNombre ? "inline-block" : "none";
+    document.getElementById('botonborrarprecio').style.display = isNaN(maxPrice) ? "none" : "inline-block";
+
+    // Obtener filtros seleccionados
     const conexionesSeleccionadas = Array.from(
         document.querySelectorAll('#filtro-conexion input[name="conexion"]:checked')
     ).map(c => c.value.trim());
@@ -887,61 +906,59 @@ function aplicarFiltrosCombinados() {
         document.querySelectorAll('#filtro-generos input[name="genero"]:checked')
     ).map(g => g.value.trim());
 
-    // Determinar si estamos en modo "solo nuevos/actualizados"
+    // Modo “solo nuevos/actualizados”
     const soloNuevos = document.getElementById("botonJNA").classList.contains("BotonBolaVerde");
 
-
-    // Variables para controlar si hay resultados
     let hayResultados = false;
-    const divJuegos = document.getElementById("divJuegos");
 
     // Aplicar filtros a cada juego
     document.querySelectorAll('.listajuegos li').forEach(juego => {
-        // Filtro de nuevos/actualizados (prioritario)
+        let mostrar = true;
+
+        // --- FILTRO NUEVOS/ACTUALIZADOS ---
         if (soloNuevos && !juego.classList.contains('juegosNuevos') && !juego.classList.contains('juegosActualizados')) {
-            juego.style.display = 'none';
-            return;
+            mostrar = false;
         }
 
-        const conexionesJuego = (juego.getAttribute('Tconex') || '').split(',').map(c => c.trim());
-        const generosJuego = (juego.getAttribute('Genero') || '').split(',').map(g => g.trim());
-
-        // Lógica de filtrado combinado (AND entre conexión y género)
-        let mostrarJuego = true;
-
-        // Filtro de conexión (solo si hay selección)
-        if (conexionesSeleccionadas.length > 0) {
-            const cumpleConexion = conexionesSeleccionadas.some(conexion =>
-                conexionesJuego.includes(conexion)
-            );
-            mostrarJuego = mostrarJuego && cumpleConexion;
+        // --- FILTRO DE CONEXIÓN ---
+        if (mostrar && conexionesSeleccionadas.length > 0) {
+            const conexionesJuego = (juego.getAttribute('Tconex') || '').split(',').map(c => c.trim());
+            const cumpleConexion = conexionesSeleccionadas.some(c => conexionesJuego.includes(c));
+            if (!cumpleConexion) mostrar = false;
         }
 
-        // Filtro de género (solo si hay selección)
-        if (generosSeleccionados.length > 0) {
-            const cumpleGenero = generosSeleccionados.some(genero =>
-                generosJuego.includes(genero)
-            );
-            mostrarJuego = mostrarJuego && cumpleGenero;
+        // --- FILTRO DE GÉNERO ---
+        if (mostrar && generosSeleccionados.length > 0) {
+            const generosJuego = (juego.getAttribute('Genero') || '').split(',').map(g => g.trim());
+            const cumpleGenero = generosSeleccionados.some(g => generosJuego.includes(g));
+            if (!cumpleGenero) mostrar = false;
         }
 
-        // Respetar otros filtros (como búsqueda)
-        mostrarJuego = mostrarJuego && !juego.dataset.forceHidden;
-
-        // Aplicar resultado
-        juego.style.display = mostrarJuego ? 'list-item' : 'none';
-
-        if (mostrarJuego) {
-            hayResultados = true;
+        // --- FILTRO DE NOMBRE ---
+        if (mostrar && filtroNombre !== "") {
+            const nombreJuego = obtenerTituloJuego(juego).toLowerCase();
+            if (!nombreJuego.includes(filtroNombre)) mostrar = false;
         }
+
+        // --- FILTRO DE PRECIO ---
+        if (mostrar && !isNaN(maxPrice)) {
+            const precioJuego = parseFloat(juego.getAttribute("Precio"));
+            if (isNaN(precioJuego) || precioJuego > maxPrice) mostrar = false;
+        }
+
+        // Aplicar visibilidad final
+        juego.style.display = mostrar ? 'list-item' : 'none';
+        if (mostrar) hayResultados = true;
     });
 
-    // Manejar mensaje de "no hay resultados"
+    // Mostrar mensaje si no hay resultados
     divJuegos.style.display = hayResultados ? 'block' : 'none';
     text.style.display = hayResultados ? 'none' : 'flex';
     if (!hayResultados) {
         text.textContent = "No hay resultados que coincidan con los filtros aplicados.";
     }
+
+    // Actualizar encabezados de secciones
     actualizarEncabezados();
 }
 
