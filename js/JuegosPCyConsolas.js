@@ -695,7 +695,7 @@ function enviarListado() {
     let PrecioTotal = 0;
     let TamanoTotal = 0;
 
-    let mensaje = (CantTotalJuegos > 1) ? "Hola! Le escribo para solicitar los siguientes " + CantTotalJuegos + " juegos:\n" : "Hola! Le escribo para solicitar el siguiente juego\n";
+    let mensaje = (CantTotalJuegos > 1) ? "Hola! Le escribo para solicitar los siguientes " + CantTotalJuegos + " juegos:\n" : "Hola! Le escribo para solicitar el siguiente juego:\n";
 
     items.forEach(item => {
         // Obtener el precio y tamaño del juego
