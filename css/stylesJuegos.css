@@ -332,14 +332,17 @@ ul img:hover {
 	height: 40px;
 }
 
-.juegosNuevos {
-	border: solid 10px rgb(171, 9, 171);
-	border-radius: 40px;
+.juegosNuevos{
+	border: solid 8px rgb(171, 9, 171);
 }
 
 .juegosNuevos img {
 	width: 100%;
 	height: 100%;
+}
+
+.juegosNuevos, .juegosActualizados {
+	border-radius: 40px;
 }
 
 .juegosNuevos p,
@@ -351,8 +354,7 @@ ul img:hover {
 }
 
 .juegosActualizados {
-	border: solid 10px rgb(88, 88, 236);
-	border-radius: 40px;
+	border: solid 8px rgb(88, 88, 236);
 }
 
 .juegosActualizados img {
