@@ -7,7 +7,9 @@
       <meta charset="UTF-8">
       <link rel="icon" href="img/icon.png" type="image/x-icon">
       <link rel="stylesheet" href="css/stylesJuegos.css">
+      <link rel="stylesheet" href="css/SnowFlakes.css">
       <script src="js/Ofertas.js" defer></script>
+      <script src="js/SnowFlakes.js"></script>
       <style>
             .Encabezados a {
                   transition: font-size 0.3s ease;
@@ -32,7 +34,13 @@
             <a href="JuegosConsolas.html"><img id="mando" src="img/menunavegacion/palanca-de-mando.png"></a>
             <a href="Ofertas.html"><img id="estrella" src="img/menunavegacion/estrella.png"></a>
       </nav>
-      <div class="busqueda">
+
+      <!--Entradas de búsqueda-->
+      <div onclick="mostrarBusqueda()" id="divLupa">
+            <img id="lupa" src="img/lupa.png">
+      </div>
+
+      <div id="busqueda" class="busqueda">
             <div id="buscar">
                   <div><input type="text" id="buscarnombre" placeholder="Buscar juego..." oninput="busqueda()"><button
                               id=botonborrarbusqueda class="botonesbusqueda" onclick="borrarBusqueda()">x</button></div>
@@ -40,10 +48,11 @@
                               oninput="busqueda()"><button id=botonborrarprecio class="botonesbusqueda"
                               onclick="borrarPrecio()">x</button>
                   </div>
+                  <div id="botonOcultarBusqueda" onclick="mostrarBusqueda()">▲</div>
             </div>
       </div>
       <header>
-            <img id="banner" src="img/Banner_nuevo.jpg">
+            <img id="banner" src="img/EMAKILLERGAMES_Banner_nuevo_warzone.jpg">
             <h1 id=Titulo>Ofertas Especiales</h1>
       </header>
       <main>
@@ -132,20 +141,28 @@
                         </ul>
                   </section>
                   <section class=grupo-juegos>
-                        <h4 Precio="190" id="AgeofEmpiresPack"><a href="#AgeofEmpiresPack">Age of Empires Pack</a></h4>
+                        <h4 Precio="750" id="AgeofEmpiresPack"><a href="#AgeofEmpiresPack">Age of Empires Pack</a></h4>
                         <ul class="listajuegos">
-                              <li><a
-                                          href="https://vandal.elespanol.com/juegos/pc/age-of-empires/4138#p-13"
-                                          target="_blank"><img src="https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co2xcn.jpg"
-                                          title="Age of Empires Gold Edition HD"></a></li>
-                              <li><a
-                                          href="https://vandal.elespanol.com/juegos/pc/age-of-empires-2/4139#p-13"
+                              <li><a href="https://vandal.elespanol.com/juegos/pc/age-of-empires/4138#p-13"
+                                          target="_blank"><img
+                                                src="https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co2xcn.jpg"
+                                                title="Age of Empires Gold Edition HD"></a></li>
+                              <li><a href="https://vandal.elespanol.com/juegos/pc/age-of-empires-2/4139#p-13"
                                           target="_blank"><img src="https://lutris.net/media/igdb/cover_big/co1xya.jpg"
-                                          title="Age of Empires II The Conquerors Expansion"></a></li>
+                                                title="Age of Empires II The Conquerors Expansion"></a></li>
                               <li><a href="https://store.steampowered.com/app/221380/Age_of_Empires_II_HD_Edition/"
                                           target="_blank"><img
                                                 src="https://products.eneba.games/resized-products/VGD3QzS_vTA7C87Dy-obTve3z71WRg5KEGJ3LKE-fds_350x200_3x-0.jpeg"
                                                 title="Age of Empires II HD Edition"></a></li>
+                              <li><a href="https://store.steampowered.com/app/813780/Age_of_Empires_II_Definitive_Edition/"
+                                          target="_blank"><img
+                                                src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/813780/capsule_616x353.jpg?t=1760473253"
+                                                title="Age of Empires II Definitive Edition (8.25 GB) (Cliente + Servidor) (LAN)"></a>
+                              </li>
+                              <li><a href="https://www.ign.com/games/age-of-empires-iii-complete-collection"
+                                          target="_blank"><img
+                                                src="https://assets-prd.ignimgs.com/2021/12/29/age-of-empires-3-complete-collection-button-crop-1640819223691.jpg"
+                                                title="Age of Empires III - Complete Collection"></a></li>
                         </ul class="listajuegos">
                   </section>
                   <section class=grupo-juegos>
@@ -169,19 +186,18 @@
                   </section>
                   <section class=grupo-juegos>
                         <h4 Precio="300" id="CallofDutyOldSchoolPack"><a href="#CallofDutyOldSchoolPack">Call of Duty
-                                    Old School
-                                    Pack</a></h4>
+                                    Old School Pack</a></h4>
                         <ul class="listajuegos">
                               <li><a href="https://store.steampowered.com/app/2620/Call_of_Duty/" target="_blank"><img
                                                 src="https://cdn.cloudflare.steamstatic.com/steam/apps/2640/header.jpg"
-                                                title="Call Of Duty 1 - United Offensive Expansion Pack"></a></li>
+                                                title="Call of Duty 1 - United Offensive Expansion Pack"></a></li>
                               <li><a href="https://store.steampowered.com/app/2630/Call_of_Duty_2/" target="_blank"><img
                                                 src="https://gepig.com/game_cover_460w/342.jpg"
                                                 title="Call Of Duty 2"></a></li>
                               <li><a href="https://store.steampowered.com/app/10090/Call_of_Duty_World_at_War/"
                                           target="_blank"><img
                                                 src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/10090/capsule_616x353.jpg?t=1654830025"
-                                                title="Call of Duty 5 World at War"></a></li>
+                                                title="Call of Duty 5 - World at War"></a></li>
                         </ul>
                   </section>
                   <section class=grupo-juegos>
@@ -192,14 +208,14 @@
                               <li><a href="https://store.steampowered.com/app/7940/Call_of_Duty_4_Modern_Warfare_2007/"
                                           target="_blank"><img
                                                 src="https://gpstatic.com/acache/22/23/1/us/t620x300-c994e623b7a30d886cd0115fe501f4b7.jpg"
-                                                title="CALL OF DUTY MW CoD4X"></a></li>
+                                                title="Call of Duty 4 - Modern Warfare"></a></li>
                               <li><a href="https://store.steampowered.com/app/10180/Call_of_Duty_Modern_Warfare_2_2009/"
                                           target="_blank"><img
                                                 src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/10180/capsule_616x353.jpg?t=1654809646"
-                                                title="CALL OF DUTY MW2"></a></li>
+                                                title="Call of Duty 6 - Modern Warfare 2"></a></li>
                               <li><a href="https://store.steampowered.com/app/115300/Call_of_Duty_Modern_Warfare_3_2011/"
                                           target="_blank"><img src="https://cdn.gracza.pl/i/h/1/147768000.jpg"
-                                                title="CALL OF DUTY MW3 Plutonium"></a></li>
+                                                title="Call of Duty 8 - Modern Warfare 3"></a></li>
                         </ul>
                   </section>
                   <section class=grupo-juegos>
@@ -210,73 +226,88 @@
                               <li><a href="https://store.steampowered.com/app/42700/Call_of_Duty_Black_Ops/"
                                           target="_blank"><img
                                                 src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/42700/header.jpg?t=1654809667"
-                                                title="Call of Duty Black Ops"></a></li>
+                                                title="Call of Duty 7 - Black Ops"></a></li>
                               <li><a href="https://store.steampowered.com/app/202970/Call_of_Duty_Black_Ops_II/"
                                           target="_blank"><img
                                                 src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/202970/capsule_616x353.jpg?t=1654830020"
-                                                title="Call of Duty Black Ops 2"></a></li>
+                                                title="Call of Duty 9 - Black Ops 2"></a></li>
                               <li><a href="https://vandal.elespanol.com/juegos/ps4/call-of-duty-black-ops-iii/30391#p-73"
                                           target="_blank"><img
                                                 src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/311210/header.jpg?t=1748022663"
-                                                title="Call of Duty Black Ops 3"></a></li>
+                                                title="Call of Duty 12 - Black Ops 3"></a></li>
                         </ul>
                   </section>
                   <section class=grupo-juegos>
-                        <h4 Precio="3000" id="CallofDutyCompletePack"><a href="#CallofDutyCompletePack">Call of Duty
+                        <h4 Precio="3400" id="CallofDutyCompletePack"><a href="#CallofDutyCompletePack">Call of Duty
                                     Complete Pack</a>
                         </h4>
                         <ul class="listajuegos">
                               <li><a href="https://store.steampowered.com/app/2620/Call_of_Duty/" target="_blank"><img
                                                 src="https://cdn.cloudflare.steamstatic.com/steam/apps/2640/header.jpg"
-                                                title="Call Of Duty 1 - United Offensive Expansion Pack"></a></li>
+                                                title="Call of Duty 1 - United Offensive Expansion Pack"></a>
+                              </li>
                               <li><a href="https://store.steampowered.com/app/2630/Call_of_Duty_2/" target="_blank"><img
                                                 src="https://gepig.com/game_cover_460w/342.jpg"
-                                                title="Call Of Duty 2"></a></li>
-                              <li><a href="https://store.steampowered.com/app/10090/Call_of_Duty_World_at_War/"
-                                          target="_blank"><img
-                                                src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/10090/capsule_616x353.jpg?t=1654830025"
-                                                title="Call of Duty 5 World at War"></a></li>
-                              <li><a href="https://store.steampowered.com/agecheck/app/476600/" target="_blank"><img
-                                                src="https://gaming-cdn.com/images/products/2056/orig/call-of-duty-world-war-ii-pc-juego-steam-europe-cover.jpg?v=1746001894"
-                                                title="Call of Duty WWII"></a>
+                                                title="Call Of Duty 2 (2.4 GB)"></a>
+                              </li>
                               <li><a href="https://store.steampowered.com/app/7940/Call_of_Duty_4_Modern_Warfare_2007/"
                                           target="_blank"><img
                                                 src="https://gpstatic.com/acache/22/23/1/us/t620x300-c994e623b7a30d886cd0115fe501f4b7.jpg"
-                                                title="CALL OF DUTY MW CoD4X"></a></li>
+                                                title="Call of Duty 4 - Modern Warfare"></a>
+                              </li>
+                              <li><a href="https://store.steampowered.com/app/10090/Call_of_Duty_World_at_War/"
+                                          target="_blank"><img
+                                                src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/10090/capsule_616x353.jpg?t=1654830025"
+                                                title="Call of Duty 5 - World at War"></a>
+                              </li>
                               <li><a href="https://store.steampowered.com/app/10180/Call_of_Duty_Modern_Warfare_2_2009/"
                                           target="_blank"><img
                                                 src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/10180/capsule_616x353.jpg?t=1654809646"
-                                                title="CALL OF DUTY MW2"></a></li>
-                              <li><a href="https://store.steampowered.com/app/115300/Call_of_Duty_Modern_Warfare_3_2011/"
-                                          target="_blank"><img src="https://cdn.gracza.pl/i/h/1/147768000.jpg"
-                                                title="CALL OF DUTY MW3"></a></li>
-                              <li><a href="https://store.steampowered.com/agecheck/app/209160/" 
-							  
-										  target="_blank"><img
-                                                src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/209160/capsule_616x353.jpg?t=1748043672"
-                                                title="Call of Duty Ghosts"></a>
+                                                title="Call of Duty 6 - Modern Warfare 2"></a>
                               </li>
-                              <li><a href="https://store.steampowered.com/agecheck/app/209650/" 
-										  target="_blank"><img
-												src="https://images.steamusercontent.com/ugc/936056295572964540/289A09863045DDE485E90C6869054E46D0475F06/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false"
-                                                title="Call of Duty Advanced Warfare"></a>
-                              </li>							  
                               <li><a href="https://store.steampowered.com/app/42700/Call_of_Duty_Black_Ops/"
                                           target="_blank"><img
                                                 src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/42700/header.jpg?t=1654809667"
-                                                title="Call of Duty Black Ops"></a></li>
+                                                title="Call of Duty 7 - Black Ops)"></a>
+                              </li>
+                              <li><a href="https://store.steampowered.com/app/115300/Call_of_Duty_Modern_Warfare_3_2011/"
+                                          target="_blank"><img src="https://cdn.gracza.pl/i/h/1/147768000.jpg"
+                                                title="Call of Duty 8 - Modern Warfare 3"></a>
+                              </li>
                               <li><a href="https://store.steampowered.com/app/202970/Call_of_Duty_Black_Ops_II/"
                                           target="_blank"><img
                                                 src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/202970/capsule_616x353.jpg?t=1654830020"
-                                                title="Call of Duty Black Ops 2"></a></li>
-                              <li><a href="https://vandal.elespanol.com/juegos/ps4/call-of-duty-black-ops-iii/30391#p-73"
+                                                title="Call of Duty 9 - Black Ops 2"></a>
+                              </li>
+                              <li><a href="https://store.steampowered.com/agecheck/app/209160/" target="_blank"><img
+                                                src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/209160/capsule_616x353.jpg?t=1748043672"
+                                                title="Call of Duty 10 - Ghosts"></a>
+                              </li>
+                              <li class="juegosNuevos precio4 crack" Tconex="Offline, LAN, Online" Genero="Shooter"
+                                    Tamano="65.50"><a href="https://store.steampowered.com/agecheck/app/209650/"
+                                          target="_blank"><img
+                                                src="https://images.steamusercontent.com/ugc/936056295572964540/289A09863045DDE485E90C6869054E46D0475F06/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false"
+                                                title="Call of Duty 11 - Advanced Warfare"></a>
+                              </li>
+                              <li>
+                                    <a href="https://vandal.elespanol.com/juegos/ps4/call-of-duty-black-ops-iii/30391#p-73"
                                           target="_blank"><img
                                                 src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/311210/header.jpg?t=1748022663"
-                                                title="Call of Duty Black Ops 3"></a></li>
+                                                title="Call of Duty 12 - Black Ops 3 (68.2 GB) (LAN, Online)"></a>
+                              </li>
+                              <li><a href="https://store.steampowered.com/agecheck/app/476600/" target="_blank"><img
+                                                src="https://gaming-cdn.com/images/products/2056/orig/call-of-duty-world-war-ii-pc-juego-steam-europe-cover.jpg?v=1746001894"
+                                                title="Call of Duty 14 - WWII"></a>
+                              </li>
+                              <li>
+                                    <a href="https://store.steampowered.com/agecheck/app/2000950/" target="_blank"><img
+                                                src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2000950/capsule_616x353.jpg?t=1678294805"
+                                                title="Call of Duty 16 - Modern Warfare 2019 Multiplayer-Warzone"></a>
+                              </li>
                         </ul>
                   </section>
                   <section class=grupo-juegos>
-                        <h4 Precio="600" id="CounterStrikePack"><a href="#CounterStrikePack">Counter Strike Pack</a>
+                        <h4 Precio="680" id="CounterStrikePack"><a href="#CounterStrikePack">Counter Strike Pack</a>
                         </h4>
                         <ul class="listajuegos">
                               <li><a href="https://store.steampowered.com/app/10/CounterStrike/" target="_blank"><img
@@ -333,29 +364,23 @@
                         </ul>
                   </section>
                   <section class=grupo-juegos>
-                        <h4 Precio="190" id="EmpireEarthTrilogyPack"><a
-                                    href="#EmpireEarthTrilogyPack">Empire Earth Trilogy Pack</a></h4>
+                        <h4 Precio="190" id="EmpireEarthTrilogyPack"><a href="#EmpireEarthTrilogyPack">Empire Earth
+                                    Trilogy Pack</a></h4>
                         <ul class="listajuegos">
-                              <li><a
-                                          href="https://www.gog.com/en/game/empire_earth_gold_edition"
-                                          target="_blank"><img
+                              <li><a href="https://www.gog.com/en/game/empire_earth_gold_edition" target="_blank"><img
                                                 src="img/portadasjuegosfaltantes/Empire Earth.jpg"
                                                 title="Empire Earth - NeoEE Edition"></a>
-                              </li>		
-                              <li><a
-                                          href="https://www.gog.com/en/game/empire_earth_2_gold"
-                                          target="_blank"><img
+                              </li>
+                              <li><a href="https://www.gog.com/en/game/empire_earth_2_gold" target="_blank"><img
                                                 src="https://gametarget.ru/wp-content/uploads/2018/09/Empire-Earth-II.jpg"
                                                 title="Empire Earth II Gold Edition"></a>
-                              </li>			
-                              <li><a
-                                          href="https://www.gog.com/en/game/empire_earth_3"
-                                          target="_blank"><img
+                              </li>
+                              <li><a href="https://www.gog.com/en/game/empire_earth_3" target="_blank"><img
                                                 src="https://images.gog-statics.com/2893a2466b3e9ce244da463a6745c152c9c6f8975fa7c13591b9fca47f7d228e.jpg"
                                                 title="Empire Earth III (4.6 GB) (LAN)"></a>
                               </li>
-							  </ul>
-                  </section>				  
+                        </ul>
+                  </section>
                   <section class=grupo-juegos>
                         <h4 Precio="1000" id="FightingGamesPack"><a href="#FightingGamesPack">Fighting Games Pack</a>
                         </h4>
@@ -807,10 +832,9 @@
                                           target="_blank"><img
                                                 src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/952070/capsule_616x353.jpg?t=1682298836"
                                                 title="Resident Evil - Resistance"></a></li>
-							  <li<a href="https://store.steampowered.com/app/390340/Umbrella_Corps/"
-                                          target="_blank"><img
-                                                src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/390340/header.jpg?t=1728439260"
-                                                title="Umbrella Corps"></a></li>
+                              <li<a href="https://store.steampowered.com/app/390340/Umbrella_Corps/" target="_blank">
+                                    <img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/390340/header.jpg?t=1728439260"
+                                          title="Umbrella Corps"></a></li>
                         </ul>
                   </section>
                   <section class=grupo-juegos>

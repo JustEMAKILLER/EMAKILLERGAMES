@@ -124,7 +124,8 @@ li img {
 }
 
 li:hover .add-button,
-li:hover .remove-button {
+li:hover .remove-button,
+li:hover .regalo-button {
 	display: block;
 }
 
@@ -168,10 +169,12 @@ ul img:hover {
 
 /* Botones */
 .add-button,
-.remove-button {
+.remove-button,
+.regalo-button {
 	display: none;
 	z-index: 100;
 	position: absolute;
+	padding-right: 9%;
 	top: 45%;
 	left: 40%;
 	width: 35px;
@@ -185,6 +188,14 @@ ul img:hover {
 
 .remove-button:hover {
 	box-shadow: 2px 2px 10px red;
+}
+
+.regalo-button:hover {
+	box-shadow: 2px 2px 10px gold;
+}
+
+.regalo-button {
+	top: 62%;
 }
 
 .botonelementos {
@@ -241,22 +252,28 @@ ul img:hover {
 
 /* Otros */
 .Activacion {
+	border: solid 8px; 
+	border-radius: 40px;
 	animation: cambiocolorJActiv 2.5s linear infinite;
 }
 
 .busqueda {
 	left: 100%;
-	margin-top: -8%;
+	margin-top: -18.2%;
 	max-width: 45%;
 	scale: 0.75;
 	position: sticky;
 	top: 0%;
 	height: fit-content;
 	z-index: 200;
-	display: flex;
+	display: none;
 	justify-content: flex-end;
 	padding-right: 10px;
 	pointer-events: none;
+}
+
+.busqueda.visible {
+	display: flex;
 }
 
 .caja {
@@ -283,6 +300,10 @@ ul img:hover {
 
 .cajaresultados li {
 	list-style-type: none;
+}
+
+.cajaRegalos {
+	display: none;
 }
 
 .cajajuegosdescart {
@@ -332,7 +353,7 @@ ul img:hover {
 	height: 40px;
 }
 
-.juegosNuevos{
+.juegosNuevos {
 	border: solid 8px rgb(171, 9, 171);
 }
 
@@ -341,7 +362,8 @@ ul img:hover {
 	height: 100%;
 }
 
-.juegosNuevos, .juegosActualizados {
+.juegosNuevos,
+.juegosActualizados {
 	border-radius: 40px;
 }
 
@@ -427,7 +449,8 @@ ul img:hover {
 }
 
 .vista-tradicional .add-button,
-.vista-tradicional .remove-button {
+.vista-tradicional .remove-button,
+.vista-tradicional .regalo-button {
 	display: inline-block !important;
 	position: relative !important;
 	top: 1% !important;
@@ -635,6 +658,20 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	display: inline-block;
 }
 
+#botonOcultarBusqueda {
+	height: 100%;
+	justify-content: center;
+	border-radius: 20px;
+	background-color: var(--Bl-background-nav);
+	cursor: pointer;
+	transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#botonOcultarBusqueda:hover {
+	background-color: rgb(166, 11, 180);
+	transform: scale(1.05);
+}
+
 #botonEnviarWhatsapp {
 	color: white;
 	display: flex;
@@ -806,7 +843,9 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 }
 
 #calculoprecio,
-#encabezadoDescartados {
+#encabezadoResultados,
+#encabezadoDescartados,
+#encabezadoRegalos {
 	text-align: center;
 	margin: 20px auto;
 	padding: 15px;
@@ -876,8 +915,36 @@ h3 {
 	transform: translateX(-5px);
 }
 
+#divLupa {
+	left: 100%;
+	top: 2%;
+	margin-top: -8%;
+	position: sticky;
+	height: 55px;
+	max-width: fit-content;
+	padding: 8px;
+	box-sizing: border-box;
+	border: 1px solid var(--Bl-border-nav);
+	border-radius: 40%;
+	background-color: var(--Bl-background-nav);
+	box-shadow: 0 0 10px var(--Bl-shadow-nav);
+	z-index: 200;
+	transition: all 0.5s ease;
+	cursor: pointer;
+}
+
+#divLupa:hover {
+	transform: scale(1.1);
+	box-shadow: 2px 2px 10px purple;
+}
+
 #EncabezadoJnewAct.mostrar {
 	display: block !important;
+}
+
+#lupa {
+	width: 100%;
+	height: 100%;
 }
 
 #texto {

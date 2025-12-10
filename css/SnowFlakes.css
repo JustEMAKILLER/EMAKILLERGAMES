@@ -1,0 +1,9 @@
+        .snowflake {
+            position: fixed;
+            background-color: #fff;
+            border-radius: 50%;
+            pointer-events: none;
+            /* So it doesn't interfere with interactions */
+            z-index: 999999;
+            /* High z-index to ensure it's on top of other elements */
+        }

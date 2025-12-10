@@ -10,8 +10,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Función para crear botones de adición
 function crearBotonesAdicion() {
-    document.querySelectorAll('.listajuegos li:not(#resultados li):not(#juegosdescartados li)').forEach(producto => {
+    document.querySelectorAll('.listajuegos li:not(#resultados li):not(#juegosdescartados li):not(#regalos li)').forEach(producto => {
         reconstruirBotonPrincipal(producto);
+        reconstruirBotonRegalo(producto);
     });
 }
 
@@ -45,12 +46,37 @@ function agregarIconosFiltrosAJuegos() {
             iconosExistente.remove();
         }
 
-        // Obtener conexiones y géneros del juego
-        const conexiones = (li.getAttribute('Tconex') || '').split(',').map(c => c.trim());
-        const generos = (li.getAttribute('Genero') || '').split(',').map(g => g.trim());
+        // Obtener filtros juego
+        const conexiones = (li.getAttribute('Tconex') || '')
+            .split(',')
+            .map(c => c.trim())
+            .filter(c => c !== '');
+
+        const generos = (li.getAttribute('Genero') || '')
+            .split(',')
+            .map(g => g.trim())
+            .filter(g => g !== '');
+        let otrosFiltros = [];
+
+        const clases = Array.from(li.classList);
+
+        // MODS → detectar pocosMods o muchosMods
+        if (clases.includes("pocosMods") || clases.includes("muchosMods")) {
+            otrosFiltros.push("Contiene mods");
+        }
+
+        // Si tiene Servidor Dedicado (servidor)
+        if (clases.includes("servidor")) {
+            otrosFiltros.push("Contiene Servidor Dedicado");
+        }
+
+        // Si el juego no está probado (noProbado)
+        if (clases.includes("noProbado")) {
+            otrosFiltros.push("No probado");
+        }
 
         // Crear contenedor de iconos solo si hay algo que mostrar
-        if (conexiones.length > 0 || generos.length > 0) {
+        if (conexiones.length > 0 || generos.length > 0 || otrosFiltros.length > 0) {
             const iconosContainer = document.createElement('div');
             iconosContainer.className = 'li-iconos-filtros';
 
@@ -79,6 +105,18 @@ function agregarIconosFiltrosAJuegos() {
                     icono.src = `img/filtros/${genero}.png`;
                     icono.alt = genero;
                     icono.title = genero;
+                    iconosContainer.appendChild(icono);
+                }
+            });
+
+            // Añadir iconos de los otros filtros
+            otrosFiltros.forEach(otroFiltro => {
+                if (otroFiltro) {
+                    const icono = document.createElement('img');
+                    icono.className = 'li-icono-filtro';
+                    icono.src = `img/filtros/${otroFiltro}.png`;
+                    icono.alt = otroFiltro;
+                    icono.title = otroFiltro;
                     iconosContainer.appendChild(icono);
                 }
             });
@@ -118,6 +156,15 @@ function agregarListenersFiltros() {
             aplicarFiltrosCombinados();
         });
     });
+
+    document.querySelectorAll('#otros-filtros input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('change', function () {
+            document.querySelectorAll('.listajuegos li').forEach(li => {
+                delete li.dataset.forceHidden;
+            });
+            aplicarFiltrosCombinados();
+        });
+    });
 }
 
 // Agregar los listeners a las imágenes de los botones del menú de juegos
@@ -136,11 +183,11 @@ function agregarPreciosAJuegos() {
             precio = juego.getAttribute('Precio');
         }
         else {
-            if (juego.classList.contains("precio1")) precio += 50;
-            if (juego.classList.contains("precio2")) precio += 100;
-            if (juego.classList.contains("precio3")) precio += 200;
-            if (juego.classList.contains("precio4")) precio += 300;
-            if (juego.classList.contains("precio5")) precio += 400;
+            if (juego.classList.contains("precio1")) precio += 50; // 0 GB Y <= 5 GB
+            if (juego.classList.contains("precio2")) precio += 100; //+ 5 GB Y <= 10 GB
+            if (juego.classList.contains("precio3")) precio += 200; // 10 GB Y <= 50 GB
+            if (juego.classList.contains("precio4")) precio += 300; // + 50 GB Y <= 80 GB
+            if (juego.classList.contains("precio5")) precio += 400; // + 80 GB
             if (juego.classList.contains("crack")) precio += 100;
             if (juego.classList.contains("pocosMods")) precio += 50;
             if (juego.classList.contains("muchosMods")) precio += 100;
@@ -219,6 +266,12 @@ function desmarcarCheckboxes() {
     checkboxesgenero.forEach(checkbox => {
         checkbox.checked = false;
     });
+
+    const otroscheckboxes = document.querySelectorAll('#otros-filtros input[name="otros"]');
+    otroscheckboxes.forEach(checkbox => {
+        checkbox.checked = false;
+    });
+
     aplicarFiltrosCombinados();
 }
 
@@ -234,44 +287,29 @@ function hayDescartados() {
     juegosdescartadosDiv.style.display = listaDescartados.length > 0 ? "block" : "none";
 }
 
-// Función para mover un producto al div de resultados
-function moverProducto(producto) {
+// Event listener para detectar cuando el usuario modifica el precio
+document.getElementById("buscarprecio").addEventListener("input", function () {
+
+    // Si el usuario modifica el precio, resetear a verde
+    this.classList.remove("amarillo", "rojo");
+});
+
+// Función para agregar un producto al div de resultados
+function agregarProducto(producto) {
     const resultadosDiv = document.getElementById("resultados");
-    const listaResultados = resultadosDiv.querySelector("ul");
-    const calculoprecio = document.getElementById("calculoprecio");
-    const precioJuego = parseFloat(producto.getAttribute("Precio"));
-    const inputPrecio = document.getElementById("buscarprecio");
-    let precioMax = parseFloat(inputPrecio.value);
+    const listaResultados = resultadosDiv.querySelector('ul:first-of-type');
 
-    listaResultados.style.display = "flex";
-    calculoprecio.style.display = "block";
-
-    // Eliminar botón de añadir si existe
+    // Eliminar botones existentes
     const addButton = producto.querySelector('.add-button');
+    const regaloButton = producto.querySelector('.regalo-button');
     if (addButton) addButton.remove();
+    if (regaloButton) regaloButton.remove();
 
-    // Crear botón de eliminar si no existe
-    if (!producto.querySelector('.remove-button')) {
-        const removeButton = crearBoton("x", "remove-button", "red", function () {
-            devolverProducto(producto);
-        });
-        producto.appendChild(removeButton);
-    }
+    // Reconstruir botones para resultados
+    reconstruirBotonResultado(producto);
+    reconstruirBotonRegalo(producto);
 
     listaResultados.appendChild(producto);
-    if (!isNaN(precioMax)) {
-        const nuevoPrecio = precioMax - precioJuego;
-        inputPrecio.value = nuevoPrecio;
-
-        // Cambiar color según el valor
-        if (nuevoPrecio <= 0) {
-            inputPrecio.classList.remove("amarillo");
-            inputPrecio.classList.add("rojo");
-        } else {
-            inputPrecio.classList.remove("rojo");
-            inputPrecio.classList.add("amarillo");
-        }
-    }
 
     ordenarListaAlfabeticamente(listaResultados);
     hayDescartados();
@@ -286,37 +324,152 @@ function moverProducto(producto) {
     }
 }
 
-// Event listener para detectar cuando el usuario modifica el precio
-document.getElementById("buscarprecio").addEventListener("input", function () {
+/**
+ * Función para agregar un juego como regalo con validación
+ */
+function agregarComoRegalo(producto) {
+    const resultadosDiv = document.getElementById("resultados");
+    const items = resultadosDiv.querySelectorAll('li:not(#regalos li)');
+    let PrecioJuegos = 0;
 
-    // Si el usuario modifica el precio, resetear a verde
-    this.classList.remove("amarillo", "rojo");
-});
+    if (producto.classList.contains('Activacion')) {
+        alert("Los juegos por Activación no pueden ser seleccionados como regalo");
+        return;
+    }
+
+    // Calcular precio total de juegos (excluyendo activaciones)
+    items.forEach(item => {
+        const precio = parseFloat(item.getAttribute("Precio"));
+        if (!isNaN(precio) && !item.classList.contains('Activacion')) {
+            PrecioJuegos += precio;
+        }
+    });
+
+    // Validar si cumple con el requisito de 500 CUP
+    if (PrecioJuegos < 500) {
+        alert(`Para poder agregar regalos necesita al menos un total de 500 CUP en los juegos que seleccione.\nActualmente tiene un total de: ${PrecioJuegos} CUP en dichos juegos`);
+        return;
+    }
+
+    // Calcular bono de regalo disponible
+    const cantidadDe500 = Math.floor(PrecioJuegos / 500);
+    const bonoDisponible = cantidadDe500 * 150;
+
+    // Calcular bono ya utilizado
+    const regalosDiv = document.getElementById("regalos");
+    const regalosActuales = regalosDiv.querySelectorAll('li');
+    let bonoUtilizado = 0;
+
+    regalosActuales.forEach(regalo => {
+        const precioRegalo = parseFloat(regalo.getAttribute("Precio"));
+        if (!isNaN(precioRegalo)) {
+            bonoUtilizado += precioRegalo;
+        }
+    });
+
+    const bonoRestante = bonoDisponible - bonoUtilizado;
+
+    // Obtener precio del juego que se quiere agregar
+    const precioJuego = parseFloat(producto.getAttribute("Precio"));
+
+    // Validar que el juego no supere el bono restante
+    if (precioJuego > bonoRestante) {
+        alert(`No puede agregar este juego como regalo porque supera el bono disponible.\n\n` +
+            `Bono disponible: ${bonoDisponible} CUP\n` +
+            `Bono utilizado: ${bonoUtilizado} CUP\n` +
+            `Bono restante: ${bonoRestante} CUP\n` +
+            `Precio del juego: ${precioJuego} CUP\n\n` +
+            `Seleccione un juego de menor precio o elimine algunos regalos actuales.`);
+        return;
+    }
+
+    // Si cumple todos los requisitos, agregar como regalo
+    agregarRegalo(producto);
+}
+
+// Función para agregar un producto al div de regalos
+function agregarRegalo(producto) {
+    const regalosDiv = document.getElementById("regalos");
+    const listaRegalos = regalosDiv.querySelector("ul");
+    const calculoprecio = document.getElementById("calculoprecio");
+
+    listaRegalos.style.display = "flex";
+    calculoprecio.style.display = "block";
+    regalosDiv.style.display = "block"; // Asegurar que se muestre
+
+    // Eliminar botones existentes
+    const addButton = producto.querySelector('.add-button');
+    const regaloButton = producto.querySelector('.regalo-button');
+    if (addButton) addButton.remove();
+    if (regaloButton) regaloButton.remove();
+
+    // Crear botón de eliminar
+    if (!producto.querySelector('.remove-button')) {
+        const removeButton = crearBoton("🗑️", "remove-button", "red", function () {
+            eliminarRegalo(producto);
+        });
+        producto.appendChild(removeButton);
+    }
+
+    listaRegalos.appendChild(producto);
+    ordenarListaAlfabeticamente(listaRegalos);
+    actualizarPrecioYTamano();
+
+    // Si se mueve (selecciona) alguno de los títulos nuevos o actualizados cuando solo se muestran estos, asegurar que se sigan mostrando
+    if (document.getElementById("botonJNA").classList.contains("BotonBolaVerde")) {
+        mostrarJuegosNewOrAct();
+    }
+    else {
+        busqueda();
+    }
+}
 
 // Función para devolver un producto a juegosdescartadosDiv
 function devolverProducto(producto) {
     const juegosdescartadosDiv = document.getElementById("juegosdescartados");
     const listaDescartados = juegosdescartadosDiv.querySelector('ul');
 
-    // Eliminar botón de eliminar
+    // Eliminar botón de eliminar si existe
     const removeButton = producto.querySelector('.remove-button');
     if (removeButton) removeButton.remove();
 
-    // Crear botón de añadir
-    if (!producto.querySelector('.add-button')) {
-        const addButton = crearBoton("+", "add-button", "blue", function () {
-            moverProducto(producto);
-        });
-        producto.appendChild(addButton);
-    }
-
-
+    // Mover el producto primero
     listaDescartados.appendChild(producto);
+
+    // Reconstruir botones
+    reconstruirBotonDescartado(producto);
+    reconstruirBotonRegalo(producto);
 
     ordenarListaAlfabeticamente(listaDescartados);
     hayDescartados();
     actualizarPrecioYTamano();
 }
+
+
+function eliminarRegalo(producto) {
+    const juegosdescartadosDiv = document.getElementById("juegosdescartados");
+    const listaDescartados = juegosdescartadosDiv.querySelector('ul');
+
+    // Eliminar botón de eliminar del regalo
+    const removeButton = producto.querySelector('.remove-button');
+    if (removeButton) removeButton.remove();
+
+    // Mover el producto primero (sacar de #regalos)
+    listaDescartados.appendChild(producto);
+
+    // Reconstruir botones normales para descartados (ahora closest('#regalos') dará false)
+    reconstruirBotonDescartado(producto);
+    reconstruirBotonRegalo(producto);
+
+    ordenarListaAlfabeticamente(listaDescartados);
+    hayDescartados();
+    actualizarPrecioYTamano();
+
+    // Verificar si quedan regalos después de eliminar este
+    verificarVisibilidadRegalos();
+}
+
+
 
 // Función para mover todos los elementos de juegosdescartadosDiv a resultadosDiv
 function agregarTodo() {
@@ -324,7 +477,7 @@ function agregarTodo() {
     const items = Array.from(juegosdescartadosDiv.querySelectorAll('li'));
 
     items.forEach(item => {
-        moverProducto(item); // Reutilizamos la función para asegurar la lógica consistente
+        agregarProducto(item); // Reutilizamos la función para asegurar la lógica consistente
     });
     juegosdescartadosDiv.style.display = "none";
     actualizarPrecioYTamano();
@@ -336,17 +489,57 @@ function eliminarTodo() {
     const items = Array.from(resultadosDiv.querySelectorAll('li'));
 
     items.forEach(item => {
-        devolverProducto(item); // Reutilizamos la función para asegurar la lógica consistente
+        devolverProducto(item); 
     });
     hayDescartados();
     actualizarPrecioYTamano();
+}
+
+// Función para eliminar todos los regalos y enviarlos a juegosdescartados
+function eliminarRegalos() {
+    const regalosDiv = document.getElementById("regalos");
+    const listaRegalos = regalosDiv.querySelector('ul');
+    const regalos = Array.from(listaRegalos.querySelectorAll('li'));
+
+    if (regalos.length === 0) {
+        return; // No hay regalos para eliminar
+    }
+
+    regalos.forEach(regalo => {
+        eliminarRegalo(regalo);
+    });
+
+    // Ocultar la sección de regalos después de eliminar todos
+    regalosDiv.style.display = "none";
+}
+
+// Función para verificar y actualizar la visibilidad del contenedor de regalos
+function verificarVisibilidadRegalos() {
+    const regalosDiv = document.getElementById("regalos");
+    const listaRegalos = regalosDiv.querySelector('ul');
+    const regalos = listaRegalos.querySelectorAll('li');
+    const calculoprecio = document.getElementById("calculoprecio");
+
+    if (regalos.length === 0) {
+        regalosDiv.style.display = "none";
+        // Ocultar también el cálculo de precio si no hay juegos seleccionados
+        const items = document.querySelectorAll('#resultados > ul li');
+        if (items.length === 0) {
+            calculoprecio.style.display = "none";
+        }
+    } else {
+        regalosDiv.style.display = "block";
+        calculoprecio.style.display = "block";
+    }
 }
 
 // Función para actualizar el precio y tamaño totales
 function actualizarPrecioYTamano() {
     const resultadosDiv = document.getElementById("resultados");
     const calculoprecio = document.getElementById("calculoprecio");
-    const items = resultadosDiv.querySelectorAll('li');
+    const regalosDiv = document.getElementById("regalos");
+    const items = document.querySelectorAll('#resultados > ul li');
+    const regalos = regalosDiv.querySelectorAll('li');
     let PrecioJuegos = 0;
     let PrecioActivaciones = 0;
     let PrecioTotal = 0;
@@ -361,23 +554,35 @@ function actualizarPrecioYTamano() {
         if (!isNaN(tamano)) TamanoTotal += tamano;
     });
 
+    // Hallar tamaño de los regalos y calcular bono utilizado
+    let bonoUtilizado = 0;
+    regalos.forEach(regalo => {
+        const tamano = parseFloat(regalo.getAttribute("Tamano"));
+        const precio = parseFloat(regalo.getAttribute("Precio"));
+        if (!isNaN(tamano)) TamanoTotal += tamano;
+        if (!isNaN(precio)) bonoUtilizado += precio;
+    });
+
     PrecioTotal = PrecioJuegos + PrecioActivaciones;
 
     // Calcular el regalo (si aplica)
     let textoRegalo = "";
     if (PrecioJuegos >= 500) {
         const cantidadDe500 = Math.floor(PrecioJuegos / 500);
-        const regalo = cantidadDe500 * 150;
-        textoRegalo = ` (${regalo} CUP de regalo disponibles)`;
-        calculoprecio.textContent = "Precio y tamaño totales: " + PrecioTotal + " CUP; " + TamanoTotal.toFixed(2) + " GB" + textoRegalo;
-    }
+        const bonoDisponible = cantidadDe500 * 150;
+        const bonoRestante = bonoDisponible - bonoUtilizado;
 
-    else {
+        textoRegalo = ` + ${bonoDisponible} CUP de regalo (${bonoUtilizado} CUP usados y ${bonoRestante} CUP restantes)`;
+        calculoprecio.textContent = "Precio y tamaño totales: " + PrecioTotal + " CUP; " + TamanoTotal.toFixed(2) + " GB" + textoRegalo;
+    } else {
         calculoprecio.textContent = "Precio y tamaño totales: " + PrecioTotal + " CUP; " + TamanoTotal.toFixed(2) + " GB";
     }
 
     resultadosDiv.style.display = items.length > 0 ? "block" : "none";
     calculoprecio.style.display = items.length > 0 ? "block" : "none";
+
+    // Verificar visibilidad de regalos
+    verificarVisibilidadRegalos();
 }
 
 // Función para ordenar alfabéticamente una lista
@@ -439,6 +644,7 @@ function busqueda() {
     if (filtroNombre !== "") {
         document.querySelectorAll('#filtro-conexion input[name="conexion"]').forEach(cb => cb.checked = false);
         document.querySelectorAll('#filtro-generos input[name="genero"]').forEach(cb => cb.checked = false);
+        document.querySelectorAll('#otros-filtros input[name="otros"]').forEach(cb => cb.checked = false);
     }
 
     // Obtener filtros activos para combinarlos con la búsqueda
@@ -449,6 +655,10 @@ function busqueda() {
     const generosSeleccionados = Array.from(
         document.querySelectorAll('#filtro-generos input[name="genero"]:checked')
     ).map(g => g.value.trim());
+
+    const otrosFiltros = Array.from(
+        document.querySelectorAll('#otros-filtros input[name="otros"]:checked')
+    ).map(h => h.value.trim());
 
     const soloNuevos = document.getElementById("botonJNA").classList.contains("BotonBolaVerde");
 
@@ -487,6 +697,23 @@ function busqueda() {
             if (mostrar && generosSeleccionados.length > 0) {
                 const generosJuego = (producto.getAttribute('Genero') || '').split(',').map(g => g.trim());
                 mostrar = generosSeleccionados.some(g => generosJuego.includes(g));
+            }
+
+            if (mostrar && otrosFiltros.length > 0) {
+                if (mostrar && otrosFiltros.length > 0) {
+                    const clasesJuego = Array.from(producto.classList);
+
+                    // Convertir el filtro "Mods" → coincidir con pocosMods o muchosMods
+                    const coincideMods = otrosFiltros.includes("Mods") &&
+                        (clasesJuego.includes("pocosMods") || clasesJuego.includes("muchosMods"));
+
+                    // Coincidencia directa con clases como "servidor" o "noProbado"
+                    const coincidenciaDirecta = otrosFiltros.some(f => clasesJuego.includes(f));
+
+                    if (!coincideMods && !coincidenciaDirecta) {
+                        mostrar = false;
+                    }
+                }
             }
 
             producto.style.display = mostrar ? "list-item" : "none";
@@ -688,8 +915,14 @@ function cerrarMenu() {
 // Función para enviar el listado de juegos agregados por Whatsapp
 function enviarListado() {
     const resultadosDiv = document.getElementById("resultados");
-    const items = resultadosDiv.querySelectorAll('li');
-    let CantTotalJuegos = items.length;
+    const regalosDiv = document.getElementById("regalos");
+
+    // Obtener juegos normales (excluyendo regalos)
+    const items = resultadosDiv.querySelectorAll('ul:first-of-type li');
+    // Obtener regalos
+    const regalos = regalosDiv.querySelectorAll('li');
+
+    let CantTotalJuegos = items.length + regalos.length;
     let PrecioJuegos = 0;
     let PrecioActivaciones = 0;
     let PrecioTotal = 0;
@@ -697,6 +930,7 @@ function enviarListado() {
 
     let mensaje = (CantTotalJuegos > 1) ? "Hola! Le escribo para solicitar los siguientes " + CantTotalJuegos + " juegos:\n" : "Hola! Le escribo para solicitar el siguiente juego:\n";
 
+    // Agregar juegos normales al mensaje
     items.forEach(item => {
         // Obtener el precio y tamaño del juego
         const precio = parseFloat(item.getAttribute("Precio"));
@@ -717,19 +951,37 @@ function enviarListado() {
         }
     });
 
+    // Agregar regalos al mensaje (si hay)
+    if (regalos.length > 0) {
+        mensaje += "--- REGALOS ---\n";
+
+        regalos.forEach(regalo => {
+            // Obtener el tamaño del regalo
+            const tamano = parseFloat(regalo.getAttribute("Tamano"));
+
+            // Los regalos no suman al precio total, pero sí al tamaño
+            if (!isNaN(tamano)) TamanoTotal += tamano;
+
+            // Obtener el título del juego en ambas vistas (imágenes o texto)
+            let tituloJuego = obtenerTituloJuego(regalo);
+
+            // Agregar el título del juego al mensaje
+            if (tituloJuego) {
+                mensaje += tituloJuego + "\n";
+            }
+        });
+    }
+
     // Calcular el regalo (si aplica)
     let textoRegalo = "";
     if (PrecioJuegos >= 500) {
         const cantidadDe500 = Math.floor(PrecioJuegos / 500);
         const regalo = cantidadDe500 * 150;
-        textoRegalo = ` (${regalo} CUP de regalo disponibles)`;
-        // Agregar el precio total al mensaje
-        mensaje += "Precio y tamaño totales: " + PrecioTotal + " CUP; " + TamanoTotal.toFixed(2) + " GB" + textoRegalo;
+        textoRegalo = ` (${regalo} CUP de regalo aplicados)`;
     }
 
-    else {
-        mensaje += "Precio y tamaño totales: " + PrecioTotal + " CUP; " + TamanoTotal.toFixed(2) + " GB";
-    }
+    // Agregar el precio total al mensaje
+    mensaje += "\nPrecio y tamaño totales: " + PrecioTotal + " CUP; " + TamanoTotal.toFixed(2) + " GB" + textoRegalo;
 
     // Codificar el mensaje para formato URL
     let mensajeURL = encodeURIComponent(mensaje);
@@ -811,19 +1063,29 @@ function cambiarVista() {
  * Reconstruye todos los botones manteniendo sus eventos
  */
 function reconstruirTodosLosBotones() {
-    // 1. Botones en la lista principal
-    document.querySelectorAll('.listajuegos li:not(#resultados li):not(#juegosdescartados li)').forEach(producto => {
+
+    // --- 1. Lista principal ---
+    document.querySelectorAll('.listajuegos li').forEach(producto => {
         reconstruirBotonPrincipal(producto);
+        reconstruirBotonRegalo(producto); // aquí SI se permite regalo
     });
 
-    // 2. Botones en la lista de resultados
-    document.querySelectorAll('#resultados li').forEach(producto => {
+    // --- 2. RESULTADOS (solo el primer UL, NO #regalos) ---
+    const resultadosLista = document.querySelector('#resultados > ul');
+    resultadosLista.querySelectorAll('li').forEach(producto => {
         reconstruirBotonResultado(producto);
+        reconstruirBotonRegalo(producto); // aquí también permitido
     });
 
-    // 3. Botones en la lista de descartados
+    // --- 3. DESCARTADOS ---
     document.querySelectorAll('#juegosdescartados li').forEach(producto => {
         reconstruirBotonDescartado(producto);
+        reconstruirBotonRegalo(producto); // permitido
+    });
+
+    // --- 4. REGALOS (solo botón eliminar, NO llamar a otros) ---
+    document.querySelectorAll('#regalos ul li').forEach(producto => {
+        reconstruirBotonRegaloEliminar(producto);
     });
 }
 
@@ -839,8 +1101,8 @@ function reconstruirBotonPrincipal(producto) {
 
     // Solo crear botón de añadir si no está en resultados/descartados
     if (!producto.closest('#resultados') && !producto.closest('#juegosdescartados')) {
-        const addButton = crearBoton("+", "add-button", "blue", function () {
-            moverProducto(producto);
+        const addButton = crearBoton("🛒", "add-button", "blue", function () {
+            agregarProducto(producto);
         });
         producto.appendChild(addButton);
     }
@@ -858,7 +1120,7 @@ function reconstruirBotonResultado(producto) {
     const existingRemoveButton = producto.querySelector('.remove-button');
     if (existingRemoveButton) existingRemoveButton.remove();
 
-    const removeButton = crearBoton("x", "remove-button", "red", function () {
+    const removeButton = crearBoton("🗑️", "remove-button", "red", function () {
         devolverProducto(producto);
     });
     producto.appendChild(removeButton);
@@ -876,11 +1138,50 @@ function reconstruirBotonDescartado(producto) {
     const existingAddButton = producto.querySelector('.add-button');
     if (existingAddButton) existingAddButton.remove();
 
-    const addButton = crearBoton("+", "add-button", "blue", function () {
-        moverProducto(producto);
+    const addButton = crearBoton("🛒", "add-button", "blue", function () {
+        agregarProducto(producto);
     });
     producto.appendChild(addButton);
 }
+
+/**
+ * Reconstruye botón de regalo para un producto
+ */
+function reconstruirBotonRegalo(producto) {
+    // Eliminar botón de regalo existente si hay
+    const existingRegaloButton = producto.querySelector('.regalo-button');
+    if (existingRegaloButton) existingRegaloButton.remove();
+
+    // Solo crear botón si no está ya en regalos y no es un juego de activación
+    if (!producto.closest('#regalos') && !producto.classList.contains('Activacion')) {
+        const regaloButton = crearBoton("🎁", "regalo-button", "golden", function () {
+            agregarComoRegalo(producto);
+        });
+        producto.appendChild(regaloButton);
+    }
+}
+
+/**
+ * Reconstruye botón para eliminar de regalos
+ */
+function reconstruirBotonRegaloEliminar(producto) {
+
+    // Eliminar cualquier remove-button anterior
+    const botonesEliminar = producto.querySelectorAll('.remove-button');
+    botonesEliminar.forEach(btn => btn.remove());
+
+    // Eliminar el botón de regalo si existe
+    const botonRegalo = producto.querySelector('.regalo-button');
+    if (botonRegalo) botonRegalo.remove();
+
+    // Crear el único botón válido en regalos
+    const removeButton = crearBoton("🗑️", "remove-button", "red", function () {
+        eliminarRegalo(producto);
+    });
+
+    producto.appendChild(removeButton);
+}
+
 
 // Funciones para filtrar por tipo de conexión y género
 function aplicarFiltrosCombinados() {
@@ -905,6 +1206,10 @@ function aplicarFiltrosCombinados() {
     const generosSeleccionados = Array.from(
         document.querySelectorAll('#filtro-generos input[name="genero"]:checked')
     ).map(g => g.value.trim());
+
+    const otrosFiltros = Array.from(
+        document.querySelectorAll('#otros-filtros input[name="otros"]:checked')
+    ).map(h => h.value.trim());
 
     // Modo “solo nuevos/actualizados”
     const soloNuevos = document.getElementById("botonJNA").classList.contains("BotonBolaVerde");
@@ -932,6 +1237,26 @@ function aplicarFiltrosCombinados() {
             const generosJuego = (juego.getAttribute('Genero') || '').split(',').map(g => g.trim());
             const cumpleGenero = generosSeleccionados.some(g => generosJuego.includes(g));
             if (!cumpleGenero) mostrar = false;
+        }
+
+        // --- OTROS FILTROS ---
+        if (mostrar && otrosFiltros.length > 0) {
+            if (mostrar && otrosFiltros.length > 0) {
+                if (mostrar && otrosFiltros.length > 0) {
+                    const clasesJuego = Array.from(juego.classList);
+
+                    // Convertir el filtro "Mods" → coincidir con pocosMods o muchosMods
+                    const coincideMods = otrosFiltros.includes("Mods") &&
+                        (clasesJuego.includes("pocosMods") || clasesJuego.includes("muchosMods"));
+
+                    // Coincidencia directa con clases como "servidor" o "noProbado"
+                    const coincidenciaDirecta = otrosFiltros.some(f => clasesJuego.includes(f));
+
+                    if (!coincideMods && !coincidenciaDirecta) {
+                        mostrar = false;
+                    }
+                }
+            }
         }
 
         // --- FILTRO DE NOMBRE ---
@@ -981,4 +1306,18 @@ function actualizarEncabezados() {
 function mostrarInfoDivInfoJActiv() {
     const infoDiv = document.getElementById('divInfoJActiv');
     infoDiv.classList.toggle('contVisible');
+}
+
+// Mostrar u ocultar entradas de búsqueda
+function mostrarBusqueda(){
+const divLupa = document.getElementById("divLupa");
+const divBusqueda = document.getElementById("busqueda");
+if (divBusqueda.classList.contains("visible")){
+divBusqueda.classList.remove("visible");
+divLupa.style.display = "block";
+}
+else {
+    divLupa.style.display = "none";
+    divBusqueda.classList.add("visible");
+}
 }

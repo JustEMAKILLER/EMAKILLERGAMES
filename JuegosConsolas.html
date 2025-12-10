@@ -7,7 +7,9 @@
   <meta charset="UTF-8">
   <link rel="icon" href="img/icon.png" type="image/x-icon">
   <link rel="stylesheet" href="css/stylesJuegos.css">
+  <link rel="stylesheet" href="css/SnowFlakes.css">
   <script src="js/JuegosPCyConsolas.js" defer></script>
+  <script src="js/SnowFlakes.js"></script>
   <style>
     .encabezadosjuegos {
       border-top: none;
@@ -38,17 +40,24 @@
       <a href="#otrasConsolas"><img src="img/menujuegos/consolas/Otras consolas.png"></a>
     </div>
   </div>
-  <div class="busqueda">
+
+  <!--Entradas de búsqueda-->
+  <div onclick="mostrarBusqueda()" id="divLupa">
+    <img id="lupa" src="img/lupa.png">
+  </div>
+
+  <div id="busqueda" class="busqueda">
     <div id="buscar">
       <div><input type="text" id="buscarnombre" placeholder="Buscar juego..." oninput="busqueda()"><button
           id=botonborrarbusqueda class="botonesbusqueda" onclick="borrarBusqueda()">x</button></div>
       <div><input type="number" id="buscarprecio" min="0" placeholder="Filtrar por precio máximo..."
           oninput="busqueda()"><button id=botonborrarprecio class="botonesbusqueda" onclick="borrarPrecio()">x</button>
       </div>
+      <div id="botonOcultarBusqueda" onclick="mostrarBusqueda()">▲</div>
     </div>
   </div>
   <header>
-    <img id="banner" src="img/Banner_nuevo.jpg">
+    <img id="banner" src="img/EMAKILLERGAMES_Banner_nuevo_warzone.jpg">
     <h1 id=Titulo>Juegos de Consolas</h1>
   </header>
   <main>
@@ -59,9 +68,17 @@
       <ul></ul>
     </div>
     <div class=cajaresultados id="resultados">
-      <h2 id="calculoprecio"></h2><button id="botoneliminatodo" class=botonelementos onclick="eliminarTodo()">
-        Eliminar todo</button>
-      <ul></ul><button id="botonEnviarWhatsapp" onclick="enviarListado()">Enviar listado por Whatsapp</button>
+      <h2 id="encabezadoResultados">🛒Carrito de juegos seleccionados</h2>
+      <button id="botoneliminatodo" class=botonelementos onclick="eliminarTodo()">
+        Eliminar juegos seleccionados</button>
+      <ul></ul>
+      <div class="cajaRegalos" id="regalos" style="margin-top:25px">
+        <h2 id="encabezadoRegalos">🎁Regalos✨</h2>
+        <button id="botonEliminarRegalos" class=botonelementos onclick="eliminarRegalos()">Eliminar regalos</button>
+        <ul></ul>
+      </div>
+      <h2 id="calculoprecio"></h2>
+      <button id="botonEnviarWhatsapp" onclick="enviarListado()">Enviar listado por Whatsapp</button>
     </div>
 
     <!--Contenedores de juegos nuevos/actualizados y cambio de vista-->
@@ -301,8 +318,8 @@
             <li class="consolas" Tamano="3.02"><a href="https://www.ign.com/games/kingdom-hearts-ii"
                 target="_blank"><img src="https://assets-prd.ignimgs.com/2022/01/08/kh2-coverart-b-1641607049266.jpg"
                   title="Kingdom Hearts 2 (3.02 GB) (Emulador incluido)"></a></li>
-            <li class="consolas" Tamano="2.12"><a href="https://www.ign.com/games/monster-hunter-2"
-                target="_blank"><img src="https://m.media-amazon.com/images/M/MV5BYmZjMWZkYjktMWNmNi00OWJiLWJiZmEtOGQwMjgyNGIwNjdkXkEyXkFqcGc@._V1_.jpg"
+            <li class="consolas" Tamano="2.12"><a href="https://www.ign.com/games/monster-hunter-2" target="_blank"><img
+                  src="https://m.media-amazon.com/images/M/MV5BYmZjMWZkYjktMWNmNi00OWJiLWJiZmEtOGQwMjgyNGIwNjdkXkEyXkFqcGc@._V1_.jpg"
                   title="Monster Hunter 2 (2.12 GB) (Emulador incluido)"></a></li>
             <li class="consolas" Tamano="0.84"><a
                 href="https://vandal.elespanol.com/juegos/ps2/shadow-of-the-colossus/1903" target="_blank"><img
