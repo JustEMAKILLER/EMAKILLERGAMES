@@ -188,9 +188,14 @@ svg {
   margin-top: -1px;
 }
 
+.Facebook p, .Whatsapp p{
+margin-bottom: 0;
+}
+
 .Facebook:hover,
 .Whatsapp:hover {
   transform: scale(1.07);
+  cursor: pointer;
 }
 
 
@@ -374,7 +379,7 @@ svg {
 
 #live {
   animation: cambiocolorlive 3.5s linear infinite;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   text-align: center;
   color: blueviolet;
   font-family: "FuenteVirtualDJ", "Arial Narrow", Arial, sans-serif;
