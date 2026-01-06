@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  cargarImagenesLazy();
   agregarClasesEncabezados();
   agregarListenersEncabezados();
   agregarPreciosEncabezados();
@@ -250,4 +251,26 @@ function cambiarVista() {
 function clickEncabezado() {
   borrarBusqueda();
   borrarPrecio();
+}
+
+// Carga suave de imágenes
+function cargarImagenesLazy() {
+  const images = document.querySelectorAll("ul img");
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          observer.unobserve(img);
+        }
+      });
+    },
+    {
+      rootMargin: "100px",
+      // empieza a cargar antes de que entre al viewport
+      threshold: 0.1,
+    }
+  );
+  images.forEach((img) => observer.observe(img));
 }
