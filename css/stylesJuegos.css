@@ -71,7 +71,7 @@ nav {
 	max-width: fit-content;
 	margin-left: -5px;
 	border: 1px solid var(--Bl-border-nav);
-	border-radius: 20px;
+	border-radius: 25px;
 	background-color: var(--Bl-background-nav);
 	box-shadow: 0 0 10px var(--Bl-shadow-nav);
 	z-index: 200;
@@ -183,6 +183,9 @@ ul img:hover {
 	border-radius: 30px;
 }
 
+#resultados .juegosNuevos .remove-button, #resultados .juegosActualizados .remove-button{
+	padding-right: 9.5%;
+}
 .add-button:hover {
 	box-shadow: 2px 2px 10px blue;
 }
@@ -642,7 +645,7 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	padding: 10px;
 	font-size: 1rem;
 	border: none;
-	border-radius: 20px;
+	border-radius: 25px;
 	background-color: var(--Bl-background-nav);
 	color: white;
 	cursor: pointer;
@@ -780,7 +783,7 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	transition: all 0.5s ease;
 	background-color: var(--Bl-background-nav);
 	border: 1px solid var(--Bl-border-nav);
-	border-radius: 20px;
+	border-radius: 25px;
 	box-shadow: 0 0 10px var(--Bl-shadow-nav);
 	pointer-events: auto;
 }
@@ -926,7 +929,7 @@ h3 {
 	padding: 8px;
 	box-sizing: border-box;
 	border: 1px solid var(--Bl-border-nav);
-	border-radius: 40%;
+	border-radius: 40px;
 	background-color: var(--Bl-background-nav);
 	box-shadow: 0 0 10px var(--Bl-shadow-nav);
 	z-index: 200;
