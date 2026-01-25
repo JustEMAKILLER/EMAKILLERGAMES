@@ -40,7 +40,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Bloqueo de iframes externos -->
-    <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none">
+    <meta http-equiv="Content-Security-Policy" 
+      content="default-src 'self'; 
+               script-src 'self'; 
+               style-src 'self' 'unsafe-inline'; 
+               img-src 'self' https: data:;
+               font-src 'self';
+               connect-src 'self'">
 
     <!-- Icono en el navegador -->
     <link rel="icon" href="img/icon.webp" type="image/x-icon">
