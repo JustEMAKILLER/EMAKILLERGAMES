@@ -447,6 +447,7 @@ function agregarRegalo(producto) {
   }
 
   listaRegalos.appendChild(producto);
+  hayDescartados();
   ordenarListaAlfabeticamente(listaRegalos);
   actualizarPrecioYTamano();
 
@@ -621,6 +622,7 @@ function actualizarPrecioYTamano() {
       " CUP; " +
       TamanoTotal.toFixed(2) +
       " GB";
+      eliminarRegalos();  // Eliminar todos los regalos que estén seleccionados si se quitan juegos del carrito
   }
 
   resultadosDiv.style.display = items.length > 0 ? "block" : "none";
