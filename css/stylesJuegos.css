@@ -609,7 +609,7 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	border-radius: 40px;
 	box-shadow: 2px 2px 20px black;
 	background-position: center;
-	background-image: url("../img/flecha-correcta.jpg");
+	background-image: url("../img/flecha-correcta.webp");
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: fixed;

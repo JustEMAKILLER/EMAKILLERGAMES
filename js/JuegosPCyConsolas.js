@@ -106,7 +106,7 @@ function agregarIconosFiltrosAJuegos() {
         if (conexion) {
           const icono = document.createElement("img");
           icono.className = "li-icono-filtro";
-          icono.src = `img/filtros/${conexion}.png`;
+          icono.src = `img/filtros/${conexion}.webp`;
           icono.alt = conexion;
           icono.title = conexion;
           iconosContainer.appendChild(icono);
@@ -118,7 +118,7 @@ function agregarIconosFiltrosAJuegos() {
         if (genero) {
           const icono = document.createElement("img");
           icono.className = "li-icono-filtro";
-          icono.src = `img/filtros/${genero}.png`;
+          icono.src = `img/filtros/${genero}.webp`;
           icono.alt = genero;
           icono.title = genero;
           iconosContainer.appendChild(icono);
@@ -130,7 +130,7 @@ function agregarIconosFiltrosAJuegos() {
         if (otroFiltro) {
           const icono = document.createElement("img");
           icono.className = "li-icono-filtro";
-          icono.src = `img/filtros/${otroFiltro}.png`;
+          icono.src = `img/filtros/${otroFiltro}.webp`;
           icono.alt = otroFiltro;
           icono.title = otroFiltro;
           iconosContainer.appendChild(icono);
@@ -141,7 +141,7 @@ function agregarIconosFiltrosAJuegos() {
       if (li.classList.contains("Activacion")) {
         const icono = document.createElement("img");
         icono.className = "li-icono-filtro";
-        icono.src = "img/candado.png";
+        icono.src = "img/candado.webp";
         icono.alt = "Activación requerida";
         icono.title = "Activación requerida";
         iconosContainer.appendChild(icono);

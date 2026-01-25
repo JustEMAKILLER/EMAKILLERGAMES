@@ -40,7 +40,7 @@ body {
       rgba(252, 0, 0, 0) 37vw,
       rgba(0, 0, 0, 0.999) 37.2vw
     ),
-    url(../img/EMAKILLERGAMES_Banner_nuevo_warzone.jpg);
+    url(../img/EMAKILLERGAMES_Banner_nuevo_warzone.webp);
   color: var(--Bl-svg);
   background-repeat: no-repeat;
   background-position: 0% 0%;
@@ -352,7 +352,7 @@ svg {
 
 #c2 {
     background-image: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), 
-                      url(../img/17913-3840x2160-desktop-4k-kingdom-hearts-wallpaper-image.jpg);
+                      url(../img/17913-3840x2160-desktop-4k-kingdom-hearts-wallpaper-image.webp);
     background-size: cover;
     background-position: center;
 }
@@ -367,7 +367,7 @@ svg {
 
 #c3 {
     background-image: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), 
-                      url(../img/jo89zfzqi9t51.jpg);
+                      url(../img/jo89zfzqi9t51.webp);
     background-size: cover;
     background-position: center;
 }

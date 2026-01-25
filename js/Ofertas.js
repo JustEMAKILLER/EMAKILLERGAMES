@@ -83,6 +83,19 @@ function mostrarBoton() {
   }
 }
 
+// Mostrar u ocultar entradas de búsqueda
+function mostrarBusqueda() {
+  const divLupa = document.getElementById("divLupa");
+  const divBusqueda = document.getElementById("busqueda");
+  if (divBusqueda.classList.contains("visible")) {
+    divBusqueda.classList.remove("visible");
+    divLupa.style.display = "block";
+  } else {
+    divLupa.style.display = "none";
+    divBusqueda.classList.add("visible");
+  }
+}
+
 function busqueda() {
   const maxPrice = parseFloat(document.getElementById("buscarprecio").value);
   const filtroNombre = document
