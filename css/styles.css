@@ -1,21 +1,21 @@
 /* Fuentes */
 @font-face {
-  font-family: 'FuenteImpact';
-  src: url('../fonts/ImpactLTStd.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/ImpactLTStd.woff2') format('woff2'),
-    url('../fonts/ImpactLTStd.woff') format('woff'),
-    url('../fonts/ImpactLTStd.ttf') format('truetype');
+  font-family: "FuenteImpact";
+  src: url("../fonts/ImpactLTStd.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/ImpactLTStd.woff2") format("woff2"),
+    url("../fonts/ImpactLTStd.woff") format("woff"),
+    url("../fonts/ImpactLTStd.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'FuenteVirtualDJ';
-  src: url('../fonts/VirtualDJ.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/VirtualDJ.woff2') format('woff2'),
-    url('../fonts/VirtualDJ.woff') format('woff'),
-    url('../fonts/VirtualDJ.ttf') format('truetype');
+  font-family: "FuenteVirtualDJ";
+  src: url("../fonts/VirtualDJ.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/VirtualDJ.woff2") format("woff2"),
+    url("../fonts/VirtualDJ.woff") format("woff"),
+    url("../fonts/VirtualDJ.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -35,15 +35,17 @@
 
 /* Palabras reservadas */
 body {
-  background: linear-gradient(to bottom,
+  background: linear-gradient(
+      to bottom,
       rgba(252, 0, 0, 0) 37vw,
-      rgba(0, 0, 0, 0.999)37.2vw),
+      rgba(0, 0, 0, 0.999) 37.2vw
+    ),
     url(../img/EMAKILLERGAMES_Banner_nuevo_warzone.jpg);
   color: var(--Bl-svg);
   background-repeat: no-repeat;
   background-position: 0% 0%;
   background-size: 100%;
-  font-family: 'FuenteImpact', Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: "FuenteImpact", Haettenschweiler, "Arial Narrow Bold", sans-serif;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -76,9 +78,11 @@ svg {
   padding: 20px;
   border: 1px solid var(--Bl-border-title);
   border-radius: 20px;
-  background: linear-gradient(to top,
-      rgba(0, 0, 0, 0) 10%,
-      rgba(66, 1, 58, 0.295) 90%);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0) 10%,
+    rgba(66, 1, 58, 0.295) 90%
+  );
   box-shadow: inset 0 0 30px var(--Bl-shadow-title);
   text-align: center;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
@@ -91,9 +95,11 @@ svg {
   text-align: center;
   border: 1px solid var(--Bl-border-title);
   border-radius: 20px;
-  background: linear-gradient(to top,
-      rgba(0, 0, 0, 0) 10%,
-      rgba(54, 2, 38, 0.295) 90%);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0) 10%,
+    rgba(54, 2, 38, 0.295) 90%
+  );
   box-shadow: inset 0 0 30px var(--Bl-shadow-title);
   padding-left: 10px;
   padding-right: 10px;
@@ -107,9 +113,11 @@ svg {
   scale: 0.8;
   border: 1px solid var(--Bl-border-title);
   border-radius: 20px;
-  background: linear-gradient(to top,
-      rgba(0, 0, 0, 0) 10%,
-      rgba(54, 2, 38, 0.295) 90%);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0) 10%,
+    rgba(54, 2, 38, 0.295) 90%
+  );
   box-shadow: inset 0 0 30px var(--Bl-shadow-title);
   text-align: center;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-seri;
@@ -131,6 +139,7 @@ svg {
   transition: box-shadow 0.5s ease, transform 0.5s ease;
   z-index: 1;
   overflow: hidden;
+  position: relative;
 }
 
 .cajasjuegos:hover {
@@ -139,22 +148,65 @@ svg {
   box-shadow: 2px 2px 6px blue;
 }
 
-
 .cajasjuegos p {
-  user-select: none;
-  position: relative;
-  top: 30px;
-  width: 100%;
-  height: 100%;
+    user-select: none;
+    position: relative;
+    top: 30px;
+    width: 100%;
+    height: 100%;
+    z-index: 2; 
+    color: #ffffff;
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.cajasjuegos:hover p {
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
 }
 
 .cajasjuegos a {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    text-decoration: none;
+}
+
+.cajasjuegos .fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    z-index: 1;
+}
+
+.cajasjuegos .frente {
+    display: none; 
+    position: absolute;
+    height: 120px;
+    width: 100px;
+    z-index: 3;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
 }
 
 .cajasjuegos:hover .frente {
-  display: inline;
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cajasjuegos:hover .fondo {
+    filter: brightness(1.2);
 }
 
 .contactos {
@@ -168,7 +220,6 @@ svg {
   font-weight: bold;
   gap: 40px;
 }
-
 
 .contactos a {
   width: 200px;
@@ -190,8 +241,9 @@ svg {
   margin-top: -1px;
 }
 
-.Facebook p, .Whatsapp p{
-margin-bottom: 0;
+.Facebook p,
+.Whatsapp p {
+  margin-bottom: 0;
 }
 
 .Facebook:hover,
@@ -199,7 +251,6 @@ margin-bottom: 0;
   transform: scale(1.07);
   cursor: pointer;
 }
-
 
 .Download {
   display: flex;
@@ -219,7 +270,7 @@ margin-bottom: 0;
   gap: 10px;
   text-decoration: none;
   color: var(--Bl-color-title);
-  font-family: 'FuenteImpact', Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: "FuenteImpact", Haettenschweiler, "Arial Narrow Bold", sans-serif;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease;
 }
@@ -252,12 +303,11 @@ margin-bottom: 0;
 .kjasjuegos a {
   color: rgb(255, 255, 255);
   text-decoration: none;
-  font-family: 'FuenteImpact', Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: "FuenteImpact", Haettenschweiler, "Arial Narrow Bold", sans-serif;
   text-align: left;
   font-size: 250%;
   text-shadow: 10px 10px 10px black;
 }
-
 
 .kjasjuegos p {
   width: 50%;
@@ -288,28 +338,44 @@ margin-bottom: 0;
 }
 
 #c1 {
-  background-image: url(../img/video-game-payday-2-dallas-loading-gun-lcsno22cr7nxmv4d.jpg);
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), 
+                      url(../img/video-game-payday-2-dallas-loading-gun-lcsno22cr7nxmv4d.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+#c1 .frente {
+    top: 30%;
+    left: 5%;
+    animation: flotar 2s ease-in-out infinite alternate;
 }
 
 #c2 {
-  background-image: url(../img/17913-3840x2160-desktop-4k-kingdom-hearts-wallpaper-image.jpg);
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), 
+                      url(../img/17913-3840x2160-desktop-4k-kingdom-hearts-wallpaper-image.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+#c2 .frente {
+    top: 25%;
+    left: 5%;
+    width: 110px;
+    height: 130px;
+    animation: flotar 2.5s ease-in-out infinite alternate;
 }
 
 #c3 {
-  background-image: url(../img/jo89zfzqi9t51.jpg);
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), 
+                      url(../img/jo89zfzqi9t51.jpg);
+    background-size: cover;
+    background-position: center;
 }
 
-#payday {
-  top: -58%;
-}
-
-#sora {
-  width: 100px;
-  top: -55%;
-}
-
-#Among {
-  top: -58%;
+#c3 .frente {
+    top: 35%;
+    left: 8%;
+    animation: flotar 3s ease-in-out infinite alternate;
 }
 
 #fotoMega {
@@ -380,8 +446,8 @@ margin-bottom: 0;
   left: 0%;
 }
 
-#live {
-  animation: cambiocolorlive 3.5s linear infinite;
+#fraseFooter {
+  animation: cambioColorFraseFooter 3.5s linear infinite;
   font-size: 0.8rem;
   text-align: center;
   color: blueviolet;
@@ -389,20 +455,29 @@ margin-bottom: 0;
 }
 
 /* Animaciones */
-@keyframes cambiocolorlive {
+@keyframes cambioColorFraseFooter {
   0% {
-    color: red
+    color: red;
   }
 
   33% {
-    color: rgb(26, 102, 123)
+    color: rgb(26, 102, 123);
   }
 
   86% {
-    color: #FAAD00
+    color: #faad00;
   }
 
   100% {
-    color: red
+    color: red;
   }
+}
+
+@keyframes flotar {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-20px) rotate(3deg);
+    }
 }
