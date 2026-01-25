@@ -570,10 +570,15 @@ function verificarVisibilidadRegalos() {
 // Función para actualizar el precio y tamaño totales
 function actualizarPrecioYTamano() {
   const resultadosDiv = document.getElementById("resultados");
-  const calculoprecio = document.getElementById("calculoprecio");
   const regalosDiv = document.getElementById("regalos");
+  const calculoprecio = document.getElementById("calculoprecio");
+
+  // Obtener juegos normales (excluyendo regalos)
   const items = document.querySelectorAll("#resultados > ul li");
+
+  // Obtener regalos
   const regalos = regalosDiv.querySelectorAll("li");
+
   let PrecioJuegos = 0;
   let PrecioActivaciones = 0;
   let PrecioTotal = 0;
@@ -622,7 +627,7 @@ function actualizarPrecioYTamano() {
       " CUP; " +
       TamanoTotal.toFixed(2) +
       " GB";
-      eliminarRegalos();  // Eliminar todos los regalos que estén seleccionados si se quitan juegos del carrito
+    eliminarRegalos(); // Eliminar todos los regalos que estén seleccionados si se quitan juegos del carrito
   }
 
   resultadosDiv.style.display = items.length > 0 ? "block" : "none";
@@ -991,11 +996,11 @@ function cerrarMenu() {
 
 // Función para enviar el listado de juegos agregados por Whatsapp
 function enviarListado() {
-  const resultadosDiv = document.getElementById("resultados");
   const regalosDiv = document.getElementById("regalos");
 
   // Obtener juegos normales (excluyendo regalos)
-  const items = resultadosDiv.querySelectorAll("ul:first-of-type li");
+  const items = document.querySelectorAll("#resultados > ul li");
+
   // Obtener regalos
   const regalos = regalosDiv.querySelectorAll("li");
 
@@ -1059,8 +1064,18 @@ function enviarListado() {
   let textoRegalo = "";
   if (PrecioJuegos >= 500) {
     const cantidadDe500 = Math.floor(PrecioJuegos / 500);
-    const regalo = cantidadDe500 * 150;
-    textoRegalo = ` (${regalo} CUP de regalo aplicados)`;
+    const bonoDisponible = cantidadDe500 * 150;
+
+    // Calcular bono utilizado (suma de precios de regalos)
+    let bonoUtilizado = 0;
+    regalos.forEach((regalo) => {
+      const precioRegalo = parseFloat(regalo.getAttribute("Precio"));
+      if (!isNaN(precioRegalo)) {
+        bonoUtilizado += precioRegalo;
+      }
+    });
+
+    textoRegalo = ` (${bonoUtilizado} CUP de regalo aplicados de ${bonoDisponible} CUP disponibles)`;
   }
 
   // Agregar el precio total al mensaje
