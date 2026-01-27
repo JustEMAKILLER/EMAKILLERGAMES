@@ -430,13 +430,19 @@ function agregarRegalo(producto) {
 
   listaRegalos.style.display = "flex";
   calculoprecio.style.display = "block";
-  regalosDiv.style.display = "block"; // Asegurar que se muestre
+  regalosDiv.style.display = "block";
 
   // Eliminar botones existentes
-  const addButton = producto.querySelector(".add-button");
   const regaloButton = producto.querySelector(".regalo-button");
-  if (addButton) addButton.remove();
   if (regaloButton) regaloButton.remove();
+
+  // Crear botón de añadir
+  if (!producto.querySelector(".add-button")) {
+    const addButton = crearBoton("🛒", "add-button", "blue", function () {
+      agregarProducto(producto);
+    });
+    producto.appendChild(addButton);
+  }
 
   // Crear botón de eliminar
   if (!producto.querySelector(".remove-button")) {
@@ -1170,25 +1176,25 @@ function reconstruirTodosLosBotones() {
   // --- 1. Lista principal ---
   document.querySelectorAll(".listajuegos li").forEach((producto) => {
     reconstruirBotonPrincipal(producto);
-    reconstruirBotonRegalo(producto); // aquí SI se permite regalo
+    reconstruirBotonRegalo(producto);
   });
 
   // --- 2. RESULTADOS (solo el primer UL, NO #regalos) ---
   const resultadosLista = document.querySelector("#resultados > ul");
   resultadosLista.querySelectorAll("li").forEach((producto) => {
     reconstruirBotonResultado(producto);
-    reconstruirBotonRegalo(producto); // aquí también permitido
+    reconstruirBotonRegalo(producto);
   });
 
   // --- 3. DESCARTADOS ---
   document.querySelectorAll("#juegosdescartados li").forEach((producto) => {
     reconstruirBotonDescartado(producto);
-    reconstruirBotonRegalo(producto); // permitido
+    reconstruirBotonRegalo(producto);
   });
 
-  // --- 4. REGALOS (solo botón eliminar, NO llamar a otros) ---
+  // --- 4. REGALOS ---
   document.querySelectorAll("#regalos ul li").forEach((producto) => {
-    reconstruirBotonRegaloEliminar(producto);
+    reconstruirBotonesJuegosRegalos(producto);
   });
 }
 
@@ -1260,7 +1266,6 @@ function reconstruirBotonRegalo(producto) {
 
   // Solo crear botón si no está ya en regalos y no es un juego de activación
   if (
-    !producto.closest("#regalos") &&
     !producto.classList.contains("Activacion")
   ) {
     const regaloButton = crearBoton(
@@ -1276,18 +1281,26 @@ function reconstruirBotonRegalo(producto) {
 }
 
 /**
- * Reconstruye botón para eliminar de regalos
+ * Reconstruye botones para regalos
  */
-function reconstruirBotonRegaloEliminar(producto) {
+function reconstruirBotonesJuegosRegalos(producto) {
   // Eliminar cualquier remove-button anterior
   const botonesEliminar = producto.querySelectorAll(".remove-button");
   botonesEliminar.forEach((btn) => btn.remove());
+
+  // Eliminar cualquier add-button anterior
+  const existingAddButton = producto.querySelector(".add-button");
+  if (existingAddButton) existingAddButton.remove();
+
+  const addButton = crearBoton("🛒", "add-button", "blue", function () {
+    agregarProducto(producto);
+  });
+  producto.appendChild(addButton);
 
   // Eliminar el botón de regalo si existe
   const botonRegalo = producto.querySelector(".regalo-button");
   if (botonRegalo) botonRegalo.remove();
 
-  // Crear el único botón válido en regalos
   const removeButton = crearBoton("🗑️", "remove-button", "red", function () {
     eliminarRegalo(producto);
   });
