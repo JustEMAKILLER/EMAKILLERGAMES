@@ -42,7 +42,7 @@
     <!-- Bloqueo de iframes externos -->
     <meta http-equiv="Content-Security-Policy" 
       content="default-src 'self'; 
-               script-src 'self'; 
+               script-src 'self' 'unsafe-inline'; 
                style-src 'self' 'unsafe-inline'; 
                img-src 'self' https: data:;
                font-src 'self';
@@ -87,6 +87,9 @@
       ]
 }
 </script>
+<script>
+    alert("Presetando nuevo apartado: Colaboraciones. Consultar su respectiva sección para verlas.")
+</script>
 </head>
 
 <body>
@@ -106,8 +109,7 @@
              alt="Juegos de PC multijugador - EMAKILLERGAMES">
         <img src="img/payday-2-payday-the-heist-video-game-overkill-software-xbox-one-others-0a343f395392926fc50340ead8ae128a.webp" 
              class="frente"
-             alt="Dallas de Payday - EMAKILLERGAMES"
-             style="width: 15%;">
+             alt="Dallas de Payday - EMAKILLERGAMES">
     </a>
                     </div>
 
@@ -151,10 +153,10 @@
             <section>
                 <div id=info class=box>
                     <h2 id=hinfo>Información 💬</h2>
-                    <p>🚨 TENGA EN CUENTA QUE MI CATÁLOGO SE CENTRA EN LOS JUEGOS PARA JUGAR EN MULTIJUGADOR VÍA LAN, POR
+                    <p>🚨 TENGA EN CUENTA QUE MI CATÁLOGO SE CENTRA PRINCIPALMENTE EN LOS JUEGOS PARA JUGAR EN MULTIJUGADOR VÍA LAN, POR
                         TANTO, NO SE ESPERE EN ESTE TÍTULOS POPULARES NI DE ESTRENO:
                     <ol id=reglas>
-                        <li>LOS ENVÍOS A DOMICILIO DEBERÁN REUNIR UN MONTO MÍNIMO DE 1000$ ADEMÁS DE UN COSTO ADICIONAL
+                        <li>LOS ENVÍOS A DOMICILIO DEBERÁN REUNIR UN MONTO MÍNIMO DE 1000 CUP ADEMÁS DE UN COSTO ADICIONAL
                             POR EL SERVICIO.</li>
                         <li>NO ME HAGO RESPONSABLE DE QUE USTED SE HAYA CONFUNDIDO Y REALIZADO LA COMPRA DEL JUEGO
                             EQUIVOCADO, ASÍ QUE ANTES DE COMPRAR ALGO, INFÓRMESE BIEN.</li>
@@ -182,16 +184,22 @@
                             SON LAN-ONLINE.</li>
                         <li>EL DESCONOCIMIENTO DE ESTA INFORMACIÓN NO LO EXONERA DE JUSTIFICACIONES.</li>
                     </ol>
-                    <p>Puede consultar mi <a href="https://www.facebook.com/EMAKILLERGAMES-108472258501600/"
-                            target="_blank">página de Facebook</a> en la cual hago publicaciones de los juegos nuevos
-                        que obtengo.</p>
+                    <p>Puede consultar la <a href="https://www.facebook.com/EMAKILLERGAMES-108472258501600/"
+                            target="_blank" id="linkFacebookInfo">página de Facebook asociada</a> en la cual se hacen publicaciones de los juegos nuevos que se van añadiendo, entre otras novedades.</p>
                 </div>
             </section>
         </article>
+        <section class="box" style="margin-top:20px;">
+            <h3><span style="color: #800080;">(Nuevo) </span>Colaboraciones 🤝</h3>
+        <div class="colabs">
+            <div class="colab"><a href=https://wa.me/+5353132853 target="_blank"><img src="img/colabs/BytePlay.webp" alt="BytePlay - Sede alternativa" title="BytePlay - Sede alternativa"></a></div>
+            <div class="colab"><a href="https://www.instagram.com/misakaking/" target="_blank"><img src="img/colabs/Misakaking.webp" alt="Misakaking - Diseñador" title="Misakaking - Diseñador"></a></div>
+        </div>
+    </section>
     </main>
     <footer>
-        <div class=boxcat2 id="footer">
-            <h2>📞 Contactar</h2>
+        <section class="contacto">
+            <h4>📞 Contactar</h4>
             <div class=contactos>
                 <div class="Facebook">
                     <a class="TextS" href="https://www.facebook.com/EMAKILLERGAMES-108472258501600/" target="_blank">
@@ -218,7 +226,7 @@
                     </a>
                 </div>
             </div>
-        </div>
+        </section>
 
         <p id=fraseFooter>🎮 ¡EL JUEGO NUNCA SE DETIENE! 🚀</p>
     </footer>

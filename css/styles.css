@@ -23,29 +23,29 @@
 
 /* Variables raíz */
 :root {
-  --Bl-svg: white;
-  --Bl-background-nav: rgba(0, 0, 0, 0.863);
-  --Bl-border-nav: rgb(119, 119, 119);
-  --Bl-shadow-nav: rgb(59, 2, 42);
-  --Bl-background-title: rgba(0, 0, 0, 0.473);
-  --Bl-border-title: rgb(83, 4, 50);
-  --Bl-shadow-title: rgb(2, 0, 0);
-  --Bl-color-title: rgb(255, 255, 255);
+  --Bl-svg: #ffffff;
+  --Bl-background-nav: #000000dc;
+  --Bl-border-nav: #777777;
+  --Bl-shadow-nav: #3b022a;
+  --Bl-background-title: #00000079;
+  --Bl-border-title: #530432;
+  --Bl-shadow-title: #020000;
+  --Bl-color-title: #ffffff;
 }
 
 /* Palabras reservadas */
 body {
   background: linear-gradient(
       to bottom,
-      rgba(252, 0, 0, 0) 37vw,
-      rgba(0, 0, 0, 0.999) 37.2vw
+      #fc000000 37vw,
+      #000000ff 37.2vw
     ),
     url(../img/EMAKILLERGAMES_Banner_nuevo_warzone.webp);
   color: var(--Bl-svg);
   background-repeat: no-repeat;
   background-position: 0% 0%;
   background-size: 100%;
-  font-family: "FuenteImpact", Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-seri;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -64,7 +64,7 @@ svg {
   width: 200%;
   top: 40%;
   left: 30%;
-  fill: white;
+  fill: #ffffff;
   max-width: 50px;
   min-width: 50px;
 }
@@ -80,14 +80,13 @@ svg {
   border-radius: 20px;
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0) 10%,
-    rgba(66, 1, 58, 0.295) 90%
+    #00000000 10%,
+    #42013a4b 90%
   );
   box-shadow: inset 0 0 30px var(--Bl-shadow-title);
   text-align: center;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: var(--Bl-color-title);
-  text-shadow: 0 0 10px black;
+  text-shadow: 0 0 10px #000000;
 }
 
 .box {
@@ -97,33 +96,31 @@ svg {
   border-radius: 20px;
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0) 10%,
-    rgba(54, 2, 38, 0.295) 90%
+    #00000000 10%,
+    #3602264b 90%
   );
   box-shadow: inset 0 0 30px var(--Bl-shadow-title);
   padding-left: 10px;
   padding-right: 10px;
 }
 
-.boxcat2 {
+.contacto {
   position: relative;
   width: 100%;
   height: 200px;
-  margin-top: 30px;
   scale: 0.8;
   border: 1px solid var(--Bl-border-title);
   border-radius: 20px;
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0) 10%,
-    rgba(54, 2, 38, 0.295) 90%
+    #00000000 10%,
+    #3602264b 90%
   );
   box-shadow: inset 0 0 30px var(--Bl-shadow-title);
   text-align: center;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-seri;
   font-size: 20px;
   color: var(--Bl-color-title);
-  text-shadow: 0 0 10px black;
+  text-shadow: 0 0 10px #000000;
 }
 
 .cajasjuegos {
@@ -136,7 +133,7 @@ svg {
   background-size: cover;
   background-repeat: no-repeat;
   margin-bottom: 20px;
-  transition: box-shadow 0.5s ease, transform 0.5s ease;
+  transition: all 0.5s ease;
   z-index: 1;
   overflow: hidden;
   position: relative;
@@ -144,7 +141,7 @@ svg {
 
 .cajasjuegos:hover {
   z-index: 2;
-  transform: scale(1.05);
+  transform: scale(1.03);
   box-shadow: 2px 2px 6px #0000ff;
 }
 
@@ -161,13 +158,13 @@ svg {
   text-align: center;
   margin: 0;
   padding: 0;
+  transition: transform 0.3s ease;
 }
 
 .cajasjuegos:hover p {
   color: #fff;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  text-shadow: 2px 2px 8px #000000cc;
   transform: scale(1.05);
-  transition: transform 0.3s ease;
 }
 
 .cajasjuegos a {
@@ -184,7 +181,7 @@ svg {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: fill;
   z-index: 1;
 }
 
@@ -192,7 +189,6 @@ svg {
   display: none;
   position: absolute;
   height: 120px;
-  width: 100px;
   z-index: 3;
   transition: all 0.3s ease;
   opacity: 0;
@@ -209,6 +205,39 @@ svg {
   filter: brightness(1.2);
 }
 
+.colab {
+  width: 60px;
+  height: 60px;
+}
+
+.colab img {
+  border-radius: 20px;
+}
+
+.colabs {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 10px;
+  padding-bottom: 20px;
+}
+
+.colabs a{
+  width: 100%;
+  height: 100%;
+}
+
+.colabs img {
+  max-width: 100%;
+  max-height: 100%;
+  transition: all 0.5s ease;
+}
+
+.colabs img:hover {
+transform: scale(1.1);
+cursor: pointer;
+}
+
 .contactos {
   overflow: hidden;
   display: flex;
@@ -223,13 +252,27 @@ svg {
 
 .contactos a {
   width: 200px;
-  color: aliceblue;
+  color: #f0f8ff;
   text-decoration-line: none;
 }
 
 .Facebook,
 .Whatsapp {
   transition: transform 0.3s ease;
+}
+
+.Facebook:hover,
+.Whatsapp:hover {
+  transform: scale(1.07);
+  cursor: pointer;
+}
+
+.Facebook:hover p {
+  color: #37a8e5;
+}
+
+.Whatsapp:hover p {
+  color: #adff2f;
 }
 
 .Facebook {
@@ -243,13 +286,8 @@ svg {
 
 .Facebook p,
 .Whatsapp p {
+  transition: color 0.3s ease;
   margin-bottom: 0;
-}
-
-.Facebook:hover,
-.Whatsapp:hover {
-  transform: scale(1.07);
-  cursor: pointer;
 }
 
 .Download {
@@ -272,44 +310,36 @@ svg {
   gap: 10px;
   text-decoration: none;
   color: var(--Bl-color-title);
-  font-family: "FuenteImpact", Haettenschweiler, "Arial Narrow Bold", sans-serif;
   width: 100%;
   justify-content: center;
+  transition: all 0.3s ease;
 }
 
 .Download:hover {
   transform: scale(1.02);
   box-shadow: 1px 1px 6px #ff0000;
+  cursor: pointer;
 }
 
-.frente {
-  display: none;
-  position: relative;
-  top: -50%;
-  left: -38%;
-  height: 120px;
-  width: 100px;
-  transition-property: opacity, height;
+.Download:hover a {
+  color: #ff0000;
 }
 
 .kjasjuegos {
   width: 100%;
-  /* Ocupa el 100% del ancho del contenedor padre */
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  /* Centramos los elementos horizontalmente */
   gap: 20px;
-  /* Añadimos un espacio entre los elementos */
 }
 
 .kjasjuegos a {
-  color: rgb(255, 255, 255);
+  color: #ffffff;
   text-decoration: none;
   font-family: "FuenteImpact", Haettenschweiler, "Arial Narrow Bold", sans-serif;
   text-align: left;
   font-size: 250%;
-  text-shadow: 10px 10px 10px black;
+  text-shadow: 10px 10px 10px #000000;
 }
 
 .kjasjuegos p {
@@ -333,39 +363,17 @@ svg {
   background-color: var(--Bl-background-title);
   box-shadow: inset 0 0 30px var(--Bl-shadow-title);
   text-align: center;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-seri;
   font-size: 20px;
   color: var(--Bl-color-title);
-  text-shadow: 0 0 10px black;
+  text-shadow: 0 0 10px #000000;
   padding: 10px;
-}
-
-#c1 {
-  background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.7),
-      rgba(0, 0, 0, 0.3)
-    ),
-    url(../img/video-game-payday-2-dallas-loading-gun-lcsno22cr7nxmv4d.jpg);
-  background-size: cover;
-  background-position: center;
 }
 
 #c1 .frente {
   top: 30%;
   left: 5%;
   animation: flotar 2s ease-in-out infinite alternate;
-}
-
-#c2 {
-  background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.7),
-      rgba(0, 0, 0, 0.3)
-    ),
-    url(../img/17913-3840x2160-desktop-4k-kingdom-hearts-wallpaper-image.webp);
-  background-size: cover;
-  background-position: center;
+  width: 80px;
 }
 
 #c2 .frente {
@@ -376,20 +384,10 @@ svg {
   animation: flotar 2.5s ease-in-out infinite alternate;
 }
 
-#c3 {
-  background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.7),
-      rgba(0, 0, 0, 0.3)
-    ),
-    url(../img/jo89zfzqi9t51.webp);
-  background-size: cover;
-  background-position: center;
-}
-
 #c3 .frente {
   top: 35%;
   left: 8%;
+  width: 100px;
   animation: flotar 3s ease-in-out infinite alternate;
 }
 
@@ -415,7 +413,15 @@ svg {
 
 #info a {
   text-decoration: none;
-  color: blueviolet;
+  color: #8a2be2;
+}
+
+#linkFacebookInfo {
+  transition: color 0.3s ease;
+}
+
+#linkFacebookInfo:hover {
+  color: #0000ff;
 }
 
 #Facebook {
@@ -437,35 +443,11 @@ svg {
   max-width: 30px;
 }
 
-#Livello_1 {
-  scale: 0.3;
-  top: 7%;
-  left: 0%;
-}
-
-#Layer_1 {
-  scale: 0.5;
-  top: 20%;
-  left: 0%;
-}
-
-#Capa_1 {
-  scale: 0.5;
-  top: 3%;
-  left: 0%;
-}
-
-#Capa_2 {
-  scale: 0.5;
-  top: 20%;
-  left: 0%;
-}
-
 #fraseFooter {
   animation: cambioColorFraseFooter 3.5s linear infinite;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   text-align: center;
-  color: blueviolet;
+  color: #8a2be2;
   font-family: "FuenteVirtualDJ", "Arial Narrow", Arial, sans-serif;
 }
 
