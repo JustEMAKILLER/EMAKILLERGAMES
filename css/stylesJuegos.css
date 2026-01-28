@@ -401,11 +401,6 @@ body:not(.vista-tradicional) #resultados .juegosNuevos .remove-button,body:not(.
 	margin-bottom: 30px;
 	width: 250px;
 	height: 150px;
-	transition: transform 1s;
-}
-
-.titulostjuegos:hover {
-	transform: scale(1.10);
 }
 
 .vista-tradicional li {
