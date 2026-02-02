@@ -61,31 +61,77 @@
 
     <!-- SCHEMA MARKUP (JSON-LD) -->
     <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "VideoGameStore",
-  "name": "EMAKILLERGAMES",
-  "description": "Tienda especializada en venta de juegos para PC y consolas con soporte multijugador LAN y Online",
-  "url": "https://justemakiller.github.io/EMAKILLERGAMES",
-  "image": "https://raw.githubusercontent.com/JustEMAKILLER/EMAKILLERGAMES/refs/heads/main/img/EMAKILLERGAMES_Banner_nuevo_warzone.webp",
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "CU"
-  },
-  "openingHours": "Mo-Su",
-  "priceRange": "$",
-  "currenciesAccepted": "CUP",
-  "paymentAccepted": "Efectivo, Transferencia",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "customer service",
-    "telephone": "+53-63975093",
-    "availableLanguage": "Spanish"
-  },
-      "sameAs": [
-        "https://www.facebook.com/EMAKILLERGAMES-108472258501600/"
-      ]
-}
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "VideoGameStore",
+              "@id": "https://justemakiller.github.io/EMAKILLERGAMES/#store",
+              "name": "EMAKILLERGAMES",
+              "description": "Tienda especializada en venta de juegos para PC y consolas con soporte multijugador LAN y Online",
+              "url": "https://justemakiller.github.io/EMAKILLERGAMES",
+              "image": "https://raw.githubusercontent.com/JustEMAKILLER/EMAKILLERGAMES/refs/heads/main/img/EMAKILLERGAMES_Banner_nuevo_warzone.webp",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "CU"
+              },
+              "openingHours": "Mo-Su",
+              "priceRange": "$",
+              "currenciesAccepted": "CUP",
+              "paymentAccepted": "Efectivo, Transferencia",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer service",
+                "telephone": "+53-63975093",
+                "availableLanguage": "Spanish",
+                "contactOption": "WhatsApp"
+              },
+              "sameAs": [
+                "https://www.facebook.com/EMAKILLERGAMES-108472258501600/"
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://justemakiller.github.io/EMAKILLERGAMES/#website",
+              "url": "https://justemakiller.github.io/EMAKILLERGAMES",
+              "name": "EMAKILLERGAMES",
+              "description": "Venta de juegos Offline y con soporte para Multijugador LAN u Online",
+              "publisher": {
+                "@id": "https://justemakiller.github.io/EMAKILLERGAMES/#store"
+              },
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://justemakiller.github.io/EMAKILLERGAMES/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Inicio",
+                  "item": "https://justemakiller.github.io/EMAKILLERGAMES"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Juegos de PC",
+                  "item": "https://justemakiller.github.io/EMAKILLERGAMES/JuegosPC.html"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Juegos de Consolas",
+                  "item": "https://justemakiller.github.io/EMAKILLERGAMES/JuegosConsolas.html"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 4,
+                  "name": "Ofertas Especiales",
+                  "item": "https://justemakiller.github.io/EMAKILLERGAMES/Ofertas.html"
+                }
+              ]
+            }
+          ]
+        }
 </script>
 <script>
     alert("Presetando nuevo apartado: Colaboraciones. Consultar su respectiva sección para verlas.")
