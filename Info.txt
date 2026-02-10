@@ -2,6 +2,6 @@ Errores:
 El encabezado de juegos de PSP en los juegos de consolas pierde margin-top desplazándose un poco hacia arriba cuando se cambia de vista a texto, y cuando se retorna a la vista de imágenes mantiene ese margin sin recuperar el que tenia originalmente.
 
 Ideas para futuras actualizaciones:
-Reducir un poco el tamaño de los li de los juegos para que en móviles se puedan ver mas elemetos a la vez
+Reducir un poco el tamaño de los li de los juegos para que en móviles se puedan ver más elementos a la vez
 
 Elementos a verificar:
