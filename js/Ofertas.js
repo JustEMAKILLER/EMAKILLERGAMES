@@ -130,8 +130,8 @@ function busqueda() {
       const productName = productNameFromImg
         ? productNameFromImg
         : productNameFromLink
-        ? productNameFromLink
-        : "";
+          ? productNameFromLink
+          : "";
 
       const productPrice = parseFloat(encabezado.getAttribute("Precio"));
 
@@ -283,7 +283,7 @@ function cargarImagenesLazy() {
       rootMargin: "100px",
       // empieza a cargar antes de que entre al viewport
       threshold: 0.1,
-    }
+    },
   );
   images.forEach((img) => observer.observe(img));
 }
