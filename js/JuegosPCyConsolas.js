@@ -304,6 +304,10 @@ function desmarcarCheckboxes() {
   });
 
   aplicarFiltrosCombinados();
+  if (document.getElementById("menuDesplegado").style.display === "block") {
+    borrarBusqueda();
+    borrarPrecio();
+  }
 }
 
 // Variables globales para controlar el intervalo y la posición
