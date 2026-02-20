@@ -631,6 +631,7 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 }
 
 #botoneliminatodo:hover {
+	transform: scale(1.05);
 	color: red;
 }
 
