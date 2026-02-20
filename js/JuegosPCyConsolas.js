@@ -784,7 +784,6 @@ function busqueda() {
         mostrar = generosSeleccionados.some((g) => generosJuego.includes(g));
       }
 
-      if (mostrar && otrosFiltros.length > 0) {
         if (mostrar && otrosFiltros.length > 0) {
           const clasesJuego = Array.from(producto.classList);
 
@@ -796,14 +795,13 @@ function busqueda() {
 
           // Coincidencia directa con clases como "servidor" o "noProbado"
           const coincidenciaDirecta = otrosFiltros.some((f) =>
-            clasesJuego.includes(f),
+            clasesJuego.includes(f) || productName.includes("servidor"),
           );
 
           if (!coincideMods && !coincidenciaDirecta) {
             mostrar = false;
           }
         }
-      }
 
       producto.style.display = mostrar ? "list-item" : "none";
       if (mostrar) {
