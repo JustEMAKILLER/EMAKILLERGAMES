@@ -54,14 +54,14 @@
   <div id="busqueda" class="busqueda">
     <div id="buscar">
       <div>
-        <input type="text" id="buscarnombre" placeholder="Buscar juego..." oninput="busqueda()" /><button
+        <input type="text" id="buscarNombre" placeholder="Buscar juego..." oninput="busqueda()" /><button
           id="botonBorrarBusqueda" class="botonesBusqueda" onclick="borrarBusqueda()">
           x
         </button>
       </div>
       <div>
-        <input type="number" id="buscarprecio" min="0" placeholder="Filtrar por precio máximo..."
-          oninput="busqueda()" /><button id="botonborrarprecio" class="botonesBusqueda" onclick="borrarPrecio()">
+        <input type="number" id="buscarPrecio" min="0" placeholder="Filtrar por precio máximo..."
+          oninput="busqueda()" /><button id="botonBorrarPrecio" class="botonesBusqueda" onclick="borrarPrecio()">
           x
         </button>
       </div>
@@ -76,20 +76,20 @@
     <!--Contenedores de juegos seleccionados y descartados-->
     <div class="cajaJuegosDescart" id="juegosDescartados">
       <h2>Juegos descartados</h2>
-      <button id="botonAgregarTodo" class="botonelementos" onclick="agregarTodo()">
+      <button id="botonAgregarTodo" class="botonElementos" onclick="agregarTodo()">
         Añadir todo
       </button>
       <ul></ul>
     </div>
     <div class="cajaResultados" id="resultados">
       <h2 id="encabezadoResultados">🛒Carrito de juegos seleccionados</h2>
-      <button id="botonEliminarTodo" class="botonelementos" onclick="eliminarTodo()">
+      <button id="botonEliminarTodo" class="botonElementos" onclick="eliminarTodo()">
         Eliminar juegos seleccionados
       </button>
       <ul></ul>
       <div class="cajaRegalos" id="regalos" style="margin-top: 25px">
         <h2 id="encabezadoRegalos">🎁Regalos✨</h2>
-        <button id="botonEliminarRegalos" class="botonelementos" onclick="eliminarRegalos()">
+        <button id="botonEliminarRegalos" class="botonElementos" onclick="eliminarRegalos()">
           Eliminar regalos
         </button>
         <ul></ul>

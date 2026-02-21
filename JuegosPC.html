@@ -56,10 +56,10 @@
 
       <div id="busqueda" class="busqueda">
             <div id="buscar">
-                  <div><input type="text" id="buscarnombre" placeholder="Buscar juego..." oninput="busqueda()"><button
+                  <div><input type="text" id="buscarNombre" placeholder="Buscar juego..." oninput="busqueda()"><button
                               id=botonBorrarBusqueda class="botonesBusqueda" onclick="borrarBusqueda()">x</button></div>
-                  <div><input type="number" id="buscarprecio" min="0" placeholder="Filtrar por precio máximo..."
-                              oninput="busqueda()"><button id=botonborrarprecio class="botonesBusqueda"
+                  <div><input type="number" id="buscarPrecio" min="0" placeholder="Filtrar por precio máximo..."
+                              oninput="busqueda()"><button id=botonBorrarPrecio class="botonesBusqueda"
                               onclick="borrarPrecio()">x</button>
                   </div>
                   <div id="botonOcultarBusqueda" onclick="mostrarBusqueda()">▲</div>
@@ -170,18 +170,18 @@
             <!--Contenedores de juegos seleccionados y descartados-->
             <div class=cajaJuegosDescart id="juegosDescartados">
                   <h2 id="encabezadoDescartados">Juegos descartados</h2><button id="botonAgregarTodo"
-                        class=botonelementos onclick="agregarTodo()">
+                        class=botonElementos onclick="agregarTodo()">
                         Añadir todo</button>
                   <ul></ul>
             </div>
             <div class=cajaResultados id="resultados">
                   <h2 id="encabezadoResultados">🛒Carrito de juegos seleccionados</h2>
-                  <button id="botonEliminarTodo" class=botonelementos onclick="eliminarTodo()">
+                  <button id="botonEliminarTodo" class=botonElementos onclick="eliminarTodo()">
                         Eliminar juegos seleccionados</button>
                   <ul></ul>
                   <div class="cajaRegalos" id="regalos" style="margin-top:25px">
                         <h2 id="encabezadoRegalos">🎁Regalos✨</h2>
-                        <button id="botonEliminarRegalos" class=botonelementos onclick="eliminarRegalos()">Eliminar
+                        <button id="botonEliminarRegalos" class=botonElementos onclick="eliminarRegalos()">Eliminar
                               regalos</button>
                         <ul></ul>
                   </div>
@@ -878,7 +878,8 @@
                                                 data-src="https://loadcs.com/images/full/hl_2023-01-13_11-36-38-337.jpg"
                                                 title="Counter Strike v1.6 + Condition Zero con mods (726 MB) (LAN, Online)"></a>
                               </li>
-                              <li class="juegosNuevos precio3" Tconex="Offline, LAN" Genero="Shooter" Tamano="5.83"><a class="juegosSinEnlace"><img
+                              <li class="juegosNuevos precio3" Tconex="Offline, LAN" Genero="Shooter" Tamano="5.83"><a
+                                          class="juegosSinEnlace"><img
                                                 data-src="https://images.steamusercontent.com/ugc/183919165737260476/AE8C091C2F036CDD31787223186F46B4373C9D8A/"
                                                 title="Counter Strike Classic Offensive (5.83 GB) (Cliente + Servidor) (LAN)"></a>
                               </li>
@@ -3458,11 +3459,12 @@
                                                 data-src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/10180/capsule_616x353.jpg?t=1654809646"
                                                 title="Call of Duty 6 - Modern Warfare 2 (16 GB) con mods (Cliente + Servidor) (LAN, Online)"></a>
                               </li>
-                              <li class="precio3 crack" Tconex="Offline, LAN, Online" Genero="Shooter" Tamano="10.00"><a
+                              <li class="precio3 crack servidor" Tconex="Offline, LAN, Online" Genero="Shooter"
+                                    Tamano="10.00"><a
                                           href="https://store.steampowered.com/app/42700/Call_of_Duty_Black_Ops/"
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/42700/header.jpg?t=1654809667"
-                                                title="Call of Duty 7 - Black Ops (10 GB) (LAN, Online)"></a>
+                                                title="Call of Duty 7 - Black Ops (10 GB) (Cliente + Servidor) (LAN, Online)"></a>
                               </li>
                               <li class="precio3 crack servidor" Tconex="Offline, LAN, Online" Genero="Shooter"
                                     Tamano="13.80"><a

@@ -324,7 +324,7 @@ function hayDescartados() {
 }
 
 // Event listener para detectar cuando el usuario modifica el precio
-document.getElementById("buscarprecio").addEventListener("input", function () {
+document.getElementById("buscarPrecio").addEventListener("input", function () {
   // Si el usuario modifica el precio, resetear a verde
   this.classList.remove("amarillo", "rojo");
 });
@@ -690,20 +690,20 @@ function crearBoton(text, className, color, onClick) {
 
 // Función para establecer la búsqueda
 function busqueda() {
-  const maxPrice = parseFloat(document.getElementById("buscarprecio").value);
+  const maxPrice = parseFloat(document.getElementById("buscarPrecio").value);
   const filtroNombre = document
-    .getElementById("buscarnombre")
+    .getElementById("buscarNombre")
     .value.toLowerCase();
   const grupos = document.querySelectorAll(".grupo-juegos");
   const text = document.getElementById("texto");
   const calculoPrecio = document.getElementById("calculoPrecio");
   const botonBorrarBusqueda = document.getElementById("botonBorrarBusqueda");
-  const botonborrarprecio = document.getElementById("botonborrarprecio");
+  const botonBorrarPrecio = document.getElementById("botonBorrarPrecio");
   const divJuegos = document.getElementById("divJuegos");
 
   // Mostrar u ocultar botones de limpieza
   botonBorrarBusqueda.style.display = filtroNombre ? "inline-block" : "none";
-  botonborrarprecio.style.display = isNaN(maxPrice) ? "none" : "inline-block";
+  botonBorrarPrecio.style.display = isNaN(maxPrice) ? "none" : "inline-block";
 
   // Solo desmarcar checkboxes si hay texto de búsqueda por nombre y no solamente por precio
   if (filtroNombre !== "") {
@@ -829,18 +829,18 @@ function busqueda() {
 
 // Función para borrar el campo de búsqueda
 function borrarBusqueda() {
-  const buscarnombreInput = document.getElementById("buscarnombre");
+  const buscarNombreInput = document.getElementById("buscarNombre");
   // Limpiar el campo de texto
-  buscarnombreInput.value = "";
+  buscarNombreInput.value = "";
   busqueda();
 }
 // Función para borrar el campo de precio
 function borrarPrecio() {
-  const filtroprecioInput = document.getElementById("buscarprecio");
+  const filtroprecioInput = document.getElementById("buscarPrecio");
   filtroprecioInput.value = "";
 
   // Si hay búsqueda por nombre, vuelve a ejecutar búsqueda completa
-  const filtroNombre = document.getElementById("buscarnombre").value.trim();
+  const filtroNombre = document.getElementById("buscarNombre").value.trim();
   if (filtroNombre !== "") {
     busqueda();
   } else {
@@ -849,7 +849,7 @@ function borrarPrecio() {
   }
 
   // Ocultar el botón de borrar precio
-  document.getElementById("botonborrarprecio").style.display = "none";
+  document.getElementById("botonBorrarPrecio").style.display = "none";
 }
 
 // Funciones para mostrar solo los titulos nuevos o actualizados
@@ -1313,8 +1313,8 @@ function reconstruirBotonesJuegosRegalos(producto) {
 
 // Funciones para filtrar por tipo de conexión y género
 function aplicarFiltrosCombinados() {
-  const inputPrecio = document.getElementById("buscarprecio");
-  const inputNombre = document.getElementById("buscarnombre");
+  const inputPrecio = document.getElementById("buscarPrecio");
+  const inputNombre = document.getElementById("buscarNombre");
   const text = document.getElementById("texto");
   const divJuegos = document.getElementById("divJuegos");
 
@@ -1326,7 +1326,7 @@ function aplicarFiltrosCombinados() {
   document.getElementById("botonBorrarBusqueda").style.display = filtroNombre
     ? "inline-block"
     : "none";
-  document.getElementById("botonborrarprecio").style.display = isNaN(maxPrice)
+  document.getElementById("botonBorrarPrecio").style.display = isNaN(maxPrice)
     ? "none"
     : "inline-block";
 
