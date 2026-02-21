@@ -55,13 +55,13 @@
     <div id="buscar">
       <div>
         <input type="text" id="buscarnombre" placeholder="Buscar juego..." oninput="busqueda()" /><button
-          id="botonborrarbusqueda" class="botonesbusqueda" onclick="borrarBusqueda()">
+          id="botonBorrarBusqueda" class="botonesBusqueda" onclick="borrarBusqueda()">
           x
         </button>
       </div>
       <div>
         <input type="number" id="buscarprecio" min="0" placeholder="Filtrar por precio máximo..."
-          oninput="busqueda()" /><button id="botonborrarprecio" class="botonesbusqueda" onclick="borrarPrecio()">
+          oninput="busqueda()" /><button id="botonborrarprecio" class="botonesBusqueda" onclick="borrarPrecio()">
           x
         </button>
       </div>
@@ -74,16 +74,16 @@
   </header>
   <main>
     <!--Contenedores de juegos seleccionados y descartados-->
-    <div class="cajajuegosdescart" id="juegosdescartados">
+    <div class="cajaJuegosDescart" id="juegosDescartados">
       <h2>Juegos descartados</h2>
-      <button id="botonagregatodo" class="botonelementos" onclick="agregarTodo()">
+      <button id="botonAgregarTodo" class="botonelementos" onclick="agregarTodo()">
         Añadir todo
       </button>
       <ul></ul>
     </div>
-    <div class="cajaresultados" id="resultados">
+    <div class="cajaResultados" id="resultados">
       <h2 id="encabezadoResultados">🛒Carrito de juegos seleccionados</h2>
-      <button id="botoneliminatodo" class="botonelementos" onclick="eliminarTodo()">
+      <button id="botonEliminarTodo" class="botonelementos" onclick="eliminarTodo()">
         Eliminar juegos seleccionados
       </button>
       <ul></ul>
@@ -94,7 +94,7 @@
         </button>
         <ul></ul>
       </div>
-      <h2 id="calculoprecio"></h2>
+      <h2 id="calculoPrecio"></h2>
       <button id="botonEnviarWhatsapp" onclick="enviarListado()">
         Enviar listado por Whatsapp
       </button>
@@ -512,7 +512,7 @@
     </article>
   </main>
   <footer>
-    <div id="botonarriba" title="Ir hasta arriba"><a href="#Titulo"></a></div>
+    <div id="botonArriba" title="Ir hasta arriba"><a href="#Titulo"></a></div>
   </footer>
 </body>
 

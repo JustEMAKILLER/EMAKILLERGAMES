@@ -205,7 +205,7 @@ body:not(.vista-tradicional) #resultados .juegosNuevos .remove-button,body:not(.
 	top: 62%;
 }
 
-.botonelementos {
+.botonElementos {
 	position: relative;
 	top: -5px;
 	color: white;
@@ -219,7 +219,7 @@ body:not(.vista-tradicional) #resultados .juegosNuevos .remove-button,body:not(.
 	cursor: pointer;
 }
 
-.botonelementos:hover {
+.botonElementos:hover {
 	box-shadow: 2px 2px 10px purple;
 }
 
@@ -293,7 +293,7 @@ body:not(.vista-tradicional) #resultados .juegosNuevos .remove-button,body:not(.
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.cajaresultados {
+.cajaResultados {
 	user-select: none;
 	display: none;
 	margin-bottom: 20px;
@@ -305,7 +305,7 @@ body:not(.vista-tradicional) #resultados .juegosNuevos .remove-button,body:not(.
 	font-family: sans-serif;
 }
 
-.cajaresultados li {
+.cajaResultados li {
 	list-style-type: none;
 }
 
@@ -313,7 +313,7 @@ body:not(.vista-tradicional) #resultados .juegosNuevos .remove-button,body:not(.
 	display: none;
 }
 
-.cajajuegosdescart {
+.cajaJuegosDescart {
 	user-select: none;
 	display: none;
 	margin-bottom: 20px;
@@ -325,7 +325,7 @@ body:not(.vista-tradicional) #resultados .juegosNuevos .remove-button,body:not(.
 	font-family: sans-serif;
 }
 
-.cajajuegosdescart li {
+.cajaJuegosDescart li {
 	list-style-type: none;
 	width: 300px;
 	height: 250px;
@@ -338,8 +338,8 @@ body:not(.vista-tradicional) #resultados .juegosNuevos .remove-button,body:not(.
 	justify-content: center;
 }
 
-.cajajuegosdescart li:hover,
-.cajaresultados li:hover {
+.cajaJuegosDescart li:hover,
+.cajaResultados li:hover {
 	transform: translateY(-5px);
 }
 
@@ -391,7 +391,7 @@ body:not(.vista-tradicional) #resultados .juegosNuevos .remove-button,body:not(.
 	height: 100%;
 }
 
-.titulostjuegos {
+.titulosTJuegos {
 	overflow: hidden;
 	user-select: none;
 	display: flex;
@@ -415,7 +415,7 @@ body:not(.vista-tradicional) #resultados .juegosNuevos .remove-button,body:not(.
 	transition: transform 0.3s ease !important;
 }
 
-.vista-tradicional #juegosdescartados ul,
+.vista-tradicional #juegosDescartados ul,
 .vista-tradicional #resultados ul {
 	display: block !important;
 }
@@ -600,7 +600,7 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 /* ID's */
 
 /* Botones */
-#botonarriba {
+#botonArriba {
 	height: 50px;
 	width: 50px;
 	border: solid 2px black;
@@ -618,28 +618,28 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	z-index: 500;
 }
 
-#botonarriba a {
+#botonArriba a {
 	display: block;
 	width: 100%;
 	height: 100%;
 }
 
-#botonarriba:hover {
+#botonArriba:hover {
 	box-shadow: 2px 2px 10px purple;
 	border-color: purple;
 	transform: scale(1.15);
 }
 
-#botoneliminatodo:hover {
+#botonEliminarTodo:hover {
 	transform: scale(1.05);
 	color: red;
 }
 
-#botonagregatodo:hover {
+#botonAgregarTodo:hover {
 	color: blue;
 }
 
-#buscar .botonesbusqueda {
+#buscar .botonesBusqueda {
 	display: none;
 	padding: 10px;
 	font-size: 1rem;
@@ -651,13 +651,13 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-#buscar .botonesbusqueda:hover {
+#buscar .botonesBusqueda:hover {
 	background-color: rgb(166, 11, 180);
 	transform: scale(1.1);
 }
 
 /* Mostrar el botón de borrar cuando el input tiene contenido */
-#buscar input:not(:placeholder-shown)+.botonesbusqueda {
+#buscar input:not(:placeholder-shown)+.botonesBusqueda {
 	display: inline-block;
 }
 
@@ -845,7 +845,7 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	padding-bottom: 3px;
 }
 
-#calculoprecio,
+#calculoPrecio,
 #encabezadoResultados,
 #encabezadoDescartados,
 #encabezadoRegalos {

@@ -57,9 +57,9 @@
       <div id="busqueda" class="busqueda">
             <div id="buscar">
                   <div><input type="text" id="buscarnombre" placeholder="Buscar juego..." oninput="busqueda()"><button
-                              id=botonborrarbusqueda class="botonesbusqueda" onclick="borrarBusqueda()">x</button></div>
+                              id=botonBorrarBusqueda class="botonesBusqueda" onclick="borrarBusqueda()">x</button></div>
                   <div><input type="number" id="buscarprecio" min="0" placeholder="Filtrar por precio máximo..."
-                              oninput="busqueda()"><button id=botonborrarprecio class="botonesbusqueda"
+                              oninput="busqueda()"><button id=botonborrarprecio class="botonesBusqueda"
                               onclick="borrarPrecio()">x</button>
                   </div>
                   <div id="botonOcultarBusqueda" onclick="mostrarBusqueda()">▲</div>
@@ -168,15 +168,15 @@
             </div>
 
             <!--Contenedores de juegos seleccionados y descartados-->
-            <div class=cajajuegosdescart id="juegosdescartados">
-                  <h2 id="encabezadoDescartados">Juegos descartados</h2><button id="botonagregatodo"
+            <div class=cajaJuegosDescart id="juegosDescartados">
+                  <h2 id="encabezadoDescartados">Juegos descartados</h2><button id="botonAgregarTodo"
                         class=botonelementos onclick="agregarTodo()">
                         Añadir todo</button>
                   <ul></ul>
             </div>
-            <div class=cajaresultados id="resultados">
+            <div class=cajaResultados id="resultados">
                   <h2 id="encabezadoResultados">🛒Carrito de juegos seleccionados</h2>
-                  <button id="botoneliminatodo" class=botonelementos onclick="eliminarTodo()">
+                  <button id="botonEliminarTodo" class=botonelementos onclick="eliminarTodo()">
                         Eliminar juegos seleccionados</button>
                   <ul></ul>
                   <div class="cajaRegalos" id="regalos" style="margin-top:25px">
@@ -185,7 +185,7 @@
                               regalos</button>
                         <ul></ul>
                   </div>
-                  <h2 id="calculoprecio"></h2>
+                  <h2 id="calculoPrecio"></h2>
                   <button id="botonEnviarWhatsapp" onclick="enviarListado()">Enviar listado por Whatsapp</button>
             </div>
 
@@ -3357,7 +3357,7 @@
 
                   <!--Otros Juegos de PC-->
                   <section class=grupo-juegos>
-                        <div id="amongus" class="encabezadosjuegos"><img class="titulostjuegos"
+                        <div id="amongus" class="encabezadosjuegos"><img class="titulosTJuegos"
                                     src="img/encabezados/Imagen-1-3-768x384 - copia.webp" alt="Among Us">
                               <h4>Among Us</h4>
                         </div>
@@ -3421,7 +3421,7 @@
                         </ul>
                   </section>
                   <section class=grupo-juegos>
-                        <div id="duty" class="encabezadosjuegos"><img id=dutyimg class="titulostjuegos"
+                        <div id="duty" class="encabezadosjuegos"><img id=dutyimg class="titulosTJuegos"
                                     src="img/encabezados/call_of_duty_black_ops_13-wallpaper-1280x1024.webp"
                                     alt="Call of Duty">
                               <h4>Call of Duty</h4>
@@ -3509,7 +3509,7 @@
                   </section>
                   <section class="grupo-juegos">
                         <div id="FNAF" class="encabezadosjuegos"><img src="img/encabezados/fnaf-1920x1080.webp"
-                                    class="titulostjuegos" alt="Five Nights at Freddy's">
+                                    class="titulosTJuegos" alt="Five Nights at Freddy's">
                               <h4>Five Nights at Freddy's y Fangames</h4>
                         </div>
                         <ul class="listajuegos">
@@ -3734,7 +3734,7 @@
                   <section class="grupo-juegos">
                         <div id="monster" class="encabezadosjuegos"><img
                                     src="img/encabezados/monster-hunter-world-background-36pil4umx009nmc5.webp"
-                                    class="titulostjuegos" alt="Monster Hunter">
+                                    class="titulosTJuegos" alt="Monster Hunter">
                               <h4>Monster Hunter</h4>
                         </div>
                         <ul class="listajuegos">
@@ -3781,7 +3781,7 @@
                   <section class="grupo-juegos">
                         <div id="mortal" class="encabezadosjuegos"><img
                                     src="img/encabezados/scorpions-vs-sub-zero-mortal-kombat-mortal-kombat-scorpion-and-sub-zero-character-photography-wallpaper-preview.webp"
-                                    class="titulostjuegos" alt="Mortal Kombat">
+                                    class="titulosTJuegos" alt="Mortal Kombat">
                               <h4>Mortal Kombat</h4>
                         </div>
                         <ul class="listajuegos">
@@ -3824,7 +3824,7 @@
                   <section class="grupo-juegos">
                         <div id="naruto" class="encabezadosjuegos"><img
                                     src="img/encabezados/apps.54991.68307864442603829.676cbe70-1643-4bcc-a72b-f8ed4e2d4cc2.webp"
-                                    class="titulostjuegos" alt="Naruto">
+                                    class="titulosTJuegos" alt="Naruto">
                               <h4>Naruto y Modpacks</h4>
                         </div>
                         <ul class="listajuegos">
@@ -3904,7 +3904,7 @@
                   </section>
                   <section class="grupo-juegos">
                         <div id="nfs" class="encabezadosjuegos"><img
-                                    src="img/encabezados/Need For Speed Most Wanted.webp" class="titulostjuegos"
+                                    src="img/encabezados/Need For Speed Most Wanted.webp" class="titulosTJuegos"
                                     alt="Need for Speed">
                               <h4>Need for Speed</h4>
                         </div>
@@ -3969,7 +3969,7 @@
                   </section>
                   <section class="grupo-juegos">
                         <div id="pokemon" class="encabezadosjuegos"><img src="img/encabezados/IMG-20201022-WA0001.webp"
-                                    class="titulostjuegos" alt="Pokémon">
+                                    class="titulosTJuegos" alt="Pokémon">
                               <h4>Pokémon</h4>
                         </div>
                         <ul class="listajuegos">
@@ -4027,7 +4027,7 @@
                   </section>
                   <section class="grupo-juegos">
                         <div id="sonic" class="encabezadosjuegos"><img src="img/encabezados/Sonic all stars racing.webp"
-                                    class="titulostjuegos" alt="Sonic">
+                                    class="titulosTJuegos" alt="Sonic">
                               <h4>Sonic</h4>
                         </div>
                         <ul class="listajuegos">
@@ -4071,7 +4071,7 @@
                   </section>
                   <section class="grupo-juegos">
                         <div id="undertale" class="encabezadosjuegos"><img src="img/encabezados/647679.webp"
-                                    class="titulostjuegos" alt="Undertale">
+                                    class="titulosTJuegos" alt="Undertale">
                               <h4>Undertale y Fangames</h4>
                         </div>
                         <ul class="listajuegos">
@@ -4127,7 +4127,7 @@
                   </section>
                   <section class="grupo-juegos">
                         <div id="worms" class="encabezadosjuegos"><img src="img/encabezados/100054100716_204798.webp"
-                                    class="titulostjuegos" alt="Worms">
+                                    class="titulosTJuegos" alt="Worms">
                               <h4>Worms</h4>
                         </div>
                         <ul class="listajuegos">
@@ -4173,7 +4173,7 @@
                   </section>
                   <section class="grupo-juegos">
                         <div id="yugio" class="encabezadosjuegos"><img src="img/encabezados/yu-gi-oh!!.webp"
-                                    class="titulostjuegos" alt="Yu-Gi-Oh!">
+                                    class="titulosTJuegos" alt="Yu-Gi-Oh!">
                               <h4>Yu-Gi-Oh!</h4>
                         </div>
                         <ul class="listajuegos">
@@ -4253,7 +4253,7 @@
             </article>
       </main>
       <footer>
-            <div id="botonarriba" title="Ir hasta arriba"><a href=#Titulo></a></div>
+            <div id="botonArriba" title="Ir hasta arriba"><a href=#Titulo></a></div>
       </footer>
 </body>
 

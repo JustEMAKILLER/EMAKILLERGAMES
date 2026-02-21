@@ -42,7 +42,7 @@ let pos = 0;
 let isAnimating = false;
 
 function mostrarBoton() {
-  const scrollButton = document.getElementById("botonarriba");
+  const scrollButton = document.getElementById("botonArriba");
   const scrollPosition =
     document.documentElement.scrollTop || document.body.scrollTop;
 
@@ -106,8 +106,8 @@ function busqueda() {
 
   let hayResultados = false;
 
-  const botonborrarbusqueda = document.getElementById("botonborrarbusqueda");
-  botonborrarbusqueda.style.display = "inline-block";
+  const botonBorrarBusqueda = document.getElementById("botonBorrarBusqueda");
+  botonBorrarBusqueda.style.display = "inline-block";
   const botonborrarprecio = document.getElementById("botonborrarprecio");
   botonborrarprecio.style.display = "inline-block";
 
@@ -150,7 +150,7 @@ function busqueda() {
       }
 
       if (filtroNombre == "" && productName.includes(filtroNombre)) {
-        botonborrarbusqueda.style.display = "none";
+        botonBorrarBusqueda.style.display = "none";
       }
 
       producto.style.display = mostrarProducto ? "list-item" : "none";

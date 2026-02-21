@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function crearBotonesAdicion() {
   document
     .querySelectorAll(
-      ".listajuegos li:not(#resultados li):not(#juegosdescartados li):not(#regalos li)",
+      ".listajuegos li:not(#resultados li):not(#juegosDescartados li):not(#regalos li)",
     )
     .forEach((producto) => {
       reconstruirBotonPrincipal(producto);
@@ -233,7 +233,7 @@ function agregarPrecioANombresJuegos(juego, precio) {
 window.addEventListener("scroll", mostrarBoton);
 
 function mostrarBoton() {
-  const scrollButton = document.getElementById("botonarriba");
+  const scrollButton = document.getElementById("botonArriba");
   const scrollPosition =
     document.documentElement.scrollTop || document.body.scrollTop;
 
@@ -317,9 +317,9 @@ let isAnimating = false;
 
 // Funcion para verificar si hay elementos en la lista de descartados
 function hayDescartados() {
-  const juegosdescartadosDiv = document.getElementById("juegosdescartados");
-  const listaDescartados = juegosdescartadosDiv.querySelectorAll("li");
-  juegosdescartadosDiv.style.display =
+  const juegosDescartadosDiv = document.getElementById("juegosDescartados");
+  const listaDescartados = juegosDescartadosDiv.querySelectorAll("li");
+  juegosDescartadosDiv.style.display =
     listaDescartados.length > 0 ? "block" : "none";
 }
 
@@ -431,10 +431,10 @@ function agregarComoRegalo(producto) {
 function agregarRegalo(producto) {
   const regalosDiv = document.getElementById("regalos");
   const listaRegalos = regalosDiv.querySelector("ul");
-  const calculoprecio = document.getElementById("calculoprecio");
+  const calculoPrecio = document.getElementById("calculoPrecio");
 
   listaRegalos.style.display = "flex";
-  calculoprecio.style.display = "block";
+  calculoPrecio.style.display = "block";
   regalosDiv.style.display = "block";
 
   // Eliminar botones existentes
@@ -472,10 +472,10 @@ function agregarRegalo(producto) {
   }
 }
 
-// Función para devolver un producto a juegosdescartadosDiv
+// Función para devolver un producto a juegosDescartadosDiv
 function devolverProducto(producto) {
-  const juegosdescartadosDiv = document.getElementById("juegosdescartados");
-  const listaDescartados = juegosdescartadosDiv.querySelector("ul");
+  const juegosDescartadosDiv = document.getElementById("juegosDescartados");
+  const listaDescartados = juegosDescartadosDiv.querySelector("ul");
 
   // Eliminar botón de eliminar si existe
   const removeButton = producto.querySelector(".remove-button");
@@ -494,8 +494,8 @@ function devolverProducto(producto) {
 }
 
 function eliminarRegalo(producto) {
-  const juegosdescartadosDiv = document.getElementById("juegosdescartados");
-  const listaDescartados = juegosdescartadosDiv.querySelector("ul");
+  const juegosDescartadosDiv = document.getElementById("juegosDescartados");
+  const listaDescartados = juegosDescartadosDiv.querySelector("ul");
 
   // Eliminar botón de eliminar del regalo
   const removeButton = producto.querySelector(".remove-button");
@@ -516,19 +516,19 @@ function eliminarRegalo(producto) {
   verificarVisibilidadRegalos();
 }
 
-// Función para mover todos los elementos de juegosdescartadosDiv a resultadosDiv
+// Función para mover todos los elementos de juegosDescartadosDiv a resultadosDiv
 function agregarTodo() {
-  const juegosdescartadosDiv = document.getElementById("juegosdescartados");
-  const items = Array.from(juegosdescartadosDiv.querySelectorAll("li"));
+  const juegosDescartadosDiv = document.getElementById("juegosDescartados");
+  const items = Array.from(juegosDescartadosDiv.querySelectorAll("li"));
 
   items.forEach((item) => {
     agregarProducto(item); // Reutilizamos la función para asegurar la lógica consistente
   });
-  juegosdescartadosDiv.style.display = "none";
+  juegosDescartadosDiv.style.display = "none";
   actualizarPrecioYTamano();
 }
 
-// Función para borrar todos los elementos de resultadosDiv y moverlos a juegosdescartadosDiv
+// Función para borrar todos los elementos de resultadosDiv y moverlos a juegosDescartadosDiv
 function eliminarTodo() {
   const resultadosDiv = document.getElementById("resultados");
   const items = Array.from(resultadosDiv.querySelectorAll("li"));
@@ -540,7 +540,7 @@ function eliminarTodo() {
   actualizarPrecioYTamano();
 }
 
-// Función para eliminar todos los regalos y enviarlos a juegosdescartados
+// Función para eliminar todos los regalos y enviarlos a juegosDescartados
 function eliminarRegalos() {
   const regalosDiv = document.getElementById("regalos");
   const listaRegalos = regalosDiv.querySelector("ul");
@@ -563,18 +563,18 @@ function verificarVisibilidadRegalos() {
   const regalosDiv = document.getElementById("regalos");
   const listaRegalos = regalosDiv.querySelector("ul");
   const regalos = listaRegalos.querySelectorAll("li");
-  const calculoprecio = document.getElementById("calculoprecio");
+  const calculoPrecio = document.getElementById("calculoPrecio");
 
   if (regalos.length === 0) {
     regalosDiv.style.display = "none";
     // Ocultar también el cálculo de precio si no hay juegos seleccionados
     const items = document.querySelectorAll("#resultados > ul li");
     if (items.length === 0) {
-      calculoprecio.style.display = "none";
+      calculoPrecio.style.display = "none";
     }
   } else {
     regalosDiv.style.display = "block";
-    calculoprecio.style.display = "block";
+    calculoPrecio.style.display = "block";
   }
 }
 
@@ -582,7 +582,7 @@ function verificarVisibilidadRegalos() {
 function actualizarPrecioYTamano() {
   const resultadosDiv = document.getElementById("resultados");
   const regalosDiv = document.getElementById("regalos");
-  const calculoprecio = document.getElementById("calculoprecio");
+  const calculoPrecio = document.getElementById("calculoPrecio");
 
   // Obtener juegos normales (excluyendo regalos)
   const items = document.querySelectorAll("#resultados > ul li");
@@ -624,7 +624,7 @@ function actualizarPrecioYTamano() {
     const bonoRestante = bonoDisponible - bonoUtilizado;
 
     textoRegalo = ` + ${bonoDisponible} CUP de regalo (${bonoUtilizado} CUP usados y ${bonoRestante} CUP restantes)`;
-    calculoprecio.textContent =
+    calculoPrecio.textContent =
       "Precio y tamaño totales: " +
       PrecioTotal +
       " CUP; " +
@@ -632,7 +632,7 @@ function actualizarPrecioYTamano() {
       " GB" +
       textoRegalo;
   } else {
-    calculoprecio.textContent =
+    calculoPrecio.textContent =
       "Precio y tamaño totales: " +
       PrecioTotal +
       " CUP; " +
@@ -642,7 +642,7 @@ function actualizarPrecioYTamano() {
   }
 
   resultadosDiv.style.display = items.length > 0 ? "block" : "none";
-  calculoprecio.style.display = items.length > 0 ? "block" : "none";
+  calculoPrecio.style.display = items.length > 0 ? "block" : "none";
 
   // Verificar visibilidad de regalos
   verificarVisibilidadRegalos();
@@ -696,13 +696,13 @@ function busqueda() {
     .value.toLowerCase();
   const grupos = document.querySelectorAll(".grupo-juegos");
   const text = document.getElementById("texto");
-  const calculoprecio = document.getElementById("calculoprecio");
-  const botonborrarbusqueda = document.getElementById("botonborrarbusqueda");
+  const calculoPrecio = document.getElementById("calculoPrecio");
+  const botonBorrarBusqueda = document.getElementById("botonBorrarBusqueda");
   const botonborrarprecio = document.getElementById("botonborrarprecio");
   const divJuegos = document.getElementById("divJuegos");
 
   // Mostrar u ocultar botones de limpieza
-  botonborrarbusqueda.style.display = filtroNombre ? "inline-block" : "none";
+  botonBorrarBusqueda.style.display = filtroNombre ? "inline-block" : "none";
   botonborrarprecio.style.display = isNaN(maxPrice) ? "none" : "inline-block";
 
   // Solo desmarcar checkboxes si hay texto de búsqueda por nombre y no solamente por precio
@@ -822,8 +822,8 @@ function busqueda() {
     text.textContent = "No hay resultados que coincidan con la búsqueda.";
 
   // Mostrar u ocultar el cálculo de precio
-  if (calculoprecio.textContent.trim() !== "") {
-    calculoprecio.style.display = "block";
+  if (calculoPrecio.textContent.trim() !== "") {
+    calculoPrecio.style.display = "block";
   }
 }
 
@@ -1192,7 +1192,7 @@ function reconstruirTodosLosBotones() {
   });
 
   // --- 3. DESCARTADOS ---
-  document.querySelectorAll("#juegosdescartados li").forEach((producto) => {
+  document.querySelectorAll("#juegosDescartados li").forEach((producto) => {
     reconstruirBotonDescartado(producto);
     reconstruirBotonRegalo(producto);
   });
@@ -1216,7 +1216,7 @@ function reconstruirBotonPrincipal(producto) {
   // Solo crear botón de añadir si no está en resultados/descartados
   if (
     !producto.closest("#resultados") &&
-    !producto.closest("#juegosdescartados")
+    !producto.closest("#juegosDescartados")
   ) {
     const addButton = crearBoton("🛒", "add-button", "blue", function () {
       agregarProducto(producto);
@@ -1323,7 +1323,7 @@ function aplicarFiltrosCombinados() {
   const filtroNombre = inputNombre.value.toLowerCase();
 
   // Mostrar/ocultar botones de borrar según corresponda
-  document.getElementById("botonborrarbusqueda").style.display = filtroNombre
+  document.getElementById("botonBorrarBusqueda").style.display = filtroNombre
     ? "inline-block"
     : "none";
   document.getElementById("botonborrarprecio").style.display = isNaN(maxPrice)
