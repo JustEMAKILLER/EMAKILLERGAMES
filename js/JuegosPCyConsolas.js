@@ -1052,7 +1052,7 @@ function enviarListado() {
 
   // Agregar regalos al mensaje (si hay)
   if (regalos.length > 0) {
-    mensaje += "--- REGALOS ---\n";
+    mensaje += "--- 🎁 REGALOS ---\n";
 
     regalos.forEach((regalo) => {
       // Obtener el tamaño del regalo
