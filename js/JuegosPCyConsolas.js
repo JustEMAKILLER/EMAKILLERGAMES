@@ -1096,7 +1096,22 @@ function enviarListado() {
     " CUP; " +
     TamanoTotal.toFixed(2) +
     " GB" +
-    textoRegalo;
+    textoRegalo + "/n/n";
+
+  // Preguntar residencia al cliente
+  function hallarResidencia() {
+    let mensajeria = confirm("¿Desea solicitar mensajería para su encargo?");
+    
+    if (mensajeria) {
+    let residencia = prompt("¿En dónde vive?");
+    return residencia;
+    }
+    
+    else return;
+    }
+
+    let residencia = hallarResidencia();
+    if (residencia) mensaje += `Deseo solicitar mensajería. Vivo en ${residencia}`;
 
   // Codificar el mensaje para formato URL
   let mensajeURL = encodeURIComponent(mensaje);
