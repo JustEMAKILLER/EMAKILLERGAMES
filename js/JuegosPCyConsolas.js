@@ -1025,8 +1025,8 @@ function enviarListado() {
     CantTotalJuegos > 1
       ? "Hola! Le escribo para solicitar los siguientes " +
         CantTotalJuegos +
-        " juegos:\n\n"
-      : "Hola! Le escribo para solicitar el siguiente juego:\n\n";
+        " juegos:\n"
+      : "Hola! Le escribo para solicitar el siguiente juego:\n";
 
   // Agregar juegos normales al mensaje
   items.forEach((item) => {
@@ -1053,7 +1053,9 @@ function enviarListado() {
   // Agregar regalos al mensaje (si hay)
   if (regalos.length > 0) {
     mensaje +=
-      regalos.length > 1 ? "--- 🎁 REGALOS ---\n\n" : "--- 🎁 REGALO ---\n\n";
+      regalos.length > 1
+        ? "\n--- 🎁 REGALOS ---\n"
+        : "\n--- 🎁 REGALO ---\n";
 
     regalos.forEach((regalo) => {
       // Obtener el tamaño del regalo
@@ -1092,7 +1094,7 @@ function enviarListado() {
 
   // Agregar el precio total al mensaje
   mensaje +=
-    "Precio y tamaño totales: " +
+    "\nPrecio y tamaño totales: " +
     PrecioTotal +
     " CUP; " +
     TamanoTotal.toFixed(2) +
