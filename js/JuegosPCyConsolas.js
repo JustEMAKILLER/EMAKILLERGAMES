@@ -1025,8 +1025,8 @@ function enviarListado() {
     CantTotalJuegos > 1
       ? "Hola! Le escribo para solicitar los siguientes " +
         CantTotalJuegos +
-        " juegos:\n"
-      : "Hola! Le escribo para solicitar el siguiente juego:\n";
+        " juegos:\n\n"
+      : "Hola! Le escribo para solicitar el siguiente juego:\n\n";
 
   // Agregar juegos normales al mensaje
   items.forEach((item) => {
@@ -1046,13 +1046,14 @@ function enviarListado() {
 
     // Agregar el título del juego al mensaje
     if (tituloJuego) {
-      mensaje += tituloJuego + "\n\n";
+      mensaje += "- " + tituloJuego + "\n";
     }
   });
 
   // Agregar regalos al mensaje (si hay)
   if (regalos.length > 0) {
-    mensaje += "--- 🎁 REGALOS ---\n";
+    mensaje +=
+      regalos.length > 1 ? "--- 🎁 REGALOS ---\n\n" : "--- 🎁 REGALO ---\n\n";
 
     regalos.forEach((regalo) => {
       // Obtener el tamaño del regalo
@@ -1066,7 +1067,7 @@ function enviarListado() {
 
       // Agregar el título del juego al mensaje
       if (tituloJuego) {
-        mensaje += tituloJuego + "\n\n";
+        mensaje += "- " + tituloJuego + "\n";
       }
     });
   }
@@ -1096,7 +1097,7 @@ function enviarListado() {
     " CUP; " +
     TamanoTotal.toFixed(2) +
     " GB" +
-    textoRegalo + "\n\n";
+    textoRegalo;
 
   // Preguntar residencia al cliente
   function hallarResidencia() {
@@ -1111,7 +1112,7 @@ function enviarListado() {
     }
 
     let residencia = hallarResidencia();
-    if (residencia) mensaje += `Deseo solicitar mensajería. Vivo en ${residencia}`;
+    if (residencia) mensaje += `\n\nDeseo solicitar mensajería. Vivo en ${residencia}.`;
 
   // Codificar el mensaje para formato URL
   let mensajeURL = encodeURIComponent(mensaje);
