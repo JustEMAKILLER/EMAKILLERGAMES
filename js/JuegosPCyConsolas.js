@@ -1096,7 +1096,7 @@ function enviarListado() {
     " CUP; " +
     TamanoTotal.toFixed(2) +
     " GB" +
-    textoRegalo + "/n/n";
+    textoRegalo + "\n\n";
 
   // Preguntar residencia al cliente
   function hallarResidencia() {
