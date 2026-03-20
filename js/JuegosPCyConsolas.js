@@ -213,7 +213,7 @@ function agregarPreciosAJuegos() {
       if (juego.classList.contains("pocosMods")) precio += 50;
       if (juego.classList.contains("muchosMods")) precio += 100;
       if (juego.classList.contains("servidor")) precio += 150;
-      if (juego.classList.contains("Activacion")) precio += 1500;
+      if (juego.classList.contains("Activacion")) precio += 1000;
       if (juego.classList.contains("consolas")) precio += 100;
       if (juego.classList.contains("Nswitch")) precio += 200;
     }
