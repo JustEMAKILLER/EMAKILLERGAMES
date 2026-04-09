@@ -4,4 +4,6 @@ El encabezado de juegos de PSP en los juegos de consolas pierde margin-top despl
 Ideas para futuras actualizaciones:
 Reducir un poco el tamaño de los li de los juegos para que en móviles se puedan ver más elementos a la vez
 
+Si los juegos por Hypervisor funcionan por Activación, crear otro apartado explicativo como el de los de Activación para especificar irresponsabilidad por el uso indebido del Bypass. Establecer otro elemento li para cada juego por Denuvo reemplazando el ícono de Activación requerida por el de Hypervisor Bypass (el icono serían las letras HV blancas con fondo cuadrado rojo), agregando esta última como clase Hypervisor, los precios de estos se evaluarán por su tamaño. Cada elemento que tenga la clase Hypervisor tendrá border gris, así como la explicación de estos juegos.
+
 Elementos a verificar:

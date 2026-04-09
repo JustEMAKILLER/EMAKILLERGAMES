@@ -141,7 +141,7 @@ function agregarIconosFiltrosAJuegos() {
       if (li.classList.contains("Activacion")) {
         const icono = document.createElement("img");
         icono.className = "li-icono-filtro";
-        icono.src = "img/candado.webp";
+        icono.src = "img/filtros/Activacion.webp";
         icono.alt = "Activación requerida";
         icono.title = "Activación requerida";
         iconosContainer.appendChild(icono);
@@ -209,10 +209,10 @@ function agregarPreciosAJuegos() {
       if (juego.classList.contains("precio3")) precio += 200; // 10 GB Y <= 50 GB
       if (juego.classList.contains("precio4")) precio += 300; // + 50 GB Y <= 80 GB
       if (juego.classList.contains("precio5")) precio += 400; // + 80 GB
-      if (juego.classList.contains("crack")) precio += 100;
+      if (juego.classList.contains("crack")) precio += 100; // Crack LAN u Online
       if (juego.classList.contains("pocosMods")) precio += 50;
       if (juego.classList.contains("muchosMods")) precio += 100;
-      if (juego.classList.contains("servidor")) precio += 150;
+      if (juego.classList.contains("servidor")) precio += 150; // Servidor Dedicado adicionado
       if (juego.classList.contains("Activacion")) precio += 1500;
       if (juego.classList.contains("consolas")) precio += 100;
       if (juego.classList.contains("Nswitch")) precio += 200;
