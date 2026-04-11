@@ -1054,8 +1054,8 @@ function enviarListado() {
   if (regalos.length > 0) {
     mensaje +=
       regalos.length > 1
-        ? "\n--- 🎁 REGALOS ---\n"
-        : "\n--- 🎁 REGALO ---\n";
+        ? "\n--- REGALOS ---\n"
+        : "\n--- REGALO ---\n";
 
     regalos.forEach((regalo) => {
       // Obtener el tamaño del regalo
