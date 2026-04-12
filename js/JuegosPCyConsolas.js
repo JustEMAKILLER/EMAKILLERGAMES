@@ -581,7 +581,9 @@ function verificarVisibilidadRegalos() {
 // Función para actualizar el precio y tamaño totales
 function actualizarPrecioYTamano() {
   const resultadosDiv = document.getElementById("resultados");
+  const carritoHeader = document.getElementById("encabezadoResultados");
   const regalosDiv = document.getElementById("regalos");
+  const regalosHeader = document.getElementById("encabezadoRegalos");
   const calculoPrecio = document.getElementById("calculoPrecio");
 
   // Obtener juegos normales (excluyendo regalos)
@@ -615,6 +617,13 @@ function actualizarPrecioYTamano() {
   });
 
   PrecioTotal = PrecioJuegos + PrecioActivaciones;
+  
+  // Actualizar cantidad de juegos seleccionados en el carrito
+  carritoHeader.textContent =
+    "🛒Carrito de juegos seleccionados " + "(" + items.length + ")";
+
+  // Actualizar cantidad de regalos seleccionados
+  regalosHeader.textContent = "🎁Regalos✨ " + "(" + regalos.length + ")";
 
   // Calcular el regalo (si aplica)
   let textoRegalo = "";
@@ -624,6 +633,7 @@ function actualizarPrecioYTamano() {
     const bonoRestante = bonoDisponible - bonoUtilizado;
 
     textoRegalo = ` + ${bonoDisponible} CUP de regalo (${bonoUtilizado} CUP usados y ${bonoRestante} CUP restantes)`;
+
     calculoPrecio.textContent =
       "Precio y tamaño totales: " +
       PrecioTotal +
