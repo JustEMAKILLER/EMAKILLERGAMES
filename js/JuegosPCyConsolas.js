@@ -334,6 +334,20 @@ function agregarProducto(producto) {
   const resultadosDiv = document.getElementById("resultados");
   const listaResultados = resultadosDiv.querySelector("ul:first-of-type");
 
+  // Descontar monto de filtro de precio si existe según precio de producto
+  const inputPrecio = document.getElementById("buscarPrecio");
+  const precioFiltro = parseFloat(inputPrecio.value);
+  const precioProducto = producto.getAttribute("Precio");
+
+  if (precioFiltro) {
+    inputPrecio.classList.add("amarillo");
+    inputPrecio.value -= precioProducto;
+  }
+
+  if (inputPrecio.value <= 0) {
+    inputPrecio.classList.add("rojo");
+  }
+
   // Eliminar botones existentes
   const addButton = producto.querySelector(".add-button");
   const regaloButton = producto.querySelector(".regalo-button");
@@ -617,7 +631,7 @@ function actualizarPrecioYTamano() {
   });
 
   PrecioTotal = PrecioJuegos + PrecioActivaciones;
-  
+
   // Actualizar cantidad de juegos seleccionados en el carrito
   carritoHeader.textContent =
     "🛒Carrito de juegos seleccionados " + "(" + items.length + ")";
@@ -794,24 +808,24 @@ function busqueda() {
         mostrar = generosSeleccionados.some((g) => generosJuego.includes(g));
       }
 
-        if (mostrar && otrosFiltros.length > 0) {
-          const clasesJuego = Array.from(producto.classList);
+      if (mostrar && otrosFiltros.length > 0) {
+        const clasesJuego = Array.from(producto.classList);
 
-          // Convertir el filtro "Mods" → coincidir con pocosMods o muchosMods
-          const coincideMods =
-            otrosFiltros.includes("Mods") &&
-            (clasesJuego.includes("pocosMods") ||
-              clasesJuego.includes("muchosMods"));
+        // Convertir el filtro "Mods" → coincidir con pocosMods o muchosMods
+        const coincideMods =
+          otrosFiltros.includes("Mods") &&
+          (clasesJuego.includes("pocosMods") ||
+            clasesJuego.includes("muchosMods"));
 
-          // Coincidencia directa con clases como "servidor" o "noProbado"
-          const coincidenciaDirecta = otrosFiltros.some((f) =>
-            clasesJuego.includes(f) || productName.includes("servidor"),
-          );
+        // Coincidencia directa con clases como "servidor" o "noProbado"
+        const coincidenciaDirecta = otrosFiltros.some(
+          (f) => clasesJuego.includes(f) || productName.includes("servidor"),
+        );
 
-          if (!coincideMods && !coincidenciaDirecta) {
-            mostrar = false;
-          }
+        if (!coincideMods && !coincidenciaDirecta) {
+          mostrar = false;
         }
+      }
 
       producto.style.display = mostrar ? "list-item" : "none";
       if (mostrar) {
@@ -1063,9 +1077,7 @@ function enviarListado() {
   // Agregar regalos al mensaje (si hay)
   if (regalos.length > 0) {
     mensaje +=
-      regalos.length > 1
-        ? "\n--- REGALOS ---\n"
-        : "\n--- REGALO ---\n";
+      regalos.length > 1 ? "\n--- REGALOS ---\n" : "\n--- REGALO ---\n";
 
     regalos.forEach((regalo) => {
       // Obtener el tamaño del regalo
@@ -1114,17 +1126,16 @@ function enviarListado() {
   // Preguntar residencia al cliente
   function hallarResidencia() {
     let mensajeria = confirm("¿Desea solicitar mensajería para su encargo?");
-    
-    if (mensajeria) {
-    let residencia = prompt("¿En dónde vive?");
-    return residencia;
-    }
-    
-    else return;
-    }
 
-    let residencia = hallarResidencia();
-    if (residencia) mensaje += `\n\nDeseo solicitar mensajería. Vivo en ${residencia}.`;
+    if (mensajeria) {
+      let residencia = prompt("¿En dónde vive?");
+      return residencia;
+    } else return;
+  }
+
+  let residencia = hallarResidencia();
+  if (residencia)
+    mensaje += `\n\nDeseo solicitar mensajería. Vivo en ${residencia}.`;
 
   // Codificar el mensaje para formato URL
   let mensajeURL = encodeURIComponent(mensaje);
