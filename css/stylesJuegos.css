@@ -771,7 +771,7 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 
 #buscar {
 	position: relative;
-	right: -9vw;
+	right: -8vw;
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
