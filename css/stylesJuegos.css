@@ -1041,7 +1041,7 @@ h3 {
 /* Animaciones */
 @keyframes cambioColorJActiv {
 	0% {
-		border-color: red
+		border-color: rgb(133, 39, 39)
 	}
 
 	33% {
@@ -1053,7 +1053,7 @@ h3 {
 	}
 
 	100% {
-		border-color: red
+		border-color: rgb(133, 39, 39)
 	}
 }
 
