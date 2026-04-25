@@ -147,6 +147,16 @@ function agregarIconosFiltrosAJuegos() {
         iconosContainer.appendChild(icono);
       }
 
+      // Añadir iconos de Hypervisor si el juego lo requiere
+      if (li.classList.contains("Hypervisor")) {
+        const icono = document.createElement("img");
+        icono.className = "li-icono-filtro";
+        icono.src = "img/filtros/Hypervisor.webp";
+        icono.alt = "Hypervisor";
+        icono.title = "Hypervisor";
+        iconosContainer.appendChild(icono);
+      }
+
       // Añadir contenedor de iconos al li
       li.appendChild(iconosContainer);
     }

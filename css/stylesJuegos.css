@@ -261,7 +261,7 @@ body:not(.vista-tradicional) #resultados .juegosNuevos .remove-button,body:not(.
 .Activacion {
 	border: solid 8px; 
 	border-radius: 40px;
-	animation: cambiocolorJActiv 2.5s linear infinite;
+	animation: cambioColorJActiv 2.5s linear infinite;
 }
 
 .busqueda {
@@ -358,6 +358,10 @@ body:not(.vista-tradicional) #resultados .juegosNuevos .remove-button,body:not(.
 	margin-top: 25px;
 	width: 50px;
 	height: 40px;
+}
+
+.Hypervisor {
+	border: solid 8px rgba(255, 0, 0, 0.892);
 }
 
 .juegosNuevos {
@@ -763,6 +767,10 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 }
 
 /* Otros */
+#Activacion {
+ animation: cambioColorPalabraActiv 2.5s linear infinite;
+}
+
 #banner {
 	width: 100%;
 	user-select: none;
@@ -885,7 +893,6 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	border: 1px solid var(--Bl-border-title);
 	border-radius: 20px;
 	padding: 13px;
-	animation: cambiocolorJActiv 2.5s linear infinite;
 }
 
 #divInfoJActiv.contVisible #contenidoInfoJActiv {
@@ -903,19 +910,6 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 #divInfoJActiv h2,
 h3 {
 	font-weight: 100;
-}
-
-#divInfoJActiv a {
-	transition: all 0.3s ease;
-	display: block;
-	text-decoration: none;
-}
-
-#divInfoJActiv a:hover {
-	color: rgb(157, 5, 157) !important;
-	text-decoration: underline !important;
-	text-decoration-color: rgb(157, 5, 157) !important;
-	transform: translateX(-5px);
 }
 
 #divLupa {
@@ -1045,7 +1039,7 @@ h3 {
 }
 
 /* Animaciones */
-@keyframes cambiocolorJActiv {
+@keyframes cambioColorJActiv {
 	0% {
 		border-color: red
 	}
@@ -1060,5 +1054,23 @@ h3 {
 
 	100% {
 		border-color: red
+	}
+}
+
+@keyframes cambioColorPalabraActiv {
+	0% {
+		color: rgb(133, 39, 39)
+	}
+
+	33% {
+		color: rgb(26, 102, 123)
+	}
+
+	86% {
+		color: #FAAD00
+	}
+
+	100% {
+		color: rgb(133, 39, 39)
 	}
 }
