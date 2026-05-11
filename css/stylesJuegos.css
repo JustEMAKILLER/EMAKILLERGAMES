@@ -696,7 +696,7 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	box-shadow: 2px 2px 10px purple;
 }
 
-#botonMostrarInfoJActiv {
+#botonMostrarInfoJActivHyp {
 	position: relative;
 	top: 21px;
 	width: 30px;
@@ -868,11 +868,11 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	width: 80%;
 }
 
-#contenidoInfoJActiv {
+#contenidoInfoJActivHyp {
 	display: none;
 }
 
-#divHeaderInfoJActiv {
+#divHeaderInfoJActivHyp {
 	cursor: pointer;
 	display: flex;
 	flex-flow: row nowrap;
@@ -881,11 +881,11 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	transition: transform 0.3s ease;
 }
 
-#divHeaderInfoJActiv:hover {
+#divHeaderInfoJActivHyp:hover {
 	transform: scale(1.08);
 }
 
-#divInfoJActiv {
+#divInfoJActivHyp {
 	word-spacing: 0.7px;
 	margin: 10px;
 	margin-bottom: 15px;
@@ -895,19 +895,19 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 	padding: 13px;
 }
 
-#divInfoJActiv.contVisible #contenidoInfoJActiv {
+#divInfoJActivHyp.contVisible #contenidoInfoJActivHyp {
 	display: block;
 }
 
-#divInfoJActiv.contVisible #botonMostrarInfoJActiv::after {
+#divInfoJActivHyp.contVisible #botonMostrarInfoJActivHyp::after {
 	content: "▼";
 }
 
-#divInfoJActiv:not(.contVisible) #botonMostrarInfoJActiv::after {
+#divInfoJActivHyp:not(.contVisible) #botonMostrarInfoJActivHyp::after {
 	content: "▶";
 }
 
-#divInfoJActiv h2,
+#divInfoJActivHyp h2,
 h3 {
 	font-weight: 100;
 }
