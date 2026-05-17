@@ -10,6 +10,48 @@
   --Bl-color-title: rgb(255, 255, 255);
 }
 
+/* Media queries */
+@media (min-width: 440px) and (max-width: 468px) {
+  .listajuegos li {
+    width: 180px;
+    height: 180px;
+  }
+  .regalo-button {
+	padding-right: 15% !important;
+  }
+}
+
+@media (min-width: 469px) and (max-width: 530px) {
+  .listajuegos li {
+    width: 220px;
+    height: 200px;
+  }
+  .regalo-button {
+	padding-right: 12% !important;
+  }
+}
+
+@media (min-width: 531px) and (max-width: 628px) {
+  .listajuegos li {
+    width: 250px;
+    height: 200px;
+  }
+  .regalo-button {
+	padding-right: 10% !important;
+  }
+}
+
+@media (min-width: 440px) and (max-width: 628px) {
+  .add-button,
+  .remove-button,
+  .regalo-button {
+    left: 38% !important;
+  }
+  .regalo-button {
+    top: 70% !important;
+  }
+}
+
 /* Palabras reservadas */
 body {
   background-color: rgba(0, 0, 0, 0.999);
