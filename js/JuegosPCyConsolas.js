@@ -75,7 +75,10 @@ function agregarIconosFiltrosAJuegos() {
     }
 
     // Si tiene Servidor Dedicado (servidor)
-    if (clases.includes("servidor")) {
+    if (
+      clases.includes("servidor") ||
+      obtenerTituloJuego(li).includes("Servidor")
+    ) {
       otrosFiltros.push("Contiene Servidor Dedicado");
     }
 
@@ -827,7 +830,7 @@ function busqueda() {
           (clasesJuego.includes("pocosMods") ||
             clasesJuego.includes("muchosMods"));
 
-        // Coincidencia directa con clases como "servidor" o "noProbado"
+        // Si el juego tiene Servidor o no está probado
         const coincidenciaDirecta = otrosFiltros.some(
           (f) => clasesJuego.includes(f) || productName.includes("servidor"),
         );
@@ -1448,9 +1451,9 @@ function aplicarFiltrosCombinados() {
             (clasesJuego.includes("pocosMods") ||
               clasesJuego.includes("muchosMods"));
 
-          // Coincidencia directa con clases como "servidor" o "noProbado"
+          // Si el juego tiene Servidor o no está probado
           const coincidenciaDirecta = otrosFiltros.some((f) =>
-            clasesJuego.includes(f),
+            clasesJuego.includes(f) || obtenerTituloJuego(juego).includes("Servidor"),
           );
 
           if (!coincideMods && !coincidenciaDirecta) {
