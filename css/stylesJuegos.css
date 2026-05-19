@@ -17,7 +17,7 @@
     height: 160px;
   }
   .regalo-button {
-	padding-right: 15% !important;
+    padding-right: 15% !important;
   }
 }
 
@@ -27,7 +27,7 @@
     height: 180px;
   }
   .regalo-button {
-	padding-right: 12% !important;
+    padding-right: 12% !important;
   }
 }
 
@@ -37,7 +37,7 @@
     height: 170px;
   }
   .regalo-button {
-	padding-right: 10% !important;
+    padding-right: 10% !important;
   }
 }
 
@@ -397,6 +397,10 @@ body:not(.vista-tradicional) #resultados .juegosActualizados .remove-button {
   gap: 15px;
   align-items: center;
   justify-content: center;
+}
+
+.divsBotonesRojoVerde p {
+  text-align: center;
 }
 
 .cajaJuegosDescart li:hover,
