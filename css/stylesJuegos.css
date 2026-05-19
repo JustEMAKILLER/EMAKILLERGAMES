@@ -14,17 +14,17 @@
 @media (min-width: 440px) and (max-width: 468px) {
   .listajuegos li {
     width: 180px;
-    height: 180px;
+    height: 160px;
   }
   .regalo-button {
 	padding-right: 15% !important;
   }
 }
 
-@media (min-width: 469px) and (max-width: 530px) {
+@media (min-width: 469px) and (max-width: 531px) {
   .listajuegos li {
-    width: 220px;
-    height: 200px;
+    width: 200px;
+    height: 180px;
   }
   .regalo-button {
 	padding-right: 12% !important;
@@ -33,8 +33,8 @@
 
 @media (min-width: 531px) and (max-width: 628px) {
   .listajuegos li {
-    width: 250px;
-    height: 200px;
+    width: 220px;
+    height: 170px;
   }
   .regalo-button {
 	padding-right: 10% !important;
@@ -45,7 +45,7 @@
   .add-button,
   .remove-button,
   .regalo-button {
-    left: 38% !important;
+    left: 35.5% !important;
   }
   .regalo-button {
     top: 70% !important;
@@ -394,7 +394,7 @@ body:not(.vista-tradicional) #resultados .juegosActualizados .remove-button {
 
 .divsBotonesRojoVerde {
   display: flex;
-  gap: 10px;
+  gap: 15px;
   align-items: center;
   justify-content: center;
 }
