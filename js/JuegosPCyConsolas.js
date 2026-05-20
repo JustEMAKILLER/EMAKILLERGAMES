@@ -1146,7 +1146,7 @@ function enviarListado() {
     } else return;
   }
 
-  let residencia = hallarResidencia();
+  let residencia = hallarResidencia().trim();
   if (residencia)
     mensaje += `\n\nDeseo solicitar mensajería. Vivo en ${residencia}.`;
 
