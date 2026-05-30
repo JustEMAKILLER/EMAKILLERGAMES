@@ -1146,10 +1146,11 @@ function enviarListado() {
     } else return;
   }
 
-  let residencia = hallarResidencia().trim();
-  if (residencia)
+  let residencia = hallarResidencia();
+  if (residencia) {
+    residencia = residencia.trim();
     mensaje += `\n\nDeseo solicitar mensajería. Vivo en ${residencia}.`;
-
+  }
   // Codificar el mensaje para formato URL
   let mensajeURL = encodeURIComponent(mensaje);
   let URL = `https://wa.me/+5363975093?text=${mensajeURL}`;
@@ -1452,8 +1453,10 @@ function aplicarFiltrosCombinados() {
               clasesJuego.includes("muchosMods"));
 
           // Si el juego tiene Servidor o no está probado
-          const coincidenciaDirecta = otrosFiltros.some((f) =>
-            clasesJuego.includes(f) || obtenerTituloJuego(juego).includes("Servidor"),
+          const coincidenciaDirecta = otrosFiltros.some(
+            (f) =>
+              clasesJuego.includes(f) ||
+              obtenerTituloJuego(juego).includes("Servidor"),
           );
 
           if (!coincideMods && !coincidenciaDirecta) {
