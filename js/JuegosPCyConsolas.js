@@ -1146,10 +1146,10 @@ function enviarListado() {
     } else return;
   }
 
-  let residencia = hallarResidencia().trim();
-  if (residencia)
+  if (residencia) {
+    residencia = residencia.trim();
     mensaje += `\n\nDeseo solicitar mensajería. Vivo en ${residencia}.`;
-
+  }
   // Codificar el mensaje para formato URL
   let mensajeURL = encodeURIComponent(mensaje);
   let URL = `https://wa.me/+5363975093?text=${mensajeURL}`;
