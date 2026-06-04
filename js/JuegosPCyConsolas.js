@@ -96,14 +96,6 @@ function agregarIconosFiltrosAJuegos() {
       const iconosContainer = document.createElement("div");
       iconosContainer.className = "li-iconos-filtros";
 
-      // Añadir clase adicional para juegos nuevos/actualizados
-      if (
-        li.classList.contains("juegosNuevos") ||
-        li.classList.contains("juegosActualizados")
-      ) {
-        iconosContainer.classList.add("iconos-especiales");
-      }
-
       // Añadir iconos de conexión
       conexiones.forEach((conexion) => {
         if (conexion) {
@@ -236,6 +228,22 @@ function agregarPreciosAJuegos() {
 }
 
 function agregarPrecioANombresJuegos(juego, precio) {
+  /*   Vista por imágenes */
+  // Eliminar contenedor de precios existente si hay
+  const precioContainerExistente = juego.querySelector(".li-precios");
+  if (precioContainerExistente) {
+    precioContainerExistente.remove();
+  }
+    const precioContainer = document.createElement("div");
+    precioContainer.className = "li-precios";
+    const textoPrecio = document.createElement("span");
+    textoPrecio.textContent = `${precio} CUP`;
+    textoPrecio.style.color = "lightgreen";
+    textoPrecio.style.fontSize = '0.9em';
+    precioContainer.appendChild(textoPrecio);
+    juego.appendChild(precioContainer);
+
+  /* Vista tradicional */
   let nombre = obtenerTituloJuego(juego);
   nombre += "- " + precio + " CUP";
   img = juego.querySelector("img");

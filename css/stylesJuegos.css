@@ -192,10 +192,7 @@ ul li {
     rgb(128, 3, 128) 90%
   );
   border-radius: 30px;
-  transition:
-    box-shadow 0.5s ease,
-    transform 1s ease,
-    filter 0.5s ease;
+  transition: box-shadow 0.5s ease, transform 1s ease, filter 0.5s ease;
   line-height: 1.7rem;
 }
 
@@ -341,8 +338,7 @@ body:not(.vista-tradicional) #resultados .juegosActualizados .remove-button {
   box-shadow: 2px 2px 6px purple;
   padding-top: 10px;
   padding-inline: 20px;
-  font-family:
-    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
@@ -666,6 +662,27 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
   transform: none !important;
 }
 
+/* Precios de juegos en vista por imágenes */
+.li-precios {
+  width: auto !important;
+  height: auto !important;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+  padding: 3px;
+  position: absolute;
+  bottom: 0px;
+  left: 10px;
+  display: flex;
+  gap: 3px;
+  max-width: 80%;
+  z-index: 5;
+}
+
+.vista-tradicional .li-precios {
+  display: none;
+}
+
 /* ID's */
 
 /* Botones */
@@ -683,9 +700,7 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
   display: none;
   bottom: 0%;
   right: 1%;
-  transition:
-    box-shadow 0.2s ease,
-    transform 0.5s ease;
+  transition: box-shadow 0.2s ease, transform 0.5s ease;
   z-index: 500;
 }
 
@@ -719,9 +734,7 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
   background-color: var(--Bl-background-nav);
   color: white;
   cursor: pointer;
-  transition:
-    background-color 0.3s ease,
-    transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 #buscar .botonesBusqueda:hover {
@@ -740,9 +753,7 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
   border-radius: 20px;
   background-color: var(--Bl-background-nav);
   cursor: pointer;
-  transition:
-    background-color 0.3s ease,
-    transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 #botonOcultarBusqueda:hover {
