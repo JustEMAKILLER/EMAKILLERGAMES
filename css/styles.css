@@ -28,7 +28,7 @@
   --Bl-border-nav: #777777;
   --Bl-shadow-nav: #3b022a;
   --Bl-background-title: #00000079;
-  --Bl-border-title: #530432;
+  --Bl-border-title: #6916b7;
   --Bl-shadow-title: #020000;
   --Bl-color-title: #ffffff;
 }
@@ -128,7 +128,7 @@ svg {
   max-width: 500px;
   height: 200px;
   border: solid 2px #000000;
-  box-shadow: 2px 2px 6px #800080;
+  box-shadow: 2px 2px 6px var(--Bl-border-title);
   border-radius: 20px;
   background-size: cover;
   background-repeat: no-repeat;
