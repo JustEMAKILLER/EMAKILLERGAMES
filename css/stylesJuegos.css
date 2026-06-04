@@ -671,7 +671,7 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
   padding: 3px;
   position: absolute;
-  bottom: 0px;
+  bottom: 5px;
   left: 10px;
   display: flex;
   gap: 3px;
