@@ -869,12 +869,14 @@ function borrarBusqueda() {
   const buscarNombreInput = document.getElementById("buscarNombre");
   // Limpiar el campo de texto
   buscarNombreInput.value = "";
+  buscarNombreInput.focus();
   busqueda();
 }
 // Función para borrar el campo de precio
 function borrarPrecio() {
-  const filtroprecioInput = document.getElementById("buscarPrecio");
-  filtroprecioInput.value = "";
+  const filtroPrecioInput = document.getElementById("buscarPrecio");
+  filtroPrecioInput.value = "";
+  filtroPrecioInput.focus();
 
   // Si hay búsqueda por nombre, vuelve a ejecutar búsqueda completa
   const filtroNombre = document.getElementById("buscarNombre").value.trim();
@@ -1520,12 +1522,14 @@ function mostrarInfoDivInfoJActivHyp() {
 function mostrarBusqueda() {
   const divLupa = document.getElementById("divLupa");
   const divBusqueda = document.getElementById("busqueda");
+  const buscarNombreInput = document.getElementById("buscarNombre");
   if (divBusqueda.classList.contains("visible")) {
     divBusqueda.classList.remove("visible");
     divLupa.style.display = "block";
   } else {
     divLupa.style.display = "none";
     divBusqueda.classList.add("visible");
+    buscarNombreInput.focus();
   }
 }
 
