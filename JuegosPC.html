@@ -51,7 +51,7 @@
 
       <!--Entradas de búsqueda-->
       <div onclick="mostrarBusqueda()" id="divLupa">
-            <img id="lupa" src="img/lupa.webp" alt="Buscar" title="Buscar">
+            <img id="lupa" src="img/loupe.webp" alt="Buscar" title="Buscar">
       </div>
 
       <div id="busqueda" class="busqueda">
@@ -66,14 +66,14 @@
             </div>
       </div>
       <header>
-            <img id="banner" src="img/EMAKILLERGAMES_Banner_nuevo_dark_souls.webp" loading="eager" />
+            <img id="banner" src="img/Banner_IA.webp" loading="eager" />
             <h1 id=Titulo>Juegos de PC</h1>
       </header>
       <main>
             <!--Información acerca de los juegos por activación-->
             <div id="divInfoJActivHyp">
-                  <div id="divHeaderInfoJActivHyp" onclick="mostrarInfoDivInfoJActivHyp()"><button id="botonMostrarInfoJActivHyp"
-                              title="Mostrar/ocultar información"></button>
+                  <div id="divHeaderInfoJActivHyp" onclick="mostrarInfoDivInfoJActivHyp()"><button
+                              id="botonMostrarInfoJActivHyp" title="Mostrar/ocultar información"></button>
                         <h2>🎮 Información importante sobre los Juegos por <span id="Activacion">Activación</span> /
                               <span style="color: red;">Hypervisor</span>
                         </h2>
@@ -125,7 +125,7 @@
                         <p>Si usted incumple con las medidas citadas anteriormente y corrompe su activación, <i>deberá
                                     pagar el precio completo nuevamente</i>.
                         </p>
-                        <h3 style="overflow-y: hidden; border-top: 1px solid purple; padding-top: 15px;"><img
+                        <h3 style="overflow-y: hidden; border-top: 1px solid #6916b7; padding-top: 15px;"><img
                                     src="img/filtros/Hypervisor.webp"
                                     style="width: 20px; height: 20px; margin-right: 8px; position: relative; top: 5px;">¿Qué
                               es Hypervisor?</h3>
@@ -178,26 +178,26 @@
 
             <!--Contenedores de juegos nuevos/actualizados y cambio de vista-->
             <div class="divsJNewActCVista">
-            <div class="divsBotonesRojoVerde">
-                  <p>Solo juegos <span style="color:rgb(157, 5, 157)">nuevos</span> o <span
-                              style="color:rgb(88, 88, 236)">actualizados</span></p>
-                  <div class="bordeBotonBola">
-                        <div style="cursor: pointer" id="botonJNA" class="BotonBolaRoja">
+                  <div class="divsBotonesRojoVerde">
+                        <p>Solo juegos <span style="color:rgb(157, 5, 157)">nuevos</span> o <span
+                                    style="color:rgb(88, 88, 236)">actualizados</span></p>
+                        <div class="bordeBotonBola">
+                              <div style="cursor: pointer" id="botonJNA" class="BotonBolaRoja">
+                              </div>
+                        </div>
+                  </div>
+
+                  <br>
+
+                  <div class="divsBotonesRojoVerde">
+                        <p>Cambiar vista (Texto)</p>
+                        <div class="bordeBotonBola">
+                              <div style="cursor: pointer" id="botonCambiarVista" class="BotonBolaRoja"
+                                    onclick="cambiarVista()">
+                              </div>
                         </div>
                   </div>
             </div>
-
-            <br>
-
-            <div class="divsBotonesRojoVerde">
-                  <p>Cambiar vista (Texto)</p>
-                  <div class="bordeBotonBola">
-                        <div style="cursor: pointer" id="botonCambiarVista" class="BotonBolaRoja"
-                              onclick="cambiarVista()">
-                        </div>
-                  </div>
-            </div>
-      </div>
 
             <article class=caja>
                   <section id="filtros">
@@ -802,7 +802,7 @@
                                                 data-src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/330020/header.jpg?t=1765218667"
                                                 title="Children Of Morta (1.34 GB) (LAN)"></a>
                               </li>
-                              <li class="juegosNuevos precio3 servidor" Tconex="Offline, LAN" Genero="Lucha"
+                              <li class="precio3 servidor" Tconex="Offline, LAN" Genero="Lucha"
                                     Tamano="8.35">
                                     <a href="https://store.steampowered.com/app/219640/Chivalry_Medieval_Warfare/"
                                           target="_blank"><img
@@ -926,12 +926,12 @@
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1307550/capsule_616x353.jpg?t=1734673165"
                                                 title="Craftopia v20230705.1925 (8.55 GB) (LAN)"></a></li>
-                              <li class="juegosNuevos Activacion" Tconex="Offline" Genero="RPG" Tamano="66.00"><a
+                              <li class="Activacion" Tconex="Offline" Genero="RPG" Tamano="66.00"><a
                                           href="https://store.steampowered.com/app/3321460/Crimson_Desert/"
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3321460/d76689d0bd0a77b863a64b08760b8dd1c5b50081/capsule_616x353.jpg?t=1777016399"
                                                 title="Crimson Desert (66 GB) (Activación requerida)"></a></li>
-                              <li class="juegosNuevos precio5 Hypervisor" Tconex="Offline" Genero="RPG" Tamano="66.00">
+                              <li class="precio5 Hypervisor" Tconex="Offline" Genero="RPG" Tamano="66.00">
                                     <a href="https://store.steampowered.com/app/3321460/Crimson_Desert/"
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3321460/d76689d0bd0a77b863a64b08760b8dd1c5b50081/capsule_616x353.jpg?t=1777016399"
@@ -1042,7 +1042,7 @@
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/265550/capsule_616x353.jpg?t=1720046911"
                                                 title="Dead Rising 3 - Apocalypse Edition (12.3 GB) (LAN)"></a></li>
-                              <li class="juegosNuevos precio4 crack" Tconex="Offline, LAN, Steam"
+                              <li class="precio4 crack" Tconex="Offline, LAN, Steam"
                                     Genero="Shooter, RPG, Supervivencia" Tamano="30.70"><a
                                           href="https://store.steampowered.com/app/543460/Dead_Rising_4/"
                                           target="_blank"><img
@@ -1059,7 +1059,7 @@
                                           target="_blank"><img
                                                 data-src="https://assets.nintendo.com/image/upload/q_auto/f_auto/ncom/es_LA/games/switch/d/deaths-door-switch/hero"
                                                 title="Death's Door (558 MB)"></a></li>
-                              <li class="juegosActualizados precio1 crack" Tconex="Offline, LAN"
+                              <li class="precio1 crack" Tconex="Offline, LAN"
                                     Genero="Shooter, Rogue-lite" Tamano="3.42">
                                     <a href="https://store.steampowered.com/app/548430/Deep_Rock_Galactic/"
                                           target="_blank"><img
@@ -1366,7 +1366,10 @@
                                           target="_blank"><img
                                                 data-src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2243580/header.jpg?t=1720207650"
                                                 title="Food Fight Culinary Combat (738 MB)"></a></li>
-                              <li class="precio1" Tconex="Offline" Genero="Aventura_Grafica, Terror" Tamano="0.39"><a
+                              <li class="juegosNuevos precio3 servidor" Tconex="LAN" Genero="Shooter" Tamano="6.23"><a class="juegosSinEnlace"><img
+                                                data-src="img/portadasJuegosFaltantes/Fortnite.webp"
+                                                title="Fortnite (6.23 GB) (LAN)"></a></li>
+                              <li class="precio1" Tconex="Offline" Genero="Aventura_Grafica, Terror, Puzzle" Tamano="0.39"><a
                                           href="https://store.steampowered.com/app/362680/Fran_Bow/"
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/362680/header.jpg?t=1693287362"
@@ -1469,7 +1472,7 @@
                                                 data-src="https://images.gog-statics.com/73b321c80676bbe64152380376ca1693936a28613517aef1714ab308c40e46e8_product_card_v2_mobile_slider_639.jpg"
                                                 title="Grim Dawn v1.2.0.2 H2 (6.95 GB) (LAN)"></a>
                               </li>
-                              <li class="juegosNuevos precio1 crack servidor" Tconex="Offline, LAN, Online"
+                              <li class="precio1 crack servidor" Tconex="Offline, LAN, Online"
                                     Genero="Sandbox, Shooter" Tamano="0.62"><a
                                           href="https://vandal.elespanol.com/juegos/xbox/grand-theft-auto-3/1271"
                                           target="_blank"><img
@@ -1801,7 +1804,7 @@
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/35130/capsule_616x353.jpg?t=1729009567"
                                                 title="Lara Croft And The Guardian of Light (2.38 GB) (LAN)"></a>
                               </li>
-                              <li class="juegosNuevos precio2 crack" Tconex="Offline, LAN, Steam"
+                              <li class="precio2 crack" Tconex="Offline, LAN, Steam"
                                     Genero="Shooter, Party_Game" Tamano="4.61"><a
                                           href="https://store.steampowered.com/app/774291/Last_Man_Sitting/?l=spanish"
                                           target="_blank"><img
@@ -1842,7 +1845,7 @@
                                           href="https://store.steampowered.com/app/48000/Limbo/" target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/48000/header.jpg?t=1726749481"
                                                 title="Limbo (160 MB)"></a></li>
-                              <li class="precio2" Tconex="Offline" Genero="Aventura_Grafica" Tamano="1.82"><a
+                              <li class="precio2" Tconex="Offline" Genero="Aventura_Grafica, Puzzle" Tamano="1.82"><a
                                           href="https://store.steampowered.com/app/714120/Little_Misfortune/"
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/714120/header.jpg?t=1667210698"
@@ -2131,7 +2134,7 @@
                                           target="_blank"><img
                                                 data-src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2262080/5d98aa58e6b8567d7ddff07729f401caa34eaa21/capsule_616x353.jpg?t=1732783992"
                                                 title="Omega Crafter v1.0.0 (1.42 GB) (LAN)"></a></li>
-<!--                               <li class="precio1" Tconex="Offline" Genero="Otro" Tamano="1.87"><a
+                              <!--                               <li class="precio1" Tconex="Offline" Genero="Otro" Tamano="1.87"><a
                                           href="https://store.steampowered.com/app/1150690/OMORI/" target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1150690/capsule_616x353.jpg?t=1671584768"
                                                 title="OMORI (1.87 GB)"></a></li> -->
@@ -2426,7 +2429,7 @@
                                           target="_blank"><img
                                                 data-src="https://gaming-cdn.com/images/products/192/orig/resident-evil-revelations-pc-game-steam-europe-cover.jpg?v=1720682304"
                                                 title="Resident Evil Revelations v1.0 u4 (6.3 GB) (LAN)"></a></li>
-                              <li class="juegosNuevos precio3 crack" Tconex="Offline, LAN, Steam"
+                              <li class="precio3 crack" Tconex="Offline, LAN, Steam"
                                     Genero="Terror, Shooter" Tamano="9.46"><a
                                           href="https://store.steampowered.com/app/287290/Resident_Evil_Revelations_2/"
                                           target="_blank"><img
