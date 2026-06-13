@@ -192,7 +192,10 @@ ul li {
     var(--Bl-border-title) 90%
   );
   border-radius: 30px;
-  transition: box-shadow 0.5s ease, transform 1s ease, filter 0.5s ease;
+  transition:
+    box-shadow 0.5s ease,
+    transform 1s ease,
+    filter 0.5s ease;
   line-height: 1.7rem;
 }
 
@@ -338,7 +341,8 @@ body:not(.vista-tradicional) #resultados .juegosActualizados .remove-button {
   box-shadow: 2px 2px 6px purple;
   padding-top: 10px;
   padding-inline: 20px;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
@@ -635,8 +639,14 @@ body:not(.vista-tradicional) #resultados .juegosActualizados .remove-button {
 .Ofertas > p {
   text-align: justify;
   font-weight: bold;
-  padding-left: 2%;
-  padding-right: 2%;
+  padding: 2%;
+  padding-bottom: initial;
+  border-top: 2px solid #6916b7;
+}
+
+.Ofertas:first-of-type p {
+  border: none;
+  padding-top: initial;
 }
 
 .vista-tradicional .li-iconos-filtros {
@@ -700,7 +710,9 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
   display: none;
   bottom: 0%;
   right: 1%;
-  transition: box-shadow 0.2s ease, transform 0.5s ease;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.5s ease;
   z-index: 500;
 }
 
@@ -734,7 +746,9 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
   background-color: var(--Bl-background-nav);
   color: white;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 #buscar .botonesBusqueda:hover {
@@ -753,7 +767,9 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
   border-radius: 20px;
   background-color: var(--Bl-background-nav);
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 #botonOcultarBusqueda:hover {
