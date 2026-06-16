@@ -171,6 +171,10 @@ li:hover .regalo-button {
   display: block;
 }
 
+li:has(a.juegosSinEnlace):hover {
+  box-shadow: none;
+}
+
 ul {
   list-style-type: none;
   display: flex;
