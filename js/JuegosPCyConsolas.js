@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function crearBotonesAdicion() {
   document
     .querySelectorAll(
-      ".listajuegos li:not(#resultados li):not(#juegosDescartados li):not(#regalos li)",
+      ".listajuegos li:not(#resultados li):not(#juegosDescartados li):not(#regalos li)"
     )
     .forEach((producto) => {
       reconstruirBotonPrincipal(producto);
@@ -25,7 +25,7 @@ function crearBotonesAdicion() {
 function agregarTextoNuevoOActualizado() {
   // Seleccionar los elementos li con las clases relevantes
   const elementosLi = document.querySelectorAll(
-    "li.juegosNuevos, li.juegosActualizados",
+    "li.juegosNuevos, li.juegosActualizados"
   );
 
   elementosLi.forEach((li) => {
@@ -234,14 +234,14 @@ function agregarPrecioANombresJuegos(juego, precio) {
   if (precioContainerExistente) {
     precioContainerExistente.remove();
   }
-    const precioContainer = document.createElement("div");
-    precioContainer.className = "li-precios";
-    const textoPrecio = document.createElement("span");
-    textoPrecio.textContent = `${precio} CUP`;
-    textoPrecio.style.color = "lightgreen";
-    textoPrecio.style.fontSize = '0.9em';
-    precioContainer.appendChild(textoPrecio);
-    juego.appendChild(precioContainer);
+  const precioContainer = document.createElement("div");
+  precioContainer.className = "li-precios";
+  const textoPrecio = document.createElement("span");
+  textoPrecio.textContent = `${precio} CUP`;
+  textoPrecio.style.color = "lightgreen";
+  textoPrecio.style.fontSize = "0.9em";
+  precioContainer.appendChild(textoPrecio);
+  juego.appendChild(precioContainer);
 
   /* Vista tradicional */
   let nombre = obtenerTituloJuego(juego);
@@ -304,21 +304,21 @@ function desmarcarCheckboxes() {
   }
 
   const checkboxes = document.querySelectorAll(
-    '#filtro-conexion input[name="conexion"]',
+    '#filtro-conexion input[name="conexion"]'
   );
   checkboxes.forEach((checkbox) => {
     checkbox.checked = false;
   });
 
   const checkboxesgenero = document.querySelectorAll(
-    '#filtro-generos input[name="genero"]',
+    '#filtro-generos input[name="genero"]'
   );
   checkboxesgenero.forEach((checkbox) => {
     checkbox.checked = false;
   });
 
   const otroscheckboxes = document.querySelectorAll(
-    '#otros-filtros input[name="otros"]',
+    '#otros-filtros input[name="otros"]'
   );
   otroscheckboxes.forEach((checkbox) => {
     checkbox.checked = false;
@@ -411,15 +411,19 @@ function agregarComoRegalo(producto) {
   // Calcular precio total de juegos (excluyendo activaciones)
   items.forEach((item) => {
     const precio = parseFloat(item.getAttribute("Precio"));
-        if (!isNaN(precio) && !item.classList.contains("Activacion") && item !== producto) {
-            PrecioJuegos += precio;
+    if (
+      !isNaN(precio) &&
+      !item.classList.contains("Activacion") &&
+      item !== producto
+    ) {
+      PrecioJuegos += precio;
     }
   });
 
   // Validar si cumple con el requisito de 500 CUP
   if (PrecioJuegos < 500) {
     alert(
-      `Para poder agregar regalos necesita al menos un total de 500 CUP en los juegos que seleccione.\nActualmente tiene un total de: ${PrecioJuegos} CUP en dichos juegos`,
+      `Para poder agregar regalos necesita al menos un total de 500 CUP en los juegos que seleccione.\nActualmente tiene un total de: ${PrecioJuegos} CUP en dichos juegos`
     );
     return;
   }
@@ -453,7 +457,7 @@ function agregarComoRegalo(producto) {
         `Bono utilizado: ${bonoUtilizado} CUP\n` +
         `Bono restante: ${bonoRestante} CUP\n` +
         `Precio del juego: ${precioJuego} CUP\n\n` +
-        `Seleccione un juego de menor precio o elimine algunos regalos actuales.`,
+        `Seleccione un juego de menor precio o elimine algunos regalos actuales.`
     );
     return;
   }
@@ -684,7 +688,7 @@ function actualizarPrecioYTamano() {
       Math.floor(TamanoTotal) +
       " GB";
   }
-  
+
   // Eliminar todos los regalos que estén seleccionados si se quitan juegos del carrito
   if (regalos.length <= 0) eliminarRegalos();
 
@@ -767,17 +771,15 @@ function busqueda() {
 
   // Obtener filtros activos para combinarlos con la búsqueda
   const conexionesSeleccionadas = Array.from(
-    document.querySelectorAll(
-      '#filtro-conexion input[name="conexion"]:checked',
-    ),
+    document.querySelectorAll('#filtro-conexion input[name="conexion"]:checked')
   ).map((c) => c.value.trim());
 
   const generosSeleccionados = Array.from(
-    document.querySelectorAll('#filtro-generos input[name="genero"]:checked'),
+    document.querySelectorAll('#filtro-generos input[name="genero"]:checked')
   ).map((g) => g.value.trim());
 
   const otrosFiltros = Array.from(
-    document.querySelectorAll('#otros-filtros input[name="otros"]:checked'),
+    document.querySelectorAll('#otros-filtros input[name="otros"]:checked')
   ).map((h) => h.value.trim());
 
   const soloNuevos = document
@@ -820,7 +822,7 @@ function busqueda() {
           .split(",")
           .map((c) => c.trim());
         mostrar = conexionesSeleccionadas.some((c) =>
-          conexionesJuego.includes(c),
+          conexionesJuego.includes(c)
         );
       }
 
@@ -842,7 +844,7 @@ function busqueda() {
 
         // Si el juego tiene Servidor o no está probado
         const coincidenciaDirecta = otrosFiltros.some(
-          (f) => clasesJuego.includes(f) || productName.includes("servidor"),
+          (f) => clasesJuego.includes(f) || productName.includes("servidor")
         );
 
         if (!coincideMods && !coincidenciaDirecta) {
@@ -932,7 +934,7 @@ function mostrarJuegosNewOrAct() {
 
   // Primero ocultar todos los encabezados y grupos
   encabezadosJuegos.forEach(
-    (encabezado) => (encabezado.style.display = "none"),
+    (encabezado) => (encabezado.style.display = "none")
   );
   grupos.forEach((grupo) => (grupo.style.display = "none"));
 
@@ -1139,7 +1141,7 @@ function enviarListado() {
     textoRegalo = ` (${bonoUtilizado} CUP de regalo aplicados de ${bonoDisponible} CUP disponibles)`;
   }
 
-  // Agregar el precio total al mensaje
+  // Completar mensaje con la información hasta el momento
   mensaje +=
     "\nPrecio y tamaño totales: " +
     PrecioTotal +
@@ -1161,8 +1163,11 @@ function enviarListado() {
   let residencia = hallarResidencia();
   if (residencia) {
     residencia = residencia.trim();
+
+    // Agregar al mensaje la información de la residencia si solicita mensajería
     mensaje += `\n\nDeseo solicitar mensajería. Vivo en ${residencia}.`;
   }
+
   // Codificar el mensaje para formato URL
   let mensajeURL = encodeURIComponent(mensaje);
   let URL = `https://wa.me/+5363975093?text=${mensajeURL}`;
@@ -1342,7 +1347,7 @@ function reconstruirBotonRegalo(producto) {
       "golden",
       function () {
         agregarComoRegalo(producto);
-      },
+      }
     );
     producto.appendChild(regaloButton);
   }
@@ -1397,17 +1402,15 @@ function aplicarFiltrosCombinados() {
 
   // Obtener filtros seleccionados
   const conexionesSeleccionadas = Array.from(
-    document.querySelectorAll(
-      '#filtro-conexion input[name="conexion"]:checked',
-    ),
+    document.querySelectorAll('#filtro-conexion input[name="conexion"]:checked')
   ).map((c) => c.value.trim());
 
   const generosSeleccionados = Array.from(
-    document.querySelectorAll('#filtro-generos input[name="genero"]:checked'),
+    document.querySelectorAll('#filtro-generos input[name="genero"]:checked')
   ).map((g) => g.value.trim());
 
   const otrosFiltros = Array.from(
-    document.querySelectorAll('#otros-filtros input[name="otros"]:checked'),
+    document.querySelectorAll('#otros-filtros input[name="otros"]:checked')
   ).map((h) => h.value.trim());
 
   // Modo “solo nuevos/actualizados”
@@ -1436,7 +1439,7 @@ function aplicarFiltrosCombinados() {
         .split(",")
         .map((c) => c.trim());
       const cumpleConexion = conexionesSeleccionadas.some((c) =>
-        conexionesJuego.includes(c),
+        conexionesJuego.includes(c)
       );
       if (!cumpleConexion) mostrar = false;
     }
@@ -1447,7 +1450,7 @@ function aplicarFiltrosCombinados() {
         .split(",")
         .map((g) => g.trim());
       const cumpleGenero = generosSeleccionados.some((g) =>
-        generosJuego.includes(g),
+        generosJuego.includes(g)
       );
       if (!cumpleGenero) mostrar = false;
     }
@@ -1468,7 +1471,7 @@ function aplicarFiltrosCombinados() {
           const coincidenciaDirecta = otrosFiltros.some(
             (f) =>
               clasesJuego.includes(f) ||
-              obtenerTituloJuego(juego).includes("Servidor"),
+              obtenerTituloJuego(juego).includes("Servidor")
           );
 
           if (!coincideMods && !coincidenciaDirecta) {
@@ -1510,7 +1513,7 @@ function aplicarFiltrosCombinados() {
 function actualizarEncabezados() {
   document.querySelectorAll(".grupo-juegos").forEach((grupo) => {
     const tieneJuegosVisibles = Array.from(
-      grupo.querySelectorAll(".listajuegos li"),
+      grupo.querySelectorAll(".listajuegos li")
     ).some((li) => li.style.display !== "none");
 
     const encabezado = grupo.querySelector(".encabezadosjuegos");
@@ -1560,7 +1563,7 @@ function cargarImagenesLazy() {
       rootMargin: "100px",
       // empieza a cargar antes de que entre al viewport
       threshold: 0.1,
-    },
+    }
   );
   images.forEach((img) => observer.observe(img));
 }
