@@ -411,8 +411,8 @@ function agregarComoRegalo(producto) {
   // Calcular precio total de juegos (excluyendo activaciones)
   items.forEach((item) => {
     const precio = parseFloat(item.getAttribute("Precio"));
-    if (!isNaN(precio) && !item.classList.contains("Activacion")) {
-      PrecioJuegos += precio;
+        if (!isNaN(precio) && !item.classList.contains("Activacion") && item !== producto) {
+            PrecioJuegos += precio;
     }
   });
 
@@ -435,7 +435,7 @@ function agregarComoRegalo(producto) {
 
   regalosActuales.forEach((regalo) => {
     const precioRegalo = parseFloat(regalo.getAttribute("Precio"));
-    if (!isNaN(precioRegalo)) {
+    if (!isNaN(precioRegalo) && regalo !== producto) {
       bonoUtilizado += precioRegalo;
     }
   });
@@ -683,8 +683,10 @@ function actualizarPrecioYTamano() {
       " CUP; " +
       TamanoTotal.toFixed(2) +
       " GB";
-    eliminarRegalos(); // Eliminar todos los regalos que estén seleccionados si se quitan juegos del carrito
   }
+  
+  // Eliminar todos los regalos que estén seleccionados si se quitan juegos del carrito
+  if (regalos.length <= 0) eliminarRegalos();
 
   resultadosDiv.style.display = items.length > 0 ? "block" : "none";
   calculoPrecio.style.display = items.length > 0 ? "block" : "none";
