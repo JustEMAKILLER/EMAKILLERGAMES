@@ -673,7 +673,7 @@ function actualizarPrecioYTamano() {
       "Precio y tamaño totales: " +
       PrecioTotal +
       " CUP; " +
-      TamanoTotal.toFixed(2) +
+      Math.floor(TamanoTotal) +
       " GB" +
       textoRegalo;
   } else {
@@ -681,7 +681,7 @@ function actualizarPrecioYTamano() {
       "Precio y tamaño totales: " +
       PrecioTotal +
       " CUP; " +
-      TamanoTotal.toFixed(2) +
+      Math.floor(TamanoTotal) +
       " GB";
   }
   
@@ -1144,7 +1144,7 @@ function enviarListado() {
     "\nPrecio y tamaño totales: " +
     PrecioTotal +
     " CUP; " +
-    TamanoTotal.toFixed(2) +
+    Math.floor(TamanoTotal) +
     " GB" +
     textoRegalo;
 
