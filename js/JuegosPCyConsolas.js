@@ -1150,7 +1150,8 @@ function enviarListado() {
     " GB" +
     textoRegalo;
 
-  // Preguntar residencia al cliente
+  // Preguntar residencia al cliente para solicitar mensajería solo si el precio total de su encargo llega a 1000 CUP o más
+  if (PrecioTotal >= 1000) {
   function hallarResidencia() {
     let mensajeria = confirm("¿Desea solicitar mensajería para su encargo?");
 
@@ -1160,12 +1161,13 @@ function enviarListado() {
     } else return;
   }
 
-  let residencia = hallarResidencia();
-  if (residencia) {
-    residencia = residencia.trim();
+    let residencia = hallarResidencia();
+    if (residencia) {
+      residencia = residencia.trim();
 
-    // Agregar al mensaje la información de la residencia si solicita mensajería
-    mensaje += `\n\nDeseo solicitar mensajería. Vivo en ${residencia}.`;
+      // Agregar al mensaje la información de la residencia si solicita mensajería
+      mensaje += `\n\nDeseo solicitar mensajería. Vivo en ${residencia}.`;
+    }
   }
 
   // Codificar el mensaje para formato URL
