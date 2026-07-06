@@ -201,7 +201,7 @@ function agregarListenersImgBotonesMenu() {
   });
 }
 
-// Agregar los precios a cada juego ya sea en el atributo del li como en el de su img
+// Agregar los precios a cada juego según sus clases
 function agregarPreciosAJuegos() {
   const juegos = document.querySelectorAll("li");
   juegos.forEach((juego) => {
@@ -210,7 +210,7 @@ function agregarPreciosAJuegos() {
       precio = juego.getAttribute("Precio");
     } else {
       if (juego.classList.contains("precio1")) precio += 50; // 0 GB Y <= 5 GB
-      if (juego.classList.contains("precio2")) precio += 100; //+ 5 GB Y <= 10 GB
+      if (juego.classList.contains("precio2")) precio += 100; // + 5 GB Y <= 10 GB
       if (juego.classList.contains("precio3")) precio += 200; // 10 GB Y <= 50 GB
       if (juego.classList.contains("precio4")) precio += 300; // + 50 GB Y <= 80 GB
       if (juego.classList.contains("precio5")) precio += 400; // + 80 GB
@@ -1152,14 +1152,14 @@ function enviarListado() {
 
   // Preguntar residencia al cliente para solicitar mensajería solo si el precio total de su encargo llega a 1000 CUP o más
   if (PrecioTotal >= 1000) {
-  function hallarResidencia() {
-    let mensajeria = confirm("¿Desea solicitar mensajería para su encargo?");
+    function hallarResidencia() {
+      let mensajeria = confirm("¿Desea solicitar mensajería para su encargo?");
 
-    if (mensajeria) {
-      let residencia = prompt("¿En dónde vive? (Ingrese dirección exacta)");
-      return residencia;
-    } else return;
-  }
+      if (mensajeria) {
+        let residencia = prompt("¿En dónde vive? (Ingrese dirección exacta)");
+        return residencia;
+      } else return;
+    }
 
     let residencia = hallarResidencia();
     if (residencia) {
