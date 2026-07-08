@@ -852,6 +852,10 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
   color: rgb(195, 248, 2);
 }
 
+#resident h4 {
+  color: rgb(192, 20, 20);
+}
+
 #sonic h4 {
   color: rgba(64, 64, 244, 0.986);
 }
