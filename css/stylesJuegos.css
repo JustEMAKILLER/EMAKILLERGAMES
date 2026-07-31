@@ -645,7 +645,7 @@ body:not(.vista-tradicional) #resultados .juegosActualizados .remove-button {
   font-weight: bold;
   padding: 2%;
   padding-bottom: initial;
-  border-top: 2px solid #6916b7;
+  border-top: 2px solid var(--Bl-border-title);
 }
 
 .Ofertas:first-of-type p {
