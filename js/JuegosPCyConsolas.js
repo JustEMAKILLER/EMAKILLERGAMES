@@ -9,7 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
   agregarListenersImgBotonesMenu();
 });
 
-// Función para crear botones de adición
+/**
+ * Crea los botones de adición (🛒) y regalo (🎁) para todos los juegos
+ * de la lista principal que no estén en resultados, descartados o regalos.
+ */
 function crearBotonesAdicion() {
   document
     .querySelectorAll(
@@ -21,7 +24,10 @@ function crearBotonesAdicion() {
     });
 }
 
-// Añadir el texto de Nuevo o Actualizado a los juegos que lo sean
+/**
+ * Añade el texto "(Nuevo)" o "(Actualizado)" después del nombre del juego
+ * para los elementos que tengan las clases 'juegosNuevos' o 'juegosActualizados'.
+ */
 function agregarTextoNuevoOActualizado() {
   // Seleccionar los elementos li con las clases relevantes
   const elementosLi = document.querySelectorAll(
@@ -46,7 +52,10 @@ function agregarTextoNuevoOActualizado() {
   });
 }
 
-// Función para añadir iconos de conexión y género a cada juego
+/**
+ * Añade iconos visuales (conexión, género, mods, servidor, etc.) a cada juego
+ * basándose en los atributos 'Tconex', 'Genero' y las clases CSS del elemento.
+ */
 function agregarIconosFiltrosAJuegos() {
   document.querySelectorAll(".listajuegos li").forEach((li) => {
     // Eliminar contenedor de iconos existente si hay
@@ -158,7 +167,10 @@ function agregarIconosFiltrosAJuegos() {
   });
 }
 
-// Configurar listeners para filtros de conexión y género
+/**
+ * Configura los event listeners para los filtros de conexión, género y otros filtros.
+ * Al cambiar un checkbox, se limpia el dataset y se re-aplican los filtros combinados.
+ */
 function agregarListenersFiltros() {
   document
     .querySelectorAll('#filtro-conexion input[type="checkbox"]')
@@ -194,14 +206,20 @@ function agregarListenersFiltros() {
     });
 }
 
-// Agregar los listeners a las imágenes de los botones del menú de juegos
+/**
+ * Agrega event listeners a las imágenes del menú desplegable de juegos
+ * para desmarcar todos los checkboxes de filtros al hacer clic.
+ */
 function agregarListenersImgBotonesMenu() {
   document.querySelectorAll("#menuDesplegado a img").forEach((img) => {
     img.addEventListener("click", desmarcarCheckboxes);
   });
 }
 
-// Agregar los precios a cada juego según sus clases
+/**
+ * Calcula y asigna el precio a cada juego según sus clases CSS (tamaño, mods, servidor, etc.)
+ * y agrega el precio en el DOM y en el atributo 'title' de la imagen.
+ */
 function agregarPreciosAJuegos() {
   const juegos = document.querySelectorAll("li");
   juegos.forEach((juego) => {
@@ -227,6 +245,12 @@ function agregarPreciosAJuegos() {
   });
 }
 
+/**
+ * Muestra el precio de un juego en el DOM (como span) y lo añade al atributo 'title'
+ * de la imagen para la vista tradicional.
+ * @param {HTMLElement} juego - Elemento li del juego.
+ * @param {number} precio - Precio calculado.
+ */
 function agregarPrecioANombresJuegos(juego, precio) {
   /*   Vista por imágenes */
   // Eliminar contenedor de precios existente si hay
@@ -253,6 +277,10 @@ function agregarPrecioANombresJuegos(juego, precio) {
 // Escuchar el evento de scroll para mostrar el botón de desplazamiento
 window.addEventListener("scroll", mostrarBoton);
 
+/**
+ * Muestra u oculta el botón de "volver arriba" según la posición del scroll,
+ * con una animación suave de entrada/salida.
+ */
 function mostrarBoton() {
   const scrollButton = document.getElementById("botonArriba");
   const scrollPosition =
@@ -295,7 +323,10 @@ function mostrarBoton() {
   }
 }
 
-// Desmarcar todos los checkboxes de los filtros de conexión y género
+/**
+ * Desmarca todos los checkboxes de los filtros (conexión, género y otros)
+ * y re-aplica los filtros combinados. También limpia búsqueda y precio si el menú está abierto.
+ */
 function desmarcarCheckboxes() {
   if (
     document.getElementById("botonJNA").classList.contains("BotonBolaVerde")
@@ -336,7 +367,9 @@ let animationInterval = null;
 let pos = 0;
 let isAnimating = false;
 
-// Funcion para verificar si hay elementos en la lista de descartados
+/**
+ * Verifica si hay elementos en la lista de descartados y muestra/oculta el contenedor.
+ */
 function hayDescartados() {
   const juegosDescartadosDiv = document.getElementById("juegosDescartados");
   const listaDescartados = juegosDescartadosDiv.querySelectorAll("li");
@@ -350,7 +383,11 @@ document.getElementById("buscarPrecio").addEventListener("input", function () {
   this.classList.remove("amarillo", "rojo");
 });
 
-// Función para agregar un producto al div de resultados
+/**
+ * Agrega un producto al div de resultados (carrito), descontando su precio del filtro,
+ * reconstruyendo botones y actualizando la interfaz.
+ * @param {HTMLElement} producto - Elemento li del juego a agregar.
+ */
 function agregarProducto(producto) {
   const resultadosDiv = document.getElementById("resultados");
   const listaResultados = resultadosDiv.querySelector("ul:first-of-type");
@@ -396,7 +433,9 @@ function agregarProducto(producto) {
 }
 
 /**
- * Función para agregar un juego como regalo con validación
+ * Agrega un juego como regalo con validación de precio mínimo (500 CUP)
+ * y bono disponible (150 CUP por cada 500 CUP en juegos seleccionados).
+ * @param {HTMLElement} producto - Elemento li del juego a agregar como regalo.
  */
 function agregarComoRegalo(producto) {
   const resultadosDiv = document.getElementById("resultados");
@@ -466,7 +505,10 @@ function agregarComoRegalo(producto) {
   agregarRegalo(producto);
 }
 
-// Función para agregar un producto al div de regalos
+/**
+ * Agrega un producto al div de regalos, reconstruye sus botones y actualiza la interfaz.
+ * @param {HTMLElement} producto - Elemento li del juego a agregar como regalo.
+ */
 function agregarRegalo(producto) {
   const regalosDiv = document.getElementById("regalos");
   const listaRegalos = regalosDiv.querySelector("ul");
@@ -511,7 +553,11 @@ function agregarRegalo(producto) {
   }
 }
 
-// Función para devolver un producto a juegosDescartadosDiv
+/**
+ * Devuelve un producto de resultados a la lista de descartados,
+ * reconstruyendo sus botones correspondientes.
+ * @param {HTMLElement} producto - Elemento li del juego a devolver.
+ */
 function devolverProducto(producto) {
   const juegosDescartadosDiv = document.getElementById("juegosDescartados");
   const listaDescartados = juegosDescartadosDiv.querySelector("ul");
@@ -532,6 +578,10 @@ function devolverProducto(producto) {
   actualizarPrecioYTamano();
 }
 
+/**
+ * Elimina un regalo y lo mueve a la lista de descartados.
+ * @param {HTMLElement} producto - Elemento li del regalo a eliminar.
+ */
 function eliminarRegalo(producto) {
   const juegosDescartadosDiv = document.getElementById("juegosDescartados");
   const listaDescartados = juegosDescartadosDiv.querySelector("ul");
@@ -555,19 +605,23 @@ function eliminarRegalo(producto) {
   verificarVisibilidadRegalos();
 }
 
-// Función para mover todos los elementos de juegosDescartadosDiv a resultadosDiv
+/**
+ * Mueve todos los elementos de la lista de descartados a resultados.
+ */
 function agregarTodo() {
   const juegosDescartadosDiv = document.getElementById("juegosDescartados");
   const items = Array.from(juegosDescartadosDiv.querySelectorAll("li"));
 
   items.forEach((item) => {
-    agregarProducto(item); // Reutilizamos la función para asegurar la lógica consistente
+    agregarProducto(item); // Reutilizar la función para asegurar la lógica consistente
   });
   juegosDescartadosDiv.style.display = "none";
   actualizarPrecioYTamano();
 }
 
-// Función para borrar todos los elementos de resultadosDiv y moverlos a juegosDescartadosDiv
+/**
+ * Borra todos los elementos de la lista de resultados y los mueve a descartados.
+ */
 function eliminarTodo() {
   const resultadosDiv = document.getElementById("resultados");
   const items = Array.from(resultadosDiv.querySelectorAll("li"));
@@ -579,7 +633,9 @@ function eliminarTodo() {
   actualizarPrecioYTamano();
 }
 
-// Función para eliminar todos los regalos y enviarlos a juegosDescartados
+/**
+ * Elimina todos los regalos y los envía a la lista de descartados.
+ */
 function eliminarRegalos() {
   const regalosDiv = document.getElementById("regalos");
   const listaRegalos = regalosDiv.querySelector("ul");
@@ -597,7 +653,9 @@ function eliminarRegalos() {
   regalosDiv.style.display = "none";
 }
 
-// Función para verificar y actualizar la visibilidad del contenedor de regalos
+/**
+ * Verifica si hay regalos y oculta/muestra el contenedor de regalos y el cálculo de precio.
+ */
 function verificarVisibilidadRegalos() {
   const regalosDiv = document.getElementById("regalos");
   const listaRegalos = regalosDiv.querySelector("ul");
@@ -617,7 +675,10 @@ function verificarVisibilidadRegalos() {
   }
 }
 
-// Función para actualizar el precio y tamaño totales
+/**
+ * Actualiza el precio total, el tamaño total, la cantidad de juegos y regalos,
+ * y el cálculo del bono de regalo disponible. También maneja la visibilidad de los contenedores.
+ */
 function actualizarPrecioYTamano() {
   const resultadosDiv = document.getElementById("resultados");
   const carritoHeader = document.getElementById("encabezadoResultados");
@@ -699,7 +760,10 @@ function actualizarPrecioYTamano() {
   verificarVisibilidadRegalos();
 }
 
-// Función para ordenar alfabéticamente una lista
+/**
+ * Ordena alfabéticamente (por título) los elementos de una lista.
+ * @param {HTMLElement} lista - Elemento ul que contiene los li a ordenar.
+ */
 function ordenarListaAlfabeticamente(lista) {
   const items = Array.from(lista.querySelectorAll("li"));
 
@@ -714,7 +778,11 @@ function ordenarListaAlfabeticamente(lista) {
   items.forEach((item) => lista.appendChild(item));
 }
 
-// Función para obtener el título del juego de manera consistente, independientemente del modo de visualización
+/**
+ * Obtiene el título del juego de manera consistente, funcionando tanto en modo tradicional como en modo imágenes.
+ * @param {HTMLElement} item - Elemento li del juego.
+ * @returns {string} Título del juego.
+ */
 function obtenerTituloJuego(item) {
   // Si está en modo tradicional, obtener el texto del enlace o del li
   if (document.body.classList.contains("vista-tradicional")) {
@@ -727,7 +795,14 @@ function obtenerTituloJuego(item) {
   }
 }
 
-// Función para crear un botón con propiedades
+/**
+ * Crea un botón con propiedades personalizadas.
+ * @param {string} text - Texto del botón.
+ * @param {string} className - Clase CSS del botón.
+ * @param {string} color - Color del texto.
+ * @param {Function} onClick - Función a ejecutar al hacer clic.
+ * @returns {HTMLButtonElement} Botón creado.
+ */
 function crearBoton(text, className, color, onClick) {
   const button = document.createElement("button");
   button.textContent = text;
@@ -739,7 +814,14 @@ function crearBoton(text, className, color, onClick) {
   return button;
 }
 
-// Función para establecer la búsqueda
+/**
+ * Realiza la búsqueda y filtrado de juegos combinando:
+ * - Búsqueda por nombre
+ * - Filtro de precio
+ * - Filtros de conexión, género y otros
+ * - Modo "solo nuevos/actualizados"
+ * Actualiza la visibilidad de los juegos y muestra mensaje si no hay resultados.
+ */
 function busqueda() {
   const maxPrice = parseFloat(document.getElementById("buscarPrecio").value);
   const filtroNombre = document
@@ -876,7 +958,9 @@ function busqueda() {
   }
 }
 
-// Función para borrar el campo de búsqueda
+/**
+ * Borra el campo de búsqueda por nombre y ejecuta la búsqueda nuevamente.
+ */
 function borrarBusqueda() {
   const buscarNombreInput = document.getElementById("buscarNombre");
   // Limpiar el campo de texto
@@ -884,7 +968,10 @@ function borrarBusqueda() {
   buscarNombreInput.focus();
   busqueda();
 }
-// Función para borrar el campo de precio
+
+/**
+ * Borra el campo de filtro de precio y re-ejecuta la búsqueda o los filtros combinados.
+ */
 function borrarPrecio() {
   const filtroPrecioInput = document.getElementById("buscarPrecio");
   filtroPrecioInput.value = "";
@@ -903,8 +990,6 @@ function borrarPrecio() {
   document.getElementById("botonBorrarPrecio").style.display = "none";
 }
 
-// Funciones para mostrar solo los titulos nuevos o actualizados
-
 // Programar los eventos del botónJNA sobre la clase BotonBolaVerde
 document.getElementById("botonJNA").addEventListener("click", () => {
   if (
@@ -916,7 +1001,10 @@ document.getElementById("botonJNA").addEventListener("click", () => {
   }
 });
 
-// Resto de la lógica
+/**
+ * Muestra solo los juegos con las clases 'juegosNuevos' o 'juegosActualizados',
+ * ocultando el resto y activando el modo correspondiente.
+ */
 function mostrarJuegosNewOrAct() {
   borrarBusqueda();
   borrarPrecio();
@@ -980,7 +1068,11 @@ function mostrarJuegosNewOrAct() {
   // Marcar botón como activo
   botonJNA.classList.add("BotonBolaVerde");
 }
-// Función para mostrar todos los juegos de nuevo
+
+/**
+ * Muestra todos los juegos, desactivando el modo "solo nuevos/actualizados"
+ * y restaurando la visibilidad completa.
+ */
 function mostrarJuegos() {
   const grupos = document.querySelectorAll(".grupo-juegos");
   const botonJNA = document.getElementById("botonJNA");
@@ -1008,7 +1100,10 @@ function mostrarJuegos() {
   // Forzar actualización de filtros
   aplicarFiltrosCombinados();
 }
-// Mostrar todos los juegos desde el menú de juegos en caso de que esté activado el modo solo nuevos/actualizados
+
+/**
+ * Muestra todos los juegos desde el menú de juegos, desactivando el modo "solo nuevos/actualizados".
+ */
 function mostrarJuegosDesdeMenuJuegos() {
   const grupos = document.querySelectorAll(".grupo-juegos");
   const botonJNA = document.getElementById("botonJNA");
@@ -1030,7 +1125,9 @@ function mostrarJuegosDesdeMenuJuegos() {
   botonJNA.classList.remove("BotonBolaVerde");
 }
 
-// Función para mostrar el Menú Desplegable
+/**
+ * Muestra el menú desplegable y configura los eventos para cerrarlo.
+ */
 function mostrarMenu() {
   const menuDesplegado = document.getElementById("menuDesplegado");
   menuDesplegado.style.display = "block";
@@ -1046,7 +1143,9 @@ function mostrarMenu() {
   });
 }
 
-// Función para cerrar el Menú Desplegable
+/**
+ * Cierra el menú desplegable y restaura el botón de apertura.
+ */
 function cerrarMenu() {
   const menuDesplegado = document.getElementById("menuDesplegado");
   const botonMenuDesplegable = document.getElementById("botonMenuDesplegable");
@@ -1056,7 +1155,10 @@ function cerrarMenu() {
   menuDesplegado.style.display = "none";
 }
 
-// Función para enviar el listado de juegos agregados por Whatsapp
+/**
+ * Envía el listado de juegos seleccionados (incluyendo regalos) por WhatsApp.
+ * Genera un mensaje con el detalle de juegos, precios, tamaños y opción de mensajería.
+ */
 function enviarListado() {
   const regalosDiv = document.getElementById("regalos");
 
@@ -1178,7 +1280,10 @@ function enviarListado() {
   window.open(URL, "_blank");
 }
 
-// Función para cambiar la vista de imágenes a texto
+/**
+ * Cambia entre la vista de imágenes y la vista tradicional (texto),
+ * reconstruyendo los elementos y botones según el modo seleccionado.
+ */
 function cambiarVista() {
   const textoBoton = document.getElementById("botonCambiarVista");
   textoBoton.classList.toggle("BotonBolaVerde");
@@ -1247,7 +1352,8 @@ function cambiarVista() {
 }
 
 /**
- * Reconstruye todos los botones manteniendo sus eventos
+ * Reconstruye todos los botones (añadir, eliminar, regalo) en todas las listas
+ * (principal, resultados, descartados, regalos) manteniendo sus eventos.
  */
 function reconstruirTodosLosBotones() {
   // --- 1. Lista principal ---
@@ -1276,7 +1382,8 @@ function reconstruirTodosLosBotones() {
 }
 
 /**
- * Reconstruye botón para un producto en la lista principal
+ * Reconstruye el botón de añadir (🛒) para un producto en la lista principal.
+ * @param {HTMLElement} producto - Elemento li del juego.
  */
 function reconstruirBotonPrincipal(producto) {
   // Eliminar cualquier botón existente
@@ -1298,7 +1405,8 @@ function reconstruirBotonPrincipal(producto) {
 }
 
 /**
- * Reconstruye botón para un producto en resultados
+ * Reconstruye el botón de eliminar (🗑️) para un producto en la lista de resultados.
+ * @param {HTMLElement} producto - Elemento li del juego.
  */
 function reconstruirBotonResultado(producto) {
   // Eliminar cualquier botón de añadir
@@ -1316,7 +1424,8 @@ function reconstruirBotonResultado(producto) {
 }
 
 /**
- * Reconstruye botón para un producto en descartados
+ * Reconstruye el botón de añadir (🛒) para un producto en la lista de descartados.
+ * @param {HTMLElement} producto - Elemento li del juego.
  */
 function reconstruirBotonDescartado(producto) {
   // Eliminar cualquier botón de eliminar
@@ -1334,7 +1443,8 @@ function reconstruirBotonDescartado(producto) {
 }
 
 /**
- * Reconstruye botón de regalo para un producto
+ * Reconstruye el botón de regalo (🎁) para un producto, excepto si es de activación.
+ * @param {HTMLElement} producto - Elemento li del juego.
  */
 function reconstruirBotonRegalo(producto) {
   // Eliminar botón de regalo existente si hay
@@ -1356,7 +1466,8 @@ function reconstruirBotonRegalo(producto) {
 }
 
 /**
- * Reconstruye botones para regalos
+ * Reconstruye los botones para un producto en la lista de regalos (añadir y eliminar).
+ * @param {HTMLElement} producto - Elemento li del juego.
  */
 function reconstruirBotonesJuegosRegalos(producto) {
   // Eliminar cualquier remove-button anterior
@@ -1383,7 +1494,10 @@ function reconstruirBotonesJuegosRegalos(producto) {
   producto.appendChild(removeButton);
 }
 
-// Funciones para filtrar por tipo de conexión y género
+/**
+ * Aplica todos los filtros combinados (conexión, género, otros, precio, nombre, nuevos/actualizados)
+ * y actualiza la visibilidad de los juegos en la interfaz.
+ */
 function aplicarFiltrosCombinados() {
   const inputPrecio = document.getElementById("buscarPrecio");
   const inputNombre = document.getElementById("buscarNombre");
@@ -1512,6 +1626,10 @@ function aplicarFiltrosCombinados() {
   actualizarEncabezados();
 }
 
+/**
+ * Actualiza la visibilidad de los encabezados de cada grupo de juegos
+ * según si tienen al menos un juego visible.
+ */
 function actualizarEncabezados() {
   document.querySelectorAll(".grupo-juegos").forEach((grupo) => {
     const tieneJuegosVisibles = Array.from(
@@ -1527,13 +1645,17 @@ function actualizarEncabezados() {
   });
 }
 
-// Mostrar Información del contenedor de los Juegos por Activación
+/**
+ * Muestra u oculta el contenedor de información de juegos por Activación/Hypervisor.
+ */
 function mostrarInfoDivInfoJActivHyp() {
   const infoDiv = document.getElementById("divInfoJActivHyp");
   infoDiv.classList.toggle("contVisible");
 }
 
-// Mostrar u ocultar entradas de búsqueda
+/**
+ * Muestra u oculta el campo de búsqueda y el botón de lupa asociado.
+ */
 function mostrarBusqueda() {
   const divLupa = document.getElementById("divLupa");
   const divBusqueda = document.getElementById("busqueda");
@@ -1548,7 +1670,9 @@ function mostrarBusqueda() {
   }
 }
 
-// Carga suave de imágenes
+/**
+ * Implementa carga diferida (lazy loading) para las imágenes usando IntersectionObserver.
+ */
 function cargarImagenesLazy() {
   const images = document.querySelectorAll("ul img");
   const observer = new IntersectionObserver(
@@ -1570,7 +1694,9 @@ function cargarImagenesLazy() {
   images.forEach((img) => observer.observe(img));
 }
 
-// Ordenar por precio de menor a mayor (Ascendente)
+/**
+ * Ordena los juegos por precio de menor a mayor (ascendente).
+ */
 function ordenarPorPrecioAsc() {
   const grupos = document.querySelectorAll(".grupo-juegos");
   grupos.forEach((grupo) => {
@@ -1591,7 +1717,9 @@ function ordenarPorPrecioAsc() {
   });
 }
 
-// Ordenar por precio de mayor a menor (Descendente)
+/**
+ * Ordena los juegos por precio de mayor a menor (descendente).
+ */
 function ordenarPorPrecioDesc() {
   const grupos = document.querySelectorAll(".grupo-juegos");
   grupos.forEach((grupo) => {
@@ -1612,7 +1740,9 @@ function ordenarPorPrecioDesc() {
   });
 }
 
-// Ordenar por nombre de A a Z (Ascendente)
+/**
+ * Ordena los juegos por nombre de A a Z (ascendente).
+ */
 function ordenarPorNombreA_Z() {
   const grupos = document.querySelectorAll(".grupo-juegos");
   grupos.forEach((grupo) => {
@@ -1633,7 +1763,9 @@ function ordenarPorNombreA_Z() {
   });
 }
 
-// Ordenar por nombre de Z a A (Descendente)
+/**
+ * Ordena los juegos por nombre de Z a A (descendente).
+ */
 function ordenarPorNombreZ_A() {
   const grupos = document.querySelectorAll(".grupo-juegos");
   grupos.forEach((grupo) => {
@@ -1654,7 +1786,9 @@ function ordenarPorNombreZ_A() {
   });
 }
 
-// Ordenar por tamaño de menor a mayor (Ascendente)
+/**
+ * Ordena los juegos por tamaño de menor a mayor (ascendente).
+ */
 function ordenarPorTamanoAsc() {
   const grupos = document.querySelectorAll(".grupo-juegos");
   grupos.forEach((grupo) => {
@@ -1675,7 +1809,9 @@ function ordenarPorTamanoAsc() {
   });
 }
 
-// Ordenar por tamaño de mayor a menor (Descendente)
+/**
+ * Ordena los juegos por tamaño de mayor a menor (descendente).
+ */
 function ordenarPorTamanoDesc() {
   const grupos = document.querySelectorAll(".grupo-juegos");
   grupos.forEach((grupo) => {
@@ -1696,6 +1832,7 @@ function ordenarPorTamanoDesc() {
   });
 }
 
+// Event listener para detectar cambios en el selector de filtro de orden
 document.getElementById("filtro-orden").addEventListener("change", function () {
   const filter = document.getElementById("filtro-orden").value;
   if (filter === "NombreDesc") {
