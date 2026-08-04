@@ -1569,3 +1569,147 @@ function cargarImagenesLazy() {
   );
   images.forEach((img) => observer.observe(img));
 }
+
+// Ordenar por precio de menor a mayor (Ascendente)
+function ordenarPorPrecioAsc() {
+  const grupos = document.querySelectorAll(".grupo-juegos");
+  grupos.forEach((grupo) => {
+    const listaJuegos = grupo.querySelector("ul:first-of-type");
+    if (!listaJuegos) return;
+
+    const items = Array.from(listaJuegos.querySelectorAll("li"));
+
+    items.sort((a, b) => {
+      const precioA = parseFloat(a.getAttribute("Precio")) || 0;
+      const precioB = parseFloat(b.getAttribute("Precio")) || 0;
+      return precioA - precioB;
+    });
+
+    // Vaciar y volver a llenar la lista ordenada
+    listaJuegos.innerHTML = "";
+    items.forEach((item) => listaJuegos.appendChild(item));
+  });
+}
+
+// Ordenar por precio de mayor a menor (Descendente)
+function ordenarPorPrecioDesc() {
+  const grupos = document.querySelectorAll(".grupo-juegos");
+  grupos.forEach((grupo) => {
+    const listaJuegos = grupo.querySelector("ul:first-of-type");
+    if (!listaJuegos) return;
+
+    const items = Array.from(listaJuegos.querySelectorAll("li"));
+
+    items.sort((a, b) => {
+      const precioA = parseFloat(a.getAttribute("Precio")) || 0;
+      const precioB = parseFloat(b.getAttribute("Precio")) || 0;
+      return precioB - precioA;
+    });
+
+    // Vaciar y volver a llenar la lista ordenada
+    listaJuegos.innerHTML = "";
+    items.forEach((item) => listaJuegos.appendChild(item));
+  });
+}
+
+// Ordenar por nombre de A a Z (Ascendente)
+function ordenarPorNombreA_Z() {
+  const grupos = document.querySelectorAll(".grupo-juegos");
+  grupos.forEach((grupo) => {
+    const listaJuegos = grupo.querySelector("ul:first-of-type");
+    if (!listaJuegos) return;
+
+    const items = Array.from(listaJuegos.querySelectorAll("li"));
+
+    items.sort((a, b) => {
+      const nombreA = obtenerTituloJuego(a).toLowerCase();
+      const nombreB = obtenerTituloJuego(b).toLowerCase();
+      return nombreA.localeCompare(nombreB);
+    });
+
+    // Vaciar y volver a llenar la lista ordenada
+    listaJuegos.innerHTML = "";
+    items.forEach((item) => listaJuegos.appendChild(item));
+  });
+}
+
+// Ordenar por nombre de Z a A (Descendente)
+function ordenarPorNombreZ_A() {
+  const grupos = document.querySelectorAll(".grupo-juegos");
+  grupos.forEach((grupo) => {
+    const listaJuegos = grupo.querySelector("ul:first-of-type");
+    if (!listaJuegos) return;
+
+    const items = Array.from(listaJuegos.querySelectorAll("li"));
+
+    items.sort((a, b) => {
+      const nombreA = obtenerTituloJuego(a).toLowerCase();
+      const nombreB = obtenerTituloJuego(b).toLowerCase();
+      return nombreB.localeCompare(nombreA);
+    });
+
+    // Vaciar y volver a llenar la lista ordenada
+    listaJuegos.innerHTML = "";
+    items.forEach((item) => listaJuegos.appendChild(item));
+  });
+}
+
+// Ordenar por tamaño de menor a mayor (Ascendente)
+function ordenarPorTamanoAsc() {
+  const grupos = document.querySelectorAll(".grupo-juegos");
+  grupos.forEach((grupo) => {
+    const listaJuegos = grupo.querySelector("ul:first-of-type");
+    if (!listaJuegos) return;
+
+    const items = Array.from(listaJuegos.querySelectorAll("li"));
+
+    items.sort((a, b) => {
+      const tamanoA = parseFloat(a.getAttribute("Tamano")) || 0;
+      const tamanoB = parseFloat(b.getAttribute("Tamano")) || 0;
+      return tamanoA - tamanoB;
+    });
+
+    // Vaciar y volver a llenar la lista ordenada
+    listaJuegos.innerHTML = "";
+    items.forEach((item) => listaJuegos.appendChild(item));
+  });
+}
+
+// Ordenar por tamaño de mayor a menor (Descendente)
+function ordenarPorTamanoDesc() {
+  const grupos = document.querySelectorAll(".grupo-juegos");
+  grupos.forEach((grupo) => {
+    const listaJuegos = grupo.querySelector("ul:first-of-type");
+    if (!listaJuegos) return;
+
+    const items = Array.from(listaJuegos.querySelectorAll("li"));
+
+    items.sort((a, b) => {
+      const tamanoA = parseFloat(a.getAttribute("Tamano")) || 0;
+      const tamanoB = parseFloat(b.getAttribute("Tamano")) || 0;
+      return tamanoB - tamanoA;
+    });
+
+    // Vaciar y volver a llenar la lista ordenada
+    listaJuegos.innerHTML = "";
+    items.forEach((item) => listaJuegos.appendChild(item));
+  });
+}
+
+document.getElementById("filtro-orden").addEventListener("change", function () {
+  const filter = document.getElementById("filtro-orden").value;
+  if (filter === "NombreDesc") {
+    ordenarPorNombreZ_A();
+  } else if (filter === "NombreAsc") {
+    ordenarPorNombreA_Z();
+  } else if (filter === "TamanoAsc") {
+    ordenarPorTamanoAsc();
+  } else if (filter === "TamanoDesc") {
+    ordenarPorTamanoDesc();
+  } else if (filter === "PrecioAsc") {
+    ordenarPorPrecioAsc();
+  } else if (filter === "PrecioDesc") {
+    ordenarPorPrecioDesc();
+  }
+  return;
+});
