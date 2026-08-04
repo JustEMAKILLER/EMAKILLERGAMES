@@ -1529,7 +1529,7 @@ function aplicarFiltrosCombinados() {
     document.querySelectorAll('#otros-filtros input[name="otros"]:checked')
   ).map((h) => h.value.trim());
 
-  // Modo “solo nuevos/actualizados”
+  // Modo "solo nuevos/actualizados"
   const soloNuevos = document
     .getElementById("botonJNA")
     .classList.contains("BotonBolaVerde");
@@ -1571,29 +1571,28 @@ function aplicarFiltrosCombinados() {
       if (!cumpleGenero) mostrar = false;
     }
 
-    // --- OTROS FILTROS ---
+    // --- OTROS FILTROS  ---
     if (mostrar && otrosFiltros.length > 0) {
-      if (mostrar && otrosFiltros.length > 0) {
-        if (mostrar && otrosFiltros.length > 0) {
-          const clasesJuego = Array.from(juego.classList);
+      const clasesJuego = Array.from(juego.classList);
 
-          // Convertir el filtro "Mods" → coincidir con pocosMods o muchosMods
-          const coincideMods =
-            otrosFiltros.includes("Mods") &&
-            (clasesJuego.includes("pocosMods") ||
-              clasesJuego.includes("muchosMods"));
+      // Verificar si coincide con "Mods" (pocosMods o muchosMods)
+      const coincideMods = otrosFiltros.some(
+        (f) =>
+          f === "Mods" &&
+          (clasesJuego.includes("pocosMods") ||
+            clasesJuego.includes("muchosMods"))
+      );
 
-          // Si el juego tiene Servidor o no está probado
-          const coincidenciaDirecta = otrosFiltros.some(
-            (f) =>
-              clasesJuego.includes(f) ||
-              obtenerTituloJuego(juego).includes("Servidor")
-          );
+      // Verificar si coincide con otros filtros directos
+      const coincideDirecto = otrosFiltros.some(
+        (f) =>
+          clasesJuego.includes(f) ||
+          (f === "servidor" &&
+            obtenerTituloJuego(juego).toLowerCase().includes("servidor"))
+      );
 
-          if (!coincideMods && !coincidenciaDirecta) {
-            mostrar = false;
-          }
-        }
+      if (!coincideMods && !coincideDirecto) {
+        mostrar = false;
       }
     }
 
