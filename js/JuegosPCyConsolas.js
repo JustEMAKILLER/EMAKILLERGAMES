@@ -875,7 +875,13 @@ function busqueda() {
     let mostrarGrupo = false;
 
     productos.forEach((producto) => {
-      const productName = obtenerTituloJuego(producto).toLowerCase();
+      let nombreCompleto = obtenerTituloJuego(producto);
+      const indicePrecio = nombreCompleto.indexOf("(");
+      let productName = nombreCompleto;
+      if (indicePrecio !== -1) {
+        productName = nombreCompleto.substring(0, indicePrecio).trim();
+      }
+      productName = productName.toLowerCase();
       const productPrice = parseFloat(producto.getAttribute("Precio"));
       let mostrar = true;
 
