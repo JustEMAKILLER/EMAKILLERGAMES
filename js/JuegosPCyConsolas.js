@@ -228,7 +228,7 @@ function agregarPreciosAJuegos() {
       precio = juego.getAttribute("Precio");
     } else {
       if (juego.classList.contains("precio1")) precio += 50; // 0 GB Y <= 5 GB
-      if (juego.classList.contains("precio2")) precio += 150; // + 5 GB Y <= 10 GB
+      if (juego.classList.contains("precio2")) precio += 100; // + 5 GB Y <= 10 GB
       if (juego.classList.contains("precio3")) precio += 200; // + 10 GB Y <= 20 GB
       if (juego.classList.contains("precio4")) precio += 300; // + 20 GB Y <= 40 GB
       if (juego.classList.contains("precio5")) precio += 400; // + 40 GB Y <= 60 GB
