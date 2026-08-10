@@ -228,14 +228,15 @@ function agregarPreciosAJuegos() {
       precio = juego.getAttribute("Precio");
     } else {
       if (juego.classList.contains("precio1")) precio += 50; // 0 GB Y <= 5 GB
-      if (juego.classList.contains("precio2")) precio += 100; // + 5 GB Y <= 10 GB
-      if (juego.classList.contains("precio3")) precio += 200; // 10 GB Y <= 50 GB
-      if (juego.classList.contains("precio4")) precio += 300; // + 50 GB Y <= 80 GB
-      if (juego.classList.contains("precio5")) precio += 400; // + 80 GB
+      if (juego.classList.contains("precio2")) precio += 150; // + 5 GB Y <= 10 GB
+      if (juego.classList.contains("precio3")) precio += 200; // + 10 GB Y <= 20 GB
+      if (juego.classList.contains("precio4")) precio += 300; // + 20 GB Y <= 40 GB
+      if (juego.classList.contains("precio5")) precio += 400; // + 40 GB Y <= 60 GB
+      if (juego.classList.contains("precio6")) precio += 500; // + 60 GB      
       if (juego.classList.contains("crack")) precio += 100; // Crack LAN u Online
       if (juego.classList.contains("pocosMods")) precio += 50;
       if (juego.classList.contains("muchosMods")) precio += 100;
-      if (juego.classList.contains("servidor")) precio += 150; // Servidor Dedicado adicionado
+      if (juego.classList.contains("servidor")) precio += 200; // Servidor Dedicado adicionado
       if (juego.classList.contains("Activacion")) precio += 1500;
       if (juego.classList.contains("consolas")) precio += 100;
       if (juego.classList.contains("Nswitch")) precio += 200;
