@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   agregarTextoNuevoOActualizado();
   agregarIconosFiltrosAJuegos();
   agregarPreciosAJuegos();
+  agregarTamanosAJuegos();
   agregarListenersFiltros();
   agregarListenersImgBotonesMenu();
 });
@@ -254,13 +255,13 @@ function agregarPreciosAJuegos() {
  */
 function agregarPrecioANombresJuegos(juego, precio) {
   /*   Vista por imágenes */
-  // Eliminar contenedor de precios existente si hay
-  const precioContainerExistente = juego.querySelector(".li-precios");
+  // Eliminar contenedor de precio existente si hay
+  const precioContainerExistente = juego.querySelector(".li-precio");
   if (precioContainerExistente) {
     precioContainerExistente.remove();
   }
   const precioContainer = document.createElement("div");
-  precioContainer.className = "li-precios";
+  precioContainer.className = "li-precio";
   const textoPrecio = document.createElement("span");
   textoPrecio.textContent = `${precio} CUP`;
   textoPrecio.style.color = "lightgreen";
@@ -273,6 +274,31 @@ function agregarPrecioANombresJuegos(juego, precio) {
   nombre += "- " + precio + " CUP";
   img = juego.querySelector("img");
   img.setAttribute("title", nombre);
+}
+
+/**
+ * Muestra el tamaño de un juego en el DOM (como span)
+ */
+function agregarTamanosAJuegos() {
+  const juegos = document.querySelectorAll("li");
+  juegos.forEach((juego) => {
+    let tamano = juego.getAttribute("Tamano");
+
+    /*   Vista por imágenes */
+    // Eliminar contenedor de tamaño existente si hay
+    const tamanoContainerExistente = juego.querySelector(".li-tamano");
+    if (tamanoContainerExistente) {
+      tamanoContainerExistente.remove();
+    }
+    const tamanoContainer = document.createElement("div");
+    tamanoContainer.className = "li-tamano";
+    const textoTamano = document.createElement("span");
+    textoTamano.textContent = `${tamano} GB`;
+    textoTamano.style.color = "lightblue";
+    textoTamano.style.fontSize = "0.9em";
+    tamanoContainer.appendChild(textoTamano);
+    juego.appendChild(tamanoContainer);
+  });
 }
 
 // Escuchar el evento de scroll para mostrar el botón de desplazamiento

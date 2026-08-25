@@ -27,14 +27,24 @@
       <div id="menuDesplegable">
             <img src="img/menuJuegos/menubutton.png" id="botonMenuDesplegable" onclick="mostrarMenu()">
             <div id="menuDesplegado">
-                  <a href="#amongus"><img src="img/menuJuegos/1623700977among-us-green.png" alt="Among Us" title="Among Us"></a>
+                  <a href="#amongus"><img src="img/menuJuegos/1623700977among-us-green.png" alt="Among Us"
+                              title="Among Us"></a>
                   <a href="#duty"><img src="img/menuJuegos/cod.webp" alt="Call of Duty" title="Call of Duty"></a>
-                  <a href="#FNAF"><img src="img/menuJuegos/FNAF-PNG-Image-300x225.webp" alt="Five Nights at Freddy's" title="Five Nights at Freddy's"></a>
-                  <a href="#monster"><img src="img/menuJuegos/441-4418400_main-objective-monster-hunter-world-rathalos-symbol.webp" alt="Monster Hunter" title="Monster Hunter"></a><a href="#mortal"><img src="img/menuJuegos/Mortal-Kombat-Logo.webp" alt="Mortal Kombat" title="Mortal Kombat"></a>
-                  <a href="#naruto"><img src="img/menuJuegos/b02a7e4bd421c206fdf9305435c16362.webp" alt="Naruto" title="Naruto"></a>
+                  <a href="#FNAF"><img src="img/menuJuegos/FNAF-PNG-Image-300x225.webp" alt="Five Nights at Freddy's"
+                              title="Five Nights at Freddy's"></a>
+                  <a href="#monster"><img
+                              src="img/menuJuegos/441-4418400_main-objective-monster-hunter-world-rathalos-symbol.webp"
+                              alt="Monster Hunter" title="Monster Hunter"></a><a href="#mortal"><img
+                              src="img/menuJuegos/Mortal-Kombat-Logo.webp" alt="Mortal Kombat"
+                              title="Mortal Kombat"></a>
+                  <a href="#naruto"><img src="img/menuJuegos/b02a7e4bd421c206fdf9305435c16362.webp" alt="Naruto"
+                              title="Naruto"></a>
                   <a href="#nfs"><img src="img/menuJuegos/nfs.webp" alt="Need for Speed" title="Need for Speed"></a>
-                  <a href="#pokemon"><img src="img/menuJuegos/png-transparent-pokemon-ball-pokeball-area-wiki-technology-thumbnail.webp" alt="Pokémon" title="Pokémon"></a>
-                  <a href="#resident"> <img src="img/menuJuegos/Umbrella.webp" alt="Resident Evil" title="Resident Evil"></a>
+                  <a href="#pokemon"><img
+                              src="img/menuJuegos/png-transparent-pokemon-ball-pokeball-area-wiki-technology-thumbnail.webp"
+                              alt="Pokémon" title="Pokémon"></a>
+                  <a href="#resident"> <img src="img/menuJuegos/Umbrella.webp" alt="Resident Evil"
+                              title="Resident Evil"></a>
                   <a href="#sonic"><img src="img/menuJuegos/sonic_hedgehog_PNG22.webp" alt="Sonic" title="Sonic"></a>
                   <a href="#undertale"><img src="img/menuJuegos/pngegg.webp" alt="Undertale" title="Undertale"></a>
                   <a href="#worms"><img src="img/menuJuegos/Worm.webp" alt="Worms" title="Worms"></a>
@@ -49,8 +59,9 @@
 
       <div id="busqueda" class="busqueda">
             <div id="buscar">
-                  <div><input type="text" id="buscarNombre" placeholder="Buscar juego..."  autocomplete="on" oninput="busqueda()"><button
-                              id=botonBorrarBusqueda class="botonesBusqueda" onclick="borrarBusqueda()">x</button></div>
+                  <div><input type="text" id="buscarNombre" placeholder="Buscar juego..." autocomplete="on"
+                              oninput="busqueda()"><button id=botonBorrarBusqueda class="botonesBusqueda"
+                              onclick="borrarBusqueda()">x</button></div>
                   <div><input type="number" id="buscarPrecio" min="1" placeholder="Filtrar por precio máximo..."
                               oninput="busqueda()"><button id=botonBorrarPrecio class="botonesBusqueda"
                               onclick="borrarPrecio()">x</button>
@@ -438,26 +449,26 @@
                                           </label>
                                     </div>
                               </div>
-                              <div class="filtros-orden"><h4 style="width: max-content; display: inline-block;">Ordenar por:</h4>
+                              <div class="filtros-orden">
+                                    <h4 style="width: max-content; display: inline-block;">Ordenar por:</h4>
                                     <select name="Ordenar" id="filtro-orden">
-                                    <option value="NombreAsc">🔤 Nombre (A-Z)</option>
-                                    <option value="NombreDesc">🔤 Nombre (Z-A)</option>
-                                    <option value="PrecioAsc">💲Precio ▲</option>
-                                    <option value="PrecioDesc">💲Precio ▼</option>
-                                    <option value="TamanoAsc">💾 Tamaño ▲</option>
-                                    <option value="TamanoDesc">💾 Tamaño ▼</option>
+                                          <option value="NombreAsc">🔤 Nombre (A-Z)</option>
+                                          <option value="NombreDesc">🔤 Nombre (Z-A)</option>
+                                          <option value="PrecioAsc">💲Precio ▲</option>
+                                          <option value="PrecioDesc">💲Precio ▼</option>
+                                          <option value="TamanoAsc">💾 Tamaño ▲</option>
+                                          <option value="TamanoDesc">💾 Tamaño ▼</option>
                                     </select>
                               </div>
                         </div>
-
-                        <!--Encabezado de vista de juegos nuevos o actualizados-->
-                        <h2 id="EncabezadoJnewAct">Juegos <span style="color:rgb(157, 5, 157)">nuevos</span> o <span
-                                    style="color:rgb(88, 88, 236)">actualizados</span></h2>
-
-                        <!--Texto que muestra si no hay resultados-->
-                        <p id="texto"></p>
-
                   </section>
+
+                  <!--Encabezado de vista de juegos nuevos o actualizados-->
+                  <h2 id="EncabezadoJnewAct">Juegos <span style="color:rgb(157, 5, 157)">nuevos</span> o <span
+                              style="color:rgb(88, 88, 236)">actualizados</span></h2>
+
+                  <!--Texto que muestra si no hay resultados-->
+                  <p id="texto"></p>
 
                   <section id="divJuegos" class=grupo-juegos>
                         <!--Listado de Juegos de PC-->
@@ -519,7 +530,8 @@
                                           href="https://www.ign.com/games/age-of-empires-iii-complete-collection"
                                           target="_blank"><img
                                                 data-src="https://assets-prd.ignimgs.com/2021/12/29/age-of-empires-3-complete-collection-button-crop-1640819223691.jpg"
-                                                title="Age of Empires III - Complete Collection  (1.92 GB) (LAN)"></a></li>
+                                                title="Age of Empires III - Complete Collection  (1.92 GB) (LAN)"></a>
+                              </li>
                               <li class="precio5 servidor" Tconex="Offline, Online" Genero="Estrategia" Tamano="34.60">
                                     <a href="https://store.steampowered.com/app/933110/Age_of_Empires_III_Definitive_Edition/"
                                           target="_blank"><img
@@ -532,7 +544,7 @@
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1466860/capsule_616x353.jpg?t=1780854334"
                                                 title="Age of Empires IV Anniversary Edition (26.2 GB) (+ Servidor Dedicado) (LAN)"></a>
-                              </li>                              
+                              </li>
                               <li class="precio1 crack" Tconex="LAN, Steam" Genero="Party_Game" Tamano="1.32"><a
                                           href="https://store.steampowered.com/app/843200/Alien_Hominid_Invasion/"
                                           target="_blank"><img
@@ -706,11 +718,12 @@
                                                 data-src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/362890/98febcca15c9de9d9691be603b32fcf68b2480ea/capsule_616x353.jpg?t=1731621043"
                                                 title="Black Mesa Definitive Edition v7336708 (9.15 GB) (+ Servidor Dedicado) (LAN)"></a>
                               </li>
-                              <li class="precio1 servidor muchosMods" Tconex="Offline, LAN" Genero="MetroidVania, RPG" Tamano="0.66"><a
-                                          href="https://store.steampowered.com/app/774361/Blasphemous/"
+                              <li class="precio1 servidor muchosMods" Tconex="Offline, LAN" Genero="MetroidVania, RPG"
+                                    Tamano="0.66"><a href="https://store.steampowered.com/app/774361/Blasphemous/"
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/774361/capsule_616x353.jpg?t=1733479614"
-                                                title="Blasphemous v4.0.67 con mods (663 MB) (+ Servidor Dedicado) (LAN)"></a></li>
+                                                title="Blasphemous v4.0.67 con mods (663 MB) (+ Servidor Dedicado) (LAN)"></a>
+                              </li>
                               <li class="precio2" Tconex="Offline" Genero="MetroidVania, RPG" Tamano="1.9"><a
                                           href="https://store.steampowered.com/app/2114740/Blasphemous_2/"
                                           target="_blank"><img
@@ -820,8 +833,7 @@
                                                 data-src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/330020/header.jpg?t=1765218667"
                                                 title="Children Of Morta (1.34 GB) (LAN)"></a>
                               </li>
-                              <li class="precio3 servidor" Tconex="Offline, LAN" Genero="Lucha"
-                                    Tamano="8.35">
+                              <li class="precio3 servidor" Tconex="Offline, LAN" Genero="Lucha" Tamano="8.35">
                                     <a href="https://store.steampowered.com/app/219640/Chivalry_Medieval_Warfare/"
                                           target="_blank"><img
                                                 data-src="https://gaming-cdn.com/images/products/161/616x353/chivalry-medieval-warfare-pc-mac-game-steam-cover.jpg?v=1720623572"
@@ -866,8 +878,8 @@
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/34820/header.jpg?t=1587034033"
                                                 title="Combat Wings - Battle of Britain (284 MB) (LAN)"></a></li>
-                              <li class="precio6 servidor" Tconex="Offline, LAN" Genero="Contenido_adulto, RPG, Sandbox, Supervivencia"
-                                    Tamano="70.00"><a
+                              <li class="precio6 servidor" Tconex="Offline, LAN"
+                                    Genero="Contenido_adulto, RPG, Sandbox, Supervivencia" Tamano="70.00"><a
                                           href="https://store.steampowered.com/app/1206200/Conan_Exiles_Isle_of_Siptah/"><img
                                                 data-src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206200/capsule_616x353.jpg?t=1622114550"
                                                 title="Conan Exiles - Isle of Siptah (70 GB) (+ Servidor Dedicado) (LAN)"></a>
@@ -968,10 +980,9 @@
                                                 title="Crysis 2 Maximum Edition (11.1 GB) (Offline, Online)"></a></li>
 
                               <li class="juegosNuevos precio2" Tconex="LAN" Genero="Shooter" Tamano="5.28"><a
-                                          href="https://store.steampowered.com/agecheck/app/17340/"
-                                          target="_blank"><img
+                                          href="https://store.steampowered.com/agecheck/app/17340/" target="_blank"><img
                                                 data-src="https://portforward.com/crysis-wars/crysis-wars-header-small.webp"
-                                                title="Crysis Wars (5.28 GB) (+ Servidor Dedicado) (LAN)"></a></li>   
+                                                title="Crysis Wars (5.28 GB) (+ Servidor Dedicado) (LAN)"></a></li>
                               <li class="precio1" Tconex="Offline, LAN" Genero="Estrategia" Tamano="2.35"><a
                                           href="https://store.steampowered.com/app/203770/Crusader_Kings_II/"
                                           target="_blank"><img
@@ -1083,8 +1094,8 @@
                                           target="_blank"><img
                                                 data-src="https://assets.nintendo.com/image/upload/q_auto/f_auto/ncom/es_LA/games/switch/d/deaths-door-switch/hero"
                                                 title="Death's Door (558 MB)"></a></li>
-                              <li class="precio1 crack" Tconex="Offline, LAN"
-                                    Genero="Shooter, Rogue-lite" Tamano="3.42">
+                              <li class="precio1 crack" Tconex="Offline, LAN" Genero="Shooter, Rogue-lite"
+                                    Tamano="3.42">
                                     <a href="https://store.steampowered.com/app/548430/Deep_Rock_Galactic/"
                                           target="_blank"><img
                                                 data-src="https://image.api.playstation.com/vulcan/ap/rnd/202010/1407/2JSde8PFCF6B4nO2EECrcR1m.png"
@@ -1100,17 +1111,17 @@
                                                 data-src="https://images.g2a.com/470x276/1x1x0/demon-slayer-kimetsu-no-yaiba-the-hinokami-chronicles-pc-steam-account-global-i10000263371027/93d4aa9b38c24d9284694079"
                                                 title="Demon Slayer -Kimetsu no Yaiba- The Hinokami Chronicles (23.5 GB) (Activación requerida)"></a>
                               </li>
-                              <li class="juegosNuevos precio1 crack" Tconex="LAN, Online" Genero="Lucha" Tamano="23.50">
-                                    <a href="https://vandal.elespanol.com/juegos/ps4/dengeki-bunko-fighting-climax-ignition/33364"
-                                          target="_blank"><img
-                                                data-src="https://image.api.playstation.com/cdn/JP0177/CUSA03475_00/uTUA55hziVJ6TnXhFKMEdnmcwkfg1cX2WcfqkQVBHYGyACmg49c50OOoqrfeSJRl.png"
-                                                title="Dengeki Bunko Fighting Climax Ignition (1.31 GB) (LAN, Online)"></a>
-                              </li>                              
                               <li class="Activacion" Tconex="Offline" Genero="Lucha" Tamano="22.00"><a
                                           href="https://store.steampowered.com/app/2928600/Demon_Slayer_Kimetsu_no_Yaiba_The_Hinokami_Chronicles_2/"
                                           target="_blank"><img
                                                 data-src="https://img.asmedia.epimg.net/resizer/v2/F7FRGJND55FB5DEWUB64G3FUG4.jpg?auth=f00f65e26e9e884da77743273c2a33a1d7a3fcf56c60d78992434b7bfb3af587&width=644&height=362&smart=true"
                                                 title="Demon Slayer -Kimetsu no Yaiba- The Hinokami Chronicles 2 v1.20 - Infinity Castle Character Pass DLC (22 GB) (Activación requerida)"></a>
+                              </li>
+                              <li class="juegosNuevos precio1 crack" Tconex="LAN, Online" Genero="Lucha" Tamano="1.31">
+                                    <a href="https://vandal.elespanol.com/juegos/ps4/dengeki-bunko-fighting-climax-ignition/33364"
+                                          target="_blank"><img
+                                                data-src="https://image.api.playstation.com/cdn/JP0177/CUSA03475_00/uTUA55hziVJ6TnXhFKMEdnmcwkfg1cX2WcfqkQVBHYGyACmg49c50OOoqrfeSJRl.png"
+                                                title="Dengeki Bunko Fighting Climax Ignition (1.31 GB) (LAN, Online)"></a>
                               </li>
                               <li class="precio1 crack" Tconex="Offline, LAN" Genero="RPG" Tamano="1.94"><a
                                           href="https://vandal.elespanol.com/juegos/pc/diablo-ii-lord-of-destruction/29230"
@@ -1303,11 +1314,13 @@
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/256190/capsule_616x353.jpg?t=1692601016"
                                                 title="Enemy Front (7 GB) (LAN)"></a></li>
-                              <li class="juegosNuevos precio5 servidor" Tconex="Offline, LAN" Genero="Shooter" Tamano="27.20"><a
+                              <li class="juegosNuevos precio5 servidor" Tconex="Offline, LAN" Genero="Shooter"
+                                    Tamano="27.20"><a
                                           href="https://store.steampowered.com/app/3932890/Escape_from_Tarkov/"
                                           target="_blank"><img
                                                 data-src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4091290/114d9d69b70f8bb314962336a0c176510fa51ee4/capsule_616x353.jpg?t=1763204182"
-                                                title="Escape From Tarkov PVE Zone (27.2 GB) (+ Servidor Dedicado) (LAN)"></a></li>
+                                                title="Escape From Tarkov PVE Zone (27.2 GB) (+ Servidor Dedicado) (LAN)"></a>
+                              </li>
                               <li class="precio4 crack" Tconex="Offline, LAN, Steam" Genero="Terror, Party_Game"
                                     Tamano="14.00"><a
                                           href="https://store.steampowered.com/app/1943950/Escape_the_Backrooms/"
@@ -1401,11 +1414,12 @@
                                           target="_blank"><img
                                                 data-src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2243580/header.jpg?t=1720207650"
                                                 title="Food Fight Culinary Combat (738 MB)"></a></li>
-                              <li class="precio3 servidor" Tconex="LAN" Genero="Shooter" Tamano="6.23"><a class="juegosSinEnlace"><img
+                              <li class="precio3 servidor" Tconex="LAN" Genero="Shooter" Tamano="6.23"><a
+                                          class="juegosSinEnlace"><img
                                                 data-src="img/portadasJuegosFaltantes/Fortnite.webp"
                                                 title="Fortnite (6.23 GB) (LAN)"></a></li>
-                              <li class="precio1" Tconex="Offline" Genero="Aventura_Grafica, Terror, Puzzle" Tamano="0.39"><a
-                                          href="https://store.steampowered.com/app/362680/Fran_Bow/"
+                              <li class="precio1" Tconex="Offline" Genero="Aventura_Grafica, Terror, Puzzle"
+                                    Tamano="0.39"><a href="https://store.steampowered.com/app/362680/Fran_Bow/"
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/362680/header.jpg?t=1693287362"
                                                 title="Fran Bow (395 MB)"></a></li>
@@ -1507,8 +1521,8 @@
                                                 data-src="https://images.gog-statics.com/73b321c80676bbe64152380376ca1693936a28613517aef1714ab308c40e46e8_product_card_v2_mobile_slider_639.jpg"
                                                 title="Grim Dawn v1.2.0.2 H2 (6.95 GB) (LAN)"></a>
                               </li>
-                              <li class="precio1 crack servidor" Tconex="Offline, LAN, Online"
-                                    Genero="Sandbox, Shooter" Tamano="0.62"><a
+                              <li class="precio1 crack servidor" Tconex="Offline, LAN, Online" Genero="Sandbox, Shooter"
+                                    Tamano="0.62"><a
                                           href="https://vandal.elespanol.com/juegos/xbox/grand-theft-auto-3/1271"
                                           target="_blank"><img
                                                 data-src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/12100/header.jpg?t=1634144440"
@@ -1534,8 +1548,9 @@
                                                 data-src="https://w0.peakpx.com/wallpaper/587/659/HD-wallpaper-gta-4-girl-gta-girl-gta-4-grand-theft-auto-4.jpg"
                                                 title="Grand Theft Auto IV (19.7 GB) (LAN)"></a>
                               </li>
-                              <li class="precio6 crack servidor" Tconex="Offline, LAN, Online" Genero="Contenido_adulto, Sandbox, Shooter"
-                                    Tamano="51.30"><a href="https://store.steampowered.com/agecheck/app/271590/"
+                              <li class="precio6 crack servidor" Tconex="Offline, LAN, Online"
+                                    Genero="Contenido_adulto, Sandbox, Shooter" Tamano="51.30"><a
+                                          href="https://store.steampowered.com/agecheck/app/271590/"
                                           target="_blank"><img
                                                 data-src="https://preview.redd.it/who-is-the-woman-on-the-gta-disc-loading-screen-ps4-v0-esx2zf3h9se91.jpg?width=1080&crop=smart&auto=webp&s=07ffc8235cd666f63245905db8f18aa8576ee4b6"
                                                 title="Grand Theft Auto V v1.0.3411-v1.70 Online (51.3 GB) (+ Servidores Dedicados) (LAN, Online)"></a>
@@ -1654,7 +1669,7 @@
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1817230/capsule_616x353.jpg?t=1764916407"
                                                 title="Hi-Fi RUSH (9.3 GB)"></a></li>
-                               <li class="precio6 servidor" Tconex="Offline, LAN" Genero="RPG" Tamano="60.80"><a
+                              <li class="precio6 servidor" Tconex="Offline, LAN" Genero="RPG" Tamano="60.80"><a
                                           href="https://store.steampowered.com/app/990080/Hogwarts_Legacy/"
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/990080/22dd5a52e39a1952e77da2bd4ee49cc2e5e1a972/capsule_616x353.jpg?t=1778797474"
@@ -1789,8 +1804,8 @@
                                           target="_blank"><img
                                                 data-src="https://cdn.fastly.steamstatic.com/steam/apps/28000/header.jpg"
                                                 title="Kane and Lynch 2 - Dog Days (3.13 GB) (LAN)"></a></li>
-                              <li class="precio1" Tconex="Offline" Genero="Contenido_adulto, Novela_Visual" Tamano="0.43"><a
-                                          href="https://store.steampowered.com/app/3068300/Katawa_Shoujo/"
+                              <li class="precio1" Tconex="Offline" Genero="Contenido_adulto, Novela_Visual"
+                                    Tamano="0.43"><a href="https://store.steampowered.com/app/3068300/Katawa_Shoujo/"
                                           target="_blank"><img
                                                 data-src="https://m.media-amazon.com/images/I/51TjQ05ZGTL._AC_UF894,1000_QL80_.jpg"
                                                 title="Katawa Shoujo (430 MB)"></a></li>
@@ -1844,8 +1859,8 @@
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/35130/capsule_616x353.jpg?t=1729009567"
                                                 title="Lara Croft And The Guardian of Light (2.38 GB) (LAN)"></a>
                               </li>
-                              <li class="precio2 crack" Tconex="Offline, LAN, Steam"
-                                    Genero="Shooter, Party_Game" Tamano="4.61"><a
+                              <li class="precio2 crack" Tconex="Offline, LAN, Steam" Genero="Shooter, Party_Game"
+                                    Tamano="4.61"><a
                                           href="https://store.steampowered.com/app/774291/Last_Man_Sitting/?l=spanish"
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/774291/4f504abe57bf8550ea4644ef66e202f97cdd25a1/capsule_616x353.jpg?t=1776066189"
@@ -1861,14 +1876,13 @@
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/500/capsule_616x353.jpg?t=1738796049"
                                                 title="Left 4 Dead v1.0.4.5 (4.03 GB) (LAN, Online)"></a></li>
-                              <li class="precio3 crack" Tconex="Offline, LAN, Online" Genero="Shooter, Terror" Tamano="7.20"><a
-                                          href="https://store.steampowered.com/app/550/Left_4_Dead_2/"
+                              <li class="precio3 crack" Tconex="Offline, LAN, Online" Genero="Shooter, Terror"
+                                    Tamano="7.20"><a href="https://store.steampowered.com/app/550/Left_4_Dead_2/"
                                           target="_blank"><img
                                                 data-src="https://clan.fastly.steamstatic.com/images/964095/215c949156daaa20244411bbbb7713ba34d96e06_400x225.jpg"
                                                 title="Left 4 Dead 2 v2.2.2.7 (7.2 GB) (LAN, Online)"></a></li>
-                              <li class="juegosNuevos precio2 crack servidor" Tconex="Offline, LAN, Online" Genero="Estrategia" Tamano="3.30"><a
-                                          class="juegosSinEnlace"
-                                          target="_blank"><img
+                              <li class="juegosNuevos precio2 crack servidor" Tconex="Offline, LAN, Online"
+                                    Genero="Estrategia" Tamano="3.30"><a class="juegosSinEnlace" target="_blank"><img
                                                 data-src="img/portadasJuegosFaltantes/League of Legends.webp"
                                                 title="League of Legends Classic (3.3 GB) (LAN, Online)"></a></li>
                               <li class="precio1 crack" Tconex="Offline, LAN" Genero="Sandbox" Tamano="2.75"><a
@@ -1876,10 +1890,9 @@
                                           target="_blank"><img
                                                 data-src="https://cdn-ext.fanatical.com/production/product/1280x720/e1ddb99f-35ba-428e-8d11-43d3cc8565d2.jpeg"
                                                 title="LEGO Worlds Classic Space Pack (2.75 GB) (LAN)"></a></li>
-                              <li class="juegosNuevos precio3 servidor" Tconex="Offline, LAN" Genero="RPG" Tamano="3.10"><a
-                                          href="https://vandal.elespanol.com/juegos/pc/lego-universe/6683"
-                                          target="_blank"><img
-                                                data-src="img/portadasJuegosFaltantes/LEGO Universe.webp"
+                              <li class="juegosNuevos precio3 servidor" Tconex="Offline, LAN" Genero="RPG"
+                                    Tamano="3.10"><a href="https://vandal.elespanol.com/juegos/pc/lego-universe/6683"
+                                          target="_blank"><img data-src="img/portadasJuegosFaltantes/LEGO Universe.webp"
                                                 title="LEGO Universe (3.1 GB) (+ Servidor Dedicado) (LAN)"></a></li>
                               <li class="precio1 crack" Tconex="Offline, LAN, Steam" Genero="Party_Game, Terror"
                                     Tamano="0.43"><a href="https://store.steampowered.com/app/1966720/Lethal_Company/"
@@ -2181,7 +2194,7 @@
                               <li class="precio1" Tconex="Offline" Genero="Otro" Tamano="1.80"><a
                                           href="https://store.steampowered.com/app/1150690/OMORI/" target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1150690/capsule_616x353.jpg?t=1671584768"
-                                                title="OMORI (1.80 GB)"></a></li> 
+                                                title="OMORI (1.80 GB)"></a></li>
                               <li class="precio4 crack" Tconex="Offline, LAN, Steam" Genero="Lucha" Tamano="18.30"><a
                                           href="https://store.steampowered.com/app/1089090/ONE_PIECE_PIRATE_WARRIORS_4/"
                                           target="_blank"><img
@@ -2281,7 +2294,8 @@
                                           href="https://store.steampowered.com/app/1623730/Palworld/"
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1623730/058bd87dc17a7179e07c446aa64d0574ca43ab9d/header.jpg?t=1770887635"
-                                                title="Palworld Early Access (26.5 GB) (+ Servidor Dedicado) (LAN)"></a></li>
+                                                title="Palworld Early Access (26.5 GB) (+ Servidor Dedicado) (LAN)"></a>
+                              </li>
                               <li class="precio1" Tconex="Offline" Genero="Contenido_adulto, Otro" Tamano="0.03"><a
                                           href="https://store.steampowered.com/app/239030/Papers_Please/"
                                           target="_blank"><img
@@ -2345,7 +2359,8 @@
                                           class="juegosSinEnlace"><img
                                                 data-src="https://cdn2.steamgriddb.com/thumb/be41e8f8f5589afdf5ba646fbb7adb4d.jpg"
                                                 title="Perfect Dark Source (1.5 GB) (LAN, Online)"></a></li>
-                              <li class="juegosNuevos precio1 Shooter" Tconex="LAN" Genero="Shooter" Tamano="0.03"><a href="https://www.ign.com/games/perfect-dark-2000" target="_blank"><img
+                              <li class="juegosNuevos precio1 Shooter" Tconex="LAN" Genero="Shooter" Tamano="0.03"><a
+                                          href="https://www.ign.com/games/perfect-dark-2000" target="_blank"><img
                                                 data-src="https://assets-prd.ignimgs.com/2020/09/04/perfect-dark-64-button-orig-1599255765856.jpg?crop=1%3A1%2Csmart&format=jpg&auto=webp&quality=80"
                                                 title="Perfect Dark HD (38 MB) (LAN)"></a></li>
                               <li class="precio1 crack" Tconex="LAN" Genero="Shooter, Party_Game" Tamano="0.63"><a
@@ -2477,8 +2492,8 @@
                                           target="_blank"><img
                                                 data-src="https://assets-prd.ignimgs.com/2025/07/15/readyornot-1752598623142.jpg?crop=1%3A1%2Csmart&format=jpg&auto=webp&quality=80"
                                                 title="Ready Or Not v71134 (49.2 GB) (LAN)"></a></li>
-                              <li class="juegosNuevos precio1 servidor" Tconex="Offline, LAN" Genero="Party_Game, Terror"
-                                    Tamano="0.60"><a
+                              <li class="juegosNuevos precio1 servidor" Tconex="Offline, LAN"
+                                    Genero="Party_Game, Terror" Tamano="0.60"><a
                                           href="https://store.steampowered.com/app/3241660/REPO/"><img
                                                 data-src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3241660/1ea445e044a2d5b09cfa8291350b63ebed6e5741/header.jpg?t=1778158882"
                                                 title="R.E.P.O (600 MB) (+ Servidor Dedicado) (LAN)"></a></li>
@@ -2595,9 +2610,9 @@
                                                 data-src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/270150/header.jpg?t=1669218056"
                                                 title="Running With Rifles (1.21 GB) (+ Servidor Dedicado) (LAN)"></a>
                               </li>
-                              <li class="precio3 servidor" Tconex="LAN" Genero="Contenido_adulto, Sandbox, Shooter, Supervivencia"
-                                    Tamano="7.16"><a href="https://store.steampowered.com/app/252490/Rust/ "
-                                          target="_blank"><img
+                              <li class="precio3 servidor" Tconex="LAN"
+                                    Genero="Contenido_adulto, Sandbox, Shooter, Supervivencia" Tamano="7.16"><a
+                                          href="https://store.steampowered.com/app/252490/Rust/ " target="_blank"><img
                                                 data-src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/252490/c05e66e166b0fc5fc2a06711d7bfa1b4cb2f45f6/capsule_616x353.jpg?t=1771871433"
                                                 title="Rust v2057 (7.16 GB) (+ Servidor Dedicado) (LAN)"></a>
                               </li>
@@ -2617,32 +2632,33 @@
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/348710/capsule_616x353_spanish.jpg?t=1618939090"
                                                 title="Saint Seiya Soldiers Soul (3.18 GB) (LAN)"></a></li>
-                              <li class="precio2" Tconex="Offline, LAN" Genero="Contenido_adulto, Sandbox, Shooter" Tamano="5.78"><a
-                                          href="https://store.steampowered.com/app/9480/Saints_Row_2/"
+                              <li class="precio2" Tconex="Offline, LAN" Genero="Contenido_adulto, Sandbox, Shooter"
+                                    Tamano="5.78"><a href="https://store.steampowered.com/app/9480/Saints_Row_2/"
                                           target="_blank"><img
                                                 data-src="https://images.gog-statics.com/e5054aacbe4d66cc91783dfe5d2eb996e49d08523f8ed6f2cb07bd9cc747aed2.jpg"
                                                 title="Saints Row 2 (5.78 GB) (LAN)"></a></li>
-                              <li class="precio3 crack" Tconex="Offline, LAN, Steam" Genero="Contenido_adulto, Sandbox, Shooter"
-                                    Tamano="5.35"><a href="https://store.steampowered.com/sub/17933/"
-                                          target="_blank"><img
+                              <li class="precio3 crack" Tconex="Offline, LAN, Steam"
+                                    Genero="Contenido_adulto, Sandbox, Shooter" Tamano="5.35"><a
+                                          href="https://store.steampowered.com/sub/17933/" target="_blank"><img
                                                 data-src="https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000013514/7883a9cb430c498a09d37bfa31d6f57143977919e349ec51a4585b135d755421"
                                                 title="Saints Row The Third - The Full Package (5.35 GB) (LAN, Online vía Steam)"></a>
                               </li>
-                              <li class="precio3" Tconex="Offline, LAN" Genero="Contenido_adulto, Sandbox, Shooter" Tamano="7.84"><a
-                                          href="https://store.steampowered.com/agecheck/app/314580/"
+                              <li class="precio3" Tconex="Offline, LAN" Genero="Contenido_adulto, Sandbox, Shooter"
+                                    Tamano="7.84"><a href="https://store.steampowered.com/agecheck/app/314580/"
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/314580/header.jpg?t=1684278782"
                                                 title="Saints Row IV - Game of the Century Edition (7.84 GB) (LAN)"></a>
                               </li>
-                              <li class="precio3 crack" Tconex="Offline, LAN, Steam" Genero="Contenido_adulto, Sandbox, Shooter"
-                                    Tamano="5.00"><a
+                              <li class="precio3 crack" Tconex="Offline, LAN, Steam"
+                                    Genero="Contenido_adulto, Sandbox, Shooter" Tamano="5.00"><a
                                           href="https://store.steampowered.com/app/301910/Saints_Row_Gat_out_of_Hell/"
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/301910/capsule_616x353.jpg?t=1726482177"
                                                 title="Saints Row - Gat out of Hell (5 GB) (LAN, Online vía Steam)"></a>
                               </li>
-                              <li class="precio5 crack" Tconex="Offline, LAN, Steam" Genero="Contenido_adulto, Sandbox, Shooter"
-                                    Tamano="34.60"><a href="https://store.steampowered.com/app/742420/Saints_Row/"
+                              <li class="precio5 crack" Tconex="Offline, LAN, Steam"
+                                    Genero="Contenido_adulto, Sandbox, Shooter" Tamano="34.60"><a
+                                          href="https://store.steampowered.com/app/742420/Saints_Row/"
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/742420/capsule_616x353.jpg?t=1726748689"
                                                 title="Saints Row V 2022 Reboot Gold Edition v1.6.1.4735700 (34.6 GB) (LAN, ¿Online vía Steam?)"></a>
@@ -2663,7 +2679,8 @@
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1437400/capsule_616x353.jpg?t=1699343874"
                                                 title="Salt and Sacrifice v2.0.0.0 (980 MB) (Offline, Online)"></a></li>
-                              <li class="precio1" Tconex="Offline" Genero="Contenido_adulto, Terror, Puzzle" Tamano="0.54"><a
+                              <li class="precio1" Tconex="Offline" Genero="Contenido_adulto, Terror, Puzzle"
+                                    Tamano="0.54"><a
                                           href="https://store.steampowered.com/bundle/12482/Sally_Face__COMPLETE_GAME/"
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/567990/capsule_616x353.jpg?t=1667000653"
@@ -2701,9 +2718,9 @@
                                                 data-src="https://shared.steamstatic.com/store_item_assets/steam/apps/1194250/header.jpg?t=1698840890"
                                                 title="Screaming Chicken Ultimate Showdown v1.1.7 (996 MB) (LAN)"></a>
                               </li>
-                              <li class="precio6 servidor" Tconex="Offline, LAN" Genero="Contenido_adulto, Supervivencia, RPG"
-                                    Tamano="36.00"><a href="https://store.steampowered.com/app/513710/SCUM/"
-                                          target="_blank"><img
+                              <li class="precio6 servidor" Tconex="Offline, LAN"
+                                    Genero="Contenido_adulto, Supervivencia, RPG" Tamano="36.00"><a
+                                          href="https://store.steampowered.com/app/513710/SCUM/" target="_blank"><img
                                                 data-src="https://media.gamestop.com/i/gamestop/20012334/Scum---PC-Steam"
                                                 title="SCUM (36 GB) (+ Servidor Dedicado) (LAN)"></a>
                               </li>
@@ -3028,11 +3045,13 @@
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/638650/capsule_616x353.jpg?t=1703657343"
                                                 title="Sword Art Online - Hollow Fragment (5.43 GB) (LAN)"></a></li>
-                              <li class="precio3 crack" Tconex="Offline, LAN, Steam" Genero="RPG, Shooter" Tamano="11.80"><a
+                              <li class="precio3 crack" Tconex="Offline, LAN, Steam" Genero="RPG, Shooter"
+                                    Tamano="11.80"><a
                                           href="https://store.steampowered.com/app/626690/Sword_Art_Online_Fatal_Bullet/"
                                           target="_blank"><img
                                                 data-src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/626690/capsule_616x353.jpg?t=1701314169"
-                                                title="Sword Art Online - Fatal Bullet (11.8 GB) (LAN, Online vía Steam)"></a></li>
+                                                title="Sword Art Online - Fatal Bullet (11.8 GB) (LAN, Online vía Steam)"></a>
+                              </li>
                               <li class="precio5 crack" Tconex="Offline, LAN" Genero="RPG" Tamano="7.05"><a
                                           href="https://store.steampowered.com/app/607890/Sword_Art_Online_Hollow_Realization_Deluxe_Edition/"
                                           target="_blank"><img
@@ -3108,13 +3127,12 @@
                                                 data-src="https://images.gog-statics.com/0f6e533fae0df693e3f0ca0d946444979734c540cd94a8e0d9f2ad5ee63b7c60_product_card_v2_mobile_slider_639.jpg"
                                                 title="The Binding of Isaac Rebirth - Repenteance+ DLC v1.9.7.9 (1.42 GB) (LAN)"></a>
                               </li>
-                              <li class="precio1 servidor muchosMods" Tconex="Offline, LAN" Genero="RPG"
-                                    Tamano="1.14">
+                              <li class="precio1 servidor muchosMods" Tconex="Offline, LAN" Genero="RPG" Tamano="1.14">
                                     <a href="https://store.steampowered.com/app/22320/The_Elder_Scrolls_III_Morrowind_Game_of_the_Year_Edition/"
                                           target="_blank"><img
                                                 data-src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22320/capsule_616x353.jpg?t=1760029380"
                                                 title="The Elder Scrolls III Morrowind GOTY con mods (1.14 GB) (+ Servidor Dedicado) (LAN)"></a>
-                              </li>                              
+                              </li>
                               <li class="precio4 servidor pocosMods" Tconex="Offline, LAN, Online" Genero="RPG"
                                     Tamano="13.80">
                                     <a href="https://store.steampowered.com/app/489830/The_Elder_Scrolls_V_Skyrim_Special_Edition/"
@@ -3170,21 +3188,21 @@
                                                 data-src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2132750/capsule_616x353.jpg?t=1687272728"
                                                 title="The Last Hero of Nostalgaia - The Rise of Evil DLC v3.3.6.2 (3.8 GB) (Offline, Online)"></a>
                               </li>
-                              <li class="precio1 pocosMods" Tconex="Offline" Genero="RPG" Tamano="0.69"><a
+                              <li class="precio1 pocosMods" Tconex="Offline" Genero="Puzzle, RPG" Tamano="0.69"><a
                                           href="https://vandal.elespanol.com/juegos/n64/the-legend-of-zelda-ocarina-of-time/2129#p-19"
                                           target="_blank"><img
                                                 data-src="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_7/SI_N64_LegendOfZeldaOcarinaOfTime_image1600w.jpg"
                                                 title="The Legend of Zelda Ocarina of Time HD (694 MB)"></a></li>
-                              <li class="precio1 pocosMods" Tconex="Offline" Genero="RPG" Tamano="0.75"><a
+                              <li class="precio1 pocosMods" Tconex="Offline" Genero="Puzzle, RPG" Tamano="0.75"><a
                                           href="https://vandal.elespanol.com/juegos/n64/zelda-majoras-mask/79"
                                           target="_blank"><img
                                                 data-src="https://www.nintendo.com/eu/media/images/10_share_images/games_15/virtual_console_wii_8/SI_WiiVC_ZeldaMajorasMask_image1600w.jpg"
                                                 title="The Legend of Zelda Majora's Mask HD (754 MB)"></a></li>
-                              <li class="precio1 pocosMods" Tconex="Offline" Genero="RPG" Tamano="0.91"><a
+                              <li class="precio1 pocosMods" Tconex="Offline" Genero="Puzzle, RPG" Tamano="0.91"><a
                                           href="https://vandal.elespanol.com/juegos/wiiu/the-legend-of-zelda-twilight-princess-hd/34530"
                                           target="_blank"><img
                                                 data-src="https://www.nintendo.com/eu/media/images/10_share_images/games_15/wiiu_14/SI_WiiU_TheLegendOfZeldaTwilightPrincessHD_image1600w.jpg"
-                                                title="The Legend of Zelda Twilight Princess HD (912 MB)"></a></li>                                              
+                                                title="The Legend of Zelda Twilight Princess HD (912 MB)"></a></li>
                               <li class="precio3 crack" Tconex="Offline, LAN" Genero="Shooter" Tamano="2.60"><a
                                           href="https://store.steampowered.com/app/360940/The_Mean_Greens_Plastic_Warfare/"
                                           target="_blank"><img
@@ -3205,12 +3223,13 @@
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2059960/capsule_616x353.jpg?t=1701334163"
                                                 title="The Rumble Fish 2 (982 MB) (LAN)"></a></li>
-                              <li class="precio1 servidor crack pocosMods" Tconex="Offline, LAN, Online" Genero="Carreras, Otro" Tamano="1.41">
+                              <li class="precio1 servidor crack pocosMods" Tconex="Offline, LAN, Online"
+                                    Genero="Carreras, Otro" Tamano="1.41">
                                     <a href="https://vandal.elespanol.com/juegos/ps2/the-simpsons-hit-run/1893#p-2"
                                           target="_blank"><img
                                                 data-src="https://m.media-amazon.com/images/M/MV5BMjkwMmY3ZmItYmJiYi00ZWNjLTlhOTEtMmJhODJiMGE2NjAwXkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg"
                                                 title="The Simpsons Hit & Run con mods (1.41 GB) (+ Servidor Dedicado) (LAN, Online)"></a>
-                              </li>                                                
+                              </li>
                               <li class="precio6 crack" Tconex="Offline, LAN" Genero="Otro" Tamano="44.00">
                                     <a href="https://store.steampowered.com/app/1222670/The_Sims_4/"
                                           target="_blank"><img
@@ -3222,8 +3241,8 @@
                                           target="_blank"><img
                                                 data-src="https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000018413/4ced0c45a0cd015eb904b4c7982a8d16c0d4f932011e680f59f553dc7c6f314f"
                                                 title="The Survivalists (397 MB) (LAN)"></a></li>
-                              <li class="precio5 crack servidor muchosMods" Tconex="Offline, LAN, Online" Genero="Contenido_adulto, RPG"
-                                    Tamano="41.50"><a
+                              <li class="precio5 crack servidor muchosMods" Tconex="Offline, LAN, Online"
+                                    Genero="Contenido_adulto, RPG" Tamano="41.50"><a
                                           href="https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/"
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/292030/96b8627588997030e5a6b56ca5e9944756c8f288/capsule_616x353.jpg?t=1768303991"
@@ -3293,8 +3312,7 @@
                                                 title="Torchlight II v1.25.5.6 con mods (1.75 GB) (LAN)"></a></li>
                               <li class="precio1" Tconex="Offline" Genero="Shooter" Tamano="1.16"><a
                                           href="https://vandal.elespanol.com/juegos/ps2/total-overdose/4500#p-2"
-                                          target="_blank"><img
-                                                data-src="img/portadasJuegosFaltantes/Total Overdose.jpg"
+                                          target="_blank"><img data-src="img/portadasJuegosFaltantes/Total Overdose.jpg"
                                                 title="Total Overdose (1.16 GB)"></a></li>
                               <li class="precio4 crack" Tconex="Offline, LAN" Genero="Hack-and-Slash, RPG"
                                     Tamano="12.3"><a href="https://store.steampowered.com/app/363130/Toukiden_Kiwami/"
@@ -3440,18 +3458,18 @@
                                                 data-src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1056960/capsule_616x353.jpg?t=1750784246"
                                                 title="Wolfenstein - Youngblood (28.6 GB) (+ Servidor Dedicado) (¿LAN?)"></a>
                               </li>
-                               <li class="precio4 servidor" Tconex="Offline, LAN" Genero="RPG" Tamano="18.30"><a
+                              <li class="precio4 servidor" Tconex="Offline, LAN" Genero="RPG" Tamano="18.30"><a
                                           href="https://vandal.elespanol.com/juegos/pc/world-of-warcraft-wrath-of-the-lich-king/7627#p-13"
                                           target="_blank"><img
                                                 data-src="img/portadasJuegosFaltantes/world_of_warcraft_wrath_of_the_lich_king-square_3.webp"
                                                 title="World of Warcraft - Wrath Of The Lich King (18.3 GB) (+ Servidor Dedicado) (LAN)"></a>
                               </li>
-                               <li class="precio4 servidor" Tconex="Offline, LAN" Genero="RPG" Tamano="26.00"><a
+                              <li class="precio4 servidor" Tconex="Offline, LAN" Genero="RPG" Tamano="26.00"><a
                                           href="https://vandal.elespanol.com/juegos/pc/world-of-warcraft-mists-of-pandaria/15180#p-13"
                                           target="_blank"><img
                                                 data-src="img/portadasJuegosFaltantes/World of Warcraft - Mists Of Pandaria.webp"
                                                 title="World of Warcraft - Mists Of Pandaria (26 GB) (+ Servidor Dedicado) (LAN)"></a>
-                              </li>                                                       
+                              </li>
                               <li class="precio2" Tconex="Offline" Genero="Otro" Tamano="2.15"><a
                                           href="https://vandal.elespanol.com/juegos/pc/yandere-simulator/46075"
                                           target="_blank"><img
@@ -3583,8 +3601,8 @@
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/10090/capsule_616x353.jpg?t=1654830025"
                                                 title="Call of Duty 5 - World at War (6.35 GB) (LAN, Online)"></a>
                               </li>
-                              <li class="precio3 crack servidor" Tconex="Offline, LAN, Online"
-                                    Genero="Shooter" Tamano="16.00"><a
+                              <li class="precio3 crack servidor" Tconex="Offline, LAN, Online" Genero="Shooter"
+                                    Tamano="16.00"><a
                                           href="https://store.steampowered.com/app/10180/Call_of_Duty_Modern_Warfare_2_2009/"
                                           target="_blank"><img
                                                 data-src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/10180/capsule_616x353.jpg?t=1654809646"
@@ -3885,18 +3903,18 @@
                                                 data-src="https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70070000013653/313a480a021228349a0bdefac2209f8c64407c5f208500ea8d23bc0edd456f8e"
                                                 title="Monster Hunter Rise Sunbreak Deluxe Edition v16.0.2.0 (30.7 GB) (LAN, Online vía Steam)"></a>
                               </li>
-                              <li class="precio3" Tconex="Offline" Genero="RPG" Tamano="4.47"><a
+                              <li class="precio3" Tconex="Offline" Genero="RPG, Otro" Tamano="4.47"><a
                                           href="https://store.steampowered.com/app/2356560/Monster_Hunter_Stories/"
                                           target="_blank"><img
                                                 data-src="https://www.impulsegamer.com/articles/wp-content/uploads/2024/06/MonsterHunterStories-switch-review-feature.jpg"
                                                 title="Monster Hunter Stories v1.1.1 (4.52 GB)"></a></li>
-                              <li class="precio3 crack" Tconex="Offline, LAN, Steam" Genero="RPG" Tamano="11.5"><a
+                              <li class="precio3 crack" Tconex="Offline, LAN, Steam" Genero="RPG, Otro" Tamano="11.5"><a
                                           href="https://store.steampowered.com/app/1277400/MONSTER_HUNTER_Stories_2_Wings_of_Ruin/"
                                           target="_blank"><img
                                                 data-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1277400/capsule_616x353.jpg?t=1732755703"
                                                 title="Monster Hunter Stories 2 Wings of Ruin (11.5 GB) (LAN, Online vía Steam)"></a>
                               </li>
-                              <li class="Activacion" Tconex="Offline" Genero="RPG" Tamano="34.50"><a
+                              <li class="Activacion" Tconex="Offline, Otro" Genero="RPG" Tamano="34.50"><a
                                           href="https://store.steampowered.com/app/2852190/Monster_Hunter_Stories_3_Twisted_Reflection/"
                                           target="_blank"><img
                                                 data-src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2852190/c5c532b7e5638247d184b4d42259e1c2166ca26c/capsule_616x353.jpg?t=1773387803"
@@ -4164,8 +4182,7 @@
                         </ul>
                   </section>
                   <section class="grupo-juegos">
-                        <div id="resident" class="encabezadosjuegos"><img
-                                    src="img/encabezados/Resident Evil.webp"
+                        <div id="resident" class="encabezadosjuegos"><img src="img/encabezados/Resident Evil.webp"
                                     class="titulosTJuegos" alt="Resident Evil">
                               <h4>Resident Evil</h4>
                         </div>
@@ -4175,8 +4192,8 @@
                                           target="_blank"><img
                                                 data-src="https://gaming-cdn.com/images/products/192/orig/resident-evil-revelations-pc-game-steam-europe-cover.jpg?v=1720682304"
                                                 title="Resident Evil Revelations v1.0 u4 (6.3 GB) (LAN)"></a></li>
-                              <li class="precio3 crack" Tconex="Offline, LAN, Steam"
-                                    Genero="Terror, Shooter" Tamano="9.46"><a
+                              <li class="precio3 crack" Tconex="Offline, LAN, Steam" Genero="Terror, Shooter"
+                                    Tamano="9.46"><a
                                           href="https://store.steampowered.com/app/287290/Resident_Evil_Revelations_2/"
                                           target="_blank"><img
                                                 data-src="https://gaming-cdn.com/images/products/530/616x353/resident-evil-revelations-2-complete-season-pc-steam-cover.jpg?v=1766595472"
@@ -4208,9 +4225,9 @@
                                           href="https://store.steampowered.com/app/390340/Umbrella_Corps/"
                                           target="_blank"><img
                                                 data-src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/390340/header.jpg?t=1728439260"
-                                                title="Umbrella Corps (3.47 GB) (LAN)"></a></li>                              
+                                                title="Umbrella Corps (3.47 GB) (LAN)"></a></li>
                         </ul>
-                  </section>                  
+                  </section>
                   <section class="grupo-juegos">
                         <div id="sonic" class="encabezadosjuegos"><img src="img/encabezados/Sonic all stars racing.webp"
                                     class="titulosTJuegos" alt="Sonic">
