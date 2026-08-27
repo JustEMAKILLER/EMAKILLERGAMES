@@ -257,12 +257,12 @@ cursor: pointer;
 }
 
 .Facebook,
-.Whatsapp {
+.WhatsApp {
   transition: transform 0.3s ease;
 }
 
 .Facebook:hover,
-.Whatsapp:hover {
+.WhatsApp:hover {
   transform: scale(1.07);
   cursor: pointer;
 }
@@ -271,7 +271,7 @@ cursor: pointer;
   color: #37a8e5;
 }
 
-.Whatsapp:hover p {
+.WhatsApp:hover p {
   color: #adff2f;
 }
 
@@ -285,7 +285,7 @@ cursor: pointer;
 }
 
 .Facebook p,
-.Whatsapp p {
+.WhatsApp p {
   transition: color 0.3s ease;
   margin-bottom: 0;
 }
@@ -430,7 +430,7 @@ cursor: pointer;
   left: 0%;
 }
 
-#Whatsapp {
+#WhatsApp {
   scale: 2.7;
   top: 40%;
   left: 0%;
