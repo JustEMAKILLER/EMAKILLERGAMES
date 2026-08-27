@@ -115,6 +115,8 @@
             id="botonBorrarBusqueda"
             class="botonesBusqueda"
             onclick="borrarBusqueda()"
+            title="Vaciar"
+            aria-label="Vaciar campo"
           >
             x
           </button>
@@ -130,6 +132,8 @@
             id="botonBorrarPrecio"
             class="botonesBusqueda"
             onclick="borrarPrecio()"
+            title="Eliminar precio"
+            aria-label="Eliminar precio establecido"
           >
             x
           </button>
@@ -149,6 +153,8 @@
           id="botonAgregarTodo"
           class="botonElementos"
           onclick="agregarTodo()"
+          title="Añadir todos los juegos descartados al carrito de juegos seleccionados"
+          aria-label="Añadir todos los juegos descartados al carrito de juegos seleccionados"
         >
           Añadir todo
         </button>
@@ -160,6 +166,8 @@
           id="botonEliminarTodo"
           class="botonElementos"
           onclick="eliminarTodo()"
+          title="Eliminar los juegos seleccionados"
+          aria-label="Eliminar los juegos seleccionados"
         >
           Eliminar juegos seleccionados
         </button>
@@ -170,14 +178,16 @@
             id="botonEliminarRegalos"
             class="botonElementos"
             onclick="eliminarRegalos()"
+            title="Eliminar todos los regalos"
+            aria-label="Eliminar todos los regalos"
           >
             Eliminar regalos
           </button>
           <ul></ul>
         </div>
         <h2 id="calculoPrecio"></h2>
-        <button id="botonEnviarWhatsapp" onclick="enviarListado()">
-          Enviar listado por Whatsapp
+        <button id="botonEnviarWhatsapp" onclick="enviarListado()" title="Enviar el listado de juegos por WhatsApp" aria-label="Enviar el listado de juegos por WhatsApp">
+          Enviar listado por WhatsApp
         </button>
       </div>
 

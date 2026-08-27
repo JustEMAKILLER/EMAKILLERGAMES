@@ -233,7 +233,7 @@ function agregarPreciosAJuegos() {
       if (juego.classList.contains("precio3")) precio += 200; // + 10 GB Y <= 20 GB
       if (juego.classList.contains("precio4")) precio += 300; // + 20 GB Y <= 40 GB
       if (juego.classList.contains("precio5")) precio += 400; // + 40 GB Y <= 60 GB
-      if (juego.classList.contains("precio6")) precio += 500; // + 60 GB      
+      if (juego.classList.contains("precio6")) precio += 500; // + 60 GB
       if (juego.classList.contains("crack")) precio += 100; // Crack LAN u Online
       if (juego.classList.contains("pocosMods")) precio += 50;
       if (juego.classList.contains("muchosMods")) precio += 100;
@@ -551,17 +551,31 @@ function agregarRegalo(producto) {
 
   // Crear botón de añadir
   if (!producto.querySelector(".add-button")) {
-    const addButton = crearBoton("🛒", "add-button", "blue", function () {
-      agregarProducto(producto);
-    });
+    const addButton = crearBoton(
+      "🛒",
+      "add-button",
+      "blue",
+      "Agregar juego al carrito de juegos seleccionados",
+      "Agregar juego al carrito de juegos seleccionados",
+      function () {
+        agregarProducto(producto);
+      }
+    );
     producto.appendChild(addButton);
   }
 
   // Crear botón de eliminar
   if (!producto.querySelector(".remove-button")) {
-    const removeButton = crearBoton("🗑️", "remove-button", "red", function () {
-      eliminarRegalo(producto);
-    });
+    const removeButton = crearBoton(
+      "🗑️",
+      "remove-button",
+      "red",
+      "Remover juego de la lista",
+      "Remover juego de la lista",
+      function () {
+        eliminarRegalo(producto);
+      }
+    );
     producto.appendChild(removeButton);
   }
 
@@ -827,16 +841,20 @@ function obtenerTituloJuego(item) {
  * @param {string} text - Texto del botón.
  * @param {string} className - Clase CSS del botón.
  * @param {string} color - Color del texto.
+ * @param {string} title - Texto que se muestra en el tooltip al pasar el mouse.
+ * @param {string} ariaLabel - Etiqueta accesible para lectores de pantalla (accesibilidad).
  * @param {Function} onClick - Función a ejecutar al hacer clic.
  * @returns {HTMLButtonElement} Botón creado.
  */
-function crearBoton(text, className, color, onClick) {
+function crearBoton(text, className, color, title, ariaLabel, onClick) {
   const button = document.createElement("button");
   button.textContent = text;
   button.className = className;
   button.style.marginLeft = "10px";
   button.style.cursor = "pointer";
   button.style.color = color;
+  button.title = title;
+  button.ariaLabel = ariaLabel;
   button.onclick = onClick;
   return button;
 }
@@ -1430,9 +1448,16 @@ function reconstruirBotonPrincipal(producto) {
     !producto.closest("#resultados") &&
     !producto.closest("#juegosDescartados")
   ) {
-    const addButton = crearBoton("🛒", "add-button", "blue", function () {
-      agregarProducto(producto);
-    });
+    const addButton = crearBoton(
+      "🛒",
+      "add-button",
+      "blue",
+      "Agregar juego al carrito de juegos seleccionados",
+      "Agregar juego al carrito de juegos seleccionados",
+      function () {
+        agregarProducto(producto);
+      }
+    );
     producto.appendChild(addButton);
   }
 }
@@ -1450,9 +1475,16 @@ function reconstruirBotonResultado(producto) {
   const existingRemoveButton = producto.querySelector(".remove-button");
   if (existingRemoveButton) existingRemoveButton.remove();
 
-  const removeButton = crearBoton("🗑️", "remove-button", "red", function () {
-    devolverProducto(producto);
-  });
+  const removeButton = crearBoton(
+    "🗑️",
+    "remove-button",
+    "red",
+    "Remover juego de la lista",
+    "Remover juego de la lista",
+    function () {
+      devolverProducto(producto);
+    }
+  );
   producto.appendChild(removeButton);
 }
 
@@ -1469,9 +1501,16 @@ function reconstruirBotonDescartado(producto) {
   const existingAddButton = producto.querySelector(".add-button");
   if (existingAddButton) existingAddButton.remove();
 
-  const addButton = crearBoton("🛒", "add-button", "blue", function () {
-    agregarProducto(producto);
-  });
+  const addButton = crearBoton(
+    "🛒",
+    "add-button",
+    "blue",
+    "Agregar juego al carrito de juegos seleccionados",
+    "Agregar juego al carrito de juegos seleccionados",
+    function () {
+      agregarProducto(producto);
+    }
+  );
   producto.appendChild(addButton);
 }
 
@@ -1490,6 +1529,8 @@ function reconstruirBotonRegalo(producto) {
       "🎁",
       "regalo-button",
       "golden",
+      "Agregar juego como regalo",
+      "Agregar juego como regalo",
       function () {
         agregarComoRegalo(producto);
       }
@@ -1511,18 +1552,32 @@ function reconstruirBotonesJuegosRegalos(producto) {
   const existingAddButton = producto.querySelector(".add-button");
   if (existingAddButton) existingAddButton.remove();
 
-  const addButton = crearBoton("🛒", "add-button", "blue", function () {
-    agregarProducto(producto);
-  });
+  const addButton = crearBoton(
+    "🛒",
+    "add-button",
+    "blue",
+    "Agregar juego al carrito de juegos seleccionados",
+    "Agregar juego al carrito de juegos seleccionados",
+    function () {
+      agregarProducto(producto);
+    }
+  );
   producto.appendChild(addButton);
 
   // Eliminar el botón de regalo si existe
   const botonRegalo = producto.querySelector(".regalo-button");
   if (botonRegalo) botonRegalo.remove();
 
-  const removeButton = crearBoton("🗑️", "remove-button", "red", function () {
-    eliminarRegalo(producto);
-  });
+  const removeButton = crearBoton(
+    "🗑️",
+    "remove-button",
+    "red",
+    "Remover juego de la lista",
+    "Remover juego de la lista",
+    function () {
+      eliminarRegalo(producto);
+    }
+  );
 
   producto.appendChild(removeButton);
 }
