@@ -578,6 +578,7 @@ ul img {
   object-fit: contain;
   border-radius: 30%;
   background-color: rgba(0, 0, 0, 0.7);
+  pointer-events: all;
   padding: 2px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
 }
