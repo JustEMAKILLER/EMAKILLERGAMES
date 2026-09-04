@@ -20,8 +20,7 @@ function crearBotonesAdicion() {
       ".listajuegos li:not(#resultados li):not(#juegosDescartados li):not(#regalos li)"
     )
     .forEach((producto) => {
-      reconstruirBotonPrincipal(producto);
-      reconstruirBotonRegalo(producto);
+      reconstruirFooter(producto);
     });
 }
 
@@ -233,7 +232,7 @@ function agregarPreciosAJuegos() {
       if (juego.classList.contains("precio3")) precio += 200; // + 10 GB Y <= 20 GB
       if (juego.classList.contains("precio4")) precio += 300; // + 20 GB Y <= 40 GB
       if (juego.classList.contains("precio5")) precio += 400; // + 40 GB Y <= 60 GB
-      if (juego.classList.contains("precio6")) precio += 500; // + 60 GB      
+      if (juego.classList.contains("precio6")) precio += 500; // + 60 GB
       if (juego.classList.contains("crack")) precio += 100; // Crack LAN u Online
       if (juego.classList.contains("pocosMods")) precio += 50;
       if (juego.classList.contains("muchosMods")) precio += 100;
@@ -411,8 +410,7 @@ document.getElementById("buscarPrecio").addEventListener("input", function () {
 });
 
 /**
- * Agrega un producto al div de resultados (carrito), descontando su precio del filtro,
- * reconstruyendo botones y actualizando la interfaz.
+ * Agrega un producto al div de resultados (carrito).
  * @param {HTMLElement} producto - Elemento li del juego a agregar.
  */
 function agregarProducto(producto) {
@@ -433,18 +431,8 @@ function agregarProducto(producto) {
     inputPrecio.classList.add("rojo");
   }
 
-  // Eliminar botones existentes
-  const addButton = producto.querySelector(".add-button");
-  const regaloButton = producto.querySelector(".regalo-button");
-  if (addButton) addButton.remove();
-  if (regaloButton) regaloButton.remove();
-
-  // Reconstruir botones para resultados
-  reconstruirBotonResultado(producto);
-  reconstruirBotonRegalo(producto);
-
   listaResultados.appendChild(producto);
-
+  reconstruirFooter(producto);
   ordenarListaAlfabeticamente(listaResultados);
   hayDescartados();
   actualizarPrecioYTamano();
@@ -533,7 +521,7 @@ function agregarComoRegalo(producto) {
 }
 
 /**
- * Agrega un producto al div de regalos, reconstruye sus botones y actualiza la interfaz.
+ * Agrega un producto al div de regalos.
  * @param {HTMLElement} producto - Elemento li del juego a agregar como regalo.
  */
 function agregarRegalo(producto) {
@@ -545,27 +533,8 @@ function agregarRegalo(producto) {
   calculoPrecio.style.display = "block";
   regalosDiv.style.display = "block";
 
-  // Eliminar botones existentes
-  const regaloButton = producto.querySelector(".regalo-button");
-  if (regaloButton) regaloButton.remove();
-
-  // Crear botón de añadir
-  if (!producto.querySelector(".add-button")) {
-    const addButton = crearBoton("🛒", "add-button", "blue", function () {
-      agregarProducto(producto);
-    });
-    producto.appendChild(addButton);
-  }
-
-  // Crear botón de eliminar
-  if (!producto.querySelector(".remove-button")) {
-    const removeButton = crearBoton("🗑️", "remove-button", "red", function () {
-      eliminarRegalo(producto);
-    });
-    producto.appendChild(removeButton);
-  }
-
   listaRegalos.appendChild(producto);
+  reconstruirFooter(producto);
   hayDescartados();
   ordenarListaAlfabeticamente(listaRegalos);
   actualizarPrecioYTamano();
@@ -581,25 +550,15 @@ function agregarRegalo(producto) {
 }
 
 /**
- * Devuelve un producto de resultados a la lista de descartados,
- * reconstruyendo sus botones correspondientes.
+ * Devuelve un producto de resultados a la lista de descartados.
  * @param {HTMLElement} producto - Elemento li del juego a devolver.
  */
 function devolverProducto(producto) {
   const juegosDescartadosDiv = document.getElementById("juegosDescartados");
   const listaDescartados = juegosDescartadosDiv.querySelector("ul");
 
-  // Eliminar botón de eliminar si existe
-  const removeButton = producto.querySelector(".remove-button");
-  if (removeButton) removeButton.remove();
-
-  // Mover el producto primero
   listaDescartados.appendChild(producto);
-
-  // Reconstruir botones
-  reconstruirBotonDescartado(producto);
-  reconstruirBotonRegalo(producto);
-
+  reconstruirFooter(producto);
   ordenarListaAlfabeticamente(listaDescartados);
   hayDescartados();
   actualizarPrecioYTamano();
@@ -613,17 +572,8 @@ function eliminarRegalo(producto) {
   const juegosDescartadosDiv = document.getElementById("juegosDescartados");
   const listaDescartados = juegosDescartadosDiv.querySelector("ul");
 
-  // Eliminar botón de eliminar del regalo
-  const removeButton = producto.querySelector(".remove-button");
-  if (removeButton) removeButton.remove();
-
-  // Mover el producto primero (sacar de #regalos)
   listaDescartados.appendChild(producto);
-
-  // Reconstruir botones normales para descartados (ahora closest('#regalos') dará false)
-  reconstruirBotonDescartado(producto);
-  reconstruirBotonRegalo(producto);
-
+  reconstruirFooter(producto);
   ordenarListaAlfabeticamente(listaDescartados);
   hayDescartados();
   actualizarPrecioYTamano();
@@ -828,17 +778,125 @@ function obtenerTituloJuego(item) {
  * @param {string} className - Clase CSS del botón.
  * @param {string} color - Color del texto.
  * @param {Function} onClick - Función a ejecutar al hacer clic.
+ * @param {string} title - Texto que se muestra en el tooltip al pasar el mouse.
  * @returns {HTMLButtonElement} Botón creado.
  */
-function crearBoton(text, className, color, onClick) {
+function crearBoton(text, className, color, onClick, title) {
   const button = document.createElement("button");
   button.textContent = text;
   button.className = className;
-  button.style.marginLeft = "10px";
   button.style.cursor = "pointer";
   button.style.color = color;
+  button.title = title;
+  button.ariaLabel = title;
   button.onclick = onClick;
   return button;
+}
+
+/**
+ * Crea el footer (pie de foto) para un producto y lo agrega al li.
+ * @param {HTMLElement} producto - Elemento li del juego.
+ * @param {string} tipo - 'principal', 'resultado', 'descartado', 'regalo'.
+ */
+function crearFooter(producto, tipo) {
+    // Eliminar footer existente si hay
+    const footerExistente = producto.querySelector(".li-footer");
+    if (footerExistente) footerExistente.remove();
+
+    // Eliminar botones sueltos que puedan quedar
+    producto
+        .querySelectorAll(
+            ".add-button, .remove-button, .regalo-button, .info-button"
+        )
+        .forEach((b) => b.remove());
+
+    const footer = document.createElement("div");
+    footer.className = "li-footer";
+
+    // --- 1. Botón Añadir (🛒) o Eliminar (🗑️) ---
+    if (tipo === "principal" || tipo === "descartado") {
+        const addButton = crearBoton(
+            "🛒",
+            "add-button",
+            "#00bfff",
+            function (e) {
+                e.stopPropagation();
+                agregarProducto(producto);
+            },
+            "Añadir al carrito"
+        );
+        footer.appendChild(addButton);
+    }
+
+    if (tipo === "resultado" || tipo === "regalo") {
+        const removeButton = crearBoton(
+            "🗑️",
+            "remove-button",
+            "#ff4444",
+            function (e) {
+                e.stopPropagation();
+                if (tipo === "resultado") {
+                    devolverProducto(producto);
+                } else {
+                    eliminarRegalo(producto);
+                }
+            },
+            "Eliminar"
+        );
+        footer.appendChild(removeButton);
+    }
+
+    // --- 2. Botón Información (ℹ️) ---
+    const enlace = producto.querySelector("a");
+    if (enlace && enlace.href && !enlace.classList.contains("juegosSinEnlace")) {
+        const infoButton = crearBoton(
+            "ℹ️",
+            "info-button",
+            "#ffffff",
+            function (e) {
+                e.stopPropagation();
+                window.open(enlace.href, "_blank");
+            },
+            "Explorar información adicional del juego"
+        );
+        footer.appendChild(infoButton);
+    }
+
+    // --- 3. Botón Regalo (🎁) ---
+    if (tipo === "principal" || tipo === "resultado" || tipo === "descartado") {
+        if (!producto.classList.contains("Activacion")) {
+            const regaloButton = crearBoton(
+                "🎁",
+                "regalo-button",
+                "#ffd700",
+                function (e) {
+                    e.stopPropagation();
+                    agregarComoRegalo(producto);
+                },
+                "Añadir como regalo"
+            );
+            footer.appendChild(regaloButton);
+        }
+    }
+
+    producto.appendChild(footer);
+}
+
+/**
+ * Reconstruye el footer para un producto según su ubicación.
+ * @param {HTMLElement} producto - Elemento li del juego.
+ */
+function reconstruirFooter(producto) {
+  // Determinar el tipo según dónde esté el producto
+  let tipo = "principal";
+  if (producto.closest("#resultados") && !producto.closest("#regalos")) {
+    tipo = "resultado";
+  } else if (producto.closest("#juegosDescartados")) {
+    tipo = "descartado";
+  } else if (producto.closest("#regalos")) {
+    tipo = "regalo";
+  }
+  crearFooter(producto, tipo);
 }
 
 /**
@@ -1314,8 +1372,7 @@ function enviarListado() {
 }
 
 /**
- * Cambia entre la vista de imágenes y la vista tradicional (texto),
- * reconstruyendo los elementos y botones según el modo seleccionado.
+ * Cambia entre la vista de imágenes y la vista tradicional (texto).
  */
 function cambiarVista() {
   const textoBoton = document.getElementById("botonCambiarVista");
@@ -1333,6 +1390,7 @@ function cambiarVista() {
     if (isTraditional) {
       // Modo texto tradicional
       li.style.marginLeft = "10px";
+      li.style.paddingBottom = "0";
 
       // Guardar contenido original si es la primera vez
       if (!li.dataset.originalContent) {
@@ -1349,13 +1407,18 @@ function cambiarVista() {
           enlace.innerHTML = "";
           enlace.appendChild(nombreJuego);
         } else {
-          li.innerHTML = "";
-          li.appendChild(nombreJuego);
+          // Si no hay enlace, insertar solo el nombre
+          const existingText = li.textContent.trim();
+          if (!existingText || existingText === "") {
+            li.innerHTML = "";
+            li.appendChild(nombreJuego);
+          }
         }
       }
     } else {
       // Modo imágenes
       li.style.marginLeft = "0";
+      li.style.paddingBottom = "45px";
 
       // Restaurar contenido original si existe
       if (li.dataset.originalContent) {
@@ -1375,156 +1438,12 @@ function cambiarVista() {
         }
       }
     }
+    // Reconstruir el footer para este li después de cambiar la vista
+    reconstruirFooter(li);
   });
-
-  // Reconstruir todos los botones manteniendo los eventos
-  reconstruirTodosLosBotones();
 
   // Forzar una nueva búsqueda para actualizar los resultados
   busqueda();
-}
-
-/**
- * Reconstruye todos los botones (añadir, eliminar, regalo) en todas las listas
- * (principal, resultados, descartados, regalos) manteniendo sus eventos.
- */
-function reconstruirTodosLosBotones() {
-  // --- 1. Lista principal ---
-  document.querySelectorAll(".listajuegos li").forEach((producto) => {
-    reconstruirBotonPrincipal(producto);
-    reconstruirBotonRegalo(producto);
-  });
-
-  // --- 2. RESULTADOS (solo el primer UL, NO #regalos) ---
-  const resultadosLista = document.querySelector("#resultados > ul");
-  resultadosLista.querySelectorAll("li").forEach((producto) => {
-    reconstruirBotonResultado(producto);
-    reconstruirBotonRegalo(producto);
-  });
-
-  // --- 3. DESCARTADOS ---
-  document.querySelectorAll("#juegosDescartados li").forEach((producto) => {
-    reconstruirBotonDescartado(producto);
-    reconstruirBotonRegalo(producto);
-  });
-
-  // --- 4. REGALOS ---
-  document.querySelectorAll("#regalos ul li").forEach((producto) => {
-    reconstruirBotonesJuegosRegalos(producto);
-  });
-}
-
-/**
- * Reconstruye el botón de añadir (🛒) para un producto en la lista principal.
- * @param {HTMLElement} producto - Elemento li del juego.
- */
-function reconstruirBotonPrincipal(producto) {
-  // Eliminar cualquier botón existente
-  const existingAddButton = producto.querySelector(".add-button");
-  const existingRemoveButton = producto.querySelector(".remove-button");
-  if (existingAddButton) existingAddButton.remove();
-  if (existingRemoveButton) existingRemoveButton.remove();
-
-  // Solo crear botón de añadir si no está en resultados/descartados
-  if (
-    !producto.closest("#resultados") &&
-    !producto.closest("#juegosDescartados")
-  ) {
-    const addButton = crearBoton("🛒", "add-button", "blue", function () {
-      agregarProducto(producto);
-    });
-    producto.appendChild(addButton);
-  }
-}
-
-/**
- * Reconstruye el botón de eliminar (🗑️) para un producto en la lista de resultados.
- * @param {HTMLElement} producto - Elemento li del juego.
- */
-function reconstruirBotonResultado(producto) {
-  // Eliminar cualquier botón de añadir
-  const existingAddButton = producto.querySelector(".add-button");
-  if (existingAddButton) existingAddButton.remove();
-
-  // Recrear botón de eliminar
-  const existingRemoveButton = producto.querySelector(".remove-button");
-  if (existingRemoveButton) existingRemoveButton.remove();
-
-  const removeButton = crearBoton("🗑️", "remove-button", "red", function () {
-    devolverProducto(producto);
-  });
-  producto.appendChild(removeButton);
-}
-
-/**
- * Reconstruye el botón de añadir (🛒) para un producto en la lista de descartados.
- * @param {HTMLElement} producto - Elemento li del juego.
- */
-function reconstruirBotonDescartado(producto) {
-  // Eliminar cualquier botón de eliminar
-  const existingRemoveButton = producto.querySelector(".remove-button");
-  if (existingRemoveButton) existingRemoveButton.remove();
-
-  // Recrear botón de añadir
-  const existingAddButton = producto.querySelector(".add-button");
-  if (existingAddButton) existingAddButton.remove();
-
-  const addButton = crearBoton("🛒", "add-button", "blue", function () {
-    agregarProducto(producto);
-  });
-  producto.appendChild(addButton);
-}
-
-/**
- * Reconstruye el botón de regalo (🎁) para un producto, excepto si es de activación.
- * @param {HTMLElement} producto - Elemento li del juego.
- */
-function reconstruirBotonRegalo(producto) {
-  // Eliminar botón de regalo existente si hay
-  const existingRegaloButton = producto.querySelector(".regalo-button");
-  if (existingRegaloButton) existingRegaloButton.remove();
-
-  // Solo crear botón si no está ya en regalos y no es un juego de activación
-  if (!producto.classList.contains("Activacion")) {
-    const regaloButton = crearBoton(
-      "🎁",
-      "regalo-button",
-      "golden",
-      function () {
-        agregarComoRegalo(producto);
-      }
-    );
-    producto.appendChild(regaloButton);
-  }
-}
-
-/**
- * Reconstruye los botones para un producto en la lista de regalos (añadir y eliminar).
- * @param {HTMLElement} producto - Elemento li del juego.
- */
-function reconstruirBotonesJuegosRegalos(producto) {
-  // Eliminar cualquier remove-button anterior
-  const botonesEliminar = producto.querySelectorAll(".remove-button");
-  botonesEliminar.forEach((btn) => btn.remove());
-
-  // Eliminar cualquier add-button anterior
-  const existingAddButton = producto.querySelector(".add-button");
-  if (existingAddButton) existingAddButton.remove();
-
-  const addButton = crearBoton("🛒", "add-button", "blue", function () {
-    agregarProducto(producto);
-  });
-  producto.appendChild(addButton);
-
-  // Eliminar el botón de regalo si existe
-  const botonRegalo = producto.querySelector(".regalo-button");
-  if (botonRegalo) botonRegalo.remove();
-
-  const removeButton = crearBoton("🗑️", "remove-button", "red", function () {
-    eliminarRegalo(producto);
-  });
-
-  producto.appendChild(removeButton);
 }
 
 /**

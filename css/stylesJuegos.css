@@ -16,9 +16,6 @@
     width: 180px;
     height: 160px;
   }
-  .regalo-button {
-    padding-right: 15% !important;
-  }
 }
 
 @media (min-width: 469px) and (max-width: 531px) {
@@ -26,29 +23,12 @@
     width: 200px;
     height: 180px;
   }
-  .regalo-button {
-    padding-right: 12% !important;
-  }
 }
 
 @media (min-width: 531px) and (max-width: 628px) {
   .listajuegos li {
     width: 220px;
     height: 170px;
-  }
-  .regalo-button {
-    padding-right: 10% !important;
-  }
-}
-
-@media (min-width: 440px) and (max-width: 628px) {
-  .add-button,
-  .remove-button,
-  .regalo-button {
-    left: 35.5% !important;
-  }
-  .regalo-button {
-    top: 70% !important;
   }
 }
 
@@ -165,22 +145,12 @@ li img {
   height: 100%;
 }
 
-li:hover .add-button,
-li:hover .remove-button,
-li:hover .regalo-button {
-  display: block;
-}
-
-li:has(a.juegosSinEnlace):hover {
-  box-shadow: none;
-}
-
 ul {
   list-style-type: none;
   display: flex;
   flex-flow: row wrap;
-  gap: 20px 10px;
-  justify-content: center;
+  gap: 25px 0px;
+  justify-content: space-around;
   align-content: center;
   padding: 0px;
 }
@@ -188,16 +158,15 @@ ul {
 ul li {
   box-sizing: border-box;
   width: 300px;
-  height: 250px;
+  height: 280px;
   background-size: cover;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 50%,
-    var(--Bl-border-title) 90%
-  );
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 30px;
-  transition: box-shadow 0.5s ease, transform 1s ease, filter 0.5s ease;
+  padding-bottom: 40px;
+  transition: all 0.3s ease;
   line-height: 1.7rem;
+  overflow: hidden;
+  border-bottom: solid 3.5px var(--Bl-border-title);
 }
 
 ul li:hover {
@@ -206,56 +175,30 @@ ul li:hover {
   filter: brightness(1.3);
 }
 
+ul li:hover .li-footer {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+ul li:hover img,
+ul li:hover {
+  transform: scale(1.05);
+}
+
 ul img {
   opacity: 1;
   border-radius: 30px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
   box-shadow: inset 0 0 30px black;
-  transition: opacity 0.5s ease;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  overflow: hidden;
 }
 
 /* Clases */
 
 /* Botones */
-.add-button,
-.remove-button,
-.regalo-button {
-  display: none;
-  z-index: 100;
-  position: absolute;
-  padding-right: 9%;
-  top: 45%;
-  left: 40%;
-  width: 35px;
-  height: 35px;
-  border-radius: 30px;
-}
-
-body:not(.vista-tradicional) #resultados .juegosNuevos .remove-button,
-body:not(.vista-tradicional) #resultados .juegosActualizados .remove-button {
-  padding-right: 9.5%;
-}
-
-.cajaRegalos li:hover .remove-button {
-  display: block;
-  top: 62%;
-}
-
-.add-button:hover {
-  box-shadow: 2px 2px 10px blue;
-}
-
-.remove-button:hover {
-  box-shadow: 2px 2px 10px red;
-}
-
-.regalo-button:hover {
-  box-shadow: 2px 2px 10px gold;
-}
-
-.regalo-button {
-  top: 62%;
-}
-
 .botonElementos {
   position: relative;
   top: -5px;
@@ -509,28 +452,7 @@ body:not(.vista-tradicional) #resultados .juegosActualizados .remove-button {
 }
 
 .vista-tradicional li a:hover {
-  text-decoration: underline solid rgb(197, 113, 233) !important;
-  color: rgb(197, 113, 233) !important;
   transform: translateX(-10px);
-}
-
-.vista-tradicional .juegosSinEnlace:hover {
-  text-decoration: none !important;
-  color: white !important;
-}
-
-.vista-tradicional .add-button,
-.vista-tradicional .remove-button,
-.vista-tradicional .regalo-button {
-  display: inline-block !important;
-  position: relative !important;
-  top: 1% !important;
-  left: 0 !important;
-  width: auto !important;
-  height: auto !important;
-  margin-left: 10px;
-  padding: 5px 10px;
-  transition: transform 0.2s ease-in-out;
 }
 
 /* Checkboxes de filtros */
@@ -700,7 +622,8 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 }
 
 /* Precios y tamaños de juegos en vista por imágenes */
-.li-precio, .li-tamano {
+.li-precio,
+.li-tamano {
   width: auto !important;
   height: auto !important;
   border-radius: 15px;
@@ -708,7 +631,7 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
   padding: 3px;
   position: absolute;
-  bottom: 5px;
+  bottom: 50px;
   display: flex;
   gap: 3px;
   max-width: 80%;
@@ -723,8 +646,116 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
   right: 10px;
 }
 
-.vista-tradicional .li-precio, .vista-tradicional .li-tamano {
+.vista-tradicional .li-precio,
+.vista-tradicional .li-tamano {
   display: none;
+}
+
+/* Footer de botones de interacción */ 
+.li-footer {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  gap: 8px;
+  z-index: 10;
+  pointer-events: auto;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  border-top: solid 3.5px var(--Bl-border-title);
+  border-left: solid 3.5px var(--Bl-border-title);
+  border-right: solid 3.5px var(--Bl-border-title);
+  background-color: black;
+}
+
+.li-footer .add-button,
+.li-footer .remove-button,
+.li-footer .regalo-button,
+.li-footer .info-button {
+  display: inline-block;
+  position: relative;
+  top: 2px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 16px;
+  line-height: 32px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #ffffff4d;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin: 0;
+  background: #000000b3;
+  box-shadow: 0 0 5px #00000080
+}
+
+.li-footer .add-button,
+.li-footer .remove-button,
+.li-footer .info-button {
+  padding-right: 9%;
+}
+
+.li-footer .add-button {
+  color: #00bfff;
+}
+
+.li-footer .remove-button {
+  color: #ff4444;
+}
+
+.li-footer .regalo-button {
+  color: #ffd700;
+}
+
+.li-footer .info-button {
+  color: #ffffff;
+}
+
+.li-footer .add-button:hover,
+.li-footer .remove-button:hover,
+.li-footer .regalo-button:hover,
+.li-footer .info-button:hover {
+  transform: scale(1.2);
+}
+
+.li-footer .add-button:hover {
+  box-shadow: 0 0 10px #ffffff4d;
+}
+
+.li-footer .remove-button:hover {
+  box-shadow: 2px 2px 10px #ff0000;
+}
+
+.li-footer .regalo-button:hover {
+  box-shadow: 2px 2px 10px #ffd700;
+}
+
+.li-footer .info-button:hover {
+  box-shadow: 2px 2px 10px #2368e0;
+}
+
+.vista-tradicional .li-footer {
+  display: inline-flex !important;
+  width: auto !important;
+  position: relative;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  background: transparent;
+  padding: 5px 0;
+}
+
+.vista-tradicional .li-footer .add-button,
+.vista-tradicional .li-footer .remove-button,
+.vista-tradicional .li-footer .regalo-button,
+.vista-tradicional .li-footer .info-button {
+  display: inline-block !important;
+  position: relative !important;
+  width: auto !important;
+  height: auto !important;
+  font-size: 14px;
 }
 
 /* ID's */
