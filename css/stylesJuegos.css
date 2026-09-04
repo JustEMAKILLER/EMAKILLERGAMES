@@ -180,8 +180,8 @@ ul li:hover .li-footer {
   border-bottom-right-radius: 15px;
 }
 
-ul li:hover img,
-ul li:hover {
+ul:not(.vista-tradicional) li:hover img,
+ul:not(.vista-tradicional) ul li:hover {
   transform: scale(1.05);
 }
 
@@ -348,7 +348,7 @@ ul img {
 
 .cajaJuegosDescart li:hover,
 .cajaResultados li:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3.5px);
 }
 
 .encabezadosjuegos {
@@ -449,6 +449,7 @@ ul img {
   color: whitesmoke !important;
   text-decoration: none !important;
   transition: all 0.3s ease;
+  pointer-events: none;
 }
 
 .vista-tradicional li a:hover {
@@ -740,11 +741,12 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
   display: inline-flex !important;
   width: auto !important;
   position: relative;
-  bottom: auto;
-  left: auto;
+  bottom: 2px;
+  left: 7px;
   right: auto;
   background: transparent;
   padding: 5px 0;
+  border: none;
 }
 
 .vista-tradicional .li-footer .add-button,
@@ -753,9 +755,6 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 .vista-tradicional .li-footer .info-button {
   display: inline-block !important;
   position: relative !important;
-  width: auto !important;
-  height: auto !important;
-  font-size: 14px;
 }
 
 /* ID's */
