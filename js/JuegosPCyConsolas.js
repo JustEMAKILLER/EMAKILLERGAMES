@@ -282,7 +282,7 @@ function agregarPrecioANombresJuegos(juego, precio) {
 function agregarTamanosAJuegos() {
   const juegos = document.querySelectorAll("li");
   juegos.forEach((juego) => {
-    let tamano = juego.getAttribute("Tamano");
+    let tamano = parseFloat(juego.getAttribute("Tamano")).toFixed(2);
 
     /*   Vista por imágenes */
     // Eliminar contenedor de tamaño existente si hay
