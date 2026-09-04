@@ -308,7 +308,7 @@ window.addEventListener("scroll", mostrarBoton);
  * con una animación suave de entrada/salida.
  */
 function mostrarBoton() {
-  const scrollButton = document.getElementById("botonArriba");
+  const scrollButton = document.getElementById("flechaArriba");
   const scrollPosition =
     document.documentElement.scrollTop || document.body.scrollTop;
 
