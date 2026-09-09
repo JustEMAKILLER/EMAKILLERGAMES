@@ -158,6 +158,7 @@ ul li {
   background: rgba(0, 0, 0, 0.6);
   border-radius: 30px;
   padding-bottom: 40px;
+  position: relative;
   transition: all 0.3s ease;
   line-height: 1.7rem;
   overflow: hidden;
@@ -169,14 +170,14 @@ ul li:hover {
   transform: scale(1.02);
 }
 
+ul li:hover .li-iconos-filtros {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
 ul li:hover .li-footer {
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-}
-
-ul:not(.vista-tradicional) li:hover img,
-ul:not(.vista-tradicional) li:hover {
-  transform: scale(1.05);
 }
 
 ul li img {
@@ -188,8 +189,15 @@ ul li img {
   border-bottom-right-radius: 0px;
   box-shadow: inset 0 0 30px black;
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 5;
   pointer-events: none;
   overflow: hidden;
+}
+
+body:not(.vista-tradicional) li:hover img,
+body:not(.vista-tradicional) li:hover {
+  transform: scale(1.05);
 }
 
 ul li:hover img:not(.li-icono-filtro) {
@@ -346,11 +354,6 @@ ul li:hover img:not(.li-icono-filtro) {
   text-align: center;
 }
 
-.cajaJuegosDescart li:hover,
-.cajaResultados li:hover {
-  transform: translateY(-3.5px);
-}
-
 .encabezadosjuegos {
   border-top: 1px solid var(--Bl-border-title);
 }
@@ -452,8 +455,8 @@ ul li:hover img:not(.li-icono-filtro) {
   pointer-events: none;
 }
 
-.vista-tradicional li a:hover {
-  transform: translateX(-10px);
+.vista-tradicional li:hover {
+  filter: brightness(1.5);
 }
 
 /* Checkboxes de filtros */
@@ -609,20 +612,6 @@ ul li:hover img:not(.li-icono-filtro) {
   vertical-align: middle;
 }
 
-ul:not(.vista-tradicional) li {
-  position: relative;
-}
-
-ul:not(.vista-tradicional) li img {
-  position: relative;
-  z-index: 5;
-}
-
-ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
-  opacity: 1 !important;
-  transform: none !important;
-}
-
 /* Precios y tamaños de juegos en vista por imágenes */
 .li-precio,
 .li-tamano {
@@ -653,10 +642,10 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
   display: none;
 }
 
-/* Footer de botones de interacción */ 
+/* Footer de botones de interacción */
 .li-footer {
   position: absolute;
-  bottom: 5px;
+  bottom: 5.5px;
   left: 0;
   right: 0;
   display: flex;
@@ -739,7 +728,7 @@ ul:not(.vista-tradicional) li:hover .li-iconos-filtros {
 .Activacion .li-footer,
 .Hypervisor .li-footer {
   border-left: none;
-  border-right: none;  
+  border-right: none;
 }
 
 /* ID's */
