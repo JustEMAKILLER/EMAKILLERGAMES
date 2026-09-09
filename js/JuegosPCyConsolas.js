@@ -848,7 +848,7 @@ function crearFooter(producto, tipo) {
 
     // --- 2. Botón Información (ℹ️) ---
     const enlace = producto.querySelector("a");
-    if (enlace && enlace.href && !enlace.classList.contains("juegosSinEnlace")) {
+    if (enlace && enlace.href) {
         const infoButton = crearBoton(
             "ℹ️",
             "info-button",
