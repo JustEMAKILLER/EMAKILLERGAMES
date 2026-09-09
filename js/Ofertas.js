@@ -42,7 +42,7 @@ let pos = 0;
 let isAnimating = false;
 
 function mostrarBoton() {
-  const scrollButton = document.getElementById("botonArriba");
+  const scrollButton = document.getElementById("flechaArriba");
   const scrollPosition =
     document.documentElement.scrollTop || document.body.scrollTop;
 
