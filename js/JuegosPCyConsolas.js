@@ -799,87 +799,87 @@ function crearBoton(text, className, color, onClick, title) {
  * @param {string} tipo - 'principal', 'resultado', 'descartado', 'regalo'.
  */
 function crearFooter(producto, tipo) {
-    // Eliminar footer existente si hay
-    const footerExistente = producto.querySelector(".li-footer");
-    if (footerExistente) footerExistente.remove();
+  // Eliminar footer existente si hay
+  const footerExistente = producto.querySelector(".li-footer");
+  if (footerExistente) footerExistente.remove();
 
-    // Eliminar botones sueltos que puedan quedar
-    producto
-        .querySelectorAll(
-            ".add-button, .remove-button, .regalo-button, .info-button"
-        )
-        .forEach((b) => b.remove());
+  // Eliminar botones sueltos que puedan quedar
+  producto
+    .querySelectorAll(
+      ".add-button, .remove-button, .regalo-button, .info-button"
+    )
+    .forEach((b) => b.remove());
 
-    const footer = document.createElement("div");
-    footer.className = "li-footer";
+  const footer = document.createElement("div");
+  footer.className = "li-footer";
 
-    // --- 1. Botón Añadir (🛒) o Eliminar (🗑️) ---
-    if (tipo === "principal" || tipo === "descartado") {
-        const addButton = crearBoton(
-            "🛒",
-            "add-button",
-            "#00bfff",
-            function (e) {
-                e.stopPropagation();
-                agregarProducto(producto);
-            },
-            "Añadir al carrito"
-        );
-        footer.appendChild(addButton);
-    }
+  // --- 1. Botón Añadir (🛒) o Eliminar (🗑️) ---
+  if (tipo === "principal" || tipo === "descartado") {
+    const addButton = crearBoton(
+      "🛒",
+      "add-button",
+      "#00bfff",
+      function (e) {
+        e.stopPropagation();
+        agregarProducto(producto);
+      },
+      "Añadir al carrito"
+    );
+    footer.appendChild(addButton);
+  }
 
-    if (tipo === "resultado" || tipo === "regalo") {
-        const removeButton = crearBoton(
-            "🗑️",
-            "remove-button",
-            "#ff4444",
-            function (e) {
-                e.stopPropagation();
-                if (tipo === "resultado") {
-                    devolverProducto(producto);
-                } else {
-                    eliminarRegalo(producto);
-                }
-            },
-            "Eliminar"
-        );
-        footer.appendChild(removeButton);
-    }
-
-    // --- 2. Botón Información (ℹ️) ---
-    const enlace = producto.querySelector("a");
-    if (enlace && enlace.href) {
-        const infoButton = crearBoton(
-            "ℹ️",
-            "info-button",
-            "#ffffff",
-            function (e) {
-                e.stopPropagation();
-                window.open(enlace.href, "_blank");
-            },
-            "Explorar información adicional del juego"
-        );
-        footer.appendChild(infoButton);
-    }
-
-    // --- 3. Botón Regalo (🎁) ---
-    if (tipo === "principal" || tipo === "resultado" || tipo === "descartado") {
-        if (!producto.classList.contains("Activacion")) {
-            const regaloButton = crearBoton(
-                "🎁",
-                "regalo-button",
-                "#ffd700",
-                function (e) {
-                    e.stopPropagation();
-                    agregarComoRegalo(producto);
-                },
-                "Añadir como regalo"
-            );
-            footer.appendChild(regaloButton);
+  if (tipo === "resultado" || tipo === "regalo") {
+    const removeButton = crearBoton(
+      "🗑️",
+      "remove-button",
+      "#ff4444",
+      function (e) {
+        e.stopPropagation();
+        if (tipo === "resultado") {
+          devolverProducto(producto);
+        } else {
+          eliminarRegalo(producto);
         }
-    }
+      },
+      "Eliminar"
+    );
+    footer.appendChild(removeButton);
+  }
 
-    producto.appendChild(footer);
+  // --- 2. Botón Información (ℹ️) ---
+  const enlace = producto.querySelector("a");
+  if (enlace && enlace.href) {
+    const infoButton = crearBoton(
+      "ℹ️",
+      "info-button",
+      "#ffffff",
+      function (e) {
+        e.stopPropagation();
+        window.open(enlace.href, "_blank");
+      },
+      "Explorar información adicional del juego"
+    );
+    footer.appendChild(infoButton);
+  }
+
+  // --- 3. Botón Regalo (🎁) ---
+  if (tipo === "principal" || tipo === "resultado" || tipo === "descartado") {
+    if (!producto.classList.contains("Activacion")) {
+      const regaloButton = crearBoton(
+        "🎁",
+        "regalo-button",
+        "#ffd700",
+        function (e) {
+          e.stopPropagation();
+          agregarComoRegalo(producto);
+        },
+        "Añadir como regalo"
+      );
+      footer.appendChild(regaloButton);
+    }
+  }
+
+  producto.appendChild(footer);
 }
 
 /**

@@ -335,6 +335,11 @@ ul li:hover img:not(.li-icono-filtro) {
   height: 250px;
 }
 
+.cajaResultados,
+.cajaJuegosDescart {
+  padding-inline: 20px;
+}
+
 .divsJNewActCVista {
   padding: 8px;
   display: flex;
