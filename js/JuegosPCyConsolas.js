@@ -1349,7 +1349,7 @@ function enviarListado() {
       let mensajeria = confirm("¿Desea solicitar mensajería para su encargo?");
 
       if (mensajeria) {
-        let residencia = prompt("¿En dónde vive? (Ingrese dirección exacta)");
+        let residencia = prompt("¿En dónde vive? (Ingrese dirección exacta y punto de referencia si tiene)");
         return residencia;
       } else return;
     }
