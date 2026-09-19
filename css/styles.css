@@ -1,53 +1,59 @@
-/* Fuentes */
-@font-face {
-  font-family: "FuenteImpact";
-  src: url("../fonts/ImpactLTStd.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/ImpactLTStd.woff2") format("woff2"),
-    url("../fonts/ImpactLTStd.woff") format("woff"),
-    url("../fonts/ImpactLTStd.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "FuenteVirtualDJ";
-  src: url("../fonts/VirtualDJ.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/VirtualDJ.woff2") format("woff2"),
-    url("../fonts/VirtualDJ.woff") format("woff"),
-    url("../fonts/VirtualDJ.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* Variables raíz */
 :root {
-  --Bl-svg: #ffffff;
-  --Bl-background-nav: #000000dc;
-  --Bl-border-nav: #777777;
-  --Bl-shadow-nav: #3b022a;
-  --Bl-background-title: #00000079;
+  --Bl-svg: white;
+  --Bl-background-nav: rgba(0, 0, 0, 0.863);
+  --Bl-border-nav: rgb(119, 119, 119);
+  --Bl-shadow-nav: rgb(59, 2, 42);
+  --Bl-background-title: rgba(0, 0, 0, 0.473);
   --Bl-border-title: #6916b7;
-  --Bl-shadow-title: #020000;
-  --Bl-color-title: #ffffff;
+  --Bl-shadow-title: rgb(2, 0, 0);
+  --Bl-color-title: rgb(255, 255, 255);
+}
+
+/* Media queries */
+@media (min-width: 440px) and (max-width: 468px) {
+  .listajuegos li {
+    width: 180px;
+    height: 160px;
+  }
+}
+
+@media (min-width: 469px) and (max-width: 531px) {
+  .listajuegos li {
+    width: 200px;
+    height: 180px;
+  }
+}
+
+@media (min-width: 531px) and (max-width: 628px) {
+  .listajuegos li {
+    width: 220px;
+    height: 170px;
+  }
 }
 
 /* Palabras reservadas */
 body {
-  background: linear-gradient(
-      to bottom,
-      #fc000000 37vw,
-      #000000ff 37.2vw
-    ),
-    url(../img/Banner_IA.webp);
+  background-color: rgba(0, 0, 0, 0.999);
   color: var(--Bl-svg);
-  background-repeat: no-repeat;
-  background-position: 0% 0%;
-  background-size: 100%;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-seri;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+button {
+  color: white;
+  border-radius: 10px;
+  border: ridge black;
+  background-color: var(--Bl-background-nav);
+  font-size: 16px;
+  font-weight: bold;
+  user-select: none;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.1);
 }
 
 h1,
@@ -56,405 +62,1139 @@ h3,
 h4,
 h5,
 h6 {
+  text-align: center;
   user-select: none;
+  overflow-x: auto;
 }
 
-svg {
-  position: relative;
-  width: 200%;
-  top: 40%;
-  left: 30%;
-  fill: #ffffff;
-  max-width: 50px;
-  min-width: 50px;
+h4 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: x-large;
 }
 
-/* Clases */
-.boxcat {
-  margin: 50px auto;
-  max-width: 1200px;
-  height: auto;
-  margin-top: 2vh;
-  padding: 20px;
-  border: 1px solid var(--Bl-border-title);
-  border-radius: 20px;
-  background: linear-gradient(
-    to top,
-    #00000000 10%,
-    #42013a4b 90%
-  );
-  box-shadow: inset 0 0 30px var(--Bl-shadow-title);
-  text-align: center;
-  color: var(--Bl-color-title);
-  text-shadow: 0 0 10px #000000;
+a {
+  color: whitesmoke;
 }
 
-.box {
-  margin-top: -20px;
-  text-align: center;
-  border: 1px solid var(--Bl-border-title);
-  border-radius: 20px;
-  background: linear-gradient(
-    to top,
-    #00000000 10%,
-    #3602264b 90%
-  );
-  box-shadow: inset 0 0 30px var(--Bl-shadow-title);
-  padding-left: 10px;
-  padding-right: 10px;
+a:hover,
+button:hover {
+  color: lightblue;
+  text-decoration: none;
+  transform: scale(1.15);
 }
 
-.contacto {
-  position: relative;
-  width: 100%;
-  height: 200px;
-  scale: 0.8;
-  border: 1px solid var(--Bl-border-title);
-  border-radius: 20px;
-  background: linear-gradient(
-    to top,
-    #00000000 10%,
-    #3602264b 90%
-  );
-  box-shadow: inset 0 0 30px var(--Bl-shadow-title);
-  text-align: center;
-  font-size: 20px;
-  color: var(--Bl-color-title);
-  text-shadow: 0 0 10px #000000;
-}
-
-.cajasjuegos {
-  width: 90%;
-  max-width: 500px;
-  height: 200px;
-  border: solid 2px #000000;
-  box-shadow: 2px 2px 6px var(--Bl-border-title);
-  border-radius: 20px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin-bottom: 20px;
+nav {
+  display: flex;
+  justify-content: right;
+  position: sticky;
+  top: 2%;
+  height: 65px;
+  min-width: fit-content;
+  max-width: fit-content;
+  margin-left: -5px;
+  border: 1px solid var(--Bl-border-nav);
+  border-radius: 25px;
+  background-color: var(--Bl-background-nav);
+  box-shadow: 0 0 10px var(--Bl-shadow-nav);
+  z-index: 200;
   transition: all 0.5s ease;
-  z-index: 1;
-  overflow: hidden;
-  position: relative;
 }
 
-.cajasjuegos:hover {
-  z-index: 2;
-  transform: scale(1.03);
-  box-shadow: 2px 2px 6px #0000ff;
+nav:hover {
+  background-color: black;
+  box-shadow: 2px 2px 10px var(--Bl-border-title);
 }
 
-.cajasjuegos p {
-  user-select: none;
-  position: relative;
-  top: 30px;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  color: #ffffff;
-  text-shadow: 2px 2px 4px #000000;
-  font-size: 2.5rem;
-  text-align: center;
-  margin: 0;
-  padding: 0;
+nav a {
+  width: 90%;
+  height: 90%;
+  border-radius: 30px;
   transition: transform 0.3s ease;
 }
 
-.cajasjuegos:hover p {
-  color: #fff;
-  text-shadow: 2px 2px 8px #000000cc;
+nav a img {
+  scale: 0.8;
+  width: 100%;
+  height: 100%;
+}
+
+nav a:hover {
+  transform: scale(1.2);
+  z-index: 2;
+}
+
+input[type="text"],
+input[type="number"] {
+  font-weight: bold;
+  border: 2px outset purple;
+  border-radius: 10px;
+  user-select: none;
+  margin: 5px 5px 5px 5px;
+  color: rgb(255, 255, 255);
+  background-color: black;
+  transition: box-shadow 0.3s ease;
+}
+
+input[type="text"]:hover,
+input[type="number"]:hover {
+  box-shadow: 2px 2px 10px var(--Bl-border-title);
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 20px 5px;
+  justify-content: space-around;
+  align-content: center;
+  padding: 0px;
+}
+
+ul li {
+  box-sizing: border-box;
+  width: 300px;
+  height: 300px;
+  background-size: cover;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 30px;
+  padding-bottom: 40px;
+  position: relative;
+  transition: all 0.3s ease;
+  line-height: 1.7rem;
+  overflow: hidden;
+  border-bottom: solid 3.5px var(--Bl-border-title);
+}
+
+ul li:hover {
+  box-shadow: 2px 2px 10px var(--Bl-border-title);
+  transform: scale(1.02);
+}
+
+ul li:hover .li-iconos-filtros {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+ul li:hover .li-footer {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+ul li img {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  border-radius: 30px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  box-shadow: inset 0 0 30px black;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 5;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+body:not(.vista-tradicional) li:hover img,
+body:not(.vista-tradicional) li:hover {
   transform: scale(1.05);
 }
 
-.cajasjuegos a {
-  width: 100%;
-  height: 100%;
-  display: block;
-  position: relative;
-  text-decoration: none;
+ul li:hover img:not(.li-icono-filtro) {
+  filter: brightness(1.3);
 }
 
-.cajasjuegos .fondo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-  z-index: 1;
-}
+/* Clases */
 
-.cajasjuegos .frente {
-  display: none;
-  position: absolute;
-  height: 120px;
-  z-index: 3;
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.cajasjuegos:hover .frente {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.cajasjuegos:hover .fondo {
-  filter: brightness(1.2);
-}
-
-.colab {
-  width: 60px;
-  height: 60px;
-}
-
-.colab img {
-  border-radius: 20px;
-}
-
-.colabs {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  padding: 10px;
-  padding-bottom: 20px;
-}
-
-.colabs a{
-  width: 100%;
-  height: 100%;
-}
-
-.colabs img {
-  max-width: 100%;
-  max-height: 100%;
-  transition: all 0.5s ease;
-}
-
-.colabs img:hover {
-transform: scale(1.1);
-cursor: pointer;
-}
-
-.contactos {
-  overflow: hidden;
-  display: flex;
-  width: 100%;
-  height: 50%;
-  justify-content: center;
-  align-items: center;
-  user-select: none;
-  font-weight: bold;
-  gap: 40px;
-}
-
-.contactos a {
-  width: 200px;
-  color: #f0f8ff;
-  text-decoration-line: none;
-}
-
-.Facebook,
-.WhatsApp {
-  transition: transform 0.3s ease;
-}
-
-.Facebook:hover,
-.WhatsApp:hover {
-  transform: scale(1.07);
-  cursor: pointer;
-}
-
-.Facebook:hover p {
-  color: #37a8e5;
-}
-
-.WhatsApp:hover p {
-  color: #adff2f;
-}
-
-.Facebook {
+/* Botones */
+.botonElementos {
   position: relative;
   top: -5px;
-}
-
-.Facebook p {
-  margin-top: -1px;
-}
-
-.Facebook p,
-.WhatsApp p {
-  transition: color 0.3s ease;
-  margin-bottom: 0;
-}
-
-.Download {
+  color: white;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  border: 1px solid var(--Bl-border-title);
-  box-shadow: 1px 1px 6px #800080;
-  font-size: 16px;
-  transition: all 0.5s ease;
-}
-
-.Download a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  color: var(--Bl-color-title);
-  width: 100%;
-  justify-content: center;
-  transition: all 0.3s ease;
-}
-
-.Download:hover {
-  transform: scale(1.02);
-  box-shadow: 1px 1px 6px #ff0000;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  border: 2px outset purple;
+  border-radius: 0px;
+  box-shadow: 2px 2px 10px black;
+  background-color: var(--Bl-background-nav);
   cursor: pointer;
 }
 
-.Download:hover a {
-  color: #ff0000;
+.botonElementos:hover {
+  box-shadow: 2px 2px 10px var(--Bl-border-title);
 }
 
-.kjasjuegos {
-  width: 100%;
+.BotonBolaRoja {
+  display: inline-block;
+  background-color: red;
+  box-sizing: border-box;
+  border: solid black;
+  border-radius: 20px;
+  width: 35px;
+  height: 30px;
+  transition: background-color 0.2s ease;
+}
+
+.BotonBolaVerde {
+  display: inline-block;
+  background-color: rgb(0, 255, 0);
+  border-radius: 20px;
+  width: 35px;
+  height: 30px;
+  position: relative;
+  left: 51%;
+}
+
+.bordeBotonBola {
+  display: inline-block;
+  border: solid 3.5px purple;
+  border-radius: 20px;
+  width: 70px;
+  height: 30px;
+  transition: all 0.3s ease;
+}
+
+.bordeBotonBola:hover {
+  box-shadow: 2px 2px 10px var(--Bl-border-title);
+}
+
+/* Otros */
+.Activacion {
+  border: solid 8px;
+  border-radius: 40px;
+  animation: cambioColorJActiv 2.5s linear infinite;
+}
+
+.busqueda {
+  left: 100%;
+  margin-top: -18.2%;
+  max-width: 45%;
+  scale: 0.75;
+  position: sticky;
+  top: 0%;
+  height: fit-content;
+  z-index: 200;
+  display: none;
+  justify-content: flex-end;
+  padding-right: 10px;
+  pointer-events: none;
+}
+
+.busqueda.visible {
+  display: flex;
+}
+
+.caja {
+  user-select: none;
+  margin-top: 20px;
+  border: 1px solid var(--Bl-border-title);
+  border-radius: 20px;
+  box-shadow: 2px 2px 6px purple;
+  padding-top: 10px;
+  padding-inline: 20px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.cajaResultados {
+  user-select: none;
+  display: none;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border: outset 1px blue;
+  border-radius: 20px;
+  box-shadow: 2px 2px 6px blue;
+  font-weight: bolder;
+  font-family: sans-serif;
+}
+
+.cajaResultados li {
+  list-style-type: none;
+}
+
+.cajaRegalos {
+  display: none;
+}
+
+.cajaJuegosDescart {
+  user-select: none;
+  display: none;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border: outset 1px red;
+  border-radius: 20px;
+  box-shadow: 2px 2px 6px red;
+  font-weight: bolder;
+  font-family: sans-serif;
+}
+
+.cajaJuegosDescart li {
+  list-style-type: none;
+  width: 300px;
+  height: 250px;
+}
+
+.cajaResultados,
+.cajaJuegosDescart {
+  padding-inline: 20px;
+}
+
+.divsJNewActCVista {
+  padding: 8px;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 2.5em;
 }
 
-.kjasjuegos a {
-  color: #ffffff;
-  text-decoration: none;
-  font-family: "FuenteImpact", Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  text-align: left;
-  font-size: 250%;
-  text-shadow: 10px 10px 10px #000000;
+.divsBotonesRojoVerde {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
 }
 
-.kjasjuegos p {
-  width: 50%;
-  margin: 0 auto;
+.divsBotonesRojoVerde p {
   text-align: center;
 }
 
-.TextS {
-  flex-basis: 10px;
+.encabezadosjuegos {
+  border-top: 1px solid var(--Bl-border-title);
+}
+
+.divFotosEncabezadosConsolas {
+  display: flex;
+  gap: 8px;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.fotosEncabezadosConsolas {
+  margin-top: 25px;
+  width: 50px;
+  height: 40px;
+}
+
+.Hypervisor {
+  border: solid 8px rgba(255, 0, 0, 0.892);
+}
+
+.juegosNuevos {
+  border: solid 8px rgb(171, 9, 171);
+}
+
+.juegosNuevos img {
+  width: 100%;
+  height: 100%;
+}
+
+.juegosNuevos,
+.juegosActualizados {
+  border-radius: 40px;
+}
+
+.juegosNuevos p,
+.juegosActualizados p {
+  display: none;
+  color: whitesmoke;
+  text-shadow: 2px 2px 2px black;
+  font-weight: bolder;
+}
+
+.juegosActualizados {
+  border: solid 8px rgb(88, 88, 236);
+}
+
+.juegosActualizados img {
+  width: 100%;
+  height: 100%;
+}
+
+.titulosTJuegos {
+  overflow: hidden;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 300px;
+  height: 150px;
+}
+
+.vista-tradicional li {
+  width: auto !important;
+  height: auto !important;
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  display: list-item;
+  padding: 12px !important;
+  transition: transform 0.3s ease !important;
+}
+
+.vista-tradicional #juegosDescartados ul,
+.vista-tradicional #resultados ul {
+  display: block !important;
+}
+
+.vista-tradicional .juegosActualizados p {
+  color: rgb(88, 88, 236);
+}
+
+.vista-tradicional .juegosNuevos p {
+  color: rgb(157, 5, 157);
+}
+
+.vista-tradicional .juegosNuevos p,
+.vista-tradicional .juegosActualizados p {
+  display: inline;
+}
+
+.vista-tradicional li a {
+  color: whitesmoke !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.vista-tradicional li:hover {
+  filter: brightness(1.5);
+}
+
+/* Checkboxes de filtros */
+.filtros {
+  display: block !important;
+}
+
+.filtros-orden {
+  display: flex;
+  flex-flow: row-wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+#filtro-orden {
+  color: whitesmoke;
+  transition: all 0.5s ease;
+  background-color: var(--Bl-background-nav);
+  border: solid var(--Bl-border-title);
+  border-radius: 20px;
+  box-shadow: 0 0 10px var(--Bl-shadow-nav);
+  cursor: pointer;
+  padding: 2px;
+  z-index: 40;
+}
+
+#filtro-orden:hover {
+  box-shadow: 2px 2px 10px var(--Bl-border-title);
+}
+
+#filtro-orden:focus {
+  outline: none;
+}
+
+.contenedor-filtros {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.contenedor-filtros h4 {
+  width: 100%;
+  margin: 0 0 10px 0;
+}
+
+.filtro-opcion label {
+  border: solid var(--Bl-border-title);
+  background-color: inherit;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.filtro-opcion label:hover {
+  background-color: #7fbcf1;
+  transform: scale(1.1);
+  color: black;
+  box-shadow: 2px 2px 10px var(--Bl-border-title);
+}
+
+.filtro-opcion input[type="checkbox"] {
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.texto-filtro {
+  margin-right: 8px;
+  font-weight: 500;
+  color: whitesmoke;
+}
+
+.icono-filtros {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.filtro-opcion label:hover .texto-filtro {
+  color: black;
+}
+
+/* Estilo cuando está seleccionado */
+.filtro-opcion input[type="checkbox"]:checked + .texto-filtro {
+  color: rgb(149, 8, 149);
+  font-weight: 600;
+}
+
+.filtro-opcion input[type="checkbox"]:active + .texto-filtro {
+  color: rgb(149, 8, 149);
+  font-weight: 600;
+}
+
+.filtro-opcion input[type="checkbox"]:checked ~ .icono-filtros {
+  filter: brightness(1.2) saturate(1.5);
+}
+
+/* Iconos de conexión y género en los juegos */
+.li-iconos-filtros {
+  position: absolute;
+  top: 5px;
+  left: 7px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  max-width: 80%;
+  z-index: 5;
+  transition: opacity 0.3s ease;
+}
+
+.li-icono-filtro {
+  width: 24px !important;
+  height: 24px !important;
+  object-fit: contain;
+  border-radius: 30%;
+  background-color: rgba(0, 0, 0, 0.7);
+  pointer-events: all;
+  padding: 2px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+}
+
+.li-icono-filtro:hover {
+  opacity: 0.65;
+}
+
+.Ofertas > p {
+  text-align: justify;
+  font-weight: bold;
+  padding: 2%;
+  padding-bottom: initial;
+  border-top: 2px solid var(--Bl-border-title);
+}
+
+.Ofertas:first-of-type p {
+  border: none;
+  padding-top: initial;
+}
+
+.vista-tradicional .li-iconos-filtros {
+  position: relative;
+  top: auto;
+  left: auto;
+  display: inline-flex;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+/* Precios y tamaños de juegos en vista por imágenes */
+.li-precio,
+.li-tamano {
+  width: auto !important;
+  height: auto !important;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+  padding: 3px;
+  position: absolute;
+  bottom: 50px;
+  display: flex;
+  gap: 3px;
+  max-width: 80%;
+  z-index: 5;
+}
+
+.li-precio {
+  left: 10px;
+}
+
+.li-tamano {
+  right: 10px;
+}
+
+.vista-tradicional .li-precio,
+.vista-tradicional .li-tamano {
+  display: none;
+}
+
+/* Footer de botones de interacción */
+.li-footer {
+  position: absolute;
+  bottom: 5.5px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  gap: 8px;
+  z-index: 10;
+  pointer-events: auto;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  border-top: solid 3.5px var(--Bl-border-title);
+  border-left: solid 3.5px var(--Bl-border-title);
+  border-right: solid 3.5px var(--Bl-border-title);
+  background-color: black;
+}
+
+.li-footer .add-button,
+.li-footer .remove-button,
+.li-footer .regalo-button,
+.li-footer .info-button {
+  display: inline-block;
+  position: relative;
+  top: 2px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  line-height: 32px;
+  text-align: center;
+  border: 1px solid #ffffff4d;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin: 0;
+  background: #000000b3;
+  box-shadow: 0 0 5px #00000080;
+}
+
+.li-footer .add-button:hover,
+.li-footer .remove-button:hover,
+.li-footer .regalo-button:hover,
+.li-footer .info-button:hover {
+  transform: scale(1.2);
+}
+
+.li-footer .add-button:hover {
+  box-shadow: 0 0 10px #ffffff4d;
+}
+
+.li-footer .remove-button:hover {
+  box-shadow: 2px 2px 10px #ff0000;
+}
+
+.li-footer .regalo-button:hover {
+  box-shadow: 2px 2px 10px #ffd700;
+}
+
+.li-footer .info-button:hover {
+  box-shadow: 2px 2px 10px #2368e0;
+}
+
+.vista-tradicional .li-footer {
+  display: inline-flex !important;
+  width: auto !important;
+  position: relative;
+  bottom: 2px;
+  left: 7px;
+  right: auto;
+  background: transparent;
+  padding: 5px 0;
+  border: none;
+}
+
+.vista-tradicional .li-footer .add-button,
+.vista-tradicional .li-footer .remove-button,
+.vista-tradicional .li-footer .regalo-button,
+.vista-tradicional .li-footer .info-button {
+  display: inline-block !important;
+  position: relative !important;
+}
+
+.juegosNuevos .li-footer,
+.juegosActualizados .li-footer,
+.Activacion .li-footer,
+.Hypervisor .li-footer {
+  border-left: none;
+  border-right: none;
 }
 
 /* ID's */
+
+/* Botones */
+#flechaArriba {
+  border: 1px solid var(--Bl-border-nav);
+  border-radius: 40px;
+  box-shadow: 2px 2px 20px black;
+  position: fixed;
+  display: none;
+  bottom: 0%;
+  right: 1%;
+  transition: all 0.5s ease;
+  z-index: 500;
+}
+
+#flechaArriba img {
+  display: block;
+  border-radius: 40px;
+  height: 50px;
+  width: 50px;
+  bottom: 0%;
+  right: 1%;
+}
+
+#flechaArriba:hover {
+  box-shadow: 2px 2px 10px var(--Bl-border-title);
+  border-color: var(--Bl-border-title);
+  transform: scale(1.15);
+}
+
+#botonEliminarTodo:hover {
+  transform: scale(1.05);
+  color: red;
+}
+
+#botonAgregarTodo:hover {
+  color: blue;
+}
+
+#buscar .botonesBusqueda {
+  display: none;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  background-color: var(--Bl-background-nav);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#buscar .botonesBusqueda:hover {
+  background-color: var(--Bl-border-title);
+  transform: scale(1.1);
+}
+
+/* Mostrar el botón de borrar cuando el input tiene contenido */
+#buscar input:not(:placeholder-shown) + .botonesBusqueda {
+  display: inline-block;
+}
+
+#botonOcultarBusqueda {
+  height: 100%;
+  justify-content: center;
+  border-radius: 20px;
+  background-color: var(--Bl-background-nav);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#botonOcultarBusqueda:hover {
+  background-color: var(--Bl-border-title);
+  transform: scale(1.05);
+}
+
+#botonEnviarWhatsapp {
+  color: white;
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  border: 2px outset purple;
+  border-radius: 0px;
+  background-color: var(--Bl-background-nav);
+  cursor: pointer;
+}
+
+#botonEnviarWhatsapp:hover {
+  color: rgb(49, 238, 2);
+  transform: scale(1.05);
+  box-shadow: 2px 2px 10px purple;
+}
+
+#botonMostrarInfoJActivHyp {
+  position: relative;
+  top: 21px;
+  width: 30px;
+  height: 30px;
+  color: white;
+  z-index: 10;
+  border: none;
+  cursor: pointer;
+  transform: none;
+}
+
+/* Encabezados de juegos */
+#amongus h4 {
+  color: rgb(4, 255, 0);
+}
+
+#dutyimg {
+  width: 200px;
+  height: 200px;
+}
+
+#duty h4 {
+  color: rgb(227, 153, 15);
+}
+
+#doki h4 {
+  color: rgb(235, 102, 124);
+}
+
+#FNAF h4 {
+  color: brown;
+}
+
+#fnf h4 {
+  color: lightcyan;
+}
+
+#monster h4 {
+  color: #c0bfbd;
+}
+
+#mortal h4 {
+  color: rgba(203, 70, 3, 0.818);
+}
+
+#naruto h4 {
+  color: rgb(255, 180, 7);
+}
+
+#pokemon h4 {
+  color: rgb(195, 248, 2);
+}
+
+#resident h4 {
+  color: rgb(192, 20, 20);
+}
+
+#sonic h4 {
+  color: rgba(64, 64, 244, 0.986);
+}
+
+#undertale h4 {
+  color: lightcyan;
+}
+
+#worms h4 {
+  color: rgba(242, 234, 124, 0.936);
+}
+
+#yugio h4 {
+  color: rgb(218, 54, 54);
+}
+
+/* Otros */
+#Activacion {
+  animation: cambioColorPalabraActiv 2.5s linear infinite;
+}
+
+#banner {
+  width: 100%;
+  user-select: none;
+  pointer-events: none;
+}
+
+#buscar {
+  position: relative;
+  right: -8vw;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  box-sizing: border-box;
+  transition: all 0.5s ease;
+  background-color: var(--Bl-background-nav);
+  border: 1px solid var(--Bl-border-nav);
+  border-radius: 25px;
+  box-shadow: 0 0 10px var(--Bl-shadow-nav);
+  pointer-events: auto;
+}
+
+#buscar:hover {
+  background-color: black;
+}
+
+/* Contenedor de cada campo de búsqueda */
+#buscar > div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+}
+
+#buscar input[type="text"],
+#buscar input[type="number"] {
+  flex-grow: 1;
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid var(--Bl-border-nav);
+  border-radius: 10px;
+  background-color: black;
+  box-shadow: 2px 2px 10px black;
+  transition: box-shadow 0.3s ease;
+}
+
+#buscar input[type="text"] {
+  color: white;
+}
+
+#buscar input[type="number"] {
+  color: rgb(20, 238, 20);
+}
+
+#buscar input[type="number"].amarillo {
+  transition: color 0.5s ease;
+  color: yellow;
+}
+
+#buscar input[type="number"].rojo {
+  transition: color 0.5s ease;
+  color: red;
+}
+
+#buscar input[type="text"]:hover,
+#buscar input[type="number"]:hover,
+#buscar input[type="text"]:focus,
+#buscar input[type="number"]:focus {
+  box-shadow: 2px 2px 10px var(--Bl-border-title);
+  outline: none;
+}
+
+#cajaNoHayResultados {
+  display: none;
+  text-align: center;
+  padding-bottom: 3px;
+}
+
+#calculoPrecio,
+#encabezadoResultados,
+#encabezadoDescartados,
+#encabezadoRegalos {
+  text-align: center;
+  margin: 20px auto;
+  padding: 15px;
+  font-size: 1.4em;
+  font-weight: bold;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  width: 80%;
+}
+
+#contenidoInfoJActivHyp {
+  display: none;
+}
+
+#divHeaderInfoJActivHyp {
+  cursor: pointer;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  gap: -1%;
+  transition: transform 0.3s ease;
+}
+
+#divHeaderInfoJActivHyp:hover {
+  transform: scale(1.08);
+}
+
+#divInfoJActivHyp {
+  word-spacing: 0.7px;
+  margin: 10px;
+  margin-bottom: 15px;
+  text-align: justify;
+  border: 1px solid var(--Bl-border-title);
+  border-radius: 20px;
+  padding: 13px;
+}
+
+#divInfoJActivHyp.contVisible #contenidoInfoJActivHyp {
+  display: block;
+}
+
+#divInfoJActivHyp.contVisible #botonMostrarInfoJActivHyp::after {
+  content: "▼";
+}
+
+#divInfoJActivHyp:not(.contVisible) #botonMostrarInfoJActivHyp::after {
+  content: "▶";
+}
+
+#divInfoJActivHyp h2,
+h3 {
+  font-weight: 100;
+}
+
+#divLupa {
+  left: 100%;
+  top: 2%;
+  margin-top: -8%;
+  position: sticky;
+  height: 55px;
+  max-width: fit-content;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid var(--Bl-border-nav);
+  border-radius: 40px;
+  background-color: var(--Bl-background-nav);
+  box-shadow: 0 0 10px var(--Bl-shadow-nav);
+  z-index: 200;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+#divLupa:hover {
+  transform: scale(1.1);
+  box-shadow: 2px 2px 10px var(--Bl-border-title);
+}
+
+#EncabezadoJnewAct.mostrar {
+  display: block !important;
+}
+
+#lupa {
+  width: 100%;
+  height: 100%;
+}
+
+#texto {
+  display: flex;
+  justify-content: center;
+}
+
 #Titulo {
   width: 100%;
-  height: auto;
-  margin-top: 39%;
-  scale: 0.8;
+  height: 40px;
+  padding-top: 10px;
+  scale: 0.9;
   border: 1px solid var(--Bl-border-title);
   border-radius: 20px;
   background-color: var(--Bl-background-title);
   box-shadow: inset 0 0 30px var(--Bl-shadow-title);
   text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-seri;
   font-size: 20px;
   color: var(--Bl-color-title);
-  text-shadow: 0 0 10px #000000;
-  padding: 10px;
+  text-shadow: 0 0 10px black;
 }
 
-#c1 .frente {
-  top: 30%;
-  left: 5%;
-  animation: flotar 2s ease-in-out infinite alternate;
-  width: 80px;
+#EncabezadoJnewAct {
+  display: none;
+  margin-top: 1%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-#c2 .frente {
-  top: 25%;
-  left: 5%;
-  width: 110px;
-  height: 130px;
-  animation: flotar 2.5s ease-in-out infinite alternate;
+#mando {
+  position: relative;
+  bottom: 8%;
+  left: 6%;
 }
 
-#c3 .frente {
-  top: 35%;
-  left: 8%;
-  width: 100px;
-  animation: flotar 3s ease-in-out infinite alternate;
+#menuDesplegable {
+  opacity: 0.6;
+  cursor: pointer;
+  position: fixed;
+  bottom: 8px;
+  left: -15px;
+  display: flex;
+  height: 80px;
+  max-width: 75%;
+  margin-top: 20px;
+  margin-left: 20px;
+  border: 1px solid var(--Bl-border-nav);
+  border-radius: 50px;
+  background-color: var(--Bl-background-nav);
+  scale: 0.9;
+  user-select: none;
+  z-index: 550;
+  transition: all 0.5s ease;
 }
 
-#fotoMega {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+#menuDesplegable:hover {
+  opacity: 1;
+  box-shadow: 2px 2px 10px var(--Bl-border-title);
+  transform: scale(1.05);
 }
 
-#reglas {
-  text-align: justify;
-  padding-right: 20px;
+#menuDesplegable a {
+  border-radius: 30px;
+  transition: transform 1s;
 }
 
-#hinfo {
-  text-align: center;
+#menuDesplegable a:hover {
+  transform: scale(1.1);
+  z-index: 2;
 }
 
-#info {
-  letter-spacing: 0.5px;
+#menuDesplegado {
+  display: none;
+  cursor: default;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid var(--Bl-border-nav);
+  background-color: var(--Bl-background-nav);
+  box-shadow: 0 0 10px var(--Bl-shadow-nav);
+  width: auto;
 }
 
-#info a {
-  text-decoration: none;
-  color: #8a2be2;
+#menuDesplegado img {
+  margin-left: 5px;
+  border-radius: 30px;
+  width: 70px;
+  height: 68px;
+  transition: transform 1s;
 }
 
-#linkFacebookInfo {
-  transition: color 0.3s ease;
-}
-
-#linkFacebookInfo:hover {
-  color: #0000ff;
-}
-
-#Facebook {
-  scale: 0.8;
-  top: 0%;
-  left: 0%;
-}
-
-#WhatsApp {
-  scale: 2.7;
-  top: 40%;
-  left: 0%;
-}
-
-#casa {
-  left: 3px;
-  width: 30px;
-  min-width: 30px;
-  max-width: 30px;
-}
-
-#fraseFooter {
-  animation: cambioColorFraseFooter 3.5s linear infinite;
-  font-size: 0.85rem;
-  text-align: center;
-  color: #8a2be2;
-  font-family: "FuenteVirtualDJ", "Arial Narrow", Arial, sans-serif;
+#menuDesplegado img:hover {
+  transform: scale(1.1);
+  background-color: rgb(166, 11, 180);
+  z-index: 2;
 }
 
 /* Animaciones */
-@keyframes cambioColorFraseFooter {
+@keyframes cambioColorJActiv {
   0% {
-    color: red;
+    border-color: rgb(133, 39, 39);
+  }
+
+  33% {
+    border-color: rgb(26, 102, 123);
+  }
+
+  86% {
+    border-color: #faad00;
+  }
+
+  100% {
+    border-color: rgb(133, 39, 39);
+  }
+}
+
+@keyframes cambioColorPalabraActiv {
+  0% {
+    color: rgb(133, 39, 39);
   }
 
   33% {
@@ -466,15 +1206,6 @@ cursor: pointer;
   }
 
   100% {
-    color: red;
-  }
-}
-
-@keyframes flotar {
-  0% {
-    transform: translateY(0) rotate(0deg);
-  }
-  100% {
-    transform: translateY(-20px) rotate(3deg);
+    color: rgb(133, 39, 39);
   }
 }

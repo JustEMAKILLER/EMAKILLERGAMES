@@ -1,0 +1,480 @@
+/* Fuentes */
+@font-face {
+  font-family: "FuenteImpact";
+  src: url("../fonts/ImpactLTStd.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/ImpactLTStd.woff2") format("woff2"),
+    url("../fonts/ImpactLTStd.woff") format("woff"),
+    url("../fonts/ImpactLTStd.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FuenteVirtualDJ";
+  src: url("../fonts/VirtualDJ.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/VirtualDJ.woff2") format("woff2"),
+    url("../fonts/VirtualDJ.woff") format("woff"),
+    url("../fonts/VirtualDJ.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Variables raíz */
+:root {
+  --Bl-svg: #ffffff;
+  --Bl-background-nav: #000000dc;
+  --Bl-border-nav: #777777;
+  --Bl-shadow-nav: #3b022a;
+  --Bl-background-title: #00000079;
+  --Bl-border-title: #6916b7;
+  --Bl-shadow-title: #020000;
+  --Bl-color-title: #ffffff;
+}
+
+/* Palabras reservadas */
+body {
+  background: linear-gradient(
+      to bottom,
+      #fc000000 37vw,
+      #000000ff 37.2vw
+    ),
+    url(../img/Banner_IA.webp);
+  color: var(--Bl-svg);
+  background-repeat: no-repeat;
+  background-position: 0% 0%;
+  background-size: 100%;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-seri;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  user-select: none;
+}
+
+svg {
+  position: relative;
+  width: 200%;
+  top: 40%;
+  left: 30%;
+  fill: #ffffff;
+  max-width: 50px;
+  min-width: 50px;
+}
+
+/* Clases */
+.boxcat {
+  margin: 50px auto;
+  max-width: 1200px;
+  height: auto;
+  margin-top: 2vh;
+  padding: 20px;
+  border: 1px solid var(--Bl-border-title);
+  border-radius: 20px;
+  background: linear-gradient(
+    to top,
+    #00000000 10%,
+    #42013a4b 90%
+  );
+  box-shadow: inset 0 0 30px var(--Bl-shadow-title);
+  text-align: center;
+  color: var(--Bl-color-title);
+  text-shadow: 0 0 10px #000000;
+}
+
+.box {
+  margin-top: -20px;
+  text-align: center;
+  border: 1px solid var(--Bl-border-title);
+  border-radius: 20px;
+  background: linear-gradient(
+    to top,
+    #00000000 10%,
+    #3602264b 90%
+  );
+  box-shadow: inset 0 0 30px var(--Bl-shadow-title);
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.contacto {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  scale: 0.8;
+  border: 1px solid var(--Bl-border-title);
+  border-radius: 20px;
+  background: linear-gradient(
+    to top,
+    #00000000 10%,
+    #3602264b 90%
+  );
+  box-shadow: inset 0 0 30px var(--Bl-shadow-title);
+  text-align: center;
+  font-size: 20px;
+  color: var(--Bl-color-title);
+  text-shadow: 0 0 10px #000000;
+}
+
+.cajasjuegos {
+  width: 90%;
+  max-width: 500px;
+  height: 200px;
+  border: solid 2px #000000;
+  box-shadow: 2px 2px 6px var(--Bl-border-title);
+  border-radius: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 20px;
+  transition: all 0.5s ease;
+  z-index: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.cajasjuegos:hover {
+  z-index: 2;
+  transform: scale(1.03);
+  box-shadow: 2px 2px 6px #0000ff;
+}
+
+.cajasjuegos p {
+  user-select: none;
+  position: relative;
+  top: 30px;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px #000000;
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  transition: transform 0.3s ease;
+}
+
+.cajasjuegos:hover p {
+  color: #fff;
+  text-shadow: 2px 2px 8px #000000cc;
+  transform: scale(1.05);
+}
+
+.cajasjuegos a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  text-decoration: none;
+}
+
+.cajasjuegos .fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  z-index: 1;
+}
+
+.cajasjuegos .frente {
+  display: none;
+  position: absolute;
+  height: 120px;
+  z-index: 3;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.cajasjuegos:hover .frente {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cajasjuegos:hover .fondo {
+  filter: brightness(1.2);
+}
+
+.colab {
+  width: 60px;
+  height: 60px;
+}
+
+.colab img {
+  border-radius: 20px;
+}
+
+.colabs {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 10px;
+  padding-bottom: 20px;
+}
+
+.colabs a{
+  width: 100%;
+  height: 100%;
+}
+
+.colabs img {
+  max-width: 100%;
+  max-height: 100%;
+  transition: all 0.5s ease;
+}
+
+.colabs img:hover {
+transform: scale(1.1);
+cursor: pointer;
+}
+
+.contactos {
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+  height: 50%;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  font-weight: bold;
+  gap: 40px;
+}
+
+.contactos a {
+  width: 200px;
+  color: #f0f8ff;
+  text-decoration-line: none;
+}
+
+.Facebook,
+.WhatsApp {
+  transition: transform 0.3s ease;
+}
+
+.Facebook:hover,
+.WhatsApp:hover {
+  transform: scale(1.07);
+  cursor: pointer;
+}
+
+.Facebook:hover p {
+  color: #37a8e5;
+}
+
+.WhatsApp:hover p {
+  color: #adff2f;
+}
+
+.Facebook {
+  position: relative;
+  top: -5px;
+}
+
+.Facebook p {
+  margin-top: -1px;
+}
+
+.Facebook p,
+.WhatsApp p {
+  transition: color 0.3s ease;
+  margin-bottom: 0;
+}
+
+.Download {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  border: 1px solid var(--Bl-border-title);
+  box-shadow: 1px 1px 6px #800080;
+  font-size: 16px;
+  transition: all 0.5s ease;
+}
+
+.Download a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--Bl-color-title);
+  width: 100%;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.Download:hover {
+  transform: scale(1.02);
+  box-shadow: 1px 1px 6px #ff0000;
+  cursor: pointer;
+}
+
+.Download:hover a {
+  color: #ff0000;
+}
+
+.kjasjuegos {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.kjasjuegos a {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "FuenteImpact", Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-align: left;
+  font-size: 250%;
+  text-shadow: 10px 10px 10px #000000;
+}
+
+.kjasjuegos p {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.TextS {
+  flex-basis: 10px;
+}
+
+/* ID's */
+#Titulo {
+  width: 100%;
+  height: auto;
+  margin-top: 39%;
+  scale: 0.8;
+  border: 1px solid var(--Bl-border-title);
+  border-radius: 20px;
+  background-color: var(--Bl-background-title);
+  box-shadow: inset 0 0 30px var(--Bl-shadow-title);
+  text-align: center;
+  font-size: 20px;
+  color: var(--Bl-color-title);
+  text-shadow: 0 0 10px #000000;
+  padding: 10px;
+}
+
+#c1 .frente {
+  top: 30%;
+  left: 5%;
+  animation: flotar 2s ease-in-out infinite alternate;
+  width: 80px;
+}
+
+#c2 .frente {
+  top: 25%;
+  left: 5%;
+  width: 110px;
+  height: 130px;
+  animation: flotar 2.5s ease-in-out infinite alternate;
+}
+
+#c3 .frente {
+  top: 35%;
+  left: 8%;
+  width: 100px;
+  animation: flotar 3s ease-in-out infinite alternate;
+}
+
+#fotoMega {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+#reglas {
+  text-align: justify;
+  padding-right: 20px;
+}
+
+#hinfo {
+  text-align: center;
+}
+
+#info {
+  letter-spacing: 0.5px;
+}
+
+#info a {
+  text-decoration: none;
+  color: #8a2be2;
+}
+
+#linkFacebookInfo {
+  transition: color 0.3s ease;
+}
+
+#linkFacebookInfo:hover {
+  color: #0000ff;
+}
+
+#Facebook {
+  scale: 0.8;
+  top: 0%;
+  left: 0%;
+}
+
+#WhatsApp {
+  scale: 2.7;
+  top: 40%;
+  left: 0%;
+}
+
+#casa {
+  left: 3px;
+  width: 30px;
+  min-width: 30px;
+  max-width: 30px;
+}
+
+#fraseFooter {
+  animation: cambioColorFraseFooter 3.5s linear infinite;
+  font-size: 0.85rem;
+  text-align: center;
+  color: #8a2be2;
+  font-family: "FuenteVirtualDJ", "Arial Narrow", Arial, sans-serif;
+}
+
+/* Animaciones */
+@keyframes cambioColorFraseFooter {
+  0% {
+    color: red;
+  }
+
+  33% {
+    color: rgb(26, 102, 123);
+  }
+
+  86% {
+    color: #faad00;
+  }
+
+  100% {
+    color: red;
+  }
+}
+
+@keyframes flotar {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-20px) rotate(3deg);
+  }
+}
