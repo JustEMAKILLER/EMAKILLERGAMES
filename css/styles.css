@@ -432,7 +432,11 @@ ul li:hover img:not(.li-icono-filtro) {
   box-shadow: none !important;
   display: list-item;
   padding: 12px !important;
-  transition: transform 0.3s ease !important;
+  transition: all 0.3s ease !important;
+}
+
+.vista-tradicional li:hover img {
+  filter: brightness(1.5);
 }
 
 .vista-tradicional #juegosDescartados ul,
@@ -458,10 +462,6 @@ ul li:hover img:not(.li-icono-filtro) {
   text-decoration: none !important;
   transition: all 0.3s ease;
   pointer-events: none;
-}
-
-.vista-tradicional li:hover img {
-  filter: brightness(1.5);
 }
 
 /* Checkboxes de filtros */
