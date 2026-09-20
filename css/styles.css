@@ -460,7 +460,7 @@ ul li:hover img:not(.li-icono-filtro) {
   pointer-events: none;
 }
 
-.vista-tradicional li:hover {
+.vista-tradicional li:hover img {
   filter: brightness(1.5);
 }
 
