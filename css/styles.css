@@ -1053,7 +1053,7 @@ h3 {
   margin-top: -8%;
   position: sticky;
   height: 55px;
-  max-width: fit-content;
+  width: fit-content;
   padding: 8px;
   box-sizing: border-box;
   border: 1px solid var(--Bl-border-nav);
