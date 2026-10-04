@@ -1232,6 +1232,8 @@ function mostrarMenu() {
       cerrarMenu();
     });
   });
+  const menuDesplegable = document.getElementById("menuDesplegable");
+  menuDesplegable.classList.add("active");
 }
 
 /**
@@ -1244,6 +1246,8 @@ function cerrarMenu() {
   botonMenuDesplegable.addEventListener("click", mostrarMenu);
   botonMenuDesplegable.style.borderRadius = "50px";
   menuDesplegado.style.display = "none";
+  const menuDesplegable = document.getElementById("menuDesplegable");
+  menuDesplegable.classList.remove("active");
 }
 
 /**
