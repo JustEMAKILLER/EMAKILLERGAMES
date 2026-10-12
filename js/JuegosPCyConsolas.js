@@ -1446,8 +1446,9 @@ function cambiarVista() {
     reconstruirFooter(li);
   });
 
-  // Forzar una nueva búsqueda para actualizar los resultados
+  // Forzar una nueva búsqueda con los filtros que estén establecidos para actualizar los resultados correctamente
   busqueda();
+  aplicarFiltrosCombinados();
 }
 
 /**
