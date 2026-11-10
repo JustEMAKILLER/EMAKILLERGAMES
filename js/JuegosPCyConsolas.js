@@ -124,7 +124,7 @@ function agregarIconosFiltrosAJuegos() {
           icono.className = "li-icono-filtro";
           icono.src = `img/filtros/${genero}.webp`;
           icono.alt = genero;
-          icono.title = genero;
+          icono.title = genero.replace("_"," ");
           iconosContainer.appendChild(icono);
         }
       });

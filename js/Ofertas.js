@@ -87,12 +87,14 @@ function mostrarBoton() {
 function mostrarBusqueda() {
   const divLupa = document.getElementById("divLupa");
   const divBusqueda = document.getElementById("busqueda");
+  const buscarNombreInput = document.getElementById("buscarNombre");
   if (divBusqueda.classList.contains("visible")) {
     divBusqueda.classList.remove("visible");
     divLupa.style.display = "block";
   } else {
     divLupa.style.display = "none";
     divBusqueda.classList.add("visible");
+    buscarNombreInput.focus();
   }
 }
 
@@ -171,20 +173,25 @@ function busqueda() {
 
   text.textContent = hayResultados ? "" : "No hay resultados.";
 }
-// Función para borrar el campo de búsqueda
+
+// Borrar el campo de búsqueda
 function borrarBusqueda() {
   const buscarNombreInput = document.getElementById("buscarNombre");
   // Limpiar el campo de texto
   buscarNombreInput.value = "";
+  buscarNombreInput.focus();
   busqueda();
 }
-// Función para borrar el campo de precio
+
+// Borrar el campo de precio
 function borrarPrecio() {
-  const filtroprecioInput = document.getElementById("buscarPrecio");
+  const filtroPrecioInput = document.getElementById("buscarPrecio");
   // Limpiar el campo de texto
-  filtroprecioInput.value = "";
+  filtroPrecioInput.value = "";
+  filtroPrecioInput.focus();
   busqueda();
 }
+
 function cambiarVista() {
   const textoBoton = document.getElementById("botonCambiarVista");
   textoBoton.classList.toggle("BotonBolaVerde");
