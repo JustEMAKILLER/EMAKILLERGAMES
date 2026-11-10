@@ -7,9 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Agregar clases a los encabezados h4
 function agregarClasesEncabezados() {
-  document
-    .querySelectorAll("h4")
-    .forEach((h4) => h4.classList.add("Encabezados"));
+  document.querySelectorAll("h4").forEach((h4) => h4.classList.add("Encabezados"));
 }
 
 // Agregar eventos a los encabezados h4
@@ -28,8 +26,7 @@ function agregarPreciosEncabezados() {
   encabezados.forEach((encabezado) => {
     const tituloEncabezado = encabezado.querySelector("a");
     const precioPack = encabezado.getAttribute("Precio");
-    tituloEncabezado.textContent =
-      tituloEncabezado.textContent + " (" + precioPack + " CUP)";
+    tituloEncabezado.textContent = tituloEncabezado.textContent + " (" + precioPack + " CUP)";
   });
 }
 
@@ -43,8 +40,7 @@ let isAnimating = false;
 
 function mostrarBoton() {
   const scrollButton = document.getElementById("flechaArriba");
-  const scrollPosition =
-    document.documentElement.scrollTop || document.body.scrollTop;
+  const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
 
   // Limpiar intervalo anterior si existe
   if (animationInterval) {
@@ -100,9 +96,7 @@ function mostrarBusqueda() {
 
 function busqueda() {
   const maxPrice = parseFloat(document.getElementById("buscarPrecio").value);
-  const filtroNombre = document
-    .getElementById("buscarNombre")
-    .value.toLowerCase();
+  const filtroNombre = document.getElementById("buscarNombre").value.toLowerCase();
   const grupos = document.querySelectorAll(".grupo-juegos");
   const text = document.getElementById("texto");
 
@@ -119,21 +113,11 @@ function busqueda() {
     let mostrarGrupo = false;
 
     productos.forEach((producto) => {
-      const productNameFromImg = producto
-        .querySelector("img")
-        ?.getAttribute("title")
-        .toLowerCase();
-      const productNameFromLink = producto
-        .querySelector("a")
-        ?.textContent.trim()
-        .toLowerCase();
+      const productNameFromImg = producto.querySelector("img")?.getAttribute("title").toLowerCase();
+      const productNameFromLink = producto.querySelector("a")?.textContent.trim().toLowerCase();
 
       // Si hay un título en la imagen, usa eso, si no, usa el texto del enlace
-      const productName = productNameFromImg
-        ? productNameFromImg
-        : productNameFromLink
-        ? productNameFromLink
-        : "";
+      const productName = productNameFromImg ? productNameFromImg : productNameFromLink ? productNameFromLink : "";
 
       const productPrice = parseFloat(encabezado.getAttribute("Precio"));
 
@@ -290,7 +274,7 @@ function cargarImagenesLazy() {
       rootMargin: "100px",
       // empieza a cargar antes de que entre al viewport
       threshold: 0.1,
-    }
+    },
   );
   images.forEach((img) => observer.observe(img));
 }

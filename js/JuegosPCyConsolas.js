@@ -16,9 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
  */
 function crearBotonesAdicion() {
   document
-    .querySelectorAll(
-      ".listajuegos li:not(#resultados li):not(#juegosDescartados li):not(#regalos li)"
-    )
+    .querySelectorAll(".listajuegos li:not(#resultados li):not(#juegosDescartados li):not(#regalos li)")
     .forEach((producto) => {
       reconstruirFooter(producto);
     });
@@ -30,18 +28,14 @@ function crearBotonesAdicion() {
  */
 function agregarTextoNuevoOActualizado() {
   // Seleccionar los elementos li con las clases relevantes
-  const elementosLi = document.querySelectorAll(
-    "li.juegosNuevos, li.juegosActualizados"
-  );
+  const elementosLi = document.querySelectorAll("li.juegosNuevos, li.juegosActualizados");
 
   elementosLi.forEach((li) => {
     const enlace = li.querySelector("a");
     if (!enlace) return; // Si no hay enlace, salir
 
     // Determinar si es "Nuevo" o "Actualizado" según la clase
-    const texto = li.classList.contains("juegosNuevos")
-      ? "(Nuevo)"
-      : "(Actualizado)";
+    const texto = li.classList.contains("juegosNuevos") ? "(Nuevo)" : "(Actualizado)";
 
     // Crear un elemento <p> con un espacio no rompible y el texto
     const p = document.createElement("p");
@@ -84,10 +78,7 @@ function agregarIconosFiltrosAJuegos() {
     }
 
     // Si tiene Servidor Dedicado (servidor)
-    if (
-      clases.includes("servidor") ||
-      obtenerTituloJuego(li).includes("Servidor")
-    ) {
+    if (clases.includes("servidor") || obtenerTituloJuego(li).includes("Servidor")) {
       otrosFiltros.push("Contiene Servidor Dedicado");
     }
 
@@ -97,11 +88,7 @@ function agregarIconosFiltrosAJuegos() {
     }
 
     // Crear contenedor de iconos solo si hay algo que mostrar
-    if (
-      conexiones.length > 0 ||
-      generos.length > 0 ||
-      otrosFiltros.length > 0
-    ) {
+    if (conexiones.length > 0 || generos.length > 0 || otrosFiltros.length > 0) {
       const iconosContainer = document.createElement("div");
       iconosContainer.className = "li-iconos-filtros";
 
@@ -124,7 +111,7 @@ function agregarIconosFiltrosAJuegos() {
           icono.className = "li-icono-filtro";
           icono.src = `img/filtros/${genero}.webp`;
           icono.alt = genero;
-          icono.title = genero.replace("_"," ");
+          icono.title = genero.replace("_", " ");
           iconosContainer.appendChild(icono);
         }
       });
@@ -172,38 +159,32 @@ function agregarIconosFiltrosAJuegos() {
  * Al cambiar un checkbox, se limpia el dataset y se re-aplican los filtros combinados.
  */
 function agregarListenersFiltros() {
-  document
-    .querySelectorAll('#filtro-conexion input[type="checkbox"]')
-    .forEach((checkbox) => {
-      checkbox.addEventListener("change", function () {
-        document.querySelectorAll(".listajuegos li").forEach((li) => {
-          delete li.dataset.forceHidden;
-        });
-        aplicarFiltrosCombinados();
+  document.querySelectorAll('#filtro-conexion input[type="checkbox"]').forEach((checkbox) => {
+    checkbox.addEventListener("change", function () {
+      document.querySelectorAll(".listajuegos li").forEach((li) => {
+        delete li.dataset.forceHidden;
       });
+      aplicarFiltrosCombinados();
     });
+  });
 
-  document
-    .querySelectorAll('#filtro-generos input[type="checkbox"]')
-    .forEach((checkbox) => {
-      checkbox.addEventListener("change", function () {
-        document.querySelectorAll(".listajuegos li").forEach((li) => {
-          delete li.dataset.forceHidden;
-        });
-        aplicarFiltrosCombinados();
+  document.querySelectorAll('#filtro-generos input[type="checkbox"]').forEach((checkbox) => {
+    checkbox.addEventListener("change", function () {
+      document.querySelectorAll(".listajuegos li").forEach((li) => {
+        delete li.dataset.forceHidden;
       });
+      aplicarFiltrosCombinados();
     });
+  });
 
-  document
-    .querySelectorAll('#otros-filtros input[type="checkbox"]')
-    .forEach((checkbox) => {
-      checkbox.addEventListener("change", function () {
-        document.querySelectorAll(".listajuegos li").forEach((li) => {
-          delete li.dataset.forceHidden;
-        });
-        aplicarFiltrosCombinados();
+  document.querySelectorAll('#otros-filtros input[type="checkbox"]').forEach((checkbox) => {
+    checkbox.addEventListener("change", function () {
+      document.querySelectorAll(".listajuegos li").forEach((li) => {
+        delete li.dataset.forceHidden;
       });
+      aplicarFiltrosCombinados();
     });
+  });
 }
 
 /**
@@ -309,8 +290,7 @@ window.addEventListener("scroll", mostrarBoton);
  */
 function mostrarBoton() {
   const scrollButton = document.getElementById("flechaArriba");
-  const scrollPosition =
-    document.documentElement.scrollTop || document.body.scrollTop;
+  const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
 
   // Limpiar intervalo anterior si existe
   if (animationInterval) {
@@ -354,29 +334,21 @@ function mostrarBoton() {
  * y re-aplica los filtros combinados. También limpia búsqueda y precio si el menú está abierto.
  */
 function desmarcarCheckboxes() {
-  if (
-    document.getElementById("botonJNA").classList.contains("BotonBolaVerde")
-  ) {
+  if (document.getElementById("botonJNA").classList.contains("BotonBolaVerde")) {
     mostrarJuegosDesdeMenuJuegos();
   }
 
-  const checkboxes = document.querySelectorAll(
-    '#filtro-conexion input[name="conexion"]'
-  );
+  const checkboxes = document.querySelectorAll('#filtro-conexion input[name="conexion"]');
   checkboxes.forEach((checkbox) => {
     checkbox.checked = false;
   });
 
-  const checkboxesgenero = document.querySelectorAll(
-    '#filtro-generos input[name="genero"]'
-  );
+  const checkboxesgenero = document.querySelectorAll('#filtro-generos input[name="genero"]');
   checkboxesgenero.forEach((checkbox) => {
     checkbox.checked = false;
   });
 
-  const otroscheckboxes = document.querySelectorAll(
-    '#otros-filtros input[name="otros"]'
-  );
+  const otroscheckboxes = document.querySelectorAll('#otros-filtros input[name="otros"]');
   otroscheckboxes.forEach((checkbox) => {
     checkbox.checked = false;
   });
@@ -399,8 +371,7 @@ let isAnimating = false;
 function hayDescartados() {
   const juegosDescartadosDiv = document.getElementById("juegosDescartados");
   const listaDescartados = juegosDescartadosDiv.querySelectorAll("li");
-  juegosDescartadosDiv.style.display =
-    listaDescartados.length > 0 ? "block" : "none";
+  juegosDescartadosDiv.style.display = listaDescartados.length > 0 ? "block" : "none";
 }
 
 // Event listener para detectar cuando el usuario modifica el precio
@@ -438,9 +409,7 @@ function agregarProducto(producto) {
   actualizarPrecioYTamano();
 
   // Si se mueve (selecciona) alguno de los títulos nuevos o actualizados cuando solo se muestran estos, asegurar que se sigan mostrando
-  if (
-    document.getElementById("botonJNA").classList.contains("BotonBolaVerde")
-  ) {
+  if (document.getElementById("botonJNA").classList.contains("BotonBolaVerde")) {
     mostrarJuegosNewOrAct();
   } else {
     busqueda();
@@ -465,11 +434,7 @@ function agregarComoRegalo(producto) {
   // Calcular precio total de juegos (excluyendo activaciones)
   items.forEach((item) => {
     const precio = parseFloat(item.getAttribute("Precio"));
-    if (
-      !isNaN(precio) &&
-      !item.classList.contains("Activacion") &&
-      item !== producto
-    ) {
+    if (!isNaN(precio) && !item.classList.contains("Activacion") && item !== producto) {
       PrecioJuegos += precio;
     }
   });
@@ -477,7 +442,7 @@ function agregarComoRegalo(producto) {
   // Validar si cumple con el requisito de 500 CUP
   if (PrecioJuegos < 500) {
     alert(
-      `Para poder agregar regalos necesita al menos un total de 500 CUP en los juegos que seleccione.\nActualmente tiene un total de: ${PrecioJuegos} CUP en dichos juegos`
+      `Para poder agregar regalos necesita al menos un total de 500 CUP en los juegos que seleccione.\nActualmente tiene un total de: ${PrecioJuegos} CUP en dichos juegos`,
     );
     return;
   }
@@ -511,7 +476,7 @@ function agregarComoRegalo(producto) {
         `Bono utilizado: ${bonoUtilizado} CUP\n` +
         `Bono restante: ${bonoRestante} CUP\n` +
         `Precio del juego: ${precioJuego} CUP\n\n` +
-        `Seleccione un juego de menor precio o elimine algunos regalos actuales.`
+        `Seleccione un juego de menor precio o elimine algunos regalos actuales.`,
     );
     return;
   }
@@ -540,9 +505,7 @@ function agregarRegalo(producto) {
   actualizarPrecioYTamano();
 
   // Si se mueve (selecciona) alguno de los títulos nuevos o actualizados cuando solo se muestran estos, asegurar que se sigan mostrando
-  if (
-    document.getElementById("botonJNA").classList.contains("BotonBolaVerde")
-  ) {
+  if (document.getElementById("botonJNA").classList.contains("BotonBolaVerde")) {
     mostrarJuegosNewOrAct();
   } else {
     busqueda();
@@ -678,8 +641,7 @@ function actualizarPrecioYTamano() {
   items.forEach((item) => {
     const precio = parseFloat(item.getAttribute("Precio"));
     const tamano = parseFloat(item.getAttribute("Tamano"));
-    if (!isNaN(precio) && item.classList.contains("Activacion"))
-      PrecioActivaciones += precio;
+    if (!isNaN(precio) && item.classList.contains("Activacion")) PrecioActivaciones += precio;
     else if (!isNaN(precio)) PrecioJuegos += precio;
     if (!isNaN(tamano)) TamanoTotal += tamano;
   });
@@ -696,8 +658,7 @@ function actualizarPrecioYTamano() {
   PrecioTotal = PrecioJuegos + PrecioActivaciones;
 
   // Actualizar cantidad de juegos seleccionados en el carrito
-  carritoHeader.textContent =
-    "🛒Carrito de juegos seleccionados " + "(" + items.length + ")";
+  carritoHeader.textContent = "🛒Carrito de juegos seleccionados " + "(" + items.length + ")";
 
   // Actualizar cantidad de regalos seleccionados
   regalosHeader.textContent = "🎁Regalos✨ " + "(" + regalos.length + ")";
@@ -712,19 +673,9 @@ function actualizarPrecioYTamano() {
     textoRegalo = ` + ${bonoDisponible} CUP de regalo (${bonoUtilizado} CUP usados y ${bonoRestante} CUP restantes)`;
 
     calculoPrecio.textContent =
-      "Precio y tamaño totales: " +
-      PrecioTotal +
-      " CUP; " +
-      Math.round(TamanoTotal) +
-      " GB" +
-      textoRegalo;
+      "Precio y tamaño totales: " + PrecioTotal + " CUP; " + Math.round(TamanoTotal) + " GB" + textoRegalo;
   } else {
-    calculoPrecio.textContent =
-      "Precio y tamaño totales: " +
-      PrecioTotal +
-      " CUP; " +
-      Math.round(TamanoTotal) +
-      " GB";
+    calculoPrecio.textContent = "Precio y tamaño totales: " + PrecioTotal + " CUP; " + Math.round(TamanoTotal) + " GB";
   }
 
   // Eliminar todos los regalos que estén seleccionados si se quitan juegos del carrito
@@ -804,11 +755,7 @@ function crearFooter(producto, tipo) {
   if (footerExistente) footerExistente.remove();
 
   // Eliminar botones sueltos que puedan quedar
-  producto
-    .querySelectorAll(
-      ".add-button, .remove-button, .regalo-button, .info-button"
-    )
-    .forEach((b) => b.remove());
+  producto.querySelectorAll(".add-button, .remove-button, .regalo-button, .info-button").forEach((b) => b.remove());
 
   const footer = document.createElement("div");
   footer.className = "li-footer";
@@ -823,7 +770,7 @@ function crearFooter(producto, tipo) {
         e.stopPropagation();
         agregarProducto(producto);
       },
-      "Añadir al carrito"
+      "Añadir al carrito",
     );
     footer.appendChild(addButton);
   }
@@ -841,7 +788,7 @@ function crearFooter(producto, tipo) {
           eliminarRegalo(producto);
         }
       },
-      "Eliminar"
+      "Eliminar",
     );
     footer.appendChild(removeButton);
   }
@@ -857,7 +804,7 @@ function crearFooter(producto, tipo) {
         e.stopPropagation();
         window.open(enlace.href, "_blank");
       },
-      "Explorar información adicional del juego"
+      "Explorar información adicional del juego",
     );
     footer.appendChild(infoButton);
   }
@@ -873,7 +820,7 @@ function crearFooter(producto, tipo) {
           e.stopPropagation();
           agregarComoRegalo(producto);
         },
-        "Añadir como regalo"
+        "Añadir como regalo",
       );
       footer.appendChild(regaloButton);
     }
@@ -909,9 +856,7 @@ function reconstruirFooter(producto) {
  */
 function busqueda() {
   const maxPrice = parseFloat(document.getElementById("buscarPrecio").value);
-  const filtroNombre = document
-    .getElementById("buscarNombre")
-    .value.toLowerCase();
+  const filtroNombre = document.getElementById("buscarNombre").value.toLowerCase();
   const grupos = document.querySelectorAll(".grupo-juegos");
   const text = document.getElementById("texto");
   const calculoPrecio = document.getElementById("calculoPrecio");
@@ -925,33 +870,25 @@ function busqueda() {
 
   // Solo desmarcar checkboxes si hay texto de búsqueda por nombre y no solamente por precio
   if (filtroNombre !== "") {
-    document
-      .querySelectorAll('#filtro-conexion input[name="conexion"]')
-      .forEach((cb) => (cb.checked = false));
-    document
-      .querySelectorAll('#filtro-generos input[name="genero"]')
-      .forEach((cb) => (cb.checked = false));
-    document
-      .querySelectorAll('#otros-filtros input[name="otros"]')
-      .forEach((cb) => (cb.checked = false));
+    document.querySelectorAll('#filtro-conexion input[name="conexion"]').forEach((cb) => (cb.checked = false));
+    document.querySelectorAll('#filtro-generos input[name="genero"]').forEach((cb) => (cb.checked = false));
+    document.querySelectorAll('#otros-filtros input[name="otros"]').forEach((cb) => (cb.checked = false));
   }
 
   // Obtener filtros activos para combinarlos con la búsqueda
   const conexionesSeleccionadas = Array.from(
-    document.querySelectorAll('#filtro-conexion input[name="conexion"]:checked')
+    document.querySelectorAll('#filtro-conexion input[name="conexion"]:checked'),
   ).map((c) => c.value.trim());
 
   const generosSeleccionados = Array.from(
-    document.querySelectorAll('#filtro-generos input[name="genero"]:checked')
+    document.querySelectorAll('#filtro-generos input[name="genero"]:checked'),
   ).map((g) => g.value.trim());
 
-  const otrosFiltros = Array.from(
-    document.querySelectorAll('#otros-filtros input[name="otros"]:checked')
-  ).map((h) => h.value.trim());
+  const otrosFiltros = Array.from(document.querySelectorAll('#otros-filtros input[name="otros"]:checked')).map((h) =>
+    h.value.trim(),
+  );
 
-  const soloNuevos = document
-    .getElementById("botonJNA")
-    .classList.contains("BotonBolaVerde");
+  const soloNuevos = document.getElementById("botonJNA").classList.contains("BotonBolaVerde");
 
   let hayResultados = false;
 
@@ -991,18 +928,12 @@ function busqueda() {
 
       // Filtro de conexión y género (combinado)
       if (mostrar && conexionesSeleccionadas.length > 0) {
-        const conexionesJuego = (producto.getAttribute("Tconex") || "")
-          .split(",")
-          .map((c) => c.trim());
-        mostrar = conexionesSeleccionadas.some((c) =>
-          conexionesJuego.includes(c)
-        );
+        const conexionesJuego = (producto.getAttribute("Tconex") || "").split(",").map((c) => c.trim());
+        mostrar = conexionesSeleccionadas.some((c) => conexionesJuego.includes(c));
       }
 
       if (mostrar && generosSeleccionados.length > 0) {
-        const generosJuego = (producto.getAttribute("Genero") || "")
-          .split(",")
-          .map((g) => g.trim());
+        const generosJuego = (producto.getAttribute("Genero") || "").split(",").map((g) => g.trim());
         mostrar = generosSeleccionados.some((g) => generosJuego.includes(g));
       }
 
@@ -1011,13 +942,11 @@ function busqueda() {
 
         // Convertir el filtro "Mods" → coincidir con pocosMods o muchosMods
         const coincideMods =
-          otrosFiltros.includes("Mods") &&
-          (clasesJuego.includes("pocosMods") ||
-            clasesJuego.includes("muchosMods"));
+          otrosFiltros.includes("Mods") && (clasesJuego.includes("pocosMods") || clasesJuego.includes("muchosMods"));
 
         // Si el juego tiene Servidor o no está probado
         const coincidenciaDirecta = otrosFiltros.some(
-          (f) => clasesJuego.includes(f) || productName.includes("servidor")
+          (f) => clasesJuego.includes(f) || productName.includes("servidor"),
         );
 
         if (!coincideMods && !coincidenciaDirecta) {
@@ -1040,8 +969,7 @@ function busqueda() {
   // Mostrar mensaje si no hay resultados
   divJuegos.style.display = hayResultados ? "block" : "none";
   text.style.display = hayResultados ? "none" : "flex";
-  if (!hayResultados)
-    text.textContent = "No hay resultados que coincidan con la búsqueda.";
+  if (!hayResultados) text.textContent = "No hay resultados que coincidan con la búsqueda.";
 
   // Mostrar u ocultar el cálculo de precio
   if (calculoPrecio.textContent.trim() !== "") {
@@ -1083,9 +1011,7 @@ function borrarPrecio() {
 
 // Programar los eventos del botónJNA sobre la clase BotonBolaVerde
 document.getElementById("botonJNA").addEventListener("click", () => {
-  if (
-    document.getElementById("botonJNA").classList.contains("BotonBolaVerde")
-  ) {
+  if (document.getElementById("botonJNA").classList.contains("BotonBolaVerde")) {
     mostrarJuegos(); // Volver a mostrar todo
   } else {
     mostrarJuegosNewOrAct(); // Mostrar solo nuevos/actualizados
@@ -1112,9 +1038,7 @@ function mostrarJuegosNewOrAct() {
   desmarcarCheckboxes();
 
   // Primero ocultar todos los encabezados y grupos
-  encabezadosJuegos.forEach(
-    (encabezado) => (encabezado.style.display = "none")
-  );
+  encabezadosJuegos.forEach((encabezado) => (encabezado.style.display = "none"));
   grupos.forEach((grupo) => (grupo.style.display = "none"));
 
   // Procesar cada grupo
@@ -1124,10 +1048,7 @@ function mostrarJuegosNewOrAct() {
 
     // Verificar si hay juegos nuevos/actualizados en este grupo
     productos.forEach((producto) => {
-      if (
-        producto.classList.contains("juegosNuevos") ||
-        producto.classList.contains("juegosActualizados")
-      ) {
+      if (producto.classList.contains("juegosNuevos") || producto.classList.contains("juegosActualizados")) {
         producto.style.display = "list-item";
         mostrarGrupo = true;
         hayResultados = true;
@@ -1271,9 +1192,7 @@ function enviarListado() {
 
   let mensaje =
     CantTotalJuegos > 1
-      ? "Hola! Le escribo para solicitar los siguientes " +
-        CantTotalJuegos +
-        " juegos:\n"
+      ? "Hola! Le escribo para solicitar los siguientes " + CantTotalJuegos + " juegos:\n"
       : "Hola! Le escribo para solicitar el siguiente juego:\n";
 
   // Agregar juegos normales al mensaje
@@ -1282,8 +1201,7 @@ function enviarListado() {
     const precio = parseFloat(item.getAttribute("Precio"));
     const tamano = parseFloat(item.getAttribute("Tamano"));
 
-    if (!isNaN(precio) && item.classList.contains("Activacion"))
-      PrecioActivaciones += precio;
+    if (!isNaN(precio) && item.classList.contains("Activacion")) PrecioActivaciones += precio;
     else if (!isNaN(precio)) PrecioJuegos += precio;
     if (!isNaN(tamano)) TamanoTotal += tamano;
 
@@ -1300,8 +1218,7 @@ function enviarListado() {
 
   // Agregar regalos al mensaje (si hay)
   if (regalos.length > 0) {
-    mensaje +=
-      regalos.length > 1 ? "\n--- REGALOS ---\n" : "\n--- REGALO ---\n";
+    mensaje += regalos.length > 1 ? "\n--- REGALOS ---\n" : "\n--- REGALO ---\n";
 
     regalos.forEach((regalo) => {
       // Obtener el tamaño del regalo
@@ -1339,13 +1256,7 @@ function enviarListado() {
   }
 
   // Completar mensaje con la información hasta el momento
-  mensaje +=
-    "\nPrecio y tamaño totales: " +
-    PrecioTotal +
-    " CUP; " +
-    Math.round(TamanoTotal) +
-    " GB" +
-    textoRegalo;
+  mensaje += "\nPrecio y tamaño totales: " + PrecioTotal + " CUP; " + Math.round(TamanoTotal) + " GB" + textoRegalo;
 
   // Preguntar residencia al cliente para solicitar mensajería solo si el precio total de su encargo llega a 1000 CUP o más
   if (PrecioTotal >= 1000) {
@@ -1466,30 +1377,24 @@ function aplicarFiltrosCombinados() {
   const filtroNombre = inputNombre.value.toLowerCase();
 
   // Mostrar/ocultar botones de borrar según corresponda
-  document.getElementById("botonBorrarBusqueda").style.display = filtroNombre
-    ? "inline-block"
-    : "none";
-  document.getElementById("botonBorrarPrecio").style.display = isNaN(maxPrice)
-    ? "none"
-    : "inline-block";
+  document.getElementById("botonBorrarBusqueda").style.display = filtroNombre ? "inline-block" : "none";
+  document.getElementById("botonBorrarPrecio").style.display = isNaN(maxPrice) ? "none" : "inline-block";
 
   // Obtener filtros seleccionados
   const conexionesSeleccionadas = Array.from(
-    document.querySelectorAll('#filtro-conexion input[name="conexion"]:checked')
+    document.querySelectorAll('#filtro-conexion input[name="conexion"]:checked'),
   ).map((c) => c.value.trim());
 
   const generosSeleccionados = Array.from(
-    document.querySelectorAll('#filtro-generos input[name="genero"]:checked')
+    document.querySelectorAll('#filtro-generos input[name="genero"]:checked'),
   ).map((g) => g.value.trim());
 
-  const otrosFiltros = Array.from(
-    document.querySelectorAll('#otros-filtros input[name="otros"]:checked')
-  ).map((h) => h.value.trim());
+  const otrosFiltros = Array.from(document.querySelectorAll('#otros-filtros input[name="otros"]:checked')).map((h) =>
+    h.value.trim(),
+  );
 
   // Modo "solo nuevos/actualizados"
-  const soloNuevos = document
-    .getElementById("botonJNA")
-    .classList.contains("BotonBolaVerde");
+  const soloNuevos = document.getElementById("botonJNA").classList.contains("BotonBolaVerde");
 
   let hayResultados = false;
 
@@ -1498,33 +1403,21 @@ function aplicarFiltrosCombinados() {
     let mostrar = true;
 
     // --- FILTRO NUEVOS/ACTUALIZADOS ---
-    if (
-      soloNuevos &&
-      !juego.classList.contains("juegosNuevos") &&
-      !juego.classList.contains("juegosActualizados")
-    ) {
+    if (soloNuevos && !juego.classList.contains("juegosNuevos") && !juego.classList.contains("juegosActualizados")) {
       mostrar = false;
     }
 
     // --- FILTRO DE CONEXIÓN ---
     if (mostrar && conexionesSeleccionadas.length > 0) {
-      const conexionesJuego = (juego.getAttribute("Tconex") || "")
-        .split(",")
-        .map((c) => c.trim());
-      const cumpleConexion = conexionesSeleccionadas.some((c) =>
-        conexionesJuego.includes(c)
-      );
+      const conexionesJuego = (juego.getAttribute("Tconex") || "").split(",").map((c) => c.trim());
+      const cumpleConexion = conexionesSeleccionadas.some((c) => conexionesJuego.includes(c));
       if (!cumpleConexion) mostrar = false;
     }
 
     // --- FILTRO DE GÉNERO ---
     if (mostrar && generosSeleccionados.length > 0) {
-      const generosJuego = (juego.getAttribute("Genero") || "")
-        .split(",")
-        .map((g) => g.trim());
-      const cumpleGenero = generosSeleccionados.some((g) =>
-        generosJuego.includes(g)
-      );
+      const generosJuego = (juego.getAttribute("Genero") || "").split(",").map((g) => g.trim());
+      const cumpleGenero = generosSeleccionados.some((g) => generosJuego.includes(g));
       if (!cumpleGenero) mostrar = false;
     }
 
@@ -1534,18 +1427,13 @@ function aplicarFiltrosCombinados() {
 
       // Verificar si coincide con "Mods" (pocosMods o muchosMods)
       const coincideMods = otrosFiltros.some(
-        (f) =>
-          f === "Mods" &&
-          (clasesJuego.includes("pocosMods") ||
-            clasesJuego.includes("muchosMods"))
+        (f) => f === "Mods" && (clasesJuego.includes("pocosMods") || clasesJuego.includes("muchosMods")),
       );
 
       // Verificar si coincide con otros filtros directos
       const coincideDirecto = otrosFiltros.some(
         (f) =>
-          clasesJuego.includes(f) ||
-          (f === "servidor" &&
-            obtenerTituloJuego(juego).toLowerCase().includes("servidor"))
+          clasesJuego.includes(f) || (f === "servidor" && obtenerTituloJuego(juego).toLowerCase().includes("servidor")),
       );
 
       if (!coincideMods && !coincideDirecto) {
@@ -1574,8 +1462,7 @@ function aplicarFiltrosCombinados() {
   divJuegos.style.display = hayResultados ? "block" : "none";
   text.style.display = hayResultados ? "none" : "flex";
   if (!hayResultados) {
-    text.textContent =
-      "No hay resultados que coincidan con los filtros aplicados.";
+    text.textContent = "No hay resultados que coincidan con los filtros aplicados.";
   }
 
   // Actualizar encabezados de secciones
@@ -1588,9 +1475,9 @@ function aplicarFiltrosCombinados() {
  */
 function actualizarEncabezados() {
   document.querySelectorAll(".grupo-juegos").forEach((grupo) => {
-    const tieneJuegosVisibles = Array.from(
-      grupo.querySelectorAll(".listajuegos li")
-    ).some((li) => li.style.display !== "none");
+    const tieneJuegosVisibles = Array.from(grupo.querySelectorAll(".listajuegos li")).some(
+      (li) => li.style.display !== "none",
+    );
 
     const encabezado = grupo.querySelector(".encabezadosjuegos");
     if (encabezado) {
@@ -1645,7 +1532,7 @@ function cargarImagenesLazy() {
       rootMargin: "100px",
       // empieza a cargar antes de que entre al viewport
       threshold: 0.1,
-    }
+    },
   );
   images.forEach((img) => observer.observe(img));
 }

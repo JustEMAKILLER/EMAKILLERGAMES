@@ -297,8 +297,8 @@ ul li:hover img:not(.li-icono-filtro) {
   box-shadow: 2px 2px 6px purple;
   padding-top: 10px;
   padding-inline: 20px;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .cajaResultados {
@@ -683,7 +683,9 @@ ul li:hover img:not(.li-icono-filtro) {
   line-height: 32px;
   text-align: center;
   border: 1px solid #ffffff4d;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
   margin: 0;
   background: #000000b3;
   box-shadow: 0 0 5px #00000080;
@@ -788,7 +790,9 @@ ul li:hover img:not(.li-icono-filtro) {
   background-color: var(--Bl-background-nav);
   color: white;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 #buscar .botonesBusqueda:hover {
@@ -807,7 +811,9 @@ ul li:hover img:not(.li-icono-filtro) {
   border-radius: 20px;
   background-color: var(--Bl-background-nav);
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 #botonOcultarBusqueda:hover {
@@ -1136,7 +1142,7 @@ h3 {
   transition: all 0.5s ease;
 }
 
-#menuDesplegable.active{
+#menuDesplegable.active {
   z-index: 50;
 }
 
