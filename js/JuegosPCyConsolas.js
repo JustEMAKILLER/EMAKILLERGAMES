@@ -1357,6 +1357,9 @@ function cambiarVista() {
     reconstruirFooter(li);
   });
 
+  // Volver a ejecutar lazy loading para evitar que dejen de cargar imágenes que no se han observado aún
+  cargarImagenesLazy();
+
   // Forzar una nueva búsqueda con los filtros que estén establecidos para actualizar los resultados correctamente
   busqueda();
   aplicarFiltrosCombinados();
@@ -1517,7 +1520,7 @@ function mostrarBusqueda() {
  * Implementa carga diferida (lazy loading) para las imágenes usando IntersectionObserver.
  */
 function cargarImagenesLazy() {
-  const images = document.querySelectorAll("ul img");
+  const images = document.querySelectorAll("ul img[data-src]:not([src])");
   const observer = new IntersectionObserver(
     (entries, observer) => {
       entries.forEach((entry) => {

@@ -249,6 +249,9 @@ function cambiarVista() {
       }
     });
   }
+  
+  // Volver a ejecutar lazy loading para evitar que dejen de cargar imágenes que no se han observado aún
+  cargarImagenesLazy();
 }
 
 // Si se hace click en algún encabezado en medio de la búsqueda, este lo redirigirá a su contenedor
