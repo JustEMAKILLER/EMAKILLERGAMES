@@ -107,6 +107,13 @@ function busqueda() {
   const botonBorrarPrecio = document.getElementById("botonBorrarPrecio");
   botonBorrarPrecio.style.display = "inline-block";
 
+  // Capitalizar entrada solo en el campo de búsqueda
+  const capitalizado = filtroNombre
+    .split(" ")
+    .map((p) => p.charAt(0).toUpperCase() + p.slice(1))
+    .join(" ");
+  document.getElementById("buscarNombre").value = capitalizado;
+  
   grupos.forEach((grupo) => {
     const encabezado = grupo.querySelector("h4");
     const productos = grupo.querySelectorAll(".listajuegos li");

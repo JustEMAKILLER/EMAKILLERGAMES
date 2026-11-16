@@ -863,6 +863,13 @@ function busqueda() {
   const botonBorrarBusqueda = document.getElementById("botonBorrarBusqueda");
   const botonBorrarPrecio = document.getElementById("botonBorrarPrecio");
   const divJuegos = document.getElementById("divJuegos");
+  
+  // Capitalizar entrada solo en el campo de búsqueda
+  const capitalizado = filtroNombre
+    .split(" ")
+    .map((p) => p.charAt(0).toUpperCase() + p.slice(1))
+    .join(" ");
+  document.getElementById("buscarNombre").value = capitalizado;
 
   // Mostrar u ocultar botones de limpieza
   botonBorrarBusqueda.style.display = filtroNombre ? "inline-block" : "none";
@@ -898,10 +905,10 @@ function busqueda() {
 
     productos.forEach((producto) => {
       let nombreCompleto = obtenerTituloJuego(producto);
-      const indicePrecio = nombreCompleto.indexOf("(");
+      const indiceProps = nombreCompleto.indexOf("(");
       let productName = nombreCompleto;
-      if (indicePrecio !== -1) {
-        productName = nombreCompleto.substring(0, indicePrecio).trim();
+      if (indiceProps !== -1) {
+        productName = nombreCompleto.substring(0, indiceProps).trim();
       }
       productName = productName.toLowerCase();
       const productPrice = parseFloat(producto.getAttribute("Precio"));
