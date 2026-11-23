@@ -417,8 +417,8 @@ function agregarProducto(producto) {
 }
 
 /**
- * Agrega un juego como regalo con validación de precio mínimo (500 CUP)
- * y bono disponible (150 CUP por cada 500 CUP en juegos seleccionados).
+ * Agrega un juego como regalo con validación de precio mínimo (1000 CUP)
+ * y bono disponible (300 CUP por cada 1000 CUP en juegos seleccionados).
  * @param {HTMLElement} producto - Elemento li del juego a agregar como regalo.
  */
 function agregarComoRegalo(producto) {
@@ -439,17 +439,17 @@ function agregarComoRegalo(producto) {
     }
   });
 
-  // Validar si cumple con el requisito de 500 CUP
-  if (PrecioJuegos < 500) {
+  // Validar si cumple con el requisito de 1000 CUP
+  if (PrecioJuegos < 1000) {
     alert(
-      `Para poder agregar regalos necesita al menos un total de 500 CUP en los juegos que seleccione.\nActualmente tiene un total de: ${PrecioJuegos} CUP en dichos juegos`,
+      `Para poder agregar regalos necesita al menos un total de 1000 CUP en los juegos que seleccione.\nActualmente tiene un total de: ${PrecioJuegos} CUP en dichos juegos`,
     );
     return;
   }
 
   // Calcular bono de regalo disponible
-  const cantidadDe500 = Math.floor(PrecioJuegos / 500);
-  const bonoDisponible = cantidadDe500 * 150;
+  const cantidadDe1000 = Math.floor(PrecioJuegos / 1000);
+  const bonoDisponible = cantidadDe1000 * 300;
 
   // Calcular bono ya utilizado
   const regalosDiv = document.getElementById("regalos");
